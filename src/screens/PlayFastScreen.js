@@ -1,17 +1,45 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+// src/screens/PlayFastScreen.js
 
-const PlayFast = () => {
+import React, { useEffect, useState } from 'react';
+import { Button, Text, TouchableOpacity, View } from 'react-native'; // Importe TouchableOpacity depuis react-native
+
+const PlayFastScreen = ({ navigation }) => {
+
+    const [questions, setQuestions] = useState([]);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+    useEffect(() => {
+        const fetchQuestions = async () => {
+            try {
+                const data = require('../../assets/data.json');
+                setQuestions(data);
+            } catch (error) {
+                console.error('Erreur lors du chargement des questions : ', error);
+            }
+        }
+        fetchQuestions();
+    }, []);
+
+    const handlePress = () => {
+        if (currentQuestionIndex === questions.length - 1) {
+            navigation.navigate('Home');
+            return;
+        }
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+    };
 
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <View style={{ flex: 1, justifyContent: 'center' }}>
-                <View style={{ alignItems: 'center', marginBottom: 20 }}>
-                    <Text style={{ fontSize: 24 }}>Bouar</Text>
+            <Button title="Go Back" onPress={() => navigation.goBack()} />
+            <TouchableOpacity style={{ flex: 1 }} onPress={handlePress}>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text>{questions.length > 0 ? questions[currentQuestionIndex].text : 'Chargement...'}</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         </View>
     );
 };
 
-export default PlayFast;
+export default PlayFastScreen;
+
+

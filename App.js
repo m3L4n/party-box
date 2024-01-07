@@ -1,3 +1,5 @@
+// App.js
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
@@ -6,13 +8,15 @@ import PlayFastScreen from './src/screens/PlayFastScreen';
 
 const Stack = createStackNavigator();
 
-export default function App() {
+const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="PlayFast" component={PlayFastScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="PlayFast" component={PlayFastScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+export default App;
