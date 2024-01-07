@@ -1,45 +1,44 @@
 // src/screens/PlayFastScreen.js
 
-import React, { useEffect, useState } from 'react';
-import { Button, Text, TouchableOpacity, View } from 'react-native'; // Importe TouchableOpacity depuis react-native
+import React, { useEffect, useState } from "react";
+import data from "../../assets/data.json";
+import { Alert, Button, Text, TouchableOpacity, View } from "react-native"; // Importe TouchableOpacity depuis react-native
+import QuestionsScreen from "./QuestionsScreen";
+import PartyEnd from "./PartyEnd";
 
 const PlayFastScreen = ({ navigation }) => {
+  const [questions, setQuestions] = useState([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [nbrQuestions, setNbrQuestions] = useState(0);
+  const [endParty, setEndParty] = useState(false);
 
-    const [questions, setQuestions] = useState([]);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  useEffect(() => {
+    if (nbrQuestions >= 40) {
+      setEndParty(true);
+    }
+  }, [nbrQuestions]);
 
-    useEffect(() => {
-        const fetchQuestions = async () => {
-            try {
-                const data = require('../../assets/data.json');
-                setQuestions(data);
-            } catch (error) {
-                console.error('Erreur lors du chargement des questions : ', error);
-            }
-        }
-        fetchQuestions();
-    }, []);
-
-    const handlePress = () => {
-        if (currentQuestionIndex === questions.length - 1) {
-            navigation.navigate('Home');
-            return;
-        }
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
+  useEffect(() => {
+    return () => {
+      setEndParty(false);
+      setNbrQuestions(0);
     };
+  }, []);
 
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Button title="Go Back" onPress={() => navigation.goBack()} />
-            <TouchableOpacity style={{ flex: 1 }} onPress={handlePress}>
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <Text>{questions.length > 0 ? questions[currentQuestionIndex].text : 'Chargement...'}</Text>
-                </View>
-            </TouchableOpacity>
-        </View>
-    );
+  const handleChangeQuestion = () => {
+    setNbrQuestions(nbrQuestions + 1);
+  };
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      {!endParty ? (
+        <React.Fragment>
+          <QuestionsScreen handleChangeQuestion={handleChangeQuestion} nbrQuestions={nbrQuestions} />
+        </React.Fragment>
+      ) : (
+        <PartyEnd navigation={navigation} />
+      )}
+    </View>
+  );
 };
 
 export default PlayFastScreen;
-
-
