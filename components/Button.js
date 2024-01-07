@@ -18,6 +18,8 @@ const buttonStyles = StyleSheet.create({
     },
     text: {
         color: 'black',
+        fontSize: 20,
+        fontFamily: 'BebasNeue-Regular',
         textAlign: 'center',
     },
 });
@@ -35,16 +37,3 @@ const Button = ({ color, title, onPress }) => {
 };
 
 export default Button;
-
-const SmallButton = ({ color, title, onPress }) => {
-    return (
-        <TouchableOpacity
-            style={{ ...buttonStyles.container, backgroundColor: color, width: 30, height: 30 }}
-            onPress={onPress}
-        >
-            <Text style={buttonStyles.text}>{title}</Text>
-        </TouchableOpacity>
-    );
-}
-
-export { SmallButton };
