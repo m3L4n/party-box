@@ -3,6 +3,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
+import ColorScreen from './src/screens/ColorScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import PlayFastScreen from './src/screens/PlayFastScreen';
 
@@ -14,6 +15,7 @@ const App = () => {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="PlayFast" component={PlayFastScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Color" component={ColorScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

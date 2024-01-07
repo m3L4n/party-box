@@ -35,3 +35,16 @@ const Button = ({ color, title, onPress }) => {
 };
 
 export default Button;
+
+const SmallButton = ({ color, title, onPress }) => {
+    return (
+        <TouchableOpacity
+            style={{ ...buttonStyles.container, backgroundColor: color, width: 30, height: 30 }}
+            onPress={onPress}
+        >
+            <Text style={buttonStyles.text}>{title}</Text>
+        </TouchableOpacity>
+    );
+}
+
+export { SmallButton };
