@@ -5,17 +5,18 @@ import { Text } from 'react-native';
 import SquareButton from '../atoms/SquareButton';
 
 const addButtonStyles = {
-  icon: {
+  container: {
     fontSize: 30,
     color: 'black',
+    backgroundColor: 'lightblue',
   },
 };
 
-const AddButton = ({ onPressAdd }) => {
+const AddButton = ({ onPress }) => {
   return (
-    <SquareButton onPress={onPressAdd}
+    <SquareButton onPress={onPress}
       text={<Text>+</Text>}
-      style={{ ...addButtonStyles.container, ...style }}
+      style={{ ...addButtonStyles.container }}
     />
   );
 };

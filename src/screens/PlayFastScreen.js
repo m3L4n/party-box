@@ -33,7 +33,7 @@ const PlayFastScreen = ({ navigation }) => {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <TouchableOpacity style={{ flex: 1 }} onPress={handlePress}>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <BackButton onPressBack={() => navigation.navigate('Home')} />
+                    <BackButton onPress={() => navigation.navigate('Home')} />
                     <Text>{questions.length > 0 ? questions[currentQuestionIndex].text : 'Chargement...'}</Text>
                 </View>
             </TouchableOpacity>

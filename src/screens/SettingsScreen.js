@@ -17,7 +17,7 @@ const settingsStyles = StyleSheet.create({
 const SettingsScreen = ({ navigation }) => {
     return (
         <View style={settingsStyles.container}>
-            <BackButton onPressBack={() => navigation.navigate('Home')} />
+            <BackButton onPress={() => navigation.navigate('Home')} />
             <Text>Settings</Text>
         </View>
     );

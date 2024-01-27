@@ -3,7 +3,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../assets/colors';
-import Button from '../../components/atoms/RectangleButton';
+import MenuButton from '../../components/molecules/MenuButton';
 
 const homeStyles = StyleSheet.create({
     container: {
@@ -25,11 +25,11 @@ const HomeScreen = ({ navigation }) => {
     return (
         <View style={homeStyles.container}>
             <Text style={homeStyles.title}>Bouar</Text>
-            <Button color={colors.primary.green} text="Partie Rapide" onPress={() => navigation.navigate('PlayFast')} />
-            <Button color={colors.primary.blue} text="Partie Custom" />
-            <Button color={colors.primary.yellow} text="Users" onPress={() => navigation.navigate('Users')} />
-            <Button color={colors.primary.red} text="Parametres" onPress={() => navigation.navigate('Settings')} />
-            <Button color={colors.primary.red} text="Components" onPress={() => navigation.navigate('Components')} />
+            <MenuButton color={colors.primary.green} text="Partie Rapide" onPress={() => navigation.navigate('PlayFast')} />
+            <MenuButton color={colors.primary.blue} text="Partie Custom" />
+            <MenuButton color={colors.primary.yellow} text="Users" onPress={() => navigation.navigate('Users')} />
+            <MenuButton color={colors.primary.red} text="Parametres" onPress={() => navigation.navigate('Settings')} />
+            <MenuButton color={colors.primary.red} text="Components" onPress={() => navigation.navigate('Components')} />
         </View>
     );
 };

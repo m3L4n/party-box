@@ -5,17 +5,16 @@ import CardButton from '../atoms/CardButton';
 
 const playerCardButtonStyles = {
   container: {
-    backgroundColor: 'lightblue',
     color: 'black',
   },
 };
 
-const PlayerCardButton = ({ onPress, name }) => {
+const PlayerCardButton = ({ onPress, text, color }) => {
   return (
     <CardButton
-      text={name}
+      text={text}
       onPress={onPress}
-      style={{ ...playerCardButtonStyles.container }} />
+      style={{ ...playerCardButtonStyles.container, backgroundColor: color }} />
   );
 };
 

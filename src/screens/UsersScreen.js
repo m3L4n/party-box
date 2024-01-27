@@ -1,14 +1,19 @@
 // src/screens/UsersScreen.js
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { colors } from '../../assets/colors';
-import Button from '../../components/atoms/RectangleButton';
+import SquareButton from '../../components/atoms/SquareButton';
 import BackButton from '../../components/molecules/BackButton';
+import MenuButton from '../../components/molecules/MenuButton';
+import PlayerCardButton from '../../components/molecules/PlayerCardButton';
+import User from '../../models/User';
+import { addUser, clearData, loadUsers } from "../../services/user";
 
 const usersStyles = StyleSheet.create({
     container: {
+        paddingTop: 100,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
@@ -23,47 +28,41 @@ const usersStyles = StyleSheet.create({
 });
 
 const UsersScreen = ({ navigation }) => {
-    const [userList, setUserList] = useState([]);
-
-    const loadUsers = async () => {
-        try {
-            const users = await AsyncStorage.getItem('users');
-            console.log('users', users);
-            if (users) {
-                setUserList(JSON.parse(users));
-            }
-        } catch (error) {
-            console.error('Erreur lors du chargement des utilisateurs : ', error);
-        }
-    }
+    const [userList, setUserList] = useState([User]);
 
     useEffect(() => {
-        loadUsers();
+        const fetchData = async () => {
+            const users = await loadUsers();
+            setUserList(users);
+        };
+
+        fetchData();
     }, []);
 
-    const addUser = async (user) => {
-        console.log('addUser', user);
-        try {
-            const users = await AsyncStorage.getItem('users');
-            let userList = [];
-            if (users) {
-                userList = JSON.parse(users);
-            }
-            userList.push(user);
-            await AsyncStorage.setItem('users', JSON.stringify(userList));
-            setUserList(userList);
-            loadUsers();
-        } catch (error) {
-            console.error('Erreur lors de l\'ajout d\'un utilisateur : ', error);
-        }
+    const handleAddUser = async () => {
+        console.log('handleAddUser');
+        const newUser = new User('Zak', colors.primary.blue);
+        const updatedUsers = await addUser(newUser);
+        setUserList(updatedUsers);
+    };
+
+    const handleClearData = async () => {
+        await clearData();
+        setUserList([]);
     }
 
     return (
         <View style={usersStyles.container}>
-            <BackButton onPressBack={() => navigation.navigate('Home')} />
-            <Button color={colors.primary.green} title="Ajouter un utilisateur" onPress={() => addUser('user')} />
-            <Text>{JSON.stringify(userList)}</Text>
-            <Text style={usersStyles.title}>Users</Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%' }}>
+                <MenuButton color={colors.primary.green} text="Ajouter un utilisateur" onPress={handleAddUser} />
+                <BackButton onPress={() => navigation.navigate('Home')} />
+                <SquareButton color={colors.primary.red} text="DEL" onPress={handleClearData} />
+            </View>
+            <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
+                {userList.map((user, index) => (
+                    <PlayerCardButton key={index} text={user.name} color={user.color} />
+                ))}
+            </ScrollView>
         </View>
     );
 };
