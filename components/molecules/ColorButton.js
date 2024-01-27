@@ -11,11 +11,13 @@ const colorButtonStyles = StyleSheet.create({
   },
 });
 
-const ColorButton = ({ onPress, color }) => {
+const ColorButton = ({ onPress, color, isActive }) => {
   return (
     <Button
       onPress={onPress}
-      style={{ ...colorButtonStyles.container, backgroundColor: color }}
+      style={{
+        ...colorButtonStyles.container, backgroundColor: color, opacity: isActive ? 1 : 0.5,
+      }}
     />
   );
 }

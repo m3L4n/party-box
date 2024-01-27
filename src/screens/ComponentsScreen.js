@@ -5,6 +5,7 @@ import { ScrollView, Text, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Button from '../../components/atoms/Button';
 import CardButton from '../../components/atoms/CardButton';
+import Input from '../../components/atoms/Input';
 import RectangleButton from '../../components/atoms/RectangleButton';
 import SquareButton from '../../components/atoms/SquareButton';
 import AddButton from '../../components/molecules/AddButton';
@@ -25,22 +26,32 @@ const ComponentsScreen = ({ navigation }) => {
           <Text style={{ fontWeight: 'bold' }}>
             Atoms
           </Text>
+
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <Text>Button</Text>
             <Button text="Button" />
           </View>
+
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <Text>SquareButton</Text>
             <SquareButton text="Square" />
           </View>
+
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <Text>CardButton</Text>
             <CardButton text="Card" />
           </View>
+
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <Text>RectangleButton</Text>
             <RectangleButton text="Rectangle" />
           </View>
+
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Text>Input</Text>
+            <Input placeholder={"placeholder"} />
+          </View>
+
         </View>
 
         <View style={{ width: '90%', backgroundColor: colors.primary.orange, padding: 10, borderRadius: 10 }}>

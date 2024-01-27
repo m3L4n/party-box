@@ -6,16 +6,25 @@ import { colors } from '../../assets/colors';
 import ColorButton from '../molecules/ColorButton';
 
 const ChooseColorComponent = ({ onPress }) => {
+  const [activeColor, setActiveColor] = React.useState(null);
+
+  const handleColorPress = (color) => {
+    setActiveColor(color);
+    onPress(color);
+  };
+
   return (
-    <View style={{ flexDirection: 'row', gap: 10 }}>
-      <ColorButton onPress={onPress} color={colors.primary.blue} />
-      <ColorButton onPress={onPress} color={colors.primary.red} />
-      <ColorButton onPress={onPress} color={colors.primary.green} />
-      <ColorButton onPress={onPress} color={colors.primary.yellow} />
-      <ColorButton onPress={onPress} color={colors.primary.orange} />
-      <ColorButton onPress={onPress} color={colors.primary.purple} />
+    <View style={{ flexDirection: 'row', gap: 5 }}>
+      {Object.values(colors.primary).map((color) => (
+        <ColorButton
+          key={color}
+          onPress={() => handleColorPress(color)}
+          color={color}
+          isActive={activeColor === color}
+        />
+      ))}
     </View>
   );
-}
+};
 
 export default ChooseColorComponent;

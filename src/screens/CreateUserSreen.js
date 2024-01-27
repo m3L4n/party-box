@@ -1,2 +1,0 @@
-// src/screens/CreateUserSreen.ts
-
