@@ -3,7 +3,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../assets/colors';
-import BackButton from '../../components/BackButton';
+import BackButton from '../../components/molecules/BackButton';
 
 const settingsStyles = StyleSheet.create({
     container: {

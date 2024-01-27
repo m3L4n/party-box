@@ -1,10 +1,9 @@
 // src/screens/HomeScreen.js
 
-import * as Font from 'expo-font';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../assets/colors';
-import Button from '../../components/Button';
+import Button from '../../components/atoms/RectangleButton';
 
 const homeStyles = StyleSheet.create({
     container: {
@@ -23,27 +22,14 @@ const homeStyles = StyleSheet.create({
 });
 
 const HomeScreen = ({ navigation }) => {
-
-    const loadFonts = async () => {
-        try {
-            await Font.useFonts({
-                'BebasNeue-Regular': require('../../assets/fonts/BebasNeue-Regular.ttf'),
-            });
-        }
-        catch (error) {
-            console.error('Erreur lors du chargement des polices : ', error);
-        }
-    }
-
-    loadFonts();
-
     return (
         <View style={homeStyles.container}>
             <Text style={homeStyles.title}>Bouar</Text>
-            <Button color={colors.primary.green} title="Partie Rapide" onPress={() => navigation.navigate('PlayFast')} />
-            <Button color={colors.primary.blue} title="Partie Custom" />
-            <Button color={colors.primary.yellow} title="Users" onPress={() => navigation.navigate('Users')} />
-            <Button color={colors.primary.red} title="Parametres" onPress={() => navigation.navigate('Settings')} />
+            <Button color={colors.primary.green} text="Partie Rapide" onPress={() => navigation.navigate('PlayFast')} />
+            <Button color={colors.primary.blue} text="Partie Custom" />
+            <Button color={colors.primary.yellow} text="Users" onPress={() => navigation.navigate('Users')} />
+            <Button color={colors.primary.red} text="Parametres" onPress={() => navigation.navigate('Settings')} />
+            <Button color={colors.primary.red} text="Components" onPress={() => navigation.navigate('Components')} />
         </View>
     );
 };

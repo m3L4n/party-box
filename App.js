@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
+import ComponentsScreen from './src/screens/ComponentsScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import PlayFastScreen from './src/screens/PlayFastScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
@@ -40,6 +41,7 @@ const App = () => {
         <Stack.Screen name="PlayFast" component={PlayFastScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Users" component={UsersScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Components" component={ComponentsScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

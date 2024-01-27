@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native'; // Importe TouchableOpacity depuis react-native
-import BackButton from '../../components/BackButton';
+import BackButton from '../../components/molecules/BackButton';
 
 const PlayFastScreen = ({ navigation }) => {
 
