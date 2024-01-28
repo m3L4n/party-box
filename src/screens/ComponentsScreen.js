@@ -16,10 +16,28 @@ import PlayerCardButton from '../../components/molecules/PlayerCardButton';
 import ChooseColorComponent from '../../components/organisms/ChooseColorComponent';
 
 const ComponentsScreen = ({ navigation }) => {
+  const [active, setActive] = React.useState(false);
+  const [selectedColor, setSelectedColor] = React.useState(colors.primary.blue)
+
+
+
+  const userActive = {
+    name: 'User',
+    color: colors.primary.green,
+    isActive: active,
+  };
+
+  const handleUserPress = () => {
+    setActive(!active);
+  };
+
+  const handleColorChange = (color) => {
+    setSelectedColor(color)
+  }
 
   return (
     <View style={{ height: '100%', width: '100%', justifyContent: 'center', alignItems: 'center', paddingTop: 100 }} >
-      <BackButton onPress={() => navigation.navigate('Home')} />
+      <BackButton onPress={() => navigation.navigate('Settings')} />
       <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center', gap: 10 }}>
 
         <View style={{ width: '90%', backgroundColor: colors.secondary.yellow, padding: 10, borderRadius: 10 }}>
@@ -71,12 +89,12 @@ const ComponentsScreen = ({ navigation }) => {
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <Text>PlayerCardButton</Text>
-            <PlayerCardButton text="User" color={colors.primary.green} />
+            <PlayerCardButton user={userActive} onPress={handleUserPress} />
           </View>
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <Text>AddButton</Text>
-            <AddButton text="Button" />
+            <AddButton text="Button" isActive={true} />
           </View>
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -93,11 +111,11 @@ const ComponentsScreen = ({ navigation }) => {
 
           <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <Text>ChooseColorComponent</Text>
-            <ChooseColorComponent />
+            <ChooseColorComponent onPress={handleColorChange} />
           </View>
         </View>
       </ScrollView>
-    </ View>
+    </ View >
   );
 }
 

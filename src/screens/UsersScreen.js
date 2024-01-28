@@ -1,6 +1,5 @@
 // src/screens/UsersScreen.js
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -10,7 +9,7 @@ import BackButton from '../../components/molecules/BackButton';
 import MenuButton from '../../components/molecules/MenuButton';
 import PlayerCardButton from '../../components/molecules/PlayerCardButton';
 import User from '../../models/User';
-import { clearData, loadUsers } from "../../services/user";
+import { clearData, loadUsers, toggleUserStatus } from "../../services/user";
 
 const usersStyles = StyleSheet.create({
     container: {
@@ -50,21 +49,15 @@ const UsersScreen = ({ navigation }) => {
     }
 
     const handleUserPress = async (userName) => {
-        const updatedUsers = [...userList];
-        const userIndex = updatedUsers.findIndex(user => user.name === userName);
-
-        if (userIndex !== -1) {
-            updatedUsers[userIndex].isActive = !updatedUsers[userIndex].isActive;
-            await AsyncStorage.setItem('users', JSON.stringify(updatedUsers));
-            setUserList(updatedUsers);
-        }
+        const updatedUsers = await toggleUserStatus(userName);
+        setUserList(updatedUsers);
     };
 
     return (
         <View style={usersStyles.container}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%' }}>
-                <MenuButton color={colors.primary.green} text="Ajouter un utilisateur" onPress={() => navigation.navigate('CreateUser')} />
                 <BackButton onPress={() => navigation.navigate('Home')} />
+                <MenuButton color={colors.primary.green} text="Ajouter un utilisateur" onPress={() => navigation.navigate('CreateUser')} />
                 <SquareButton color={colors.primary.red} text="DEL" onPress={handleClearData} />
             </View>
             <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>

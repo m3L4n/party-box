@@ -25,6 +25,25 @@ export const addUser = async (user) => {
   }
 };
 
+export const toggleUserStatus = async (userName) => {
+  try {
+    const users = await loadUsers();
+    const userIndex = users.findIndex(user => user.name === userName);
+
+    if (userIndex !== -1) {
+      users[userIndex].isActive = !users[userIndex].isActive;
+      await AsyncStorage.setItem('users', JSON.stringify(users));
+      return users;
+    } else {
+      console.error('Utilisateur non trouvé.');
+      return [];
+    }
+  } catch (error) {
+    console.error('Erreur lors de la modification du statut de l\'utilisateur : ', error);
+    return [];
+  }
+};
+
 export const clearData = async () => {
   try {
     await AsyncStorage.clear();

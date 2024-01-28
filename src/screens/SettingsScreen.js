@@ -4,6 +4,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import BackButton from '../../components/molecules/BackButton';
+import MenuButton from '../../components/molecules/MenuButton';
 
 const settingsStyles = StyleSheet.create({
     container: {
@@ -19,6 +20,7 @@ const SettingsScreen = ({ navigation }) => {
         <View style={settingsStyles.container}>
             <BackButton onPress={() => navigation.navigate('Home')} />
             <Text>Settings</Text>
+            <MenuButton color={colors.primary.red} text="Dev" onPress={() => navigation.navigate('Components')} />
         </View>
     );
 };

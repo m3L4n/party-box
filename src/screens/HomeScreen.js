@@ -17,7 +17,6 @@ const homeStyles = StyleSheet.create({
         fontFamily: 'BebasNeue-Regular',
         fontWeight: 'bold',
         color: 'black',
-        marginVertical: 60,
     },
 });
 
@@ -29,7 +28,6 @@ const HomeScreen = ({ navigation }) => {
             <MenuButton color={colors.primary.blue} text="Partie Custom" />
             <MenuButton color={colors.primary.yellow} text="Users" onPress={() => navigation.navigate('Users')} />
             <MenuButton color={colors.primary.red} text="Parametres" onPress={() => navigation.navigate('Settings')} />
-            <MenuButton color={colors.primary.red} text="Components" onPress={() => navigation.navigate('Components')} />
         </View>
     );
 };
