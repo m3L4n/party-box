@@ -1,23 +1,24 @@
 // components/molecules/BackButton.js
 
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import SquareButton from '../atoms/SquareButton';
-
-const backButtonStyles = {
-    container: {
-        backgroundColor: 'pink',
-        color: 'black',
-    },
-};
 
 const BackButton = ({ onPress }) => {
     return (
         <SquareButton
             text={'Back'}
             onPress={onPress}
-            style={{ ...backButtonStyles.container }}
+            style={{ ...styles.container }}
         />
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'pink',
+        color: 'black',
+    },
+});
 
 export default BackButton;

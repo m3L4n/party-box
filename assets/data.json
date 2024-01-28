@@ -1,7 +1,7 @@
 {
   "questions": [
     {
-      "theme": "Se découvrir entre amis",
+      "theme": "discover",
       "questions_insolites": [
         { "content": "Quelle est la chose la plus courageuse que tu aies jamais faite et pourquoi ?" },
         { "content": "Si tu pouvais voyager dans le temps, quelle période aimerais-tu visiter et pourquoi ?" },
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "theme": "Défis amusants",
+      "theme": "defis",
       "questions_insolites": [
         { "content": "Faire une imitation de quelqu'un célèbre." },
         { "content": "Raconter une blague et essayer de faire rire tout le monde." },
@@ -70,7 +70,7 @@
       ]
     },
     {
-      "theme": "Culture générale",
+      "theme": "culture",
       "questions_insolites": [
         {
           "question": "Quel est le plus grand océan du monde ?",
@@ -195,7 +195,7 @@
       ]
     },
     {
-      "theme": "Personnalités du groupe",
+      "theme": "personality",
       "questions_insolites": [
         { "content": "Qui serait le plus probable à devenir célèbre un jour ?" },
         { "content": "Qui a le sens de l'humour le plus décalé dans le groupe ?" },

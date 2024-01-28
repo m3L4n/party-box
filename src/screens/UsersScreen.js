@@ -11,22 +11,6 @@ import PlayerCardButton from '../../components/molecules/PlayerCardButton';
 import User from '../../models/User';
 import { clearData, loadUsers, toggleUserStatus } from "../../services/user";
 
-const usersStyles = StyleSheet.create({
-    container: {
-        paddingTop: 100,
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: colors.secondary.pink,
-    },
-    title: {
-        fontSize: 50,
-        fontWeight: 'bold',
-        color: 'black',
-        marginVertical: 60,
-    },
-});
-
 const UsersScreen = ({ navigation }) => {
     const [userList, setUserList] = React.useState([User]);
 
@@ -54,7 +38,7 @@ const UsersScreen = ({ navigation }) => {
     };
 
     return (
-        <View style={usersStyles.container}>
+        <View style={{ ...styles.container }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%' }}>
                 <BackButton onPress={() => navigation.navigate('Home')} />
                 <MenuButton color={colors.primary.green} text="Ajouter un utilisateur" onPress={() => navigation.navigate('CreateUser')} />
@@ -68,5 +52,21 @@ const UsersScreen = ({ navigation }) => {
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        paddingTop: 100,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.secondary.pink,
+    },
+    title: {
+        fontSize: 50,
+        fontWeight: 'bold',
+        color: 'black',
+        marginVertical: 60,
+    },
+});
 
 export default UsersScreen;

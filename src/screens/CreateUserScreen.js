@@ -1,4 +1,5 @@
-// src/screens/CreateUserSreen.js
+// src/screens/CreateUserScreen.js
+
 import React from "react"
 import { View } from "react-native"
 import { colors } from "../../assets/colors"
@@ -9,22 +10,6 @@ import PlayerCardButton from "../../components/molecules/PlayerCardButton"
 import ChooseColorComponent from "../../components/organisms/ChooseColorComponent"
 import User from "../../models/User"
 import { addUser } from "../../services/user"
-
-const createUserScreenStyles = {
-  container: {
-    paddingTop: 100,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.secondary.pink,
-  },
-  group: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '80%',
-  },
-}
 
 const CreateUserScreen = ({ navigation }) => {
   const [name, setName] = React.useState('')
@@ -45,10 +30,10 @@ const CreateUserScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={createUserScreenStyles.container}>
+    <View style={{ ...styles.container }}>
       <BackButton onPress={() => navigation.navigate('Users')} />
       <PlayerCardButton user={{ name, color: selectedColor, isActive: true }} />
-      <View style={createUserScreenStyles.group} >
+      <View style={{ ...styles.group }} >
         <Input placeholder="Nom" onChangeText={handleNameChange} value={name} />
         <AddButton onPress={handleAddUser} />
       </View>
@@ -56,5 +41,21 @@ const CreateUserScreen = ({ navigation }) => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 100,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.secondary.pink,
+  },
+  group: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '80%',
+  },
+});
 
 export default CreateUserScreen

@@ -14,7 +14,7 @@ const ChooseColorComponent = ({ onPress }) => {
   };
 
   return (
-    <View style={{ flexDirection: 'row', gap: 5 }}>
+    <View style={{ ...styles.container }}>
       {Object.values(colors.primary).map((color) => (
         <ColorButton
           key={color}
@@ -26,5 +26,12 @@ const ChooseColorComponent = ({ onPress }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    gap: 5,
+  },
+});
 
 export default ChooseColorComponent;
