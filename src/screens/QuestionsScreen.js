@@ -41,27 +41,28 @@ export default function QuestionsScreen({ handleChangeQuestion, nbrQuestions }) 
 
   return (
     <View style={{ ...styles.container }}>
-      <Text>{questionTheme}</Text>
+      <Text style={{ ...styles.theme }}>{questionTheme}</Text>
       {questionTheme == listThemeQuestion[2] ? (
-        <View>
+        <>
           {viewResponse == 0 ? (
-            <TouchableOpacity onPress={() => setViewResponse(1)}>
-              <Text>{question?.question}</Text>
+            <TouchableOpacity style={{ ...styles.question }} onPress={() => setViewResponse(1)}>
+              <Text style={{ ...styles.text }}>{question?.question}</Text>
             </TouchableOpacity>
           ) : (
-            <TouchableOpacity onPress={resetViewResponseZero}>
-              <Text>{question?.reponse}</Text>
+            <TouchableOpacity style={{ ...styles.question }} onPress={resetViewResponseZero}>
+              <Text style={{ ...styles.text }}>{question?.reponse}</Text>
             </TouchableOpacity>
           )}
-        </View>
+        </>
       ) : (
-        <View>
-          <TouchableOpacity onPress={handleChangeQuestion}>
-            <Text> {question?.content} </Text>
+        <>
+          <TouchableOpacity style={{ ...styles.question }} onPress={handleChangeQuestion}>
+            <Text style={{ ...styles.text }}> {question?.content} </Text>
           </TouchableOpacity>
-        </View>
-      )}
-    </View>
+        </>
+      )
+      }
+    </View >
   );
 }
 
@@ -71,5 +72,27 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
+  },
+  question: {
+    width: 300,
+    height: 300,
+    backgroundColor: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    justifyContent: "center",
+  },
+  text: {
+    fontFamily: "BebasNeue-Regular",
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  theme: {
+    fontFamily: "BebasNeue-Regular",
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 50,
   },
 });
