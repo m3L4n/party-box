@@ -1,11 +1,23 @@
+// src/screens/PartyEnd.js
+
 import React from "react";
-import { Alert, Button, Text, TouchableOpacity, View } from "react-native"; // Importe TouchableOpacity depuis react-native
+import { Text, TouchableOpacity, View } from "react-native";
+
 export default function PartyEnd({ navigation }) {
   return (
-    <TouchableOpacity style={{ backgroundColor: "red", width: "100%", height: "100%", justifyContent: "center", alignItems: "center" }} onPress={() => navigation.goBack()}>
-      <View style={{ textAlign: "center" }}>
+    <TouchableOpacity style={{ ...styles.container }} onPress={() => navigation.goBack()}>
+      <View>
         <Text> SESSION FINISH</Text>
       </View>
     </TouchableOpacity>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+  },
+});

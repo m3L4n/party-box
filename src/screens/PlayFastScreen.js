@@ -6,15 +6,6 @@ import { colors } from "../../assets/colors";
 import PartyEnd from "./PartyEnd";
 import QuestionsScreen from "./QuestionsScreen";
 
-const playFastStyles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: colors.secondary.pink,
-    },
-});
-
 const PlayFastScreen = ({ navigation }) => {
     const [nbrQuestions, setNbrQuestions] = React.useState(0);
     const [endParty, setEndParty] = React.useState(false);
@@ -36,7 +27,7 @@ const PlayFastScreen = ({ navigation }) => {
         setNbrQuestions(nbrQuestions + 1);
     };
     return (
-        <View style={playFastStyles.container}>
+        <View style={{ ...styles.container }}>
             {!endParty ? (
                 <QuestionsScreen handleChangeQuestion={handleChangeQuestion} nbrQuestions={nbrQuestions} />
             ) : (
@@ -45,5 +36,14 @@ const PlayFastScreen = ({ navigation }) => {
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: colors.secondary.pink,
+    },
+});
 
 export default PlayFastScreen;

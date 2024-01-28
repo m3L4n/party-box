@@ -1,7 +1,7 @@
 // src/screens/ComponentsScreen.js
 
 import React from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Button from '../../components/atoms/Button';
 import CardButton from '../../components/atoms/CardButton';
@@ -19,8 +19,6 @@ const ComponentsScreen = ({ navigation }) => {
   const [active, setActive] = React.useState(false);
   const [selectedColor, setSelectedColor] = React.useState(colors.primary.blue)
 
-
-
   const userActive = {
     name: 'User',
     color: colors.primary.green,
@@ -36,80 +34,80 @@ const ComponentsScreen = ({ navigation }) => {
   }
 
   return (
-    <View style={{ height: '100%', width: '100%', justifyContent: 'center', alignItems: 'center', paddingTop: 100 }} >
+    <View style={{ ...styles.container }} >
       <BackButton onPress={() => navigation.navigate('Settings')} />
       <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center', gap: 10 }}>
 
-        <View style={{ width: '90%', backgroundColor: colors.secondary.yellow, padding: 10, borderRadius: 10 }}>
+        <View style={{ ...styles.section, backgroundColor: colors.secondary.yellow }}>
           <Text style={{ fontWeight: 'bold' }}>
             Atoms
           </Text>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <View style={{ ...styles.element }}>
             <Text>Button</Text>
             <Button text="Button" />
           </View>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <View style={{ ...styles.element }}>
             <Text>SquareButton</Text>
             <SquareButton text="Square" />
           </View>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <View style={{ ...styles.element }}>
             <Text>CardButton</Text>
             <CardButton text="Card" />
           </View>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <View style={{ ...styles.element }}>
             <Text>RectangleButton</Text>
             <RectangleButton text="Rectangle" />
           </View>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <View style={{ ...styles.element }}>
             <Text>Input</Text>
             <Input placeholder={"placeholder"} />
           </View>
 
         </View>
 
-        <View style={{ width: '90%', backgroundColor: colors.primary.orange, padding: 10, borderRadius: 10 }}>
+        <View style={{ ...styles.section, backgroundColor: colors.primary.orange }}>
           <Text style={{ fontWeight: 'bold' }}>
             Molecules
           </Text>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <View style={{ ...styles.element }}>
             <Text>BackButton</Text>
             <BackButton onPress={() => navigation.navigate('Home')} />
           </View>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <View style={{ ...styles.element }}>
             <Text>ColorButton</Text>
             <ColorButton color={colors.primary.green} />
           </View>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <View style={{ ...styles.element }}>
             <Text>PlayerCardButton</Text>
             <PlayerCardButton user={userActive} onPress={handleUserPress} />
           </View>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <View style={{ ...styles.element }}>
             <Text>AddButton</Text>
             <AddButton text="Button" isActive={true} />
           </View>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <View style={{ ...styles.element }}>
             <Text>MenuButton</Text>
             <MenuButton text="Button" color={colors.primary.green} />
           </View>
 
         </View>
 
-        <View style={{ width: '90%', backgroundColor: colors.primary.red, padding: 10, borderRadius: 10 }}>
+        <View style={{ ...styles.section, backgroundColor: colors.primary.red }}>
           <Text style={{ fontWeight: 'bold' }}>
             Organisms
           </Text>
 
-          <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ ...styles.interactiveElement }}>
             <Text>ChooseColorComponent</Text>
             <ChooseColorComponent onPress={handleColorChange} />
           </View>
@@ -118,5 +116,33 @@ const ComponentsScreen = ({ navigation }) => {
     </ View >
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 100,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.secondary.pink,
+  },
+
+  section: {
+    width: '90%',
+    padding: 10,
+    borderRadius: 10,
+  },
+
+  element: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  interactiveElement: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default ComponentsScreen;
