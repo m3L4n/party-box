@@ -1,7 +1,7 @@
 // src/screens/CreateUserScreen.js
 
 import React from "react"
-import { View } from "react-native"
+import { StyleSheet, View } from "react-native"
 import { colors } from "../../assets/colors"
 import Input from "../../components/atoms/Input"
 import AddButton from "../../components/molecules/AddButton"

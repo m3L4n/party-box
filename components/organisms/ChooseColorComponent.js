@@ -1,7 +1,7 @@
 // components/organisms/ChooseColorComponent.js
 
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import ColorButton from '../molecules/ColorButton';
 

@@ -1,7 +1,7 @@
 // src/screens/QuestionsScreen.js
 
 import React, { useEffect, useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native"; // Importe TouchableOpacity depuis react-native
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native"; // Importe TouchableOpacity depuis react-native
 import data from "../../assets/data.json";
 
 const generateQuestion = () => {
