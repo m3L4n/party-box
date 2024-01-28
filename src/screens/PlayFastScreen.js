@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native'; // Importe TouchableOpacity depuis react-native
 import { colors } from '../../assets/colors';
-import BackButton from '../../components/molecules/BackButton';
+import BackButton from '../../components/organisms/BackButton';
 
 const PlayFastScreen = ({ navigation }) => {
 

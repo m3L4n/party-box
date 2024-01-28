@@ -5,10 +5,10 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import SquareButton from '../atoms/SquareButton';
 
-const IconButton = ({ name, onPress }) => {
+const IconButton = ({ name, onPress, style }) => {
   return (
     <SquareButton onPress={onPress}
-      style={{ ...styles.container }}
+      style={{ ...styles.container, ...style }}
       content={
         <Ionicons name={name} style={styles.icon} />
       }

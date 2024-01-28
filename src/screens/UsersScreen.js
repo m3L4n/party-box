@@ -5,9 +5,9 @@ import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { colors } from '../../assets/colors';
 import SquareButton from '../../components/atoms/SquareButton';
-import BackButton from '../../components/molecules/BackButton';
 import MenuButton from '../../components/molecules/MenuButton';
 import PlayerCardButton from '../../components/molecules/PlayerCardButton';
+import BackButton from '../../components/organisms/BackButton';
 import User from '../../models/User';
 import { clearData, loadUsers, toggleUserStatus } from "../../services/user";
 

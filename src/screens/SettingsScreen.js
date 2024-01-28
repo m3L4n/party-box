@@ -3,8 +3,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../assets/colors';
-import BackButton from '../../components/molecules/BackButton';
 import MenuButton from '../../components/molecules/MenuButton';
+import BackButton from '../../components/organisms/BackButton';
 
 const SettingsScreen = ({ navigation }) => {
     return (

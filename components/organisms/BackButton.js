@@ -2,22 +2,23 @@
 
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import SquareButton from '../atoms/SquareButton';
+import IconButton from '../molecules/IconButton';
 
 const BackButton = ({ onPress }) => {
     return (
-        <SquareButton
-            text={'Back'}
+        <IconButton
             onPress={onPress}
-            style={{ ...styles.container }}
+            style={styles.container}
+            name="arrow-back"
         />
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'pink',
+        fontSize: 30,
         color: 'black',
+        backgroundColor: 'lightblue',
     },
 });
 

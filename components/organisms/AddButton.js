@@ -2,14 +2,14 @@
 
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import Text from '../../components/atoms/CustomText';
-import SquareButton from '../atoms/SquareButton';
+import IconButton from '../molecules/IconButton';
 
 const AddButton = ({ onPress }) => {
   return (
-    <SquareButton onPress={onPress}
-      text={<Text>+</Text>}
-      style={{ ...styles.container }}
+    <IconButton
+      onPress={onPress}
+      style={styles.container}
+      name="add"
     />
   );
 };

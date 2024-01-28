@@ -9,12 +9,12 @@ import Text from '../../components/atoms/CustomText';
 import Input from '../../components/atoms/Input';
 import RectangleButton from '../../components/atoms/RectangleButton';
 import SquareButton from '../../components/atoms/SquareButton';
-import AddButton from '../../components/molecules/AddButton';
-import BackButton from '../../components/molecules/BackButton';
 import ColorButton from '../../components/molecules/ColorButton';
 import IconButton from '../../components/molecules/IconButton';
 import MenuButton from '../../components/molecules/MenuButton';
 import PlayerCardButton from '../../components/molecules/PlayerCardButton';
+import AddButton from '../../components/organisms/AddButton';
+import BackButton from '../../components/organisms/BackButton';
 import ChooseColorComponent from '../../components/organisms/ChooseColorComponent';
 
 const ComponentsScreen = ({ navigation }) => {
@@ -86,13 +86,8 @@ const ComponentsScreen = ({ navigation }) => {
           </Text>
 
           <View style={{ ...styles.element }}>
-            <Text>BackButton</Text>
-            <BackButton onPress={() => navigation.navigate('Home')} />
-          </View>
-
-          <View style={{ ...styles.element }}>
             <Text>IconButton</Text>
-            <IconButton name='arrow-back-outline' />
+            <IconButton name='hammer' />
           </View>
 
           <View style={{ ...styles.element }}>
@@ -106,11 +101,6 @@ const ComponentsScreen = ({ navigation }) => {
           </View>
 
           <View style={{ ...styles.element }}>
-            <Text>AddButton</Text>
-            <AddButton text="Button" isActive={true} />
-          </View>
-
-          <View style={{ ...styles.element }}>
             <Text>MenuButton</Text>
             <MenuButton text="Button" color={colors.primary.green} />
           </View>
@@ -121,6 +111,16 @@ const ComponentsScreen = ({ navigation }) => {
           <Text style={{ fontWeight: 'bold' }}>
             Organisms
           </Text>
+
+          <View style={{ ...styles.element }}>
+            <Text>BackButton</Text>
+            <BackButton onPress={() => navigation.navigate('Home')} />
+          </View>
+
+          <View style={{ ...styles.element }}>
+            <Text>AddButton</Text>
+            <AddButton />
+          </View>
 
           <View style={{ ...styles.elementBig }}>
             <Text>ChooseColorComponent</Text>
