@@ -1,21 +1,23 @@
 // components/atoms/Button.js
 
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
-const Button = ({ text, onPress, style }) => {
+const Button = ({ content, onPress, style }) => {
   return (
     <TouchableOpacity
       style={{ ...styles.container, ...style }}
       onPress={onPress}
     >
-      <Text style={{ ...styles.buttonText }}>{text}</Text>
+      {content}
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    width: 30,
+    height: 30,
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',

@@ -1,10 +1,11 @@
 // src/screens/ComponentsScreen.js
 
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Button from '../../components/atoms/Button';
 import CardButton from '../../components/atoms/CardButton';
+import Text from '../../components/atoms/CustomText';
 import Input from '../../components/atoms/Input';
 import RectangleButton from '../../components/atoms/RectangleButton';
 import SquareButton from '../../components/atoms/SquareButton';
@@ -45,22 +46,30 @@ const ComponentsScreen = ({ navigation }) => {
 
           <View style={{ ...styles.element }}>
             <Text>Button</Text>
-            <Button text="Button" />
+            <Button content={
+              <Text>Button</Text>
+            } />
           </View>
 
           <View style={{ ...styles.element }}>
             <Text>SquareButton</Text>
-            <SquareButton text="Square" />
+            <SquareButton content={
+              <Text>Square</Text>
+            } />
           </View>
 
           <View style={{ ...styles.element }}>
             <Text>CardButton</Text>
-            <CardButton text="Card" />
+            <CardButton content={
+              <Text>Card</Text>
+            } />
           </View>
 
           <View style={{ ...styles.element }}>
             <Text>RectangleButton</Text>
-            <RectangleButton text="Rectangle" />
+            <RectangleButton content={
+              <Text>Rectangle</Text>
+            } />
           </View>
 
           <View style={{ ...styles.element }}>

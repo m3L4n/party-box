@@ -1,8 +1,9 @@
 // src/screens/HomeScreen.js
 
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
+import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 
 const HomeScreen = ({ navigation }) => {

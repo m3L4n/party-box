@@ -4,10 +4,10 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import Button from './Button';
 
-const SquareButton = ({ text, onPress, style }) => {
+const SquareButton = ({ content, onPress, style }) => {
   return (
     <Button
-      text={text}
+      content={content}
       onPress={onPress}
       style={{ ...styles.container, ...style }}
     />

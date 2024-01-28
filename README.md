@@ -15,3 +15,4 @@ yarn add bouar
 - [ ] Add component: Color random when create user
 - [ ] Add component: Icons for add / delete user
 - [ ] Add component: Icons for return
+- [ ] Add components: Questions, Active Card, Active User, Active Theme

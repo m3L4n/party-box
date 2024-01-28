@@ -1,7 +1,8 @@
 // components/molecules/AddButton.js
 
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
+import Text from '../../components/atoms/CustomText';
 import SquareButton from '../atoms/SquareButton';
 
 const AddButton = ({ onPress }) => {

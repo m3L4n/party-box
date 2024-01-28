@@ -4,13 +4,12 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import CardButton from '../atoms/CardButton';
 
-const ActiveCardButton = ({ user, onPress }) => {
-  const { name, color, isActive } = user;
+const ActiveCardButton = ({ onPress }) => {
 
   return (
     <CardButton
-      text={name}
-      onPress={() => onPress(name)}
+      text={text}
+      onPress={onPress}
       style={{ ...styles.container, backgroundColor: color, opacity: isActive ? 1 : 0.3 }}
     />
   );
