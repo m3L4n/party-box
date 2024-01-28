@@ -1,5 +1,6 @@
 // src/screens/UsersScreen.js
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -48,6 +49,17 @@ const UsersScreen = ({ navigation }) => {
         setUserList([]);
     }
 
+    const handleUserPress = async (userName) => {
+        const updatedUsers = [...userList];
+        const userIndex = updatedUsers.findIndex(user => user.name === userName);
+
+        if (userIndex !== -1) {
+            updatedUsers[userIndex].isActive = !updatedUsers[userIndex].isActive;
+            await AsyncStorage.setItem('users', JSON.stringify(updatedUsers));
+            setUserList(updatedUsers);
+        }
+    };
+
     return (
         <View style={usersStyles.container}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%' }}>
@@ -57,7 +69,7 @@ const UsersScreen = ({ navigation }) => {
             </View>
             <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
                 {userList.map((user, index) => (
-                    <PlayerCardButton key={index} text={user.name} color={user.color} />
+                    <PlayerCardButton key={index} user={user} onPress={handleUserPress} />
                 ))}
             </ScrollView>
         </View>

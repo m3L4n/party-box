@@ -15,6 +15,7 @@ export const loadUsers = async () => {
 export const addUser = async (user) => {
   try {
     const users = await loadUsers();
+    user.isActive = true;
     users.push(user);
     await AsyncStorage.setItem('users', JSON.stringify(users));
     return users;

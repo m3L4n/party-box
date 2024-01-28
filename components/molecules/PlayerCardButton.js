@@ -9,12 +9,16 @@ const playerCardButtonStyles = {
   },
 };
 
-const PlayerCardButton = ({ onPress, text, color }) => {
+const PlayerCardButton = ({ user, onPress }) => {
+  const { name, color, isActive } = user;
+
+
   return (
     <CardButton
-      text={text}
-      onPress={onPress}
-      style={{ ...playerCardButtonStyles.container, backgroundColor: color }} />
+      text={name}
+      onPress={() => onPress(name)}
+      style={{ ...playerCardButtonStyles.container, backgroundColor: color, opacity: isActive ? 1 : 0.3 }}
+    />
   );
 };
 

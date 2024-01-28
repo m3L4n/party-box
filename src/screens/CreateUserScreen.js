@@ -47,7 +47,7 @@ const CreateUserScreen = ({ navigation }) => {
   return (
     <View style={createUserScreenStyles.container}>
       <BackButton onPress={() => navigation.navigate('Users')} />
-      <PlayerCardButton text={name} color={selectedColor} />
+      <PlayerCardButton user={{ name, color: selectedColor, isActive: true }} />
       <View style={createUserScreenStyles.group} >
         <Input placeholder="Nom" onChangeText={handleNameChange} value={name} />
         <AddButton onPress={handleAddUser} />

@@ -3,7 +3,7 @@
 export default class User {
   constructor(name, color) {
     this.name = name;
-    this.isActive = false;
+    this.isActive = true;
     this.color = color;
   }
 }
