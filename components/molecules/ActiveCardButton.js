@@ -1,10 +1,10 @@
-// components/molecules/PlayerCardButton.js
+// components/molecules/ActiveCardButton.js
 
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import CardButton from '../atoms/CardButton';
 
-const PlayerCardButton = ({ user, onPress }) => {
+const ActiveCardButton = ({ user, onPress }) => {
   const { name, color, isActive } = user;
 
   return (
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PlayerCardButton;
+export default ActiveCardButton;

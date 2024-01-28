@@ -1,23 +1,31 @@
 // src/screens/PlayFastScreen.js
 
-import React, { useEffect, useState } from 'react';
-import { View } from "react-native";
+import React from 'react';
+import { StyleSheet, View } from "react-native";
+import { colors } from "../../assets/colors";
 import PartyEnd from "./PartyEnd";
 import QuestionsScreen from "./QuestionsScreen";
 
-const PlayFastScreen = ({ navigation }) => {
-    // const [questions, setQuestions] = useState([]);
-    // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [nbrQuestions, setNbrQuestions] = useState(0);
-    const [endParty, setEndParty] = useState(false);
+const playFastStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: colors.secondary.pink,
+    },
+});
 
-    useEffect(() => {
-        if (nbrQuestions >= 40) {
+const PlayFastScreen = ({ navigation }) => {
+    const [nbrQuestions, setNbrQuestions] = React.useState(0);
+    const [endParty, setEndParty] = React.useState(false);
+
+    React.useEffect(() => {
+        if (nbrQuestions >= 2) {
             setEndParty(true);
         }
     }, [nbrQuestions]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         return () => {
             setEndParty(false);
             setNbrQuestions(0);
@@ -28,11 +36,9 @@ const PlayFastScreen = ({ navigation }) => {
         setNbrQuestions(nbrQuestions + 1);
     };
     return (
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <View style={playFastStyles.container}>
             {!endParty ? (
-                <React.Fragment>
-                    <QuestionsScreen handleChangeQuestion={handleChangeQuestion} nbrQuestions={nbrQuestions} />
-                </React.Fragment>
+                <QuestionsScreen handleChangeQuestion={handleChangeQuestion} nbrQuestions={nbrQuestions} />
             ) : (
                 <PartyEnd navigation={navigation} />
             )}
