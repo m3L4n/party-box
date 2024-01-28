@@ -10,7 +10,7 @@ const IconButton = ({ name, onPress, style }) => {
     <SquareButton onPress={onPress}
       style={{ ...styles.container, ...style }}
       content={
-        <Ionicons name={name} style={styles.icon} />
+        <Ionicons name={name} style={{ ...styles.icon }} />
       }
     />
   );

@@ -9,10 +9,10 @@ import Text from '../../components/atoms/CustomText';
 import Input from '../../components/atoms/Input';
 import RectangleButton from '../../components/atoms/RectangleButton';
 import SquareButton from '../../components/atoms/SquareButton';
+import ActiveCardButton from '../../components/molecules/ActiveCardButton';
 import ColorButton from '../../components/molecules/ColorButton';
 import IconButton from '../../components/molecules/IconButton';
 import MenuButton from '../../components/molecules/MenuButton';
-import PlayerCardButton from '../../components/molecules/PlayerCardButton';
 import AddButton from '../../components/organisms/AddButton';
 import BackButton from '../../components/organisms/BackButton';
 import ChooseColorComponent from '../../components/organisms/ChooseColorComponent';
@@ -87,17 +87,22 @@ const ComponentsScreen = ({ navigation }) => {
 
           <View style={{ ...styles.element }}>
             <Text>IconButton</Text>
-            <IconButton name='hammer' />
+            <IconButton name='hammer' style={{ backgroundColor: colors.primary.green }} />
           </View>
 
           <View style={{ ...styles.element }}>
             <Text>ColorButton</Text>
-            <ColorButton color={colors.primary.green} />
+            <ColorButton color={colors.primary.green} isActive={true} />
           </View>
 
-          <View style={{ ...styles.element }}>
+          {/* <View style={{ ...styles.element }}>
             <Text>PlayerCardButton</Text>
             <PlayerCardButton user={userActive} onPress={handleUserPress} />
+          </View> */}
+
+          <View style={{ ...styles.element }}>
+            <Text>ActiveCardButton</Text>
+            <ActiveCardButton content={<Text>Active Card</Text>} style={{ backgroundColor: colors.primary.green }} />
           </View>
 
           <View style={{ ...styles.element }}>

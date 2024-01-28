@@ -4,15 +4,15 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import CardButton from '../atoms/CardButton';
 
-const UserCardButton = ({ user, onPress }) => {
-  const { name, color, isActive } = user;
+const PlayerCardButton = ({ user, onPlayerPress }) => {
+  const { name, isActive } = user;
+
+  const handlePress = (newState) => {
+    onPlayerPress(name, newState);
+  };
 
   return (
-    <CardButton
-      text={name}
-      onPress={() => onPress(name)}
-      style={{ ...styles.container, backgroundColor: color, opacity: isActive ? 1 : 0.3 }}
-    />
+    <CardButton onPress={handlePress} initialState={isActive} />
   );
 };
 
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserCardButton;
+export default PlayerCardButton;
