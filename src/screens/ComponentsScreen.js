@@ -12,6 +12,7 @@ import SquareButton from '../../components/atoms/SquareButton';
 import AddButton from '../../components/molecules/AddButton';
 import BackButton from '../../components/molecules/BackButton';
 import ColorButton from '../../components/molecules/ColorButton';
+import IconButton from '../../components/molecules/IconButton';
 import MenuButton from '../../components/molecules/MenuButton';
 import PlayerCardButton from '../../components/molecules/PlayerCardButton';
 import ChooseColorComponent from '../../components/organisms/ChooseColorComponent';
@@ -90,6 +91,11 @@ const ComponentsScreen = ({ navigation }) => {
           </View>
 
           <View style={{ ...styles.element }}>
+            <Text>IconButton</Text>
+            <IconButton name='arrow-back-outline' />
+          </View>
+
+          <View style={{ ...styles.element }}>
             <Text>ColorButton</Text>
             <ColorButton color={colors.primary.green} />
           </View>
@@ -116,7 +122,7 @@ const ComponentsScreen = ({ navigation }) => {
             Organisms
           </Text>
 
-          <View style={{ ...styles.interactiveElement }}>
+          <View style={{ ...styles.elementBig }}>
             <Text>ChooseColorComponent</Text>
             <ChooseColorComponent onPress={handleColorChange} />
           </View>
@@ -147,7 +153,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  interactiveElement: {
+  elementBig: {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
