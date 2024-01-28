@@ -16,6 +16,7 @@ import MenuButton from '../../components/molecules/MenuButton';
 import AddButton from '../../components/organisms/AddButton';
 import BackButton from '../../components/organisms/BackButton';
 import ChooseColorComponent from '../../components/organisms/ChooseColorComponent';
+import PlayerCardButton from '../../components/organisms/PlayerCardButton';
 
 const ComponentsScreen = ({ navigation }) => {
   const [active, setActive] = React.useState(false);
@@ -27,9 +28,9 @@ const ComponentsScreen = ({ navigation }) => {
     isActive: active,
   };
 
-  const handleUserPress = () => {
-    setActive(!active);
-  };
+  // const handleUserPress = () => {
+  //   setActive(!active);
+  // };
 
   const handleColorChange = (color) => {
     setSelectedColor(color)
@@ -95,11 +96,6 @@ const ComponentsScreen = ({ navigation }) => {
             <ColorButton color={colors.primary.green} isActive={true} />
           </View>
 
-          {/* <View style={{ ...styles.element }}>
-            <Text>PlayerCardButton</Text>
-            <PlayerCardButton user={userActive} onPress={handleUserPress} />
-          </View> */}
-
           <View style={{ ...styles.element }}>
             <Text>ActiveCardButton</Text>
             <ActiveCardButton content={<Text>Active Card</Text>} style={{ backgroundColor: colors.primary.green }} />
@@ -125,6 +121,11 @@ const ComponentsScreen = ({ navigation }) => {
           <View style={{ ...styles.element }}>
             <Text>AddButton</Text>
             <AddButton />
+          </View>
+
+          <View style={{ ...styles.element }}>
+            <Text>PlayerCardButton</Text>
+            <PlayerCardButton user={userActive} />
           </View>
 
           <View style={{ ...styles.elementBig }}>
