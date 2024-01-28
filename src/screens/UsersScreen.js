@@ -4,10 +4,10 @@ import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { colors } from '../../assets/colors';
-import SquareButton from '../../components/atoms/SquareButton';
 import MenuButton from '../../components/molecules/MenuButton';
 import BackButton from '../../components/organisms/BackButton';
-import PlayerCardButton from '../../components/organisms/PlayerCardButton';
+import TrashButton from '../../components/organisms/TrashButton';
+import UserCard from '../../components/organisms/UserCard';
 import User from '../../models/User';
 import { clearData, loadUsers, toggleUserStatus } from "../../services/user";
 
@@ -42,11 +42,11 @@ const UsersScreen = ({ navigation }) => {
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%' }}>
                 <BackButton onPress={() => navigation.navigate('Home')} />
                 <MenuButton color={colors.primary.green} text="Ajouter un utilisateur" onPress={() => navigation.navigate('CreateUser')} />
-                <SquareButton color={colors.primary.red} text="DEL" onPress={handleClearData} />
+                <TrashButton onPress={handleClearData} />
             </View>
             <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
                 {userList.map((user, index) => (
-                    <PlayerCardButton key={index} user={user} onPress={handleUserPress} />
+                    <UserCard key={index} user={user} onPress={handleUserPress} />
                 ))}
             </ScrollView>
         </View>

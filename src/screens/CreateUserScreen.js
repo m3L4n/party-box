@@ -7,7 +7,7 @@ import Input from "../../components/atoms/Input"
 import AddButton from "../../components/organisms/AddButton"
 import BackButton from "../../components/organisms/BackButton"
 import ChooseColorComponent from "../../components/organisms/ChooseColorComponent"
-import PlayerCardButton from "../../components/organisms/PlayerCardButton"
+import UserCard from "../../components/organisms/UserCard"
 import User from "../../models/User"
 import { addUser } from "../../services/user"
 
@@ -32,7 +32,7 @@ const CreateUserScreen = ({ navigation }) => {
   return (
     <View style={{ ...styles.container }}>
       <BackButton onPress={() => navigation.navigate('Users')} />
-      <PlayerCardButton user={{ name, color: selectedColor, isActive: true }} />
+      <UserCard user={{ name, color: selectedColor, isActive: true }} />
       <View style={{ ...styles.group }} >
         <Input placeholder="Nom" onChangeText={handleNameChange} value={name} />
         <AddButton onPress={handleAddUser} />

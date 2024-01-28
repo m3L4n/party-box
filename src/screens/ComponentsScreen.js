@@ -16,7 +16,9 @@ import MenuButton from '../../components/molecules/MenuButton';
 import AddButton from '../../components/organisms/AddButton';
 import BackButton from '../../components/organisms/BackButton';
 import ChooseColorComponent from '../../components/organisms/ChooseColorComponent';
-import PlayerCardButton from '../../components/organisms/PlayerCardButton';
+import ModeCard from '../../components/organisms/ModeCard';
+import TrashButton from '../../components/organisms/TrashButton';
+import UserCard from '../../components/organisms/UserCard';
 
 const ComponentsScreen = ({ navigation }) => {
   const [active, setActive] = React.useState(false);
@@ -78,7 +80,6 @@ const ComponentsScreen = ({ navigation }) => {
             <Text>Input</Text>
             <Input placeholder={"placeholder"} />
           </View>
-
         </View>
 
         <View style={{ ...styles.section, backgroundColor: colors.primary.orange }}>
@@ -124,8 +125,18 @@ const ComponentsScreen = ({ navigation }) => {
           </View>
 
           <View style={{ ...styles.element }}>
-            <Text>PlayerCardButton</Text>
-            <PlayerCardButton user={userActive} />
+            <Text>TrashButton</Text>
+            <TrashButton />
+          </View>
+
+          <View style={{ ...styles.element }}>
+            <Text>UserCard</Text>
+            <UserCard user={{ name: 'User', color: colors.primary.pink }} />
+          </View>
+
+          <View style={{ ...styles.element }}>
+            <Text>ModeCard</Text>
+            <ModeCard mode={{ name: 'Mode' }} />
           </View>
 
           <View style={{ ...styles.elementBig }}>
