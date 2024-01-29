@@ -16,6 +16,7 @@ const BackButton = ({ onPress }) => {
 
 const styles = StyleSheet.create({
     container: {
+        zIndex: 99,
         fontSize: 30,
         color: 'black',
         backgroundColor: 'lightblue',
