@@ -16,23 +16,13 @@ import MenuButton from '../../components/molecules/MenuButton';
 import AddButton from '../../components/organisms/AddButton';
 import BackButton from '../../components/organisms/BackButton';
 import ChooseColorComponent from '../../components/organisms/ChooseColorComponent';
+import AllCard from '../../components/organisms/DefaultCards';
 import ModeCard from '../../components/organisms/ModeCard';
 import TrashButton from '../../components/organisms/TrashButton';
 import UserCard from '../../components/organisms/UserCard';
 
 const ComponentsScreen = ({ navigation }) => {
-  const [active, setActive] = React.useState(false);
   const [selectedColor, setSelectedColor] = React.useState(colors.primary.blue)
-
-  const userActive = {
-    name: 'User',
-    color: colors.primary.green,
-    isActive: active,
-  };
-
-  // const handleUserPress = () => {
-  //   setActive(!active);
-  // };
 
   const handleColorChange = (color) => {
     setSelectedColor(color)
@@ -105,6 +95,11 @@ const ComponentsScreen = ({ navigation }) => {
           <View style={{ ...styles.element }}>
             <Text>MenuButton</Text>
             <MenuButton text="Button" color={colors.primary.green} />
+          </View>
+
+          <View style={{ ...styles.element }}>
+            <Text>AllCard</Text>
+            <AllCard />
           </View>
 
         </View>
