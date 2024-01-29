@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"; // Importe TouchableOpacity depuis react-native
 import data from "../../assets/data.json";
+import BackButton from "../../components/molecules/BackButton";
 
 const generateQuestion = () => {
   const random = Math.floor(Math.random() * 4);
@@ -12,7 +13,7 @@ const generateQuestion = () => {
   return { content: data.questions[random].questions_insolites[randomQuestion], theme: themeChosen.theme };
 };
 
-export default function QuestionsScreen({ handleChangeQuestion, nbrQuestions }) {
+export default function QuestionsScreen({ navigation, handleChangeQuestion, nbrQuestions }) {
   const listThemeQuestion = ["discover", "defis", "culture", "personality"];
   const { content, theme } = generateQuestion();
   const [questionTheme, setQuestionTheme] = useState(theme);
@@ -41,6 +42,7 @@ export default function QuestionsScreen({ handleChangeQuestion, nbrQuestions }) 
 
   return (
     <View style={{ ...styles.container }}>
+      <BackButton onPress={() => navigation.navigate('Home')} />
       <Text style={{ ...styles.theme }}>{questionTheme}</Text>
       {questionTheme == listThemeQuestion[2] ? (
         <>

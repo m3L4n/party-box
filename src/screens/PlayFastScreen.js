@@ -1,9 +1,7 @@
 // src/screens/PlayFastScreen.js
 
 import React, { useEffect, useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native'; // Importe TouchableOpacity depuis react-native
-import { colors } from '../../assets/colors';
-import BackButton from '../../components/organisms/BackButton';
+import { View } from 'react-native'; // Importe TouchableOpacity depuis react-native
 
 const PlayFastScreen = ({ navigation }) => {
 
@@ -31,13 +29,12 @@ const PlayFastScreen = ({ navigation }) => {
     };
 
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <TouchableOpacity style={{ width: '90%', height: '80%', backgroundColor: colors.secondary.green }} onPress={handlePress}>
-                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <BackButton onPress={() => navigation.navigate('Home')} />
-                    <Text>{questions.length > 0 ? questions[currentQuestionIndex].text : 'Chargement...'}</Text>
-                </View>
-            </TouchableOpacity>
+        <View style={{ ...styles.container }}>
+            {!endParty ? (
+                <QuestionsScreen navigation={navigation} handleChangeQuestion={handleChangeQuestion} nbrQuestions={nbrQuestions} />
+            ) : (
+                <PartyEnd navigation={navigation} />
+            )}
         </View>
     );
 };
