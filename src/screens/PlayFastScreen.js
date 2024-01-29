@@ -29,7 +29,7 @@ const PlayFastScreen = ({ navigation }) => {
     return (
         <View style={{ ...styles.container }}>
             {!endParty ? (
-                <QuestionsScreen handleChangeQuestion={handleChangeQuestion} nbrQuestions={nbrQuestions} />
+                <QuestionsScreen navigation={navigation} handleChangeQuestion={handleChangeQuestion} nbrQuestions={nbrQuestions} />
             ) : (
                 <PartyEnd navigation={navigation} />
             )}
