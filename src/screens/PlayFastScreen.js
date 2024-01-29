@@ -1,33 +1,31 @@
 // src/screens/PlayFastScreen.js
 
-import React, { useEffect, useState } from 'react';
-import { View } from 'react-native'; // Importe TouchableOpacity depuis react-native
+import React from 'react';
+import { StyleSheet, View } from "react-native";
+import { colors } from "../../assets/colors";
+import PartyEnd from "./PartyEnd";
+import QuestionsScreen from "./QuestionsScreen";
 
 const PlayFastScreen = ({ navigation }) => {
+    const [nbrQuestions, setNbrQuestions] = React.useState(0);
+    const [endParty, setEndParty] = React.useState(false);
 
-    const [questions, setQuestions] = useState([]);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-
-    useEffect(() => {
-        const fetchQuestions = async () => {
-            try {
-                const data = require('../../assets/data.json');
-                setQuestions(data);
-            } catch (error) {
-                console.error('Erreur lors du chargement des questions : ', error);
-            }
+    React.useEffect(() => {
+        if (nbrQuestions >= 2) {
+            setEndParty(true);
         }
-        fetchQuestions();
+    }, [nbrQuestions]);
+
+    React.useEffect(() => {
+        return () => {
+            setEndParty(false);
+            setNbrQuestions(0);
+        };
     }, []);
 
-    const handlePress = () => {
-        if (currentQuestionIndex === questions.length - 1) {
-            navigation.navigate('Home');
-            return;
-        }
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
+    const handleChangeQuestion = () => {
+        setNbrQuestions(nbrQuestions + 1);
     };
-
     return (
         <View style={{ ...styles.container }}>
             {!endParty ? (
@@ -39,6 +37,13 @@ const PlayFastScreen = ({ navigation }) => {
     );
 };
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: colors.secondary.pink,
+    },
+});
+
 export default PlayFastScreen;
-
-

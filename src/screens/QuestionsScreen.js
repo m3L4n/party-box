@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"; // Importe TouchableOpacity depuis react-native
 import data from "../../assets/data.json";
-import BackButton from "../../components/molecules/BackButton";
+import BackButton from "../../components/organisms/BackButton";
 
 const generateQuestion = () => {
   const random = Math.floor(Math.random() * 4);
@@ -98,3 +98,6 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
 });
+
+
+
