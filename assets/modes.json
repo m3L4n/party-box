@@ -1,16 +1,16 @@
 {
   "modes": [
     {
-      "id": 1,
-      "name": "classic"
+      "name": "classic",
+      "path": "questions/classic.json"
     },
     {
-      "id": 2,
-      "name": "duel"
+      "name": "duel",
+      "path": "questions/duel.json"
     },
     {
-      "id": 3,
-      "name": "blind test"
+      "name": "blind test",
+      "path": "questions/blind.json"
     }
   ]
 }

@@ -20,17 +20,15 @@ const ModesScreen = ({ navigation }) => {
   }, []);
 
   const handleModePress = async (modeName) => {
-    console.log("handleModePress");
     const updatedModes = await toggleModeStatus(modeName);
     setModeList(updatedModes);
   };
 
   const prefillModes = async () => {
-    console.log("prefillModes");
     const existingModes = await loadModes();
     if (existingModes.length <= 0) {
       for (const modeData of modesData.modes) {
-        const newMode = new Mode(modeData.name);
+        const newMode = new Mode(...modeData);
         await addMode(newMode);
       }
     }

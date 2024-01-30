@@ -9,7 +9,7 @@ import { getActiveModes } from '../../services/mode';
 import { getActiveUsers } from '../../services/user';
 
 const PlayCustomScreen = ({ navigation }) => {
-  const [modeList, setModeList] = React.useState([]);
+  const [modeList, setModeList] = React.useState([])
   const [userList, setUserList] = React.useState([]);
 
   const fetchData = React.useCallback(async () => {
