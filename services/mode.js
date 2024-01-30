@@ -51,3 +51,12 @@ export const deleteAllModes = async () => {
     console.error('Erreur lors de la suppression des modes : ', error);
   }
 }
+
+export const getActiveModes = async () => {
+  try {
+    const modes = await loadModes();
+    return modes.filter(mode => mode.isActive);
+  } catch (error) {
+    console.error('Erreur lors de la récupération des modes actifs : ', error);
+  }
+}
