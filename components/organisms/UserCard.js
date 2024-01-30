@@ -1,4 +1,4 @@
-// components/molecules/PlayerCardButton.js
+// components/molecules/UserCard.js
 
 import React from 'react';
 import { StyleSheet } from 'react-native';
@@ -6,10 +6,10 @@ import { toggleUserStatus } from '../../services/user';
 import Text from '../atoms/CustomText';
 import ActiveCardButton from '../molecules/ActiveCardButton';
 
-const PlayerCardButton = ({ user }) => {
+const UserCard = ({ user }) => {
   const { name, color, isActive } = user;
 
-  const handlePlayerPress = async (isActive) => {
+  const handlePlayerPress = async () => {
     await toggleUserStatus(name);
   };
 
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default PlayerCardButton;
+export default UserCard;

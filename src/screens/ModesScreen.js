@@ -1,28 +1,59 @@
 // src/screens/ModesScreen.js
-
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { colors } from "../../assets/colors";
-import Modes from "../../assets/modes.json";
+import modesData from "../../assets/modes.json";
 import Text from "../../components/atoms/CustomText";
 import BackButton from "../../components/organisms/BackButton";
 import ModeCard from "../../components/organisms/ModeCard";
+import ReloadButton from "../../components/organisms/ReloadButton";
+import Mode from "../../models/Mode";
+import { addMode, deleteAllModes, loadModes, toggleModeStatus } from "../../services/mode";
 
 const ModesScreen = ({ navigation }) => {
   const [modeList, setModeList] = React.useState([]);
 
+  const fetchData = React.useCallback(async () => {
+    const modes = await loadModes();
+    setModeList(modes);
+  }, []);
+
+  const handleModePress = async (modeName) => {
+    console.log("handleModePress");
+    const updatedModes = await toggleModeStatus(modeName);
+    setModeList(updatedModes);
+  };
+
+  const prefillModes = async () => {
+    console.log("prefillModes");
+    const existingModes = await loadModes();
+    if (existingModes.length <= 0) {
+      for (const modeData of modesData.modes) {
+        const newMode = new Mode(modeData.name);
+        await addMode(newMode);
+      }
+    }
+    fetchData();
+  }
+
+  const handleReloadPress = async () => {
+    deleteAllModes();
+    await prefillModes();
+  }
+
   React.useEffect(() => {
-    setModeList(Modes.modes);
+    prefillModes();
   }, []);
 
   return (
     <View style={{ ...styles.container }}>
       <Text style={{ ...styles.title }}>Modes</Text>
       <BackButton onPress={() => navigation.navigate("Home")} />
+      <ReloadButton onPress={handleReloadPress} />
       <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
-        {modeList.map((mode) => (
-          <ModeCard mode={mode} />
+        {modeList.map((mode, index) => (
+          <ModeCard key={index} mode={mode} onPress={handleModePress} />
         ))}
       </ScrollView>
     </View>
