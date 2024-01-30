@@ -11,7 +11,7 @@ const PlayFastScreen = ({ navigation }) => {
     const [endParty, setEndParty] = React.useState(false);
 
     React.useEffect(() => {
-        if (nbrQuestions >= 2) {
+        if (nbrQuestions >= 40) {
             setEndParty(true);
         }
     }, [nbrQuestions]);

@@ -136,7 +136,7 @@ const ComponentsScreen = ({ navigation }) => {
 
           <View style={{ ...styles.elementBig }}>
             <Text>ChooseColorComponent</Text>
-            <ChooseColorComponent onPress={handleColorChange} />
+            <ChooseColorComponent onPress={handleColorChange} active={colors.primary.yellow} />
           </View>
         </View>
       </ScrollView>

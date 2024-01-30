@@ -8,11 +8,10 @@ import MenuButton from '../../components/molecules/MenuButton';
 import BackButton from '../../components/organisms/BackButton';
 import TrashButton from '../../components/organisms/TrashButton';
 import UserCard from '../../components/organisms/UserCard';
-import User from '../../models/User';
 import { clearData, loadUsers, toggleUserStatus } from "../../services/user";
 
 const UsersScreen = ({ navigation }) => {
-    const [userList, setUserList] = React.useState([User]);
+    const [userList, setUserList] = React.useState([]);
 
     const fetchData = React.useCallback(async () => {
         const users = await loadUsers();

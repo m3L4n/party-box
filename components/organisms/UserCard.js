@@ -7,7 +7,7 @@ import Text from '../atoms/CustomText';
 import ActiveCardButton from '../molecules/ActiveCardButton';
 
 const PlayerCardButton = ({ user }) => {
-  const { name, color } = user;
+  const { name, color, isActive } = user;
 
   const handlePlayerPress = async (isActive) => {
     await toggleUserStatus(name);
@@ -18,7 +18,7 @@ const PlayerCardButton = ({ user }) => {
       onPress={handlePlayerPress}
       content={<Text>{name}</Text>}
       style={{ ...styles.container, backgroundColor: color }}
-      active={false}
+      active={isActive}
     />
   );
 };
