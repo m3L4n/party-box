@@ -1,0 +1,16 @@
+{
+  "modes": [
+    {
+      "id": 1,
+      "name": "classic"
+    },
+    {
+      "id": 2,
+      "name": "duel"
+    },
+    {
+      "id": 3,
+      "name": "blind test"
+    }
+  ]
+}
