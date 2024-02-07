@@ -1,8 +1,8 @@
 {
   "modes": [
     {
-      "name": "classic",
-      "path": "questions/classic.json"
+      "name": "culture",
+      "path": "modes/culture.json"
     },
     {
       "name": "duel",

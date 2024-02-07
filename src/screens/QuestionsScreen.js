@@ -15,6 +15,11 @@ const generateQuestion = () => {
 
 export default function QuestionsScreen({ navigation, handleChangeQuestion, nbrQuestions }) {
   const listThemeQuestion = ["discover", "defis", "culture", "personality"];
+  // remplacer les theme par les "modes", les modes seront des fichiers .json  
+  // choisir un mode, puis recuperer le mode path pour avoir le json correspondant
+  // certains modes auront des questions simples, d'autres des questions avec plusieurs interactions
+  // pour chaque mode, on va avoir un component qui va gerer la logique de la question.
+  // cette logique sera stockée dans un fichier .json
   const { content, theme } = generateQuestion();
   const [questionTheme, setQuestionTheme] = useState(theme);
   const [question, setQuestion] = useState(content);
@@ -74,6 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
+    backgroundColor: "red",
   },
   question: {
     width: 300,
