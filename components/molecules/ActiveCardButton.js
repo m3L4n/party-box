@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native';
 import CardButton from '../atoms/CardButton';
 
 const ActiveCardButton = ({ onPress, content, style, active }) => {
-  const [isActive, setIsActive] = useState(active ? true : false);
+  const [isActive, setIsActive] = useState(active);
 
   const handlePress = () => {
     setIsActive(!isActive);

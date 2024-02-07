@@ -7,13 +7,13 @@ import Input from "../../components/atoms/Input"
 import AddButton from "../../components/organisms/AddButton"
 import BackButton from "../../components/organisms/BackButton"
 import ChooseColorComponent from "../../components/organisms/ChooseColorComponent"
-import UserCard from "../../components/organisms/UserCard"
+import { EmptyUserCard } from "../../components/organisms/DefaultCards"
 import User from "../../models/User"
 import { addUser } from "../../services/user"
 
 const CreateUserScreen = ({ navigation }) => {
   const [name, setName] = React.useState('')
-  const [selectedColor, setSelectedColor] = React.useState(colors.primary.blue)
+  const [selectedColor, setSelectedColor] = React.useState(colors.primary.creme)
 
   const handleNameChange = (text) => {
     setName(text)
@@ -32,12 +32,12 @@ const CreateUserScreen = ({ navigation }) => {
   return (
     <View style={{ ...styles.container }}>
       <BackButton onPress={() => navigation.navigate('Users')} />
-      <UserCard user={{ name, color: selectedColor, isActive: true }} />
+      <EmptyUserCard name={name} color={selectedColor} />
       <View style={{ ...styles.group }} >
         <Input placeholder="Nom" onChangeText={handleNameChange} value={name} />
         <AddButton onPress={handleAddUser} />
       </View>
-      <ChooseColorComponent onPress={handleColorChange} />
+      <ChooseColorComponent onPress={handleColorChange} active={colors.primary.creme} />
     </View>
   )
 }

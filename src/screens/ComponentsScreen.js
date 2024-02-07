@@ -16,7 +16,7 @@ import MenuButton from '../../components/molecules/MenuButton';
 import AddButton from '../../components/organisms/AddButton';
 import BackButton from '../../components/organisms/BackButton';
 import ChooseColorComponent from '../../components/organisms/ChooseColorComponent';
-import AllCard from '../../components/organisms/DefaultCards';
+import { AllCard } from '../../components/organisms/DefaultCards';
 import ModeCard from '../../components/organisms/ModeCard';
 import TrashButton from '../../components/organisms/TrashButton';
 import UserCard from '../../components/organisms/UserCard';
@@ -136,7 +136,7 @@ const ComponentsScreen = ({ navigation }) => {
 
           <View style={{ ...styles.elementBig }}>
             <Text>ChooseColorComponent</Text>
-            <ChooseColorComponent onPress={handleColorChange} />
+            <ChooseColorComponent onPress={handleColorChange} active={colors.primary.yellow} />
           </View>
         </View>
       </ScrollView>

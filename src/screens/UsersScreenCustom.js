@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { colors } from '../../assets/colors';
+import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 import BackButton from '../../components/organisms/BackButton';
 import TrashButton from '../../components/organisms/TrashButton';
@@ -38,6 +39,7 @@ const UsersScreen = ({ navigation }) => {
 
     return (
         <View style={{ ...styles.container }}>
+            <Text style={{ ...styles.title }}>Users</Text>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%' }}>
                 <BackButton onPress={() => navigation.navigate('Home')} />
                 <MenuButton color={colors.primary.green} text="Ajouter un utilisateur" onPress={() => navigation.navigate('CreateUser')} />
@@ -48,6 +50,7 @@ const UsersScreen = ({ navigation }) => {
                     <UserCard key={index} user={user} onPress={handleUserPress} />
                 ))}
             </ScrollView>
+            <MenuButton color={colors.primary.red} text="Suivant" onPress={() => navigation.navigate('ModesCustom')} />
         </View>
     );
 };
@@ -55,6 +58,7 @@ const UsersScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         paddingTop: 100,
+        paddingBottom: 100,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',

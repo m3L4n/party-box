@@ -11,8 +11,7 @@ const HomeScreen = ({ navigation }) => {
         <View style={{ ...styles.container }}>
             <Text style={{ ...styles.title }}>Bouar</Text>
             <MenuButton color={colors.primary.green} text="Partie Rapide" onPress={() => navigation.navigate('PlayFast')} />
-            <MenuButton color={colors.primary.blue} text="Partie Custom" />
-            <MenuButton color={colors.primary.yellow} text="Users" onPress={() => navigation.navigate('Users')} />
+            <MenuButton color={colors.primary.blue} text="Partie Custom" onPress={() => navigation.navigate('UsersCustom')} />
             <MenuButton color={colors.primary.red} text="Parametres" onPress={() => navigation.navigate('Settings')} />
         </View>
     );

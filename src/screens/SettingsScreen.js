@@ -12,6 +12,8 @@ const SettingsScreen = ({ navigation }) => {
             <BackButton onPress={() => navigation.navigate('Home')} />
             <Text>Settings</Text>
             <MenuButton color={colors.primary.red} text="Dev" onPress={() => navigation.navigate('Components')} />
+            <MenuButton color={colors.primary.orange} text="Modes" onPress={() => navigation.navigate('Modes')} />
+            <MenuButton color={colors.primary.yellow} text="Users" onPress={() => navigation.navigate('Users')} />
         </View>
     );
 };

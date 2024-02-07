@@ -5,11 +5,21 @@ import { StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../atoms/CustomText';
 
-const AllCard = () => {
+export const AllCard = () => {
   return (
     <View style={{ ...styles.allCard }}>
       <Text>
         TOUT LE MONDE JOUE !
+      </Text>
+    </View>
+  );
+}
+
+export const EmptyUserCard = ({ name, color }) => {
+  return (
+    <View style={{ ...styles.allCard, backgroundColor: color }}>
+      <Text>
+        {name}
       </Text>
     </View>
   );
@@ -32,6 +42,3 @@ const styles = StyleSheet.create({
     borderColor: 'black',
   },
 });
-
-
-export default AllCard;

@@ -51,3 +51,13 @@ export const clearData = async () => {
     console.error('Erreur lors de la suppression des données : ', error);
   }
 }
+
+export const getActiveUsers = async () => {
+  try {
+    const users = await loadUsers();
+    return users.filter(user => user.isActive);
+  } catch (error) {
+    console.error('Erreur lors de la récupération des utilisateurs actifs : ', error);
+    return [];
+  }
+}
