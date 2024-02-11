@@ -1,16 +1,13 @@
 {
   "modes": [
     {
-      "name": "culture",
-      "path": "modes/culture.json"
+      "name": "culture"
     },
     {
-      "name": "duel",
-      "path": "questions/duel.json"
+      "name": "duel"
     },
     {
-      "name": "blind test",
-      "path": "questions/blind.json"
+      "name": "blind test"
     }
   ]
 }

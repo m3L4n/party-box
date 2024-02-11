@@ -1,9 +1,8 @@
 // models/Mode.js
 
 export default class Mode {
-  constructor(name, path) {
+  constructor(name) {
     this.name = name;
     this.isActive = true;
-    this.path = path;
   }
 }
