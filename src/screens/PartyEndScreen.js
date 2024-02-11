@@ -3,9 +3,9 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function PartyEnd({ navigation }) {
+const PartyEndScreen = ({ navigation }) => {
   return (
-    <TouchableOpacity style={{ ...styles.container }} onPress={() => navigation.goBack()}>
+    <TouchableOpacity style={{ ...styles.container }} onPress={() => navigation.navigate('Home')}>
       <View>
         <Text> SESSION FINISH</Text>
       </View>
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   },
 });
 
+export default PartyEndScreen;
 
 
 

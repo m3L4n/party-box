@@ -47,7 +47,7 @@ const ModesScreen = ({ navigation }) => {
   return (
     <View style={{ ...styles.container }}>
       <Text style={{ ...styles.title }}>Modes</Text>
-      <BackButton onPress={() => navigation.navigate("Home")} />
+      <BackButton navigation={navigation} />
       <ReloadButton onPress={handleReloadPress} />
       <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
         {modeList.map((mode, index) => (

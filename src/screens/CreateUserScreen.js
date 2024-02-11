@@ -31,7 +31,7 @@ const CreateUserScreen = ({ navigation }) => {
 
   return (
     <View style={{ ...styles.container }}>
-      <BackButton onPress={() => navigation.navigate('Users')} />
+      <BackButton navigation={navigation} />
       <EmptyUserCard name={name} color={selectedColor} />
       <View style={{ ...styles.group }} >
         <Input placeholder="Nom" onChangeText={handleNameChange} value={name} />

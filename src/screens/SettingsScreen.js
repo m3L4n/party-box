@@ -9,7 +9,7 @@ import BackButton from '../../components/organisms/BackButton';
 const SettingsScreen = ({ navigation }) => {
     return (
         <View style={{ ...styles.container }}>
-            <BackButton onPress={() => navigation.navigate('Home')} />
+            <BackButton navigation={navigation} />
             <Text>Settings</Text>
             <MenuButton color={colors.primary.red} text="Dev" onPress={() => navigation.navigate('Components')} />
             <MenuButton color={colors.primary.orange} text="Modes" onPress={() => navigation.navigate('Modes')} />

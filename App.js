@@ -9,6 +9,7 @@ import CreateUserScreen from './src/screens/CreateUserScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import ModesScreen from './src/screens/ModesScreen';
 import ModesScreenCustom from './src/screens/ModesScreenCustom';
+import PartyEndScreen from './src/screens/PartyEndScreen';
 import PlayCustomScreen from './src/screens/PlayCustomScreen';
 import PlayFastScreen from './src/screens/PlayFastScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
@@ -51,6 +52,7 @@ const App = () => {
         <Stack.Screen name="ModesCustom" component={ModesScreenCustom} options={{ headerShown: false }} />
         <Stack.Screen name="Components" component={ComponentsScreen} options={{ headerShown: false }} />
         <Stack.Screen name="CreateUser" component={CreateUserScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="PartyEnd" component={PartyEndScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -4,7 +4,12 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import IconButton from '../molecules/IconButton';
 
-const BackButton = ({ onPress }) => {
+const BackButton = ({ navigation }) => {
+    const onPress = () => {
+        console.log('BackButton');
+        navigation.goBack();
+    }
+
     return (
         <IconButton
             onPress={onPress}

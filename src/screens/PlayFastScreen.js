@@ -3,7 +3,7 @@
 import React from 'react';
 import { StyleSheet, View } from "react-native";
 import { colors } from "../../assets/colors";
-import PartyEnd from "./PartyEnd";
+import PartyEnd from "./PartyEndScreen";
 import QuestionsScreen from "./QuestionsScreen";
 
 const PlayFastScreen = ({ navigation }) => {

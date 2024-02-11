@@ -30,7 +30,7 @@ const ComponentsScreen = ({ navigation }) => {
 
   return (
     <View style={{ ...styles.container }} >
-      <BackButton onPress={() => navigation.navigate('Settings')} />
+      <BackButton navigation={navigation} />
       <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center', gap: 10 }}>
 
         <View style={{ ...styles.section, backgroundColor: colors.secondary.yellow }}>
@@ -111,7 +111,7 @@ const ComponentsScreen = ({ navigation }) => {
 
           <View style={{ ...styles.element }}>
             <Text>BackButton</Text>
-            <BackButton onPress={() => navigation.navigate('Home')} />
+            <BackButton navigation={navigation} />
           </View>
 
           <View style={{ ...styles.element }}>

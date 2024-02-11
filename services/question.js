@@ -1,9 +1,11 @@
 // services/question.js
+import QuestionSimpleComponent from '../components/organisms/QuestionSimpleComponent';
 
 export const getQuestionsList = async (mode) => {
+  console.log('mode', mode);
   try {
     switch (mode.name) {
-      case 'general':
+      case 'culture':
         return await getCultureQuestions();
       case 'history':
         return await getDuelQuestions();
@@ -21,14 +23,13 @@ export const getQuestionsList = async (mode) => {
 const getCultureQuestions = async () => {
   try {
     const questionsList = require('../assets/modes/culture_generale.json');
-    return questionsList;
+    return questionsList.questions.map((question, index) => (
+      <QuestionSimpleComponent key={question.id || index} question={question.content} />
+    ));
   } catch (error) {
     console.error('Erreur lors du chargement des questions de culture générale : ', error);
     return [];
   }
-}
-
-const makeSimpleQuestion = (text) => {
 }
 
 const getDuelQuestions = async () => {

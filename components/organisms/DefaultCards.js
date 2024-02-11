@@ -25,6 +25,14 @@ export const EmptyUserCard = ({ name, color }) => {
   );
 }
 
+export const QuestionCard = ({ content }) => {
+  return (
+    <View style={{ ...styles.allCard, width: '100%', height: '100%' }}>
+      {content}
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   allCard: {
     width: 82.2,
@@ -40,5 +48,5 @@ const styles = StyleSheet.create({
     borderBottomWidth: 4,
     borderWidth: 2,
     borderColor: 'black',
-  },
+  }
 });
