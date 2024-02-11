@@ -3,7 +3,7 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { colors } from '../../assets/colors';
-import Text from '../../components/atoms/CustomText';
+import QuestionSimpleComponent from '../../components/organisms/QuestionSimpleComponent';
 import { getActiveModes } from '../../services/mode';
 import { getQuestionsList } from '../../services/question';
 import { getActiveUsers } from '../../services/user';
@@ -11,8 +11,8 @@ import { getActiveUsers } from '../../services/user';
 const PlayCustomScreen = ({ navigation }) => {
   const [modeList, setModeList] = React.useState([])
   const [userList, setUserList] = React.useState([])
-  const [questions, setQuestions] = React.useState([])
   const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(0)
+  const [questions, setQuestions] = React.useState([])
 
   const handlePress = () => {
     if (currentQuestionIdx === questions.length - 1) {
@@ -36,10 +36,8 @@ const PlayCustomScreen = ({ navigation }) => {
   const fetchQuestions = async () => {
     try {
       for (const mode of modeList) {
-        const modeQuestionsObj = await getQuestionsList(mode);
-        console.log('modeQuestionsObj', modeQuestionsObj);
+        const modeQuestionsObj = await getQuestionsList(mode, userList);
         for (const question of modeQuestionsObj) {
-          console.log('question', question);
           setQuestions((prevQuestions) => [...prevQuestions, question]);
         }
       }
@@ -56,7 +54,9 @@ const PlayCustomScreen = ({ navigation }) => {
   return (
     <View style={{ ...styles.container }}>
       <TouchableOpacity onPress={handlePress}>
-        {questions[currentQuestionIdx] || <View><Text>End of questions</Text></View>}
+        {questions[currentQuestionIdx] && (
+          <QuestionSimpleComponent question={questions[currentQuestionIdx]} />
+        )}
       </TouchableOpacity>
     </View>
   );

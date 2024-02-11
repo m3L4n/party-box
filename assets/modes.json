@@ -1,13 +1,7 @@
 {
   "modes": [
     {
-      "name": "culture"
-    },
-    {
-      "name": "duel"
-    },
-    {
-      "name": "blind test"
+      "name": "classic"
     }
   ]
 }

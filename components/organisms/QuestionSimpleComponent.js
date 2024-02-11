@@ -5,19 +5,20 @@ import { StyleSheet, View } from 'react-native';
 import Text from '../atoms/CustomText';
 import { QuestionCard } from './DefaultCards';
 
-const SimpleQuestionCard = ({ question, mode }) => {
-  console.log('SimpleQuestionCard', question);
-  const user = "Bob"
+const SimpleQuestionCard = ({ question }) => {
+  const user = question.user;
+  const content = question.content;
 
+  console.log('SimpleQuestionCard', question);
   return (
     <View styles={{ ...styles.container, backgroundColor: 'white' }}>
       <QuestionCard content={
         <View style={{ ...styles.container }}>
           <Text>
-            {question}
+            {user}
           </Text>
           <Text>
-            {user}, tu commences.
+            {content}
           </Text>
         </View>
       } />

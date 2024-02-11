@@ -1,16 +1,11 @@
 // services/question.js
-import QuestionSimpleComponent from '../components/organisms/QuestionSimpleComponent';
+import Question from '../models/Question';
 
-export const getQuestionsList = async (mode) => {
-  console.log('mode', mode);
+export const getQuestionsList = async (mode, userList) => {
   try {
     switch (mode.name) {
-      case 'culture':
-        return await getCultureQuestions();
-      case 'history':
-        return await getDuelQuestions();
-      case 'duel':
-        return await getEntertainmentQuestions();
+      case 'classic':
+        return await getClassicQuestions(userList);
       default:
         return [];
     }
@@ -20,68 +15,26 @@ export const getQuestionsList = async (mode) => {
   }
 }
 
-const getCultureQuestions = async () => {
-  try {
-    const questionsList = require('../assets/modes/culture_generale.json');
-    return questionsList.questions.map((question, index) => (
-      <QuestionSimpleComponent key={question.id || index} question={question.content} />
-    ));
-  } catch (error) {
-    console.error('Erreur lors du chargement des questions de culture générale : ', error);
-    return [];
+const getRandUser = (userList) => {
+  const randIdx = Math.floor(Math.random() * userList.length);
+  return userList[randIdx];
+}
+
+const getClassicQuestions = async (userList) => {
+  const questions = [
+    new Question(`Vote ! En haut avoir des mains à la place des pieds, en bas avoir des pieds à la place de mains.`),
+    new Question(`Tout le monde va donner une qualité à la personne à sa gauche, ${getRandUser(userList).name} commence. Glouglou pour celui qui ne trouve pas!`),
+    new Question(`Si tu étais un animal, lequel serais-tu ? ${getRandUser(userList).name} commence.`),
+  ];
+
+  if (userList.length > 1) {
+    questions.push(new Question(`${getRandUser(userList).name} et ${getRandUser(userList).name} doivent faire un combat de pouce. Le perdant boit une gorgée.`));
   }
-}
 
-const getDuelQuestions = async () => {
-  return {
-    questions: [
-      {
-        id: 1,
-        content: 'What is the capital of France?',
-      },
-      {
-        id: 2,
-        content: 'What is the capital of Spain?',
-      },
-      {
-        id: 3,
-        content: 'What is the capital of Italy?',
-      },
-      {
-        id: 4,
-        content: 'What is the capital of Germany?',
-      },
-      {
-        id: 5,
-        content: 'What is the capital of Portugal?',
-      },
-    ],
-  };
-}
-
-const getEntertainmentQuestions = async () => {
-  return {
-    questions: [
-      {
-        id: 1,
-        content: 'Who won the last Oscar for Best Movie?',
-      },
-      {
-        id: 2,
-        content: 'Who won the last Oscar for Best Actor?',
-      },
-      {
-        id: 3,
-        content: 'Who won the last Oscar for Best Actress?',
-      },
-      {
-        id: 4,
-        content: 'Who won the last Oscar for Best Director?',
-      },
-      {
-        id: 5,
-        content: 'Who won the last Oscar for Best Original Screenplay?',
-      },
-    ],
-  };
+  return questions.map((question, index) => ({
+    id: index,
+    content: question.content,
+    options: question.options,
+    mode: 'classic'
+  }));
 }

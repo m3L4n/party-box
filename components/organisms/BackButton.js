@@ -6,7 +6,6 @@ import IconButton from '../molecules/IconButton';
 
 const BackButton = ({ navigation }) => {
     const onPress = () => {
-        console.log('BackButton');
         navigation.goBack();
     }
 
