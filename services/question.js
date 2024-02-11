@@ -28,13 +28,29 @@ const getClassicQuestions = async (userList) => {
   ];
 
   if (userList.length > 1) {
-    questions.push(new Question(`${getRandUser(userList).name} et ${getRandUser(userList).name} doivent faire un combat de pouce. Le perdant boit une gorgée.`));
+    user1 = getRandUser(userList);
+    user2 = getRandUser(userList);
+    while (user1 === user2) {
+      user2 = getRandUser(userList);
+    }
+    questions.push(new Question(`Vote ! Qui de ${user1.name} ou ${user2.name} est le plus susceptible de faire un meurtre ?`));
+  }
+
+  if (userList.length > 2) {
+    user1 = getRandUser(userList);
+    user2 = getRandUser(userList);
+    user3 = getRandUser(userList);
+    while (user1 === user2 || user1 === user3 || user2 === user3) {
+      user1 = getRandUser(userList);
+      user2 = getRandUser(userList);
+      user3 = getRandUser(userList);
+    }
+    questions.push(new Question(`Vote ! Qui de ${user1.name}, ${user2.name} ou ${user3.name} est le plus susceptible de faire un meurtre ?`));
   }
 
   return questions.map((question, index) => ({
     id: index,
     content: question.content,
-    options: question.options,
     mode: 'classic'
   }));
 }
