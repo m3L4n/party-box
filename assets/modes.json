@@ -2,6 +2,9 @@
   "modes": [
     {
       "name": "classic"
+    },
+    {
+      "name": "duel"
     }
   ]
 }

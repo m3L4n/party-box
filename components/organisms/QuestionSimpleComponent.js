@@ -6,7 +6,6 @@ import Text from '../atoms/CustomText';
 import { QuestionCard } from './DefaultCards';
 
 const SimpleQuestionCard = ({ question }) => {
-  console.log(question);
   const content = question.content;
   const mode = question.mode;
 

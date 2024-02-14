@@ -42,12 +42,14 @@ const PlayCustomScreen = ({ navigation }) => {
   // the fetchQuestions function will get every questions from the active modes
   const fetchQuestions = async () => {
     try {
+      let questionsList = [];
       for (const mode of modeList) {
-        const modeQuestionsObj = await getQuestionsList(mode, userList);
-        const randomQuestions = await getRandomQuestions(modeQuestionsObj);
-        for (const question of randomQuestions) {
-          setQuestions((prevQuestions) => [...prevQuestions, question]);
-        }
+        const questionListObj = await getQuestionsList(mode, userList);
+        questionsList.push(...questionListObj);
+      }
+      const randomQuestions = await getRandomQuestions(questionsList);
+      for (const question of randomQuestions) {
+        setQuestions((prevQuestions) => [...prevQuestions, question]);
       }
     }
     catch (error) {

@@ -6,6 +6,8 @@ export const getQuestionsList = async (mode, userList) => {
     switch (mode.name) {
       case 'classic':
         return await getClassicQuestions(userList);
+      case 'duel':
+        return await getDuelQuestions(userList);
       default:
         return [];
     }
@@ -18,6 +20,26 @@ export const getQuestionsList = async (mode, userList) => {
 const getRandUser = (userList) => {
   const randIdx = Math.floor(Math.random() * userList.length);
   return userList[randIdx];
+}
+
+
+const getDuelQuestions = async (userList) => {
+  try {
+    const questions = [
+      new Question(`${getRandUser(userList).name} et ${getRandUser(userList).name} vont faire un duel de regard, glouglou pour le perdant !`),
+      new Question(`${getRandUser(userList).name} et ${getRandUser(userList).name} vont faire un duel de danse, glouglou pour le perdant !`),
+      new Question(`${getRandUser(userList).name} et ${getRandUser(userList).name} vont faire un duel de chant, glouglou pour le perdant !`),
+      new Question(`${getRandUser(userList).name} et ${getRandUser(userList).name} vont faire un bras de fer, glouglou pour le perdant !`),
+    ];
+    return questions.map((question, index) => ({
+      id: index,
+      content: question.content,
+      mode: 'duel'
+    }));
+  } catch (error) {
+    console.error('Erreur lors du chargement des questions de duel : ', error);
+    return [];
+  }
 }
 
 const getClassicQuestions = async (userList) => {
@@ -84,6 +106,6 @@ const getClassicQuestions = async (userList) => {
 export const getRandomQuestions = async (questions) => {
   const stack = [...questions];
   stack.sort(() => Math.random() - 0.5);
-  const ret = stack.slice(0, 5);
+  const ret = stack.slice(0, 15);
   return ret;
 }
