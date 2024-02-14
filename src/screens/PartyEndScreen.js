@@ -1,8 +1,9 @@
 // src/screens/PartyEnd.js
 
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { colors } from "../../assets/colors";
+import Text from "../../components/atoms/CustomText";
 import MenuButton from "../../components/molecules/MenuButton";
 
 const PartyEndScreen = ({ navigation }) => {
@@ -22,6 +23,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
+    backgroundColor: colors.secondary.pink,
   },
 });
 

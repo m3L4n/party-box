@@ -6,15 +6,16 @@ import Text from '../atoms/CustomText';
 import { QuestionCard } from './DefaultCards';
 
 const SimpleQuestionCard = ({ question }) => {
-  const user = question.user;
+  console.log(question);
   const content = question.content;
+  const mode = question.mode;
 
   return (
-    <View styles={{ ...styles.container, backgroundColor: 'white' }}>
+    <View styles={{ ...styles.container }}>
       <QuestionCard content={
         <View style={{ ...styles.container }}>
           <Text>
-            {user}
+            {mode}
           </Text>
           <Text>
             {content}
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    gap: 30,
   },
 });
 

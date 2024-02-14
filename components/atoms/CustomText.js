@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: 'BebasNeue-Regular',
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 24,
   },
 });
 

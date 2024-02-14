@@ -16,7 +16,7 @@ const Input = ({ placeholder, onChangeText, value }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 200,
+    width: 300,
     height: 50,
     padding: 10,
     marginVertical: 10,

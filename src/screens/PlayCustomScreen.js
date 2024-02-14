@@ -14,12 +14,15 @@ const PlayCustomScreen = ({ navigation }) => {
   const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(0)
   const [questions, setQuestions] = React.useState([])
 
+  const colors_list = [colors.secondary.blue, colors.secondary.green, colors.secondary.pink, colors.secondary.red, colors.secondary.yellow]
+  const randomColor = colors_list[Math.floor(Math.random() * colors_list.length)];
+
   const handlePress = () => {
     if (currentQuestionIdx === questions.length - 1) {
+      navigation.navigate('PartyEnd');
       setCurrentQuestionIdx(0);
       setQuestions([]);
       fetchQuestions();
-      navigation.navigate('PartyEnd');
       return;
     }
     setCurrentQuestionIdx(currentQuestionIdx + 1);
@@ -41,9 +44,7 @@ const PlayCustomScreen = ({ navigation }) => {
     try {
       for (const mode of modeList) {
         const modeQuestionsObj = await getQuestionsList(mode, userList);
-        console.log('modeQuestionsObj: ', modeQuestionsObj);
         const randomQuestions = await getRandomQuestions(modeQuestionsObj);
-        console.log('randomQuestions: ', randomQuestions);
         for (const question of randomQuestions) {
           setQuestions((prevQuestions) => [...prevQuestions, question]);
         }
@@ -59,7 +60,7 @@ const PlayCustomScreen = ({ navigation }) => {
   }, [modeList]);
 
   return (
-    <View style={{ ...styles.container }}>
+    <View style={{ ...styles.container, backgroundColor: randomColor }}>
       <TouchableOpacity onPress={handlePress}>
         {questions[currentQuestionIdx] && (
           <QuestionSimpleComponent question={questions[currentQuestionIdx]} />
@@ -73,7 +74,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: colors.secondary.creme,
   },
 });
 

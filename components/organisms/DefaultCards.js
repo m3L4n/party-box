@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { colors } from '../../assets/colors';
 import Text from '../atoms/CustomText';
 
 export const AllCard = () => {
@@ -37,7 +36,6 @@ const styles = StyleSheet.create({
   allCard: {
     width: 82.2,
     height: 112.2,
-    backgroundColor: colors.primary.creme,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,

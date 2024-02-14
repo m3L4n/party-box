@@ -25,26 +25,28 @@ const CreateUserScreen = ({ navigation }) => {
 
   const handleAddUser = async () => {
     const newUser = new User(name, selectedColor);
+    setName('');
+    setSelectedColor(colors.primary.creme);
     await addUser(newUser);
-    navigation.navigate('Users');
+    navigation.navigate('UsersCustom');
   };
 
   return (
     <View style={{ ...styles.container }}>
       <BackButton navigation={navigation} />
       <EmptyUserCard name={name} color={selectedColor} />
+      <ChooseColorComponent onPress={handleColorChange} active={colors.primary.creme} />
       <View style={{ ...styles.group }} >
         <Input placeholder="Nom" onChangeText={handleNameChange} value={name} />
         <AddButton onPress={handleAddUser} />
       </View>
-      <ChooseColorComponent onPress={handleColorChange} active={colors.primary.creme} />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 100,
+    paddingBottom: 100,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '80%',
+    width: '90%',
   },
 });
 
