@@ -9,7 +9,6 @@ const SimpleQuestionCard = ({ question }) => {
   const user = question.user;
   const content = question.content;
 
-  console.log('SimpleQuestionCard', question);
   return (
     <View styles={{ ...styles.container, backgroundColor: 'white' }}>
       <QuestionCard content={

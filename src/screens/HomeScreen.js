@@ -10,7 +10,7 @@ const HomeScreen = ({ navigation }) => {
     return (
         <View style={{ ...styles.container }}>
             <Text style={{ ...styles.title }}>Bouar</Text>
-            <MenuButton color={colors.primary.green} text="Partie Rapide" onPress={() => navigation.navigate('PlayFast')} />
+            <MenuButton color={colors.primary.green} text="Partie Rapide" onPress={() => navigation.navigate('PlayCustom')} />
             <MenuButton color={colors.primary.blue} text="Partie Custom" onPress={() => navigation.navigate('UsersCustom')} />
             <MenuButton color={colors.primary.red} text="Parametres" onPress={() => navigation.navigate('Settings')} />
         </View>

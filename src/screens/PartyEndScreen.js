@@ -2,12 +2,15 @@
 
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { colors } from "../../assets/colors";
+import MenuButton from "../../components/molecules/MenuButton";
 
 const PartyEndScreen = ({ navigation }) => {
   return (
     <TouchableOpacity style={{ ...styles.container }} onPress={() => navigation.navigate('Home')}>
       <View>
-        <Text> SESSION FINISH</Text>
+        <Text> Session finish !</Text>
+        <MenuButton color={colors.primary.green} text="Rejouer ?" onPress={() => navigation.navigate('PlayCustom')} />
       </View>
     </TouchableOpacity>
   );

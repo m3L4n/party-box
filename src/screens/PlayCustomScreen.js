@@ -5,7 +5,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import QuestionSimpleComponent from '../../components/organisms/QuestionSimpleComponent';
 import { getActiveModes } from '../../services/mode';
-import { getQuestionsList } from '../../services/question';
+import { getQuestionsList, getRandomQuestions } from '../../services/question';
 import { getActiveUsers } from '../../services/user';
 
 const PlayCustomScreen = ({ navigation }) => {
@@ -16,6 +16,9 @@ const PlayCustomScreen = ({ navigation }) => {
 
   const handlePress = () => {
     if (currentQuestionIdx === questions.length - 1) {
+      setCurrentQuestionIdx(0);
+      setQuestions([]);
+      fetchQuestions();
       navigation.navigate('PartyEnd');
       return;
     }
@@ -33,11 +36,15 @@ const PlayCustomScreen = ({ navigation }) => {
     fetchData();
   }, []);
 
+  // the fetchQuestions function will get every questions from the active modes
   const fetchQuestions = async () => {
     try {
       for (const mode of modeList) {
         const modeQuestionsObj = await getQuestionsList(mode, userList);
-        for (const question of modeQuestionsObj) {
+        console.log('modeQuestionsObj: ', modeQuestionsObj);
+        const randomQuestions = await getRandomQuestions(modeQuestionsObj);
+        console.log('randomQuestions: ', randomQuestions);
+        for (const question of randomQuestions) {
           setQuestions((prevQuestions) => [...prevQuestions, question]);
         }
       }
@@ -48,7 +55,7 @@ const PlayCustomScreen = ({ navigation }) => {
   }
 
   React.useEffect(() => {
-    fetchQuestions();
+    fetchQuestions()
   }, [modeList]);
 
   return (
