@@ -25,6 +25,18 @@ export const addUser = async (user) => {
   }
 };
 
+export const deleteUser = async (userName) => {
+  try {
+    const users = await loadUsers();
+    const updatedUsers = users.filter(user => user.name !== userName);
+    await AsyncStorage.setItem('users', JSON.stringify(updatedUsers));
+    return updatedUsers;
+  } catch (error) {
+    console.error('Erreur lors de la suppression d\'un utilisateur : ', error);
+    return [];
+  }
+}
+
 export const toggleUserStatus = async (userName) => {
   try {
     const users = await loadUsers();

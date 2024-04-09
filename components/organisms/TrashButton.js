@@ -5,11 +5,11 @@ import { StyleSheet } from 'react-native';
 import { colors } from '../../assets/colors';
 import IconButton from '../molecules/IconButton';
 
-const TrashButton = ({ onPress }) => {
+const TrashButton = ({ onPress, style }) => {
   return (
     <IconButton
       onPress={onPress}
-      style={styles.container}
+      style={{ ...styles.container, ...style }}
       name="trash"
     />
   );

@@ -6,11 +6,11 @@ import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
 import CreateUserScreen from './src/screens/CreateUserScreen';
 import HomeScreen from './src/screens/HomeScreen';
-import ModesScreenCustom from './src/screens/ModesScreenCustom';
+import ModesScreenCustom from './src/screens/ModesScreen';
 import PartyEndScreen from './src/screens/PartyEndScreen';
-import PlayCustomScreen from './src/screens/PlayCustomScreen';
+import PlayCustomScreen from './src/screens/PlayScreen';
 import PlayFastScreen from './src/screens/PlayFastScreen';
-import UsersScreenCustom from './src/screens/UsersScreenCustom';
+import UsersScreenCustom from './src/screens/UsersScreen';
 
 const Stack = createStackNavigator();
 

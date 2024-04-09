@@ -1,4 +1,4 @@
-// src/screens/PlayCustomScreen.js
+// src/screens/PlayScreen.js
 
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
@@ -8,7 +8,8 @@ import QuestionSimpleComponent from '../../components/organisms/QuestionSimpleCo
 import { getActiveModes } from '../../services/mode';
 import { getQuestionsList } from '../../services/question';
 import { getActiveUsers } from '../../services/user';
-const PlayCustomScreen = ({ navigation }) => {
+
+const PlayScreen = ({ navigation }) => {
   const [modeList, setModeList] = React.useState([])
   const [userList, setUserList] = React.useState([])
   const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(0)
@@ -81,4 +82,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PlayCustomScreen;
+export default PlayScreen;
