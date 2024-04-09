@@ -28,7 +28,7 @@ const CreateUserScreen = ({ navigation }) => {
     setName('');
     setSelectedColor(colors.primary.creme);
     await addUser(newUser);
-    navigation.navigate('UsersCustom');
+    navigation.navigate('Users');
   };
 
   return (

@@ -60,7 +60,7 @@ const UsersScreen = ({ navigation }) => {
                     </View>
                 ))}
             </ScrollView>
-            <MenuButton color={colors.primary.red} text="Suivant" onPress={() => navigation.navigate('ModesCustom')} />
+            <MenuButton color={colors.primary.red} text="Suivant" onPress={() => navigation.navigate('Modes')} />
         </View>
     );
 };

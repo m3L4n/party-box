@@ -6,11 +6,10 @@ import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
 import CreateUserScreen from './src/screens/CreateUserScreen';
 import HomeScreen from './src/screens/HomeScreen';
-import ModesScreenCustom from './src/screens/ModesScreen';
+import ModesScreen from './src/screens/ModesScreen';
 import PartyEndScreen from './src/screens/PartyEndScreen';
-import PlayCustomScreen from './src/screens/PlayScreen';
-import PlayFastScreen from './src/screens/PlayFastScreen';
-import UsersScreenCustom from './src/screens/UsersScreen';
+import PlayScreen from './src/screens/PlayScreen';
+import UsersScreen from './src/screens/UsersScreen';
 
 const Stack = createStackNavigator();
 
@@ -39,10 +38,9 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="PlayFast" component={PlayFastScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="PlayCustom" component={PlayCustomScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="UsersCustom" component={UsersScreenCustom} options={{ headerShown: false }} />
-        <Stack.Screen name="ModesCustom" component={ModesScreenCustom} options={{ headerShown: false }} />
+        <Stack.Screen name="Play" component={PlayScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Users" component={UsersScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Modes" component={ModesScreen} options={{ headerShown: false }} />
         <Stack.Screen name="CreateUser" component={CreateUserScreen} options={{ headerShown: false }} />
         <Stack.Screen name="PartyEnd" component={PartyEndScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
