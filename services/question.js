@@ -1,13 +1,15 @@
 // services/question.js
-import Question from '../models/Question';
+import dataClassic from '../assets/questions/classic.json';
+import dataClassic2 from '../assets/questions/classic_2.json';
+import dataClassic3 from '../assets/questions/classic_3.json';
 
 export const getQuestionsList = async (mode, userList) => {
   try {
     switch (mode.name) {
       case 'classic':
         return await getClassicQuestions(userList);
-      case 'duel':
-        return await getDuelQuestions(userList);
+      // case 'duel':
+      //   return await getDuelQuestions(userList);
       default:
         return [];
     }
@@ -17,95 +19,78 @@ export const getQuestionsList = async (mode, userList) => {
   }
 }
 
-const getRandUser = (userList) => {
-  const randIdx = Math.floor(Math.random() * userList.length);
-  return userList[randIdx];
+const getRandomUsers = (userList, n) => {
+  n = Math.min(n, userList.length);
+  const copy = [...userList];
+  const ret = [];
+
+  for (let i = 0; i < n; i++) {
+    const randIdx = Math.floor(Math.random() * copy.length);
+    ret.push(copy[randIdx]);
+    copy.splice(randIdx, 1);
+  }
+
+
+  return ret;
 }
 
+const parseQuestion = (userList, question) => {
+  const count = (question.match(/\$\{user\}/g) || []).length;
+  let parsedQuestion = question;
+  let selectedUsers = getRandomUsers(userList, count);
+  for (let user of selectedUsers) {
+    parsedQuestion = parsedQuestion.replace('${user}', user.name);
+  }
+  return parsedQuestion;
+}
 
-const getDuelQuestions = async (userList) => {
+const getClassicQuestions = async (userList) => {
   try {
-    const questions = [
-      new Question(`${getRandUser(userList).name} et ${getRandUser(userList).name} vont faire un duel de regard, glouglou pour le perdant !`),
-      new Question(`${getRandUser(userList).name} et ${getRandUser(userList).name} vont faire un duel de danse, glouglou pour le perdant !`),
-      new Question(`${getRandUser(userList).name} et ${getRandUser(userList).name} vont faire un duel de chant, glouglou pour le perdant !`),
-      new Question(`${getRandUser(userList).name} et ${getRandUser(userList).name} vont faire un bras de fer, glouglou pour le perdant !`),
+    let questions = [
+      ...dataClassic.questions
     ];
+
+    questions.push(...dataClassic2.questions)
+    questions.push(...dataClassic3.questions)
+
+    questions.sort(() => Math.random() - 0.5);
+    questions = questions.slice(0, 50);
+
+    for (let question of questions) {
+      question.content = parseQuestion(userList, question.content);
+    }
+
     return questions.map((question, index) => ({
       id: index,
       content: question.content,
-      mode: 'duel'
+      mode: 'classic'
     }));
   } catch (error) {
-    console.error('Erreur lors du chargement des questions de duel : ', error);
+    console.error('Erreur lors du chargement des questions classiques : ', error);
     return [];
   }
 }
 
-const getClassicQuestions = async (userList) => {
-  // basic questions
-  const questions = [
-    new Question(`Vote ! En haut avoir des mains à la place des pieds, en bas avoir des pieds à la place de mains.`),
-    new Question(`Tout le monde va donner une qualité à la personne à sa gauche, ${getRandUser(userList).name} commence. Glouglou pour celui qui ne trouve pas!`),
-    new Question(`Si tu étais un animal, lequel serais-tu ? ${getRandUser(userList).name} commence.`),
-    new Question(`Tout le monde décrit une situation cocasse digne d'un film, ${getRandUser(userList).name} commence.`),
-    new Question(`Les animaux que tu peux mettre dans ta poche, ${getRandUser(userList).name} commence.`),
-    new Question(`Vote ! En haut, vivre éternellement, en bas, ne plus jamais vieillir.`),
-    new Question(`Vote ! Voyager dans le temps : en haut le future, en bas le passé.`),
-    new Question(`Vote ! En haut, devenir invisible, en bas devenir le boss de Google.`),
-    new Question(`Tout le monde designe celui qui s'endort le premier lors d'une soirée ! Glouglou pour le plus fatigué !`),
-    new Question(`${getRandUser(userList).name}, raconte-nous ta rencontre la plus insolite avec un animal.`),
-    new Question(`${getRandUser(userList).name} ton rendez-vous amoureux le plus rocambolesque.`),
-    new Question(`${getRandUser(userList).name} racconte ton moment le plus genant en public.`),
-    new Question(`${getRandUser(userList).name} décrit ton rêve le plus fou.`),
-    new Question(`${getRandUser(userList).name} dit nous la phobie la plus irrationnelle pour toi.`),
-  ];
+// const getDuelQuestions = async (userList) => {
+//   try {
+//     let questions = [
+//       ...dataDuel.questions
+//     ];
 
-  // questions with 2 users minimum
-  if (userList.length > 1) {
-    user1 = getRandUser(userList);
-    user2 = getRandUser(userList);
-    while (user1 === user2) {
-      user2 = getRandUser(userList);
-    }
-    const questions_two_users = [
-      new Question(`Vote ! Qui de ${user1.name} ou ${user2.name} est le plus susceptible de faire un meurtre sans se faire prendre ? Glouglou pour le meilleur assassin !`),
-      new Question(`Vote ! Qui de ${user2.name} ou ${user1.name} pourrai garder un lourd secret pendant des années ? Glouglou pour la balance !`),
-      new Question(`${user1.name} et ${user2.name} vont se faire un chi-fou-mi, glouglou pour le perdant !`),
-      new Question(`Qui de ${user2.name} ou ${user1.name} va verser une larme devant un film romantique ? Glouglou pour le gros dur !`),
-    ];
-    questions.push(...questions_two_users);
-  }
+//     questions.sort(() => Math.random() - 0.5);
+//     questions = questions.slice(0, 5);
 
-  // questions with 3 users minimum
-  if (userList.length > 2) {
-    user1 = getRandUser(userList);
-    user2 = getRandUser(userList);
-    user3 = getRandUser(userList);
-    while (user1 === user2 || user1 === user3 || user2 === user3) {
-      user1 = getRandUser(userList);
-      user2 = getRandUser(userList);
-      user3 = getRandUser(userList);
-    }
-    const questions_three_users = [
-      new Question(`Vote ! Qui de ${user1.name}, ${user2.name} ou ${user3.name} est le plus susceptible de faire un meurtre ?`),
-      new Question(`${user1.name} qui prendrais-tu entre ${user3.name} et ${user2.name} pour un road trip ?`),
-      new Question(`${user2.name} qui prendrais-tu entre ${user1.name} et ${user3.name} pour un braquage ?`),
-      new Question(`${user3.name} qui prendrais-tu entre ${user2.name} et ${user1.name} pour  ?`),
-    ];
-    questions.push(...questions_three_users);
-  }
+//     for (let question of questions) {
+//       question.content = parseQuestion(userList, question.content);
+//     }
 
-  return questions.map((question, index) => ({
-    id: index,
-    content: question.content,
-    mode: 'classic'
-  }));
-}
-
-export const getRandomQuestions = async (questions) => {
-  const stack = [...questions];
-  stack.sort(() => Math.random() - 0.5);
-  const ret = stack.slice(0, 15);
-  return ret;
-}
+//     return questions.map((question, index) => ({
+//       id: index,
+//       content: question.content,
+//       mode: 'duel'
+//     }));
+//   } catch (error) {
+//     console.error('Erreur lors du chargement des questions de duel : ', error);
+//     return [];
+//   }
+// }

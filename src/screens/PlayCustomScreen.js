@@ -1,13 +1,13 @@
 // src/screens/PlayCustomScreen.js
 
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { colors } from '../../assets/colors';
+import BackButton from '../../components/organisms/BackButton';
 import QuestionSimpleComponent from '../../components/organisms/QuestionSimpleComponent';
 import { getActiveModes } from '../../services/mode';
-import { getQuestionsList, getRandomQuestions } from '../../services/question';
+import { getQuestionsList } from '../../services/question';
 import { getActiveUsers } from '../../services/user';
-
 const PlayCustomScreen = ({ navigation }) => {
   const [modeList, setModeList] = React.useState([])
   const [userList, setUserList] = React.useState([])
@@ -39,7 +39,6 @@ const PlayCustomScreen = ({ navigation }) => {
     fetchData();
   }, []);
 
-  // the fetchQuestions function will get every questions from the active modes
   const fetchQuestions = async () => {
     try {
       let questionsList = [];
@@ -47,8 +46,7 @@ const PlayCustomScreen = ({ navigation }) => {
         const questionListObj = await getQuestionsList(mode, userList);
         questionsList.push(...questionListObj);
       }
-      const randomQuestions = await getRandomQuestions(questionsList);
-      for (const question of randomQuestions) {
+      for (const question of questionsList) {
         setQuestions((prevQuestions) => [...prevQuestions, question]);
       }
     }
@@ -62,20 +60,24 @@ const PlayCustomScreen = ({ navigation }) => {
   }, [modeList]);
 
   return (
-    <View style={{ ...styles.container, backgroundColor: randomColor }}>
-      <TouchableOpacity onPress={handlePress}>
-        {questions[currentQuestionIdx] && (
-          <QuestionSimpleComponent question={questions[currentQuestionIdx]} />
-        )}
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity onPress={handlePress} style={{ ...styles.container, backgroundColor: randomColor }}>
+      {(questions.length === 0 || userList.length === 0) &&
+        <BackButton navigation={navigation} />
+      }
+      {questions[currentQuestionIdx] && (
+        <QuestionSimpleComponent question={questions[currentQuestionIdx]} />
+      )}
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
     justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
   },
 });
 
