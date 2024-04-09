@@ -2,16 +2,16 @@
 
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import BackButton from '../../components/organisms/BackButton';
-import Text from '../atoms/CustomText';
+import Text from '../../components/atoms/CustomText';
+import HomeButton from '../../components/organisms/HomeButton';
 
-const SimpleQuestionCard = ({ question, navigation }) => {
+const QuestionSimpleComponent = ({ question, navigation }) => {
   const content = question.content;
   const mode = question.mode;
 
   return (
-    <View styles={{ ...styles.container, backgroundColor: 'red' }}>
-      <BackButton navigation={navigation} />
+    <View styles={{ ...styles.container }}>
+      <HomeButton navigation={navigation} />
       <Text>
         {mode}
       </Text>
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SimpleQuestionCard;
+export default QuestionSimpleComponent;

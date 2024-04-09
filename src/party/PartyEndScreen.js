@@ -10,7 +10,7 @@ const PartyEndScreen = ({ navigation }) => {
   return (
     <TouchableOpacity style={{ ...styles.container }} onPress={() => navigation.navigate('Home')}>
       <View>
-        <Text> Session finish !</Text>
+        <Text> Fin de la partie !</Text>
         <MenuButton color={colors.primary.green} text="Rejouer ?" onPress={() => navigation.navigate('Play')} />
       </View>
     </TouchableOpacity>

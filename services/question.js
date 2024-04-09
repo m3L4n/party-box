@@ -2,6 +2,7 @@
 import dataClassic from '../assets/questions/classic.json';
 import dataClassic2 from '../assets/questions/classic_2.json';
 import dataClassic3 from '../assets/questions/classic_3.json';
+import Question from '../models/Question';
 
 export const getQuestionsList = async (mode, userList) => {
   try {
@@ -46,25 +47,21 @@ const parseQuestion = (userList, question) => {
 
 const getClassicQuestions = async (userList) => {
   try {
-    let questions = [
-      ...dataClassic.questions
+    let questionsData = [
+      ...dataClassic.questions,
+      ...dataClassic2.questions,
+      ...dataClassic3.questions,
     ];
 
-    questions.push(...dataClassic2.questions)
-    questions.push(...dataClassic3.questions)
+    questionsData.sort(() => Math.random() - 0.5);
+    questionsData = questionsData.slice(0, 50);
 
-    questions.sort(() => Math.random() - 0.5);
-    questions = questions.slice(0, 50);
+    const questions = questionsData.map((questionData, index) => {
+      const parsedContent = parseQuestion(userList, questionData.content);
+      return new Question(index, parsedContent, "classic", questionData.options || []);
+    });
 
-    for (let question of questions) {
-      question.content = parseQuestion(userList, question.content);
-    }
-
-    return questions.map((question, index) => ({
-      id: index,
-      content: question.content,
-      mode: 'classic'
-    }));
+    return questions;
   } catch (error) {
     console.error('Erreur lors du chargement des questions classiques : ', error);
     return [];

@@ -4,40 +4,48 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { colors } from '../../assets/colors';
 import BackButton from '../../components/organisms/BackButton';
-import QuestionSimpleComponent from '../../components/organisms/QuestionSimpleComponent';
 import { getActiveModes } from '../../services/mode';
 import { getQuestionsList } from '../../services/question';
 import { getActiveUsers } from '../../services/user';
+import QuestionSimpleComponent from '../party/QuestionSimpleComponent';
 
 const PlayScreen = ({ navigation }) => {
   const [modeList, setModeList] = React.useState([])
   const [userList, setUserList] = React.useState([])
-  const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(0)
   const [questions, setQuestions] = React.useState([])
+  // const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(0)
 
-  const colors_list = [colors.secondary.blue, colors.secondary.green, colors.secondary.pink, colors.secondary.red, colors.secondary.yellow]
-  const randomColor = colors_list[Math.floor(Math.random() * colors_list.length)];
+  const colorsList = [colors.secondary.blue, colors.secondary.green, colors.secondary.pink, colors.secondary.red, colors.secondary.yellow]
 
   const handlePress = () => {
-    if (currentQuestionIdx === questions.length - 1) {
+    if (questions.length === 0) return;
+
+    if (questions.length === 1) {
       navigation.navigate('PartyEnd');
-      setCurrentQuestionIdx(0);
       setQuestions([]);
       fetchQuestions();
       return;
     }
-    setCurrentQuestionIdx(currentQuestionIdx + 1);
+
+    const nextQuestion = questions[1];
+    setQuestions((prevQuestions) => [nextQuestion, ...prevQuestions.slice(2)]);
   };
+  // const handlePress = () => {
+  //   if (currentQuestionIdx === questions.length - 1) {
+  //     navigation.navigate('PartyEnd');
+  //     setCurrentQuestionIdx(0);
+  //     setQuestions([]);
+  //     fetchQuestions();
+  //     return;
+  //   }
+  //   setCurrentQuestionIdx(currentQuestionIdx + 1);
+  // };
 
   const fetchData = React.useCallback(async () => {
     const users = await getActiveUsers();
     const modes = await getActiveModes();
     setUserList(users);
     setModeList(modes);
-  }, []);
-
-  React.useEffect(() => {
-    fetchData();
   }, []);
 
   const fetchQuestions = async () => {
@@ -57,16 +65,24 @@ const PlayScreen = ({ navigation }) => {
   }
 
   React.useEffect(() => {
-    fetchQuestions()
+    fetchData();
+  }, []);
+
+  React.useEffect(() => {
+    if (modeList.length > 0) {
+      fetchQuestions();
+    }
   }, [modeList]);
+
+  const randomColor = colorsList[Math.floor(Math.random() * colorsList.length)];
 
   return (
     <TouchableOpacity onPress={handlePress} style={{ ...styles.container, backgroundColor: randomColor }}>
       {(questions.length === 0 || userList.length === 0) &&
         <BackButton navigation={navigation} />
       }
-      {questions[currentQuestionIdx] && (
-        <QuestionSimpleComponent question={questions[currentQuestionIdx]} navigation={navigation} />
+      {questions[0] && (
+        <QuestionSimpleComponent question={questions[0]} navigation={navigation} />
       )}
     </TouchableOpacity>
   );

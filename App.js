@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import CreateUserScreen from './src/screens/CreateUserScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import ModesScreen from './src/screens/ModesScreen';
-import PartyEndScreen from './src/screens/PartyEndScreen';
+import PartyEndScreen from './src/party/PartyEndScreen';
 import PlayScreen from './src/screens/PlayScreen';
 import UsersScreen from './src/screens/UsersScreen';
 
