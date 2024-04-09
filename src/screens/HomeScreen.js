@@ -12,7 +12,6 @@ const HomeScreen = ({ navigation }) => {
             <Text style={{ ...styles.title }}>Glou</Text>
             <MenuButton color={colors.primary.green} text="Partie Rapide" onPress={() => navigation.navigate('PlayCustom')} />
             <MenuButton color={colors.primary.blue} text="Partie Custom" onPress={() => navigation.navigate('UsersCustom')} />
-            <MenuButton color={colors.primary.red} text="Parametres" onPress={() => navigation.navigate('Settings')} />
         </View>
     );
 };

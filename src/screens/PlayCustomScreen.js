@@ -65,7 +65,7 @@ const PlayCustomScreen = ({ navigation }) => {
         <BackButton navigation={navigation} />
       }
       {questions[currentQuestionIdx] && (
-        <QuestionSimpleComponent question={questions[currentQuestionIdx]} />
+        <QuestionSimpleComponent question={questions[currentQuestionIdx]} navigation={navigation} />
       )}
     </TouchableOpacity>
   );
