@@ -21,8 +21,8 @@ const BackButton = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        top: 10,
-        left: 10,
+        top: 20,
+        left: 20,
         zIndex: 99,
         fontSize: 30,
         color: 'black',

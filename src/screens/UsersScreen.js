@@ -9,7 +9,7 @@ import MenuButton from '../../components/molecules/MenuButton';
 import BackButton from '../../components/organisms/BackButton';
 import TrashButton from '../../components/organisms/TrashButton';
 import UserCard from '../../components/organisms/UserCard';
-import { deleteUser, loadUsers, toggleUserStatus } from "../../services/user";
+import { deleteUser, getActiveUsers, loadUsers, toggleUserStatus } from "../../services/user";
 
 const UsersScreen = ({ navigation }) => {
     const [userList, setUserList] = useState([]);
@@ -28,18 +28,28 @@ const UsersScreen = ({ navigation }) => {
         return unsubscribe;
     }, [navigation, fetchData]);
 
+
     const handleUserPress = async (userName) => {
         if (deleteMode) {
             const updatedUsers = await deleteUser(userName);
             setUserList(updatedUsers);
-            return;
+        } else {
+            const updatedUsers = await toggleUserStatus(userName);
+            setUserList(updatedUsers);
         }
-        const updatedUsers = await toggleUserStatus(userName);
-        setUserList(updatedUsers);
     };
 
     const toggleDeleteMode = async () => {
         setDeleteMode(!deleteMode);
+    }
+
+    const handleNextButtonPress = async () => {
+        const list = await getActiveUsers();
+        if (list.length === 0) {
+            alert('Veuillez sélectionner au moins un joueur');
+            return;
+        }
+        navigation.navigate('Modes');
     }
 
     return (
@@ -56,11 +66,11 @@ const UsersScreen = ({ navigation }) => {
                         {deleteMode && (
                             <TrashButton onPress={() => handleUserPress(user.name)} style={{ ...styles.trashButton }} />
                         )}
-                        <UserCard key={index} user={user} onPress={handleUserPress} />
+                        <UserCard key={index} user={user} onPress={(userName, isActive) => handleUserPress(userName, isActive)} />
                     </View>
                 ))}
             </ScrollView>
-            <MenuButton color={colors.primary.red} text="Suivant" onPress={() => navigation.navigate('Modes')} />
+            <MenuButton color={colors.primary.red} text="Suivant" onPress={handleNextButtonPress} />
         </View>
     );
 };

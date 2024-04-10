@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { colors } from '../../assets/colors';
 import BackButton from '../../components/organisms/BackButton';
+import HomeButton from '../../components/organisms/HomeButton';
 import { getActiveModes } from '../../services/mode';
 import { getQuestionsList } from '../../services/question';
 import { getActiveUsers } from '../../services/user';
@@ -73,7 +74,7 @@ const PlayScreen = ({ navigation }) => {
       }
       {questions[0] && (
         <React.Fragment>
-          <BackButton navigation={navigation} />
+          <HomeButton navigation={navigation} />
           <QuestionComponent question={questions[0]} />
         </React.Fragment>
       )}
