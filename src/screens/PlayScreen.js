@@ -3,6 +3,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { colors } from '../../assets/colors';
+import Text from '../../components/atoms/CustomText';
 import BackButton from '../../components/organisms/BackButton';
 import HomeButton from '../../components/organisms/HomeButton';
 import { getActiveModes } from '../../services/mode';
@@ -71,13 +72,16 @@ const PlayScreen = ({ navigation }) => {
   return (
     <TouchableOpacity onPress={handlePress} style={{ ...styles.container, backgroundColor: randomColor }}>
       {(questions.length === 0 || userList.length === 0) &&
-        <BackButton navigation={navigation} />
+        <>
+          <BackButton navigation={navigation} />
+          <Text>Chargement...</Text>
+        </>
       }
       {questions[0] && (
-        <React.Fragment>
+        <>
           <HomeButton navigation={navigation} />
           <QuestionComponent question={questions[0]} />
-        </React.Fragment>
+        </>
       )}
     </TouchableOpacity>
   );

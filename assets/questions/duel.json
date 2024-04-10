@@ -4,10 +4,16 @@
       "content": "${user} et ${user} jouent à Chi-Fu-Mi. Celui qui perd distribue un gage au vainqueur !"
     },
     {
-      "content": "${user} et ${user} A"
+      "content": "${user} et ${user} font une bataille de regard. Le premier qui détourne les yeux a perdu !"
     },
     {
-      "content": "${user} et ${user} B"
+      "content": "${user} et ${user} se lancent un défi : celui qui tient le plus longtemps en équilibre sur une jambe gagne !"
+    },
+    {
+      "content": "${user} et ${user} jouent à 'je te tiens, tu me tiens par la barbichette'. Le premier qui rit a perdu !"
+    },
+    {
+      "content": "${user} et ${user} font une bataille de pouces. Le premier qui se fait écraser a perdu !"
     }
   ]
 }

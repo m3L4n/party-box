@@ -4,11 +4,11 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import IconButton from '../molecules/IconButton';
 
-const AddButton = ({ onPress }) => {
+const AddButton = ({ onPress, style }) => {
   return (
     <IconButton
       onPress={onPress}
-      style={styles.container}
+      style={{ ...styles.container, ...style }}
       name="add"
     />
   );

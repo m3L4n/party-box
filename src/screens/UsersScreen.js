@@ -6,11 +6,11 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
+import AddButton from '../../components/organisms/AddButton';
 import BackButton from '../../components/organisms/BackButton';
 import TrashButton from '../../components/organisms/TrashButton';
 import UserCard from '../../components/organisms/UserCard';
 import { deleteUser, getActiveUsers, loadUsers, toggleUserStatus } from "../../services/user";
-import AddButton from '../../components/organisms/AddButton';
 
 const UsersScreen = ({ navigation }) => {
     const [userList, setUserList] = useState([]);
@@ -67,7 +67,7 @@ const UsersScreen = ({ navigation }) => {
                         <UserCard key={index} user={user} onPress={(userName, isActive) => handleUserPress(userName, isActive)} />
                     </View>
                 ))}
-                <AddButton onPress={() => navigation.navigate('CreateUser')} />
+                <AddButton onPress={() => navigation.navigate('CreateUser')} style={{ ...styles.addButton }} />
             </ScrollView>
             <MenuButton color={colors.primary.red} text="Suivant" onPress={handleNextButtonPress} />
         </View >
@@ -95,6 +95,10 @@ const styles = StyleSheet.create({
         color: 'black',
         marginBottom: 30,
     },
+    addButton: {
+        marginHorizontal: 16.1,
+        marginVertical: 40,
+    }
 });
 
 export default UsersScreen;

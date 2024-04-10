@@ -49,10 +49,11 @@ const parseQuestion = (userList, question) => {
 
 const getQuestions = async (userList, data, mode) => {
   try {
-    data.sort(() => Math.random() - 0.5);
-    data = data.slice(0, 50);
+    let dataToUse = data;
+    dataToUse.sort(() => Math.random() - 0.5);
+    dataToUse = dataToUse.slice(0, 30);
 
-    const questions = data.map((questionData, index) => {
+    const questions = dataToUse.map((questionData, index) => {
       const parsedContent = parseQuestion(userList, questionData.content);
       return new Question(index, parsedContent, mode, questionData.options || []);
     });
