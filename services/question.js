@@ -1,8 +1,7 @@
 // services/question.js
 
 import dataClassic from '../assets/questions/classic.json';
-// import dataClassic2 from '../assets/questions/classic_2.json';
-// import dataClassic3 from '../assets/questions/classic_3.json';
+import dataDuel from '../assets/questions/duel.json';
 import dataQuiz from '../assets/questions/quiz.json';
 import Question from '../models/Question';
 
@@ -10,9 +9,11 @@ export const getQuestionsList = async (mode, userList) => {
   try {
     switch (mode.name) {
       case 'classic':
-        return await getClassicQuestions(userList);
+        return await getQuestions(userList, [...dataClassic.questions], 'classic');
       case 'quiz':
-        return await getQuizQuestions(userList);
+        return await getQuestions(userList, [...dataQuiz.questions], 'quiz');
+      case 'duel':
+        return await getQuestions(userList, [...dataDuel.questions], 'duel');
       default:
         return [];
     }
@@ -46,48 +47,19 @@ const parseQuestion = (userList, question) => {
   return parsedQuestion;
 }
 
-const getClassicQuestions = async (userList) => {
+const getQuestions = async (userList, data, mode) => {
   try {
-    let questionsData = [
-      ...dataClassic.questions,
-      // ...dataClassic2.questions,
-      // ...dataClassic3.questions,
-    ];
+    data.sort(() => Math.random() - 0.5);
+    data = data.slice(0, 50);
 
-    questionsData.sort(() => Math.random() - 0.5);
-    questionsData = questionsData.slice(0, 50);
-
-    const questions = questionsData.map((questionData, index) => {
+    const questions = data.map((questionData, index) => {
       const parsedContent = parseQuestion(userList, questionData.content);
-      return new Question(index, parsedContent, "classic", questionData.options || []);
+      return new Question(index, parsedContent, mode, questionData.options || []);
     });
 
     return questions;
   } catch (error) {
-    console.error('Error while loading classic questions: ', error);
+    console.error('Error while loading ', mode, ' questions: ', error);
     return [];
   }
-}
-
-const getQuizQuestions = async (userList) => {
-  try {
-    let questionsData = [
-      ...dataQuiz.questions
-    ];
-
-    questionsData.sort(() => Math.random() - 0.5);
-    questionsData = questionsData.slice(0, 5);
-
-    const questions = questionsData.map((questionData, index) => {
-      const parsedContent = parseQuestion(userList, questionData.content);
-      return new Question(index, parsedContent, "quiz", questionData.options || []);
-    }
-    );
-
-    return questions;
-  }
-  catch (error) {
-    console.error('Error while loading quiz questions: ', error);
-    return [];
-  }
-}
+} 

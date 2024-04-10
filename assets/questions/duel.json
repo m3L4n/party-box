@@ -2,6 +2,12 @@
   "questions": [
     {
       "content": "${user} et ${user} jouent à Chi-Fu-Mi. Celui qui perd distribue un gage au vainqueur !"
+    },
+    {
+      "content": "${user} et ${user} A"
+    },
+    {
+      "content": "${user} et ${user} B"
     }
   ]
 }

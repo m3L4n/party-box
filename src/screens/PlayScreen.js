@@ -46,6 +46,7 @@ const PlayScreen = ({ navigation }) => {
         const questionListObj = await getQuestionsList(mode, userList);
         questionsList.push(...questionListObj);
       }
+      questionsList.sort(() => Math.random() - 0.5);
       for (const question of questionsList) {
         setQuestions((prevQuestions) => [...prevQuestions, question]);
       }
