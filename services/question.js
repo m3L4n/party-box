@@ -1,7 +1,9 @@
 // services/question.js
+
 import dataClassic from '../assets/questions/classic.json';
-import dataClassic2 from '../assets/questions/classic_2.json';
-import dataClassic3 from '../assets/questions/classic_3.json';
+// import dataClassic2 from '../assets/questions/classic_2.json';
+// import dataClassic3 from '../assets/questions/classic_3.json';
+import dataQuiz from '../assets/questions/quiz.json';
 import Question from '../models/Question';
 
 export const getQuestionsList = async (mode, userList) => {
@@ -9,13 +11,13 @@ export const getQuestionsList = async (mode, userList) => {
     switch (mode.name) {
       case 'classic':
         return await getClassicQuestions(userList);
-      // case 'duel':
-      //   return await getDuelQuestions(userList);
+      case 'quiz':
+        return await getQuizQuestions(userList);
       default:
         return [];
     }
   } catch (error) {
-    console.error('Erreur lors du chargement des questions : ', error);
+    console.error('Error while loading questions: ', error);
     return [];
   }
 }
@@ -30,7 +32,6 @@ const getRandomUsers = (userList, n) => {
     ret.push(copy[randIdx]);
     copy.splice(randIdx, 1);
   }
-
 
   return ret;
 }
@@ -49,8 +50,8 @@ const getClassicQuestions = async (userList) => {
   try {
     let questionsData = [
       ...dataClassic.questions,
-      ...dataClassic2.questions,
-      ...dataClassic3.questions,
+      // ...dataClassic2.questions,
+      // ...dataClassic3.questions,
     ];
 
     questionsData.sort(() => Math.random() - 0.5);
@@ -63,31 +64,30 @@ const getClassicQuestions = async (userList) => {
 
     return questions;
   } catch (error) {
-    console.error('Erreur lors du chargement des questions classiques : ', error);
+    console.error('Error while loading classic questions: ', error);
     return [];
   }
 }
 
-// const getDuelQuestions = async (userList) => {
-//   try {
-//     let questions = [
-//       ...dataDuel.questions
-//     ];
+const getQuizQuestions = async (userList) => {
+  try {
+    let questionsData = [
+      ...dataQuiz.questions
+    ];
 
-//     questions.sort(() => Math.random() - 0.5);
-//     questions = questions.slice(0, 5);
+    questionsData.sort(() => Math.random() - 0.5);
+    questionsData = questionsData.slice(0, 5);
 
-//     for (let question of questions) {
-//       question.content = parseQuestion(userList, question.content);
-//     }
+    const questions = questionsData.map((questionData, index) => {
+      const parsedContent = parseQuestion(userList, questionData.content);
+      return new Question(index, parsedContent, "quiz", questionData.options || []);
+    }
+    );
 
-//     return questions.map((question, index) => ({
-//       id: index,
-//       content: question.content,
-//       mode: 'duel'
-//     }));
-//   } catch (error) {
-//     console.error('Erreur lors du chargement des questions de duel : ', error);
-//     return [];
-//   }
-// }
+    return questions;
+  }
+  catch (error) {
+    console.error('Error while loading quiz questions: ', error);
+    return [];
+  }
+}

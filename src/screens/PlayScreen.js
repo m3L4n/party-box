@@ -1,26 +1,26 @@
 // src/screens/PlayScreen.js
 
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { colors } from '../../assets/colors';
 import BackButton from '../../components/organisms/BackButton';
 import { getActiveModes } from '../../services/mode';
 import { getQuestionsList } from '../../services/question';
 import { getActiveUsers } from '../../services/user';
-import QuestionSimpleComponent from '../party/QuestionSimpleComponent';
+import QuestionComponent from '../party/QuestionComponent';
 
 const PlayScreen = ({ navigation }) => {
-  const [modeList, setModeList] = React.useState([])
-  const [userList, setUserList] = React.useState([])
-  const [questions, setQuestions] = React.useState([])
-  // const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(0)
+  const [modeList, setModeList] = useState([])
+  const [userList, setUserList] = useState([])
+  const [questions, setQuestions] = useState([])
 
   const colorsList = [colors.secondary.blue, colors.secondary.green, colors.secondary.pink, colors.secondary.red, colors.secondary.yellow]
 
-  const handlePress = () => {
+  const handlePress = async () => {
     if (questions.length === 0) return;
 
     if (questions.length === 1) {
+      setQuestions([]);
       navigation.navigate('PartyEnd');
       setQuestions([]);
       fetchQuestions();
@@ -30,25 +30,15 @@ const PlayScreen = ({ navigation }) => {
     const nextQuestion = questions[1];
     setQuestions((prevQuestions) => [nextQuestion, ...prevQuestions.slice(2)]);
   };
-  // const handlePress = () => {
-  //   if (currentQuestionIdx === questions.length - 1) {
-  //     navigation.navigate('PartyEnd');
-  //     setCurrentQuestionIdx(0);
-  //     setQuestions([]);
-  //     fetchQuestions();
-  //     return;
-  //   }
-  //   setCurrentQuestionIdx(currentQuestionIdx + 1);
-  // };
 
-  const fetchData = React.useCallback(async () => {
+  const fetchData = useCallback(async () => {
     const users = await getActiveUsers();
     const modes = await getActiveModes();
     setUserList(users);
     setModeList(modes);
   }, []);
 
-  const fetchQuestions = async () => {
+  const fetchQuestions = useCallback(async () => {
     try {
       let questionsList = [];
       for (const mode of modeList) {
@@ -60,15 +50,15 @@ const PlayScreen = ({ navigation }) => {
       }
     }
     catch (error) {
-      console.error('Erreur lors du chargement des questions fetch: ', error);
+      console.error('Error while fetch questions: ', error);
     }
-  }
+  });
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchData();
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (modeList.length > 0) {
       fetchQuestions();
     }
@@ -82,7 +72,10 @@ const PlayScreen = ({ navigation }) => {
         <BackButton navigation={navigation} />
       }
       {questions[0] && (
-        <QuestionSimpleComponent question={questions[0]} navigation={navigation} />
+        <React.Fragment>
+          <BackButton navigation={navigation} />
+          <QuestionComponent question={questions[0]} />
+        </React.Fragment>
       )}
     </TouchableOpacity>
   );
@@ -91,10 +84,9 @@ const PlayScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
+    padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
   },
 });
 

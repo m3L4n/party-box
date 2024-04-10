@@ -44,9 +44,9 @@ const UsersScreen = ({ navigation }) => {
 
     return (
         <View style={{ ...styles.container }}>
+            <BackButton navigation={navigation} />
             <Text style={{ ...styles.title }}>Users</Text>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%' }}>
-                <BackButton navigation={navigation} />
                 <MenuButton color={colors.primary.green} text="Ajouter un utilisateur" onPress={() => navigation.navigate('CreateUser')} />
                 <TrashButton onPress={toggleDeleteMode} />
             </View>

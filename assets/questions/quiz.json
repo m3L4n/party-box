@@ -1,0 +1,16 @@
+{
+  "questions": [
+    {
+      "content": "Les animaux que tu peux mettre dans ta poche. ${user} commence. Un gage pour celui qui ne trouve pas !",
+      "options": [
+        "Pouet"
+      ]
+    },
+    {
+      "content": "Tout le monde va donner une qualité à la personne à sa gauche. ${user} commence. Un gage pour celui qui ne trouve pas !",
+      "options": [
+        "Pouet"
+      ]
+    }
+  ]
+}

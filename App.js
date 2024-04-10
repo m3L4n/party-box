@@ -4,10 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
+import PartyEndScreen from './src/party/PartyEndScreen';
 import CreateUserScreen from './src/screens/CreateUserScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import ModesScreen from './src/screens/ModesScreen';
-import PartyEndScreen from './src/party/PartyEndScreen';
 import PlayScreen from './src/screens/PlayScreen';
 import UsersScreen from './src/screens/UsersScreen';
 
@@ -24,7 +24,7 @@ const App = () => {
         });
         setFontsLoaded(true);
       } catch (error) {
-        console.error('Erreur lors du chargement des polices : ', error);
+        console.error('Error while loading fonts: ', error);
       }
     };
     loadFonts();
