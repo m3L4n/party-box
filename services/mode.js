@@ -46,7 +46,7 @@ export const toggleModeStatus = async (modeName) => {
 
 export const deleteAllModes = async () => {
   try {
-    await AsyncStorage.clear();
+    await AsyncStorage.removeItem('modes');
   } catch (error) {
     console.error('Erreur lors de la suppression des modes : ', error);
   }

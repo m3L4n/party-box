@@ -17,6 +17,10 @@ const TrashButton = ({ onPress, style }) => {
 
 const styles = StyleSheet.create({
   container: {
+    position: 'absolute',
+    top: 50,
+    right: 20,
+    zIndex: 99,
     fontSize: 30,
     color: 'black',
     backgroundColor: colors.primary.red,

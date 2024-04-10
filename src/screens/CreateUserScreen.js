@@ -46,7 +46,7 @@ const CreateUserScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 100,
+    paddingBottom: 120,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '90%',
+    width: '85%',
+    gap: 10,
   },
 });
 

@@ -21,7 +21,7 @@ const HomeButton = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: 20,
+    top: 50,
     left: 20,
     zIndex: 99,
     fontSize: 30,

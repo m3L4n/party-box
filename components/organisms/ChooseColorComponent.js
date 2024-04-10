@@ -35,7 +35,7 @@ const ChooseColorComponent = ({ onPress, active }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    gap: 5,
+    gap: 10,
   },
 });
 

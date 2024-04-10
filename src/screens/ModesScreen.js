@@ -10,10 +10,14 @@ import MenuButton from "../../components/molecules/MenuButton";
 import BackButton from "../../components/organisms/BackButton";
 import ModeCard from "../../components/organisms/ModeCard";
 import Mode from "../../models/Mode";
-import { addMode, getActiveModes, loadModes, toggleModeStatus } from "../../services/mode";
+import { addMode, deleteAllModes, getActiveModes, loadModes, toggleModeStatus } from "../../services/mode";
 
 const ModesScreen = ({ navigation }) => {
   const [modeList, setModeList] = useState([]);
+
+  useEffect(() => {
+    prefillModes();
+  }, []);
 
   const fetchData = useCallback(async () => {
     const modes = await loadModes();
@@ -26,12 +30,10 @@ const ModesScreen = ({ navigation }) => {
   };
 
   const prefillModes = async () => {
-    const existingModes = await loadModes();
-    if (existingModes.length <= 0) {
-      for (const modeData of modesData.modes) {
-        const newMode = new Mode(modeData.name);
-        await addMode(newMode);
-      }
+    deleteAllModes();
+    for (const modeData of modesData.modes) {
+      const newMode = new Mode(modeData.name);
+      await addMode(newMode);
     }
     fetchData();
   }
@@ -45,9 +47,7 @@ const ModesScreen = ({ navigation }) => {
     navigation.navigate('Play');
   }
 
-  useEffect(() => {
-    prefillModes();
-  }, []);
+
 
   return (
     <View style={{ ...styles.container }}>

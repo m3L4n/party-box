@@ -1,9 +1,9 @@
 {
   "questions": [
     {
-      "content": "Les animaux que tu peux mettre dans ta poche. ${user} commence. Un gage pour celui qui ne trouve pas !",
+      "content": "Qui a decouvert l'Amérique ?",
       "options": [
-        "Pouet"
+        "Christophe Colomb"
       ]
     },
     {

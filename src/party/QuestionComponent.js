@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 
@@ -11,18 +11,18 @@ const QuestionComponent = ({ question }) => {
       setResponse(null);
     }, [question]);
     return (
-      <View>
-        <Text>{question.mode}</Text>
+      <View style={{ ...styles.container }}>
+        <Text style={{ ...styles.title }}>{question.mode}</Text>
         <Text>{question.content}</Text>
-        <MenuButton text={response ? response : "response"} onPress={() => setResponse(question.options[0])} />
+        <MenuButton text={response ? response : "response"} onPress={() => setResponse(question.options[0])} style={styles.button} />
       </View>
     );
   };
 
   const renderDefaultQuestion = () => {
     return (
-      <View>
-        <Text>{question.mode}</Text>
+      <View style={{ ...styles.container }}>
+        <Text style={{ ...styles.title }}>{question.mode}</Text>
         <Text>{question.content}</Text>
       </View>
     );
@@ -35,5 +35,25 @@ const QuestionComponent = ({ question }) => {
       return renderDefaultQuestion();
   }
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 50,
+    fontFamily: 'BebasNeue-Regular',
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  button: {
+    position: 'absolute',
+    bottom: 50,
+    zIndex: 99,
+  }
+});
 
 export default QuestionComponent;
