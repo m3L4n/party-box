@@ -46,8 +46,8 @@ const UsersScreen = ({ navigation }) => {
 
     const handleNextButtonPress = async () => {
         const list = await getActiveUsers();
-        if (list.length === 0) {
-            alert('Veuillez sélectionner au moins un joueur');
+        if (list.length <= 1) {
+            alert('Veuillez sélectionner au moins deux joueurs !');
             return;
         }
         navigation.navigate('Modes');
