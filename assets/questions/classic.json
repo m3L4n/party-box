@@ -1,16 +1,16 @@
 {
   "questions": [
     {
-      "content": "1Les animaux que tu peux mettre dans ta poche. ${user} commence. Un gage pour celui qui ne trouve pas !"
+      "content": "Les animaux que tu peux mettre dans ta poche. ${user} commence. Un gage pour celui qui ne trouve pas !"
     },
     {
-      "content": "2Tout le monde va donner une qualité à la personne à sa gauche. ${user} commence. Un gage pour celui qui ne trouve pas !"
+      "content": "Tout le monde va donner une qualité à la personne à sa gauche. ${user} commence. Un gage pour celui qui ne trouve pas !"
     },
     {
-      "content": "3Tout le monde décrit une situation cocasse qui lui est arrivée. Le gagnant distribue un gage. ${user} commence."
+      "content": "Tout le monde décrit une situation cocasse qui lui est arrivée. Le gagnant distribue un gage. ${user} commence."
     },
     {
-      "content": "4Tout le monde imite ${user}. Un gage pour la meilleure imitation !"
+      "content": "Tout le monde imite ${user}. Un gage pour la meilleure imitation !"
     },
     {
       "content": "Vote ! En haut, vivre éternellement, en bas ne plus jamais vieillir. Un gage pour les perdants !"
