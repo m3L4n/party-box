@@ -4,6 +4,7 @@ import dataClassic1 from '../assets/questions/classic/classic.json';
 import dataDuel1 from '../assets/questions/duel/duel.json';
 import dataQuiz1 from '../assets/questions/quiz/quiz.json';
 import dataQuiz2 from '../assets/questions/quiz/quiz_cinema.json';
+import dataQuiz3 from '../assets/questions/quiz/quiz_geography.json';
 import Question from '../models/Question';
 
 export const getQuestionsList = async (mode, userList) => {
@@ -11,14 +12,19 @@ export const getQuestionsList = async (mode, userList) => {
   try {
     switch (mode.name) {
       case 'classic':
-        return await getQuestions(userList, [...dataClassic1.questions], 'classic');
+        return await getQuestions(userList, [
+          ...dataClassic1.questions
+        ], 'classic');
       case 'quiz':
         return await getQuestions(userList, [
           ...dataQuiz1.questions,
           ...dataQuiz2.questions,
+          ...dataQuiz3.questions,
         ], 'quiz');
       case 'duel':
-        return await getQuestions(userList, [...dataDuel1.questions], 'duel');
+        return await getQuestions(userList, [
+          ...dataDuel1.questions
+        ], 'duel');
       default:
         return [];
     }
@@ -57,6 +63,14 @@ const getQuestions = async (userList, data, mode) => {
     let dataToUse = data;
     dataToUse.sort(() => Math.random() - 0.5);
     dataToUse = dataToUse.slice(0, 30);
+
+    while (dataToUse.length < 30) {
+      dataToUse = dataToUse.concat(dataToUse);
+    }
+
+    if (dataToUse.length > 30) {
+      dataToUse = dataToUse.slice(0, 30);
+    }
 
     const questions = dataToUse.map((questionData, index) => {
       const parsedContent = parseQuestion(userList, questionData.content);

@@ -24,7 +24,11 @@ const CreateUserScreen = ({ navigation }) => {
   }
 
   const handleAddUser = async () => {
-    const newUser = new User(name, selectedColor);
+    if (name.length <= 0) {
+      alert('Veuillez entrer un nom');
+      return;
+    }
+    const newUser = new User(name.toLowerCase(), selectedColor);
     setName('');
     setSelectedColor(colors.primary.creme);
     await addUser(newUser);

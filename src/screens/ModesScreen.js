@@ -58,10 +58,8 @@ const ModesScreen = ({ navigation }) => {
   return (
     <View style={{ ...styles.container }}>
       <BackButton navigation={navigation} />
+      <ReloadButton onPress={handleReloadPress} />
       <Text style={{ ...styles.title }}>Modes</Text>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%' }}>
-        <ReloadButton onPress={handleReloadPress} />
-      </View>
       <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
         {modeList.map((mode, index) => (
           <ModeCard key={index} mode={mode} onPress={handleModePress} />
