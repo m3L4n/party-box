@@ -1,19 +1,24 @@
 // services/question.js
 
-import dataClassic from '../assets/questions/classic.json';
-import dataDuel from '../assets/questions/duel.json';
-import dataQuiz from '../assets/questions/quiz.json';
+import dataClassic1 from '../assets/questions/classic/classic.json';
+import dataDuel1 from '../assets/questions/duel/duel.json';
+import dataQuiz1 from '../assets/questions/quiz/quiz.json';
+import dataQuiz2 from '../assets/questions/quiz/quiz_cinema.json';
 import Question from '../models/Question';
 
 export const getQuestionsList = async (mode, userList) => {
+
   try {
     switch (mode.name) {
       case 'classic':
-        return await getQuestions(userList, [...dataClassic.questions], 'classic');
+        return await getQuestions(userList, [...dataClassic1.questions], 'classic');
       case 'quiz':
-        return await getQuestions(userList, [...dataQuiz.questions], 'quiz');
+        return await getQuestions(userList, [
+          ...dataQuiz1.questions,
+          ...dataQuiz2.questions,
+        ], 'quiz');
       case 'duel':
-        return await getQuestions(userList, [...dataDuel.questions], 'duel');
+        return await getQuestions(userList, [...dataDuel1.questions], 'duel');
       default:
         return [];
     }

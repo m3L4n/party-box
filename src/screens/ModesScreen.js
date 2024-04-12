@@ -9,8 +9,9 @@ import Text from "../../components/atoms/CustomText";
 import MenuButton from "../../components/molecules/MenuButton";
 import BackButton from "../../components/organisms/BackButton";
 import ModeCard from "../../components/organisms/ModeCard";
+import ReloadButton from "../../components/organisms/ReloadButton";
 import Mode from "../../models/Mode";
-import { addMode, getActiveModes, loadModes, toggleModeStatus } from "../../services/mode";
+import { addMode, deleteAllModes, getActiveModes, loadModes, toggleModeStatus } from "../../services/mode";
 
 const ModesScreen = ({ navigation }) => {
   const [modeList, setModeList] = useState([]);
@@ -45,9 +46,10 @@ const ModesScreen = ({ navigation }) => {
     navigation.navigate('Play');
   }
 
-  //   deleteAllModes();
-  //   await prefillModes();
-  // }
+  const handleReloadPress = async () => {
+    deleteAllModes();
+    await prefillModes();
+  }
 
   useEffect(() => {
     prefillModes();
@@ -57,9 +59,9 @@ const ModesScreen = ({ navigation }) => {
     <View style={{ ...styles.container }}>
       <BackButton navigation={navigation} />
       <Text style={{ ...styles.title }}>Modes</Text>
-      {/* <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%' }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '80%' }}>
         <ReloadButton onPress={handleReloadPress} />
-      </View> */}
+      </View>
       <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
         {modeList.map((mode, index) => (
           <ModeCard key={index} mode={mode} onPress={handleModePress} />

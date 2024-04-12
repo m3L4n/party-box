@@ -44,10 +44,13 @@ const PlayScreen = ({ navigation }) => {
     try {
       let questionsList = [];
       for (const mode of modeList) {
+        console.log('try mode')
         const questionListObj = await getQuestionsList(mode, userList);
         questionsList.push(...questionListObj);
       }
+      console.log('mode done')
       questionsList.sort(() => Math.random() - 0.5);
+      console.log('random done')
       for (const question of questionsList) {
         setQuestions((prevQuestions) => [...prevQuestions, question]);
       }
