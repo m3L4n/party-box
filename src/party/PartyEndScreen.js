@@ -1,27 +1,25 @@
 // src/screens/PartyEnd.js
 
 import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
-import { colors } from "../../assets/colors";
+import { StyleSheet, View } from 'react-native';
 import Text from "../../components/atoms/CustomText";
-import MenuButton from "../../components/molecules/MenuButton";
 
-const PartyEndScreen = ({ navigation }) => {
+const PartyEndScreen = ({ navigation, questions }) => {
+
   return (
-    <TouchableOpacity style={{ ...styles.container }} onPress={() => navigation.navigate('Home')}>
+    <View style={{ ...styles.container }}>
       <Text style={{ ...styles.title }}> Fin de la partie !</Text>
-      <MenuButton color={colors.primary.green} text="Rejouer ?" onPress={() => navigation.navigate('Play')} />
-    </TouchableOpacity>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    zIndex: 99,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
-    backgroundColor: colors.secondary.pink,
   },
   title: {
     fontSize: 50,

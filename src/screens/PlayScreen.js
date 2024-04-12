@@ -9,23 +9,27 @@ import HomeButton from '../../components/organisms/HomeButton';
 import { getActiveModes } from '../../services/mode';
 import { getQuestionsList } from '../../services/question';
 import { getActiveUsers } from '../../services/user';
+import PartyEndScreen from '../party/PartyEndScreen';
 import QuestionComponent from '../party/QuestionComponent';
 
 const PlayScreen = ({ navigation }) => {
   const [modeList, setModeList] = useState([])
   const [userList, setUserList] = useState([])
   const [questions, setQuestions] = useState([])
+  const [end, setEnd] = useState(false)
 
   const colorsList = [colors.secondary.blue, colors.secondary.green, colors.secondary.pink, colors.secondary.red, colors.secondary.yellow]
 
   const handlePress = async () => {
     if (questions.length === 0) return;
 
+    if (end) {
+      navigation.navigate('Home');
+      return;
+    }
+
     if (questions.length === 1) {
-      setQuestions([]);
-      navigation.navigate('PartyEnd');
-      setQuestions([]);
-      fetchQuestions();
+      setEnd(true);
       return;
     }
 
@@ -48,6 +52,7 @@ const PlayScreen = ({ navigation }) => {
         questionsList.push(...questionListObj);
       }
       questionsList.sort(() => Math.random() - 0.5);
+      questionsList = questionsList.slice(0, 2);
       for (const question of questionsList) {
         setQuestions((prevQuestions) => [...prevQuestions, question]);
       }
@@ -77,7 +82,11 @@ const PlayScreen = ({ navigation }) => {
           <Text>Chargement...</Text>
         </>
       }
-      {questions[0] && (
+      {end && (
+        <PartyEndScreen navigation={navigation} questions={questions} />
+      )
+      }
+      {!end && questions[0] && (
         <>
           <HomeButton navigation={navigation} />
           <QuestionComponent question={questions[0]} />
