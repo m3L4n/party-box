@@ -1,6 +1,7 @@
 // services/question.js
 
 import dataClassic1 from '../assets/questions/classic/classic.json';
+import dataClassic2 from '../assets/questions/classic/classic_vote.json';
 import dataDuel1 from '../assets/questions/duel/duel.json';
 import dataQuiz1 from '../assets/questions/quiz/quiz.json';
 import dataQuiz2 from '../assets/questions/quiz/quiz_cinema.json';
@@ -13,7 +14,8 @@ export const getQuestionsList = async (mode, userList) => {
     switch (mode.name) {
       case 'classic':
         return await getQuestions(userList, [
-          ...dataClassic1.questions
+          ...dataClassic1.questions,
+          ...dataClassic2.questions
         ], 'classic');
       case 'quiz':
         return await getQuestions(userList, [

@@ -13,151 +13,64 @@
       "content": "Tout le monde imite ${user}. Un gage pour la meilleure imitation !"
     },
     {
-      "content": "Vote ! En haut, vivre éternellement, en bas ne plus jamais vieillir. Un gage pour les perdants !"
+      "content": "${user}, raconte-nous ton experience la plus folle avec un animal."
     },
     {
-      "content": "Vote ! Voyager dans le temps : en haut le futur, en bas le passé. Un gage pour les perdants !"
-    },
-    {
-      "content": "Vote ! En haut, devenir invisible, en bas pouvoir te téléporter. Un gage pour les perdants !"
-    },
-    {
-      "content": "Vote ! En haut avoir des mains à la place des pieds, en bas avoir des pieds à la place de mains. Un gage pour les perdants !"
-    },
-    {
-      "content": "Vote ! ${user} est-il plus susceptible de devenir président ou une star de cinéma ?"
-    },
-    {
-      "content": "Vote ! ${user} serait-il plus efficace pour survivre dans une apocalypse zombie ou extraterrestre ?"
-    },
-    {
-      "content": "Vote ! ${user} serait-il plus susceptible de devenir un artiste renommé ou un scientifique éminent ?"
-    },
-    {
-      "content": "Vote ! En haut, posséder une bibliothèque infinie, en bas, posséder une collection illimitée de films. Un gage pour les perdants !"
-    },
-    {
-      "content": "${user}, raconte-nous ta rencontre la plus insolite avec un animal."
-    },
-    {
-      "content": "${user}, ton rendez-vous amoureux le plus insolite."
+      "content": "${user}, ton 'date' le plus fou."
     },
     {
       "content": "${user}, raconte ton moment le plus gênant en public."
     },
     {
-      "content": "${user}, décrit ton rêve le plus fou."
-    },
-    {
       "content": "${user}, dis-nous ta phobie."
     },
     {
-      "content": "${user}, raconte-nous ta meilleure blague, courte et drôle."
-    },
-    {
-      "content": "${user}, si tu pouvais échanger ta vie avec une célébrité pour une journée, qui choisirais-tu ?"
+      "content": "${user}, raconte-nous ta meilleure blague."
     },
     {
       "content": "${user}, si tu étais une chanson, laquelle serais-tu ?"
     },
     {
-      "content": "${user}, décris ta journée idéale de A à Z."
+      "content": "${user} et ${user}, faite un concours d'anecdotes !"
     },
     {
-      "content": "Vote ! En haut, devenir invisible, en bas pouvoir voler. Un gage pour les perdants !"
+      "content": "${user}, tu dois choisir un plat le reste de ta vie, quel ?"
     },
     {
-      "content": "Vote ! En haut, être le meilleur cuisinier, en bas être le meilleur danseur. Un gage pour les perdants !"
+      "content": "${user}, raconte une expérience culinaire qui t'a marquée."
     },
     {
-      "content": "Vote ! ${user} serait-il plus efficace pour résoudre une énigme policière ou une énigme mathématique ?"
+      "content": "${user}, si tu pouvais voyager dans le temps, quelle époque choisirais-tu ? Pourquoi ?"
     },
     {
-      "content": "Vote ! En haut, avoir un super pouvoir de téléportation, en bas avoir la capacité de lire dans les pensées. Un gage pour les perdants !"
+      "content": "${user} choisi un livre a recommander à tout le monde et pourquoi ?"
     },
     {
-      "content": "Vote ! ${user} serait-il plus susceptible de survivre dans un désert ou dans une forêt dense ?"
+      "content": "${user}, quelle est la qualité que tu apprécies le plus chez ${user} ?"
     },
     {
-      "content": "Vote ! En haut, passer une journée avec ton acteur préféré, en bas, passer une journée avec ton musicien préféré. Un gage pour les perdants !"
+      "content": "${user}, si tu pouvais apprendre instantanément une compétence, laquelle choisirais-tu ? Et pourquoi le kung-fu ?"
     },
     {
-      "content": "${user}, raconte-nous une anecdote drôle qui t'est arrivée récemment."
-    },
-    {
-      "content": "${user}, si tu pouvais avoir un repas gratuit tous les jours pour le reste de ta vie, quel serait-il ?"
-    },
-    {
-      "content": "${user}, décris la meilleure fête à laquelle tu aies jamais participé."
-    },
-    {
-      "content": "Vote ! ${user} serait-il plus efficace pour gérer une crise politique ou une crise technologique ? Un gage pour les perdants !"
-    },
-    {
-      "content": "Vote ! En haut, être capable de parler toutes les langues du monde, en bas, être un génie en mathématiques. Un gage pour les perdants !"
-    },
-    {
-      "content": "${user}, raconte une expérience culinaire unique que tu as eue."
-    },
-    {
-      "content": "${user}, si tu pouvais voyager dans le temps, quelle époque choisirais-tu ?"
-    },
-    {
-      "content": "${user}, quelle est la chose la plus courageuse que tu aies jamais faite et pourquoi ?"
-    },
-    {
-      "content": "${user}, si tu pouvais voyager dans le temps, quelle période aimerais-tu visiter et pourquoi ?"
-    },
-    {
-      "content": "${user}, quel est ton plus grand rêve ou ambition dans la vie ?"
-    },
-    {
-      "content": "${user}, si tu devais choisir un seul livre à recommander à tout le monde, lequel serait-ce et pourquoi ?"
-    },
-    {
-      "content": "${user}, quelle est la qualité que tu apprécies le plus chez un ami et pourquoi ?"
-    },
-    {
-      "content": "${user}, si tu pouvais apprendre instantanément une compétence, laquelle choisirais-tu ?"
-    },
-    {
-      "content": "${user}, quelle est la plus grande leçon que tu aies apprise cette dernière année ?"
-    },
-    {
-      "content": "${user}, si tu pouvais rencontrer une personne célèbre, vivante ou décédée, qui choisirais-tu et pourquoi ?"
-    },
-    {
-      "content": "${user}, quel est ton endroit préféré sur terre et qu'est-ce qui le rend spécial pour toi ?"
-    },
-    {
-      "content": "${user}, si tu pouvais changer quelque chose dans le monde, quelle serait cette chose ?"
+      "content": "${user} partage la plus grande leçon que tu aies apprise cette année."
     },
     {
       "content": "${user}, si tu devenais soudainement du sexe opposé, que ferais-tu en premier ?"
     },
     {
-      "content": "${user}, quel serait le plus grand défi pour toi si tu étais soudainement du sexe opposé ?"
+      "content": "${user}, quel serait le plus grand défi pour toi si tu étais soudainement aveugle ?"
     },
     {
-      "content": "${user}, quelles différences ou similitudes entre les sexes trouves-tu les plus fascinantes ?"
-    },
-    {
-      "content": "${user}, quel est ton plat préféré et qu'est-ce qui le rend si spécial pour toi ?"
-    },
-    {
-      "content": "${user}, quel style de musique apprécies-tu le plus et pourquoi ?"
+      "content": "${user}, quel serait le plus grand défi pour toi si tu étais soudainement sourd ?"
     },
     {
       "content": "${user}, quel artiste ou groupe écoutes-tu le plus souvent en ce moment ?"
     },
     {
-      "content": "${user}, quelle est ta région ou ton pays préféré et pourquoi ?"
-    },
-    {
       "content": "${user} fait une imitation de quelqu'un de célèbre, celui qui devine distribue un gage."
     },
     {
-      "content": "${user} raconte une blague et essaie de faire rire tout le monde ou reçoit un gage."
+      "content": "${user} a 1 minutes pour raconte une blague et essayer de faire rire tout le monde sinon il reçoit un gage."
     },
     {
       "content": "${user} fais un tour de magie avec des objets courants ou reçoit un gage."
@@ -169,127 +82,40 @@
       "content": "${user} fais une danse improvisée sur la chanson de votre choix ou reçoit un gage."
     },
     {
-      "content": "${user} improvise un poème absurde sur le thème de la pizza ou reçoit un gage."
+      "content": "${user} joue une scène improvisée d'un film célèbre. Celui qui devine le film distribue un gage."
     },
     {
-      "content": "${user} joue une scène improvisée d'un film célèbre. Celui qui devine le film distribue un gage."
+      "content": "${user}, a l'aide de bruitages, fais deviner une chanson célèbre. Celui qui devine distribue un gage."
     },
     {
       "content": "${user} fais une déclaration d'amour à un objet inanimé pendant 1 minute ou reçoit un gage."
     },
     {
+      "content": "Ok ${user}, tu as 30 secondes pour nous convaincre de voter pour toi aux prochaines élections. Sinon, tu reçois un gage."
+    },
+    {
+      "content": "Ok ${user}, on va te designer un objet et tu dois nous convaincre de son utilité en 1 minutes. Sinon, tu reçois un gage."
+    },
+    {
+      "content": "Ok ${user}, on va te designer un objet et tu dois nous convaincre de l'acheter en 1 minutes. Sinon, tu reçois un gage."
+    },
+    {
       "content": "${user} imite quelqu'un que vous connaissez tous. Celui qui devine distribue un gage."
     },
     {
-      "content": "Faites la pire blague possible. Celui qui reçoit le moins de rires gagne ce défi ! ${user} commence."
+      "content": "${user} commence une histoire. Chaque personne ajoute un mot à tour de rôle. Le premier qui se trompe reçoit un gage."
     },
     {
-      "content": "Vote ! Qui serait le plus probable à devenir célèbre un jour ?"
-    },
-    {
-      "content": "Vote ! Qui a le sens de l'humour le plus décalé dans le groupe ?"
-    },
-    {
-      "content": "Vote ! Qui est le plus aventureux quand il s'agit de tester de nouvelles choses ?"
-    },
-    {
-      "content": "Vote ! Qui est le plus probable à se perdre même avec un GPS ?"
-    },
-    {
-      "content": "Vote ! Qui est le plus susceptible de devenir président s'il était politicien ?"
-    },
-    {
-      "content": "Vote ! Qui est le plus à même de devenir une star de la télé-réalité ?"
-    },
-    {
-      "content": "Vote ! Qui serait le meilleur détective s'il s'agissait de résoudre un mystère ?"
-    },
-    {
-      "content": "Vote ! Qui serait le plus probable à devenir célèbre sur les réseaux sociaux ?"
-    },
-    {
-      "content": "Vote ! Qui est le plus susceptible de partir en voyage autour du monde sans planifier ?"
-    },
-    {
-      "content": "Vote ! Qui est le plus bordelique dans ses affaires ?"
-    },
-    {
-      "content": "Vote ! Qui est la personne avec la plus grande taille de chaussure ?"
-    },
-    {
-      "content": "Vote ! Qui possède le plus grand nombre de vêtements ?"
-    },
-    {
-      "content": "Vote ! Qui a la plus grande collection de chapeaux ?"
-    },
-    {
-      "content": "Vote ! Qui a la plus grande collection de figurines ?"
-    },
-    {
-      "content": "Vote ! Qui a regardé le plus grand nombre de films ?"
-    },
-    {
-      "content": "Vote ! Qui a regardé le plus grand nombre de séries TV ?"
-    },
-    {
-      "content": "Vote ! Qui a regardé le plus grand nombre d'animes ?"
-    },
-    {
-      "content": "Vote ! Qui est le plus 'weeb' du groupe ?"
-    },
-    {
-      "content": "Vote ! Qui est la personne la plus grande du groupe ?"
-    },
-    {
-      "content": "Vote ! Qui est la personne la plus petite du groupe ?"
-    },
-    {
-      "content": "Vote ! Qui est la personne la plus susceptible de flatter quelqu'un dans le groupe ?"
-    },
-    {
-      "content": "Vote ! Qui est le plus passionné par les composants informatiques ?"
-    },
-    {
-      "content": "Vote ! Qui est le plus investi dans les activités sportives ?"
-    },
-    {
-      "content": "Vote ! Qui pourrait avoir la motivation pour relever un défi sportif comme un marathon ?"
-    },
-    {
-      "content": "Vote ! Qui est le plus fort au blind test ?"
-    },
-    {
-      "content": "Vote ! En haut, posséder le pouvoir de lire dans les pensées, en bas, posséder le pouvoir de changer le passé. Un gage pour les perdants !"
-    },
-    {
-      "content": "${user}, raconte-nous une blague embarrassante sur toi-même. Le plus drôle distribue un gage."
-    },
-    {
-      "content": "${user} commence une histoire. Chaque personne ajoute une phrase à tour de rôle. Le premier qui éclate de rire reçoit un gage."
-    },
-    {
-      "content": "Vote ! En haut, devenir célèbre pour une danse étrange, en bas, devenir célèbre pour une chanson loufoque. Un gage pour les perdants !"
+      "content": "Dans ma valise, j'ai... ${user} commence. Chaque personne ajoute un objet à tour de rôle. Le premier qui se trompe reçoit un gage."
     },
     {
       "content": "Tout le monde imite un animal de son choix. ${user} décide du meilleur. Le gagnant distribue un gage."
-    },
-    {
-      "content": "Vote ! ${user} serait-il plus efficace pour résoudre un conflit diplomatique ou un conflit familial ? Un gage pour les perdants !"
     },
     {
       "content": "${user}, si tu étais un super-héros, quelle serait ta faiblesse secrète ?"
     },
     {
       "content": "Tout le raconte une expérience qu'il a eut avec une nouvelle cuisine étrangère. Les plus exotiques distribuent un gage. ${user} commence."
-    },
-    {
-      "content": "Vote ! En haut, être capable de changer de sexe à volonté, en bas, être capable de changer d'apparence à volonté. Un gage pour les perdants !"
-    },
-    {
-      "content": "${user}, décrit une journée dans la vie d'un personnage fictif que tu aimerais être. Le plus créatif distribue un gage."
-    },
-    {
-      "content": "${user}, si tu pouvais vivre dans n'importe quelle époque historique, laquelle serait-ce et pourquoi ?"
     },
     {
       "content": "Jouez au téléphone arabe ! ${user} commence par chuchoter un message à son voisin, et ainsi de suite. Le dernier répète à voix haute. Si c'est différent, il reçoit un gage."

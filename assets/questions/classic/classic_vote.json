@@ -1,7 +1,139 @@
 {
   "questions": [
     {
-      "content": "1Tout le monde désigne celui qui s'endort le premier lors d'une soirée ! Un gage pour le plus fatigué !"
+      "content": "Vote ! Qui a le plus de chance de survivre dans un désert ? Un gage pour le moins adapté à la chaleur !"
+    },
+    {
+      "content": "Vote ! Qui a le plus de chance de survivre dans une forêt dense ? Un gage pour l'aventurier !"
+    },
+    {
+      "content": "Vote ! Qui est le plus susceptible de devenir un artiste renommé ? Un gage pour l'artiste !"
+    },
+    {
+      "content": "Vote ! Qui est le plus efficace pour résoudre une énigme mathématique ? Un gage pour le plus logique !"
+    },
+    {
+      "content": "Vote ! Qui est le plus susceptible de devenir une star de cinéma ? Un gage pour le cinéphile !"
+    },
+    {
+      "content": "Vote ! Qui est le plus à même de devenir célèbre sur les réseaux sociaux ? Un gage pour le plus influent !"
+    },
+    {
+      "content": "Vote ! Qui est le plus fort au blind test ? Un gage pour le plus vif !"
+    },
+    {
+      "content": "Chaqu'un raconte son expérience la plus insolite avec un animal. Le groupe vote de la meilleure, qui distribuera un gage aux autres !"
+    },
+    {
+      "content": "Vote ! Qui a le plus de chance de devenir une star de la télé-réalité ? Un gage pour le moins 'showbiz' !"
+    },
+    {
+      "content": "Vote ! Qui est le plus susceptible de partir en voyage autour du monde sans planifier ? Un gage pour le globe trotteur !"
+    },
+    {
+      "content": "Vote ! Qui est le meilleur cuisto ? Un gage pour le cordon bleu !"
+    },
+    {
+      "content": "Vote ! Qui est plus tete en l'air ? Un gage pour le plus distrait !"
+    },
+    {
+      "content": "Vote ! Tout le monde désigne celui qui s'endort le premier lors d'une soirée ! Un gage pour le plus fatigué !"
+    },
+    {
+      "content": "Vote ! En haut, être capable de voler, en bas, être capable de changer d'apparence à volonté. Un gage pour la minorité !"
+    },
+    {
+      "content": "Vote ! En haut, devenir célèbre pour une danse étrange, en bas, devenir célèbre pour une chanson loufoque. Un gage pour les perdants !"
+    },
+    {
+      "content": "Vote ! Qui a le sens de l'humour le plus décalé dans le groupe ? Un gage pour le comique !"
+    },
+    {
+      "content": "Vote ! Qui est le plus aventureux quand il s'agit de tester de nouvelles choses ? Un gage pour l'explorateur !"
+    },
+    {
+      "content": "Vote ! Qui a le plus de chance se perdre même avec un GPS ? Un gage pour le plus tête en l'air !"
+    },
+    {
+      "content": "Vote ! Qui est le meilleur détective s'il s'agissait de résoudre un mystère ? Un gage pour Sherlock !"
+    },
+    {
+      "content": "Vote ! Qui est le plus bordelique dans ses affaires ? Un gage pour le bordelique !"
+    },
+    {
+      "content": "Vote ! Qui est la personne avec la plus grande taille de chaussure ? Un gage pour les grand panards !"
+    },
+    {
+      "content": "Vote ! Qui possède le plus grand nombre de vêtements ? Un gage pour le plus fashion !"
+    },
+    {
+      "content": "Vote ! Qui a la plus grande collection de figurines ? Un gage pour le collectionneur !"
+    },
+    {
+      "content": "Vote ! Qui a regardé le plus grand nombre de films ? Un gage pour le cinéphile !"
+    },
+    {
+      "content": "Vote ! Qui a regardé le plus grand nombre de séries TV ? Un gage pour le binge watcher !"
+    },
+    {
+      "content": "Vote ! Qui a regardé le plus grand nombre d'animes ? Un gage pour le weaboo !"
+    },
+    {
+      "content": "Vote ! Qui est le plus 'weeb' du groupe ? Un gage pour le plus otaku !"
+    },
+    {
+      "content": "Vote ! Qui est la personne la plus grande du groupe ? Un gage pour le ou les plus grands !"
+    },
+    {
+      "content": "Vote ! Qui est la personne la plus petite du groupe ? Un gage pour le ou les plus petits !"
+    },
+    {
+      "content": "Vote ! Qui est le plus passionné par les composants informatiques ? Un gage pour le geek !"
+    },
+    {
+      "content": "Vote ! Qui est le plus investi dans les activités sportives ? Un gage pour le sportif !"
+    },
+    {
+      "content": "Vote ! Qui pourrait avoir la motivation pour relever un défi sportif comme un marathon ? Un gage pour le plus endurant !"
+    },
+    {
+      "content": "Vote ! En haut, lire dans les pensées, en bas, voyage dans le passé (pas de retour au present). Un gage pour les perdants !"
+    },
+    {
+      "content": "Vote ! En haut, vivre éternellement, en bas ne plus jamais vieillir (un genre de vampire). Un gage pour les perdants !"
+    },
+    {
+      "content": "Vote ! Voyager dans le temps : en haut le futur, en bas le passé. Un gage pour les perdants !"
+    },
+    {
+      "content": "Vote ! En haut, la télékinesie, en bas pouvoir te téléporter. Un gage pour les perdants !"
+    },
+    {
+      "content": "Vote ! En haut avoir des mains à la place des pieds, en bas avoir des pieds à la place de mains. Un gage pour les perdants !"
+    },
+    {
+      "content": "Vote ! ${user} serait-il plus efficace pour survivre dans une apocalypse zombie ou extraterrestre ?"
+    },
+    {
+      "content": "Vote ! ${user} serait-il plus susceptible de devenir un artiste renommé ou un scientifique éminent ?"
+    },
+    {
+      "content": "Vote ! En haut, posséder une toutes les series, en bas, posséder tout les films. Un gage pour les perdants !"
+    },
+    {
+      "content": "Vote ! En haut, devenir invisible, en bas pouvoir lire dans les pensées. Un gage pour les perdants !"
+    },
+    {
+      "content": "Vote ! En haut, être le meilleur cuisinier, en bas être le meilleur forgeron. Un gage pour les perdants !"
+    },
+    {
+      "content": "Vote ! ${user} serait-il plus efficace pour résoudre une énigme policière ou une énigme mathématique ?"
+    },
+    {
+      "content": "Vote ! ${user} serait-il plus susceptible de survivre dans un désert ou dans une forêt dense ?"
+    },
+    {
+      "content": "Vote ! En haut, être capable de parler toutes les langues du monde, en bas, être un génie en mathématiques. Un gage pour les perdants !"
     }
   ]
 }
