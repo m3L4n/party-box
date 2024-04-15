@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "PartyBox",
-    "slug": "PartyBox",
+    "slug": "bouar",
     "description": "PartyBox",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,17 +17,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "PartyBox",
-      "description": "PartyBox"
+      "bundleIdentifier": "PartyBox"
     },
     "android": {
-      "fullscreen": true,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "PartyBox",
-      "description": "PartyBox"
+      "package": "com.ju.partybox"
     },
     "web": {
       "favicon": "./assets/favicon.png"
