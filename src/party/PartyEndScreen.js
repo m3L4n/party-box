@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 50,
     fontFamily: 'BebasNeue-Regular',
-    fontWeight: 'bold',
+    letterSpacing: 5,
     color: 'black',
   },
 });

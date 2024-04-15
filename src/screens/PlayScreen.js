@@ -52,7 +52,7 @@ const PlayScreen = ({ navigation }) => {
         questionsList.push(...questionListObj);
       }
       questionsList.sort(() => Math.random() - 0.5);
-      questionsList = questionsList.slice(0, 2);
+      questionsList = questionsList.slice(0, 30);
       for (const question of questionsList) {
         setQuestions((prevQuestions) => [...prevQuestions, question]);
       }

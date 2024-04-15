@@ -41,7 +41,7 @@ const CreateUserScreen = ({ navigation }) => {
       <EmptyUserCard name={name} color={selectedColor} />
       <ChooseColorComponent onPress={handleColorChange} active={colors.primary.creme} />
       <View style={{ ...styles.group }} >
-        <Input placeholder="Nom" onChangeText={handleNameChange} value={name} />
+        <Input placeholder="Nom" onChangeText={handleNameChange} value={name} autoFocus={true} />
         <AddButton onPress={handleAddUser} />
       </View>
     </View>

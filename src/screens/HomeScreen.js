@@ -7,20 +7,39 @@ import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 import ModalComponent from '../../components/organisms/ModalComponent';
 import SettingsButton from '../../components/organisms/SettingsButton';
-
+import { loadModes } from '../../services/mode';
+import { loadUsers } from '../../services/user';
 const HomeScreen = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
+
+    const handleClick = async () => {
+        const users = await loadUsers();
+        const modes = await loadModes();
+        if (users.length === 0) {
+            navigation.navigate('Users');
+        }
+        else if (modes.length === 0) {
+            navigation.navigate('Modes');
+        }
+        else {
+            navigation.navigate('Play');
+        }
+    }
+
 
     const openModal = () => setModalVisible(true);
     const closeModal = () => setModalVisible(false);
     return (
         <View style={{ ...styles.container }}>
             <SettingsButton onPress={openModal} />
-            <Text style={{ ...styles.title }}>Glou</Text>
-            <MenuButton color={colors.primary.green} text="Partie Rapide" onPress={() => navigation.navigate('Play')} />
+            <>
+                <Text style={{ ...styles.title }}>PartyBox</Text>
+                <Text>v.1.0.0</Text>
+            </>
+            <MenuButton color={colors.primary.green} text="Partie Rapide" onPress={() => handleClick()} />
             <MenuButton color={colors.primary.blue} text="Partie Custom" onPress={() => navigation.navigate('Users')} />
             <ModalComponent visible={modalVisible} closeModal={closeModal} />
-        </View>
+        </View >
     );
 };
 
@@ -32,24 +51,11 @@ const styles = StyleSheet.create({
         backgroundColor: colors.secondary.pink,
     },
     title: {
-        fontSize: 50,
+        fontSize: 64,
         fontFamily: 'BebasNeue-Regular',
-        fontWeight: 'bold',
+        letterSpacing: 5,
         color: 'black',
     },
-    // modal: {
-    //     flex: 1,
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     backgroundColor: colors.secondary.pink,
-    //     margin: 30,
-    //     borderRadius: 10,
-    //     borderStyle: 'solid',
-    //     borderRightWidth: 4,
-    //     borderBottomWidth: 4,
-    //     borderWidth: 2,
-    //     borderColor: 'black',
-    // },
 });
 
 export default HomeScreen;

@@ -9,9 +9,9 @@ const Text = ({ children, style }) => {
 
 const styles = StyleSheet.create({
   text: {
+    fontSize: 24,
     fontFamily: 'BebasNeue-Regular',
     textAlign: 'center',
-    fontSize: 24,
   },
 });
 

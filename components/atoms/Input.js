@@ -10,6 +10,8 @@ const Input = ({ placeholder, onChangeText, value }) => {
       onChangeText={onChangeText}
       value={value}
       placeholder={placeholder}
+      editable={true}
+      maxLength={40}
     />
   );
 };

@@ -25,7 +25,7 @@ const styles = {
   title: {
     fontSize: 30,
     fontFamily: 'BebasNeue-Regular',
-    fontWeight: 'bold',
+    letterSpacing: 5,
     color: 'black',
     marginBottom: 20,
   },
