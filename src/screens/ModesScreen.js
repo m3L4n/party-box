@@ -12,9 +12,11 @@ import ModeCard from "../../components/organisms/ModeCard";
 import ReloadButton from "../../components/organisms/ReloadButton";
 import Mode from "../../models/Mode";
 import { addMode, deleteAllModes, getActiveModes, loadModes, toggleModeStatus } from "../../services/mode";
+import { getRandomColorBackground } from "../../services/utils";
 
 const ModesScreen = ({ navigation }) => {
   const [modeList, setModeList] = useState([]);
+  const [backgroundColor, setBackgroundColor] = useState(getRandomColorBackground());
 
   const fetchData = useCallback(async () => {
     const modes = await loadModes();
@@ -25,6 +27,13 @@ const ModesScreen = ({ navigation }) => {
     const updatedModes = await toggleModeStatus(modeName);
     setModeList(updatedModes);
   };
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      setBackgroundColor(getRandomColorBackground());
+    });
+    return unsubscribe;
+  }, [navigation]);
 
   const prefillModes = async () => {
     const existingModes = await loadModes();
@@ -56,7 +65,7 @@ const ModesScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <View style={{ ...styles.container }}>
+    <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
       <BackButton navigation={navigation} />
       <ReloadButton onPress={handleReloadPress} />
       <Text style={{ ...styles.title }}>Modes</Text>
@@ -77,13 +86,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.secondary.pink,
   },
   title: {
     fontSize: 50,
     letterSpacing: 5,
     color: 'black',
-    marginVertical: 60,
+    marginBottom: 30,
   },
 });
 

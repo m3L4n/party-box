@@ -11,10 +11,12 @@ import BackButton from '../../components/organisms/BackButton';
 import TrashButton from '../../components/organisms/TrashButton';
 import UserCard from '../../components/organisms/UserCard';
 import { deleteUser, getActiveUsers, loadUsers, toggleUserStatus } from "../../services/user";
+import { getRandomColorBackground } from '../../services/utils';
 
 const UsersScreen = ({ navigation }) => {
     const [userList, setUserList] = useState([]);
     const [deleteMode, setDeleteMode] = useState(false);
+    const [backgroundColor, setBackgroundColor] = useState(getRandomColorBackground());
 
     const fetchData = useCallback(async () => {
         const users = await loadUsers();
@@ -29,6 +31,12 @@ const UsersScreen = ({ navigation }) => {
         return unsubscribe;
     }, [navigation, fetchData]);
 
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            setBackgroundColor(getRandomColorBackground());
+        });
+        return unsubscribe;
+    }, [navigation]);
 
     const handleUserPress = async (userName) => {
         if (deleteMode) {
@@ -54,7 +62,7 @@ const UsersScreen = ({ navigation }) => {
     }
 
     return (
-        <View style={{ ...styles.container }}>
+        <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
             <BackButton navigation={navigation} />
             <TrashButton onPress={toggleDeleteMode} />
             <Text style={{ ...styles.title }}>Users</Text>
@@ -87,7 +95,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: colors.secondary.pink,
     },
     title: {
         fontSize: 50,

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
+import { getRandomColor } from '../../services/utils';
 
 const QuestionComponent = ({ question }) => {
   const renderQuizQuestion = () => {
@@ -14,7 +16,7 @@ const QuestionComponent = ({ question }) => {
       <View style={{ ...styles.container }}>
         <Text style={{ ...styles.title }}>{question.mode}</Text>
         <Text>{question.content}</Text>
-        <MenuButton text={response ? response : "response"} onPress={() => setResponse(question.options[0])} style={styles.button} />
+        <MenuButton text={response ? response : "response"} onPress={() => setResponse(question.options[0])} style={{ ...styles.button, backgroundColor: response ? colors.primary.green : getRandomColor() }} />
       </View>
     );
   };

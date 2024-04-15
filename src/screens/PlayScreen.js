@@ -2,13 +2,13 @@
 
 import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import BackButton from '../../components/organisms/BackButton';
 import HomeButton from '../../components/organisms/HomeButton';
 import { getActiveModes } from '../../services/mode';
 import { getQuestionsList } from '../../services/question';
 import { getActiveUsers } from '../../services/user';
+import { getRandomColorBackground } from '../../services/utils';
 import PartyEndScreen from '../party/PartyEndScreen';
 import QuestionComponent from '../party/QuestionComponent';
 
@@ -17,8 +17,6 @@ const PlayScreen = ({ navigation }) => {
   const [userList, setUserList] = useState([])
   const [questions, setQuestions] = useState([])
   const [end, setEnd] = useState(false)
-
-  const colorsList = [colors.secondary.blue, colors.secondary.green, colors.secondary.pink, colors.secondary.red, colors.secondary.yellow]
 
   const handlePress = async () => {
     if (questions.length === 0) return;
@@ -72,10 +70,10 @@ const PlayScreen = ({ navigation }) => {
     }
   }, [modeList]);
 
-  const randomColor = colorsList[Math.floor(Math.random() * colorsList.length)];
+  // const randomColor = getRandomColor();
 
   return (
-    <TouchableOpacity onPress={handlePress} style={{ ...styles.container, backgroundColor: randomColor }}>
+    <TouchableOpacity onPress={handlePress} style={{ ...styles.container, backgroundColor: getRandomColorBackground() }}>
       {(questions.length === 0 || userList.length === 0) &&
         <>
           <BackButton navigation={navigation} />

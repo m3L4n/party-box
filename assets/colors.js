@@ -15,7 +15,7 @@ export const colors = {
 
     // Gamme de couleurs pour les fonds
     secondary: {
-        red: 'rgb(255, 88, 88)', // Rouge
+        red: 'rgb(255, 188, 188)', // Rouge
         orange: 'rgb(255, 214, 165)', // Orange
         yellow: 'rgb(253, 255, 182)', // Jaune
         green: 'rgb(202, 255, 191)', // Vert
