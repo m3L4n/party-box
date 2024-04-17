@@ -10,7 +10,9 @@ import SettingsButton from '../../components/organisms/SettingsButton';
 import { loadModes } from '../../services/mode';
 import { loadUsers } from '../../services/user';
 import { getRandomColorBackground } from '../../services/utils';
+
 const HomeScreen = ({ navigation }) => {
+    const version = require('../../package.json').version;
     const [modalVisible, setModalVisible] = useState(false);
     const [backgroundColor, setBackgroundColor] = useState(getRandomColorBackground());
 
@@ -43,7 +45,7 @@ const HomeScreen = ({ navigation }) => {
             <SettingsButton onPress={openModal} />
             <>
                 <Text style={{ ...styles.title }}>PartyBox</Text>
-                <Text>v.1.0.0</Text>
+                <Text>v.{version}</Text>
             </>
             <MenuButton color={colors.primary.green} text="Partie Rapide" onPress={() => handleClick()} />
             <MenuButton color={colors.primary.blue} text="Partie Custom" onPress={() => navigation.navigate('Users')} />
