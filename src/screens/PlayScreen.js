@@ -87,7 +87,7 @@ const PlayScreen = ({ navigation }) => {
       {!end && questions[0] && (
         <>
           <HomeButton navigation={navigation} />
-          <QuestionComponent question={questions[0]} />
+          <QuestionComponent question={questions[0]} players={userList.map(user => user.name)} />
         </>
       )}
     </TouchableOpacity>

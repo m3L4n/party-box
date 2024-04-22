@@ -6,7 +6,7 @@ import MenuButton from '../../components/molecules/MenuButton';
 import { getRandomColor } from '../../services/utils';
 import SpinWheel from './SpinWheel';
 
-const QuestionComponent = ({ question }) => {
+const QuestionComponent = ({ question, players }) => {
   const renderQuizQuestion = () => {
     const [response, setResponse] = useState(null);
 
@@ -32,11 +32,12 @@ const QuestionComponent = ({ question }) => {
   };
 
   const renderWheelQuestion = () => {
+    const randomColor = getRandomColor();
     return (
       <View style={{ ...styles.container }}>
         <Text style={{ ...styles.title }}>{question.mode}</Text>
         <Text>{question.content}</Text>
-        <SpinWheel players={question.options} />
+        <SpinWheel players={players} color={randomColor} />
       </View>
     );
   };

@@ -1,7 +1,25 @@
 {
   "questions": [
     {
-      "content": "C'est la roue !"
+      "content": "C'est la roue qui designera le prochain joueur qui devra boire."
+    },
+    {
+      "content": "${user} va trinquer avec le joueur designé par la roue."
+    },
+    {
+      "content": "Le joueur designé par la roue devra boire 2 gorgées."
+    },
+    {
+      "content": "Pas de bol! Un shot pour le joueur designé par la roue!"
+    },
+    {
+      "content": "Le joueur designé par la roue devra boire 3 gorgées."
+    },
+    {
+      "content": "Le joueur designé par la roue devra boire 4 gorgées."
+    },
+    {
+      "content": "Le joueur designé par la roue devra boire 5 gorgées."
     }
   ]
 }

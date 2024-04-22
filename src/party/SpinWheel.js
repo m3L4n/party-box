@@ -1,3 +1,4 @@
+import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
 import Text from '../../components/atoms/CustomText';
@@ -19,11 +20,10 @@ const SpinButton = ({ onPress }) => (
   />
 );
 
-const SpinWheel = ({ players, onSpin }) => {
+const SpinWheel = ({ players, onSpin, color }) => {
   const [spinValue] = useState(new Animated.Value(0));
-  const [isSpinning, setIsSpinning] = useState(false); // New state variable
+  const [isSpinning, setIsSpinning] = useState(false);
 
-  players = ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5']; // Example players
   useEffect(() => {
     if (isSpinning) {
       const randomValue = Math.random() * players.length * 2;
@@ -67,9 +67,11 @@ const SpinWheel = ({ players, onSpin }) => {
 
   return (
     <View style={{ position: 'relative' }}>
-      <Animated.View style={{ ...styles.wheel, transform: [{ rotate: spin }] }}>
+      <Animated.View style={{ ...styles.wheel, transform: [{ rotate: spin }], backgroundColor: color }}>
         {playerSegments}
       </Animated.View>
+      <View style={styles.centerDot} />
+      <Ionicons name={"arrow-up"} style={{ ...styles.icon }} />
       <SpinButton onPress={() => setIsSpinning(true)} />
     </View>
   );
@@ -77,14 +79,30 @@ const SpinWheel = ({ players, onSpin }) => {
 
 const styles = StyleSheet.create({
   wheel: {
-    width: 200,
-    height: 200,
-    borderRadius: 100,
+    width: 230,
+    height: 230,
+    borderRadius: 115,
     backgroundColor: 'lightgray',
     borderBlockColor: 'black',
     borderWidth: 3,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  centerDot: {
+    position: 'absolute',
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: 'black',
+    top: 110,
+    left: 110,
+  },
+  icon: {
+    position: 'absolute',
+    bottom: 20,
+    left: 115 - 25,
+    fontSize: 50,
+    color: 'black',
   },
 });
 
