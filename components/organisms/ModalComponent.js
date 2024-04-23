@@ -1,20 +1,32 @@
 // components/molecules/ModalComponent.js
 
 import React from 'react';
-import { Modal, View } from 'react-native';
+import { Linking, Modal, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../atoms/CustomText';
+import MenuButton from '../molecules/MenuButton';
 import CrossButton from './CrossButton';
 
 const ModalComponent = ({ visible, closeModal }) => {
+
+  const handlePress = async () => {
+    const url = "https://www.github.com/jurichar/"
+    const canOpen = await Linking.canOpenURL(url);
+    if (canOpen) {
+      Linking.openURL(url);
+    } else {
+      console.error(`Cannot open url: ${url}`);
+    }
+  };
+
+
   return (
     <Modal animationType="slide" transparent={true} visible={visible}>
       <View style={{ ...styles.modal }}>
         <CrossButton onPress={closeModal} />
         <Text style={{ ...styles.title }}>About</Text>
         <View>
-          <Text style={{ textAlign: 'left' }}>Github: linkto.github.project/ </Text>
-          <Text style={{ textAlign: 'left' }}>Email: mailto:mailsupport@glou.fr </Text>
+          <MenuButton text="Github" onPress={handlePress} />
         </View>
       </View>
     </Modal>
