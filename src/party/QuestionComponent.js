@@ -4,8 +4,9 @@ import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 import { getRandomColor } from '../../services/utils';
+import SpinWheel from './SpinWheel';
 
-const QuestionComponent = ({ question }) => {
+const QuestionComponent = ({ question, players }) => {
   const renderQuizQuestion = () => {
     const [response, setResponse] = useState(null);
 
@@ -30,9 +31,22 @@ const QuestionComponent = ({ question }) => {
     );
   };
 
+  const renderWheelQuestion = () => {
+    const randomColor = getRandomColor();
+    return (
+      <View style={{ ...styles.container }}>
+        <Text style={{ ...styles.title }}>{question.mode}</Text>
+        <Text>{question.content}</Text>
+        <SpinWheel players={players} color={randomColor} />
+      </View>
+    );
+  };
+
   switch (question.mode) {
     case 'quiz':
       return renderQuizQuestion();
+    case 'wheel':
+      return renderWheelQuestion();
     default:
       return renderDefaultQuestion();
   }
@@ -44,6 +58,7 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
+    gap: 20,
   },
   title: {
     fontSize: 50,
