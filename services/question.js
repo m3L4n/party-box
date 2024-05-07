@@ -57,11 +57,26 @@ const getRandomUsers = (userList, n) => {
 
 const parseQuestion = (userList, question) => {
   const count = (question.match(/\$\{user\}/g) || []).length;
+
+  const randomNumber = Math.floor(Math.random() * 100) + 1;
+  let numReplacement;
+
+  if (randomNumber === 1) {
+    numReplacement = 'un shoot';
+  } else {
+    const drinkNumber = Math.floor(Math.random() * 5) + 1;
+    numReplacement = `${drinkNumber} ${drinkNumber > 1 ? 'gorgées' : 'gorgée'}`;
+  }
+
   let parsedQuestion = question;
   let selectedUsers = getRandomUsers(userList, count);
+
   for (let user of selectedUsers) {
     parsedQuestion = parsedQuestion.replace('${user}', user.name);
   }
+
+  parsedQuestion = parsedQuestion.replace('${num}', numReplacement);
+
   return parsedQuestion;
 }
 

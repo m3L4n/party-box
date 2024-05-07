@@ -4,7 +4,7 @@ import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 import { getRandomColor } from '../../services/utils';
-import SpinWheel from './SpinWheel';
+import Wheel from './Wheel';
 
 const QuestionComponent = ({ question, players }) => {
   const renderQuizQuestion = () => {
@@ -31,22 +31,29 @@ const QuestionComponent = ({ question, players }) => {
     );
   };
 
-  const renderWheelQuestion = () => {
-    const randomColor = getRandomColor();
-    return (
-      <View style={{ ...styles.container }}>
-        <Text style={{ ...styles.title }}>{question.mode}</Text>
-        <Text>{question.content}</Text>
-        <SpinWheel players={players} color={randomColor} />
-      </View>
-    );
-  };
+  // const renderWheelQuestion = () => {
+  //   const randomColor = getRandomColor();
+  //   return (
+  //     <View style={{ ...styles.container }}>
+  //       <Text style={{ ...styles.title }}>{question.mode}</Text>
+  //       <Text>{question.content}</Text>
+  //       <SpinWheel players={players} color={randomColor} />
+  //     </View>
+  //   );
+  // };
 
   switch (question.mode) {
     case 'quiz':
       return renderQuizQuestion();
     case 'wheel':
-      return renderWheelQuestion();
+      const randomColor = getRandomColor();
+      return (
+        <View style={{ ...styles.container }}>
+          <Text style={{ ...styles.title }}>{question.mode}</Text>
+          <Text>{question.content}</Text>
+          <Wheel rewards={players} color={randomColor} onSpin={() => console.log('Spun!')} />
+        </View>
+      );
     default:
       return renderDefaultQuestion();
   }
