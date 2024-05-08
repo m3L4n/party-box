@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 64,
         fontFamily: 'BebasNeue-Regular',
-        letterSpacing: 5,
+        letterSpacing: 2,
         color: 'black',
     },
 });

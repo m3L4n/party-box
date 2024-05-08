@@ -10,6 +10,7 @@ import ChooseColorComponent from "../../components/organisms/ChooseColorComponen
 import { EmptyUserCard } from "../../components/organisms/DefaultCards"
 import User from "../../models/User"
 import { addUser } from "../../services/user"
+import { getRandomColorBackground } from "../../services/utils"
 
 const CreateUserScreen = ({ navigation }) => {
   const [name, setName] = React.useState('')
@@ -35,8 +36,10 @@ const CreateUserScreen = ({ navigation }) => {
     navigation.navigate('Users');
   };
 
+  const backgroundColor = getRandomColorBackground();
+
   return (
-    <View style={{ ...styles.container }}>
+    <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
       <BackButton navigation={navigation} />
       <EmptyUserCard name={name} color={selectedColor} />
       <ChooseColorComponent onPress={handleColorChange} active={colors.primary.creme} />
@@ -54,7 +57,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.secondary.pink,
   },
   group: {
     flexDirection: 'row',

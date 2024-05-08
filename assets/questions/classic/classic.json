@@ -100,10 +100,10 @@
       "content": "Ok ${user}, on va te designer un objet et tu dois nous convaincre de l'acheter en 1 minutes. Sinon, tu reçois ${num}."
     },
     {
-      "content": "${user} imite quelqu'un que vous connaissez tous. Celui qui devine distribue ${num}s."
+      "content": "${user} imite quelqu'un que vous connaissez tous. Celui qui devine distribue ${num}."
     },
     {
-      "content": "${user} commence une histoire. Chaque personne ajoute un mot à tour de rôle. Le premier qui se trompe reçoit ${num}."
+      "content": "${user} commence une histoire. Chaque personne ajoute une phrase à tour de rôle. Le premier qui se trompe reçoit ${num}."
     },
     {
       "content": "Dans ma valise, j'ai... ${user} commence. Chaque personne ajoute un objet à tour de rôle. Le premier qui se trompe reçoit ${num}."
@@ -112,22 +112,16 @@
       "content": "Tout le monde imite un animal de son choix. ${user} décide du meilleur. Le gagnant distribue ${num}."
     },
     {
-      "content": "${user}, si tu étais un super-héros, quelle serait ta faiblesse secrète ?"
-    },
-    {
       "content": "Tout le raconte une expérience qu'il a eut avec une nouvelle cuisine étrangère. Les plus exotiques distribuent ${num}. ${user} commence."
     },
     {
       "content": "Jouez au téléphone arabe ! ${user} commence par chuchoter un message à son voisin, et ainsi de suite. Le dernier répète à voix haute. Si c'est différent, il reçoit ${num}."
     },
     {
-      "content": "${user}, quel est ton meilleur conseil pour draguer efficacement ?"
+      "content": "${user}, quel est ton meilleur conseil pour draguer ? Si quelqu'un a déjà utilisé ce conseil, il prend ${num}."
     },
     {
-      "content": "Si ${user} était un cocktail, quel serait-il ?"
-    },
-    {
-      "content": "Quel est le pire film que ${user} ait jamais vu ? Celui qui a le même avis boit ${num}."
+      "content": "${user}, Quel est le pire film que tu ais vu ? Ceux ou celles qui ont le même avis boit ${num}."
     },
     {
       "content": "Quel est le dernier texto cringe que ${user} a envoyé ? Si c'est trop gênant, prends ${num}!"
@@ -136,10 +130,13 @@
       "content": "Si ${user} était un meme, lequel serait-il ? Si personne ne connaît le meme, ${user} boit ${num}."
     },
     {
-      "content": "Quelle est la pire habitude de ${user} ? Celui qui partage la même habitude boit ${num}."
+      "content": "${user}, quelle est la pire habitude de ${user} ? Celui qui partage la même habitude boit ${num}."
     },
     {
-      "content": "${user}, quel est le meilleur plat que tu préfères cuisiner ? Les personnes qui ne savent pas le faire boivent ${num}."
+      "content": "${user}, quel est le meilleur plat que tu préfères cuisiner ? Si tout le monde aime, tu prends ${num}."
+    },
+    {
+      "content": "${user}, designe un joueur et demande lui une recette que TU connais ? Si il l'a connais tu prends ${num} sinon c'est lui."
     },
     {
       "content": "Quel est le pire plat que ${user} ait jamais cuisiné ? Si c'est vraiment mauvais, il distribue ${num}."
@@ -151,7 +148,7 @@
       "content": "${user}, quel est le pire conseil que tu aies jamais donné à quelqu'un ? Si c'est vraiment mauvais, il prend ${num} ! Les autres jugent."
     },
     {
-      "content": "Si ${user} pouvait avoir un animal de compagnie bizarre, lequel choisirait-il ? Si personne ne comprend le choix, ${user} prend ${num}."
+      "content": "Si ${user} tu pouvais avoir un animal de compagnie qui sort de l'ordinaire, lequel ? Si personne ne comprend le choix, ${user} prend ${num}."
     },
     {
       "content": "Quel est le pire cadeau que ${user} ait jamais reçu ? Si c'est vraiment nul, distribue ${num}."

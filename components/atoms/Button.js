@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
   },
   buttonText: {
-    fontSize: 16,
+    fontSize: 30,
     fontFamily: 'BebasNeue-Regular',
     textAlign: 'center',
   },

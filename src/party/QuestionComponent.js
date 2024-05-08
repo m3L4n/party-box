@@ -16,7 +16,7 @@ const QuestionComponent = ({ question, players }) => {
     return (
       <View style={{ ...styles.container }}>
         <Text style={{ ...styles.title }}>{question.mode}</Text>
-        <Text>{question.content}</Text>
+        <Text style={{ ...styles.text }}>{question.content}</Text>
         <MenuButton text={response ? response : "response"} onPress={() => setResponse(question.options[0])} style={{ ...styles.button, backgroundColor: response ? colors.primary.green : getRandomColor() }} />
       </View>
     );
@@ -26,7 +26,7 @@ const QuestionComponent = ({ question, players }) => {
     return (
       <View style={{ ...styles.container }}>
         <Text style={{ ...styles.title }}>{question.mode}</Text>
-        <Text>{question.content}</Text>
+        <Text style={{ ...styles.text }}>{question.content}</Text>
       </View>
     );
   };
@@ -50,7 +50,7 @@ const QuestionComponent = ({ question, players }) => {
       return (
         <View style={{ ...styles.container }}>
           <Text style={{ ...styles.title }}>{question.mode}</Text>
-          <Text>{question.content}</Text>
+          <Text style={{ ...styles.text }}>{question.content}</Text>
           <Wheel rewards={players} color={randomColor} onSpin={() => console.log('Spun!')} />
         </View>
       );
@@ -71,6 +71,12 @@ const styles = StyleSheet.create({
     fontSize: 50,
     fontFamily: 'BebasNeue-Regular',
     letterSpacing: 5,
+    color: 'black',
+  },
+  text: {
+    fontSize: 30,
+    letterSpacing: 1.5,
+    // fontFamily: ''
     color: 'black',
   },
   button: {
