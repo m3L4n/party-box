@@ -77,7 +77,7 @@ const UsersScreen = ({ navigation }) => {
                 ))}
                 <AddButton onPress={() => navigation.navigate('CreateUser')} style={{ ...styles.addButton }} />
             </ScrollView>
-            <MenuButton color={colors.primary.red} text="Suivant" onPress={handleNextButtonPress} />
+            <MenuButton color={colors.primary.green} text="Suivant" onPress={handleNextButtonPress} />
         </View >
     );
 };

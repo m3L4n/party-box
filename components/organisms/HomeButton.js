@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { colors } from '../../assets/colors';
 import IconButton from '../molecules/IconButton';
 
 const HomeButton = ({ navigation }) => {
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     zIndex: 99,
     fontSize: 30,
     color: 'black',
-    backgroundColor: 'lightblue',
+    backgroundColor: colors.primary.creme,
   },
 });
 

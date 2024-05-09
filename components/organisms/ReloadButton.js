@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { colors } from '../../assets/colors';
 import IconButton from '../molecules/IconButton';
 
 const ReloadButton = ({ onPress }) => {
@@ -22,7 +23,8 @@ const styles = StyleSheet.create({
     zIndex: 99,
     fontSize: 30,
     color: 'black',
-    backgroundColor: 'lightblue',
+    opacity: 0.8,
+    backgroundColor: colors.primary.creme,
   },
 });
 

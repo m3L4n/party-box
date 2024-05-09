@@ -74,7 +74,7 @@ const ModesScreen = ({ navigation }) => {
           <ModeCard key={index} mode={mode} onPress={handleModePress} />
         ))}
       </ScrollView>
-      <MenuButton color={colors.primary.red} text="Suivant" onPress={handleNextButtonPress} />
+      <MenuButton color={colors.primary.green} text="Suivant" onPress={handleNextButtonPress} />
     </View>
   );
 };

@@ -44,7 +44,7 @@ const HomeScreen = ({ navigation }) => {
         <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
             <SettingsButton onPress={openModal} />
             <>
-                <Text style={{ ...styles.title }}>PartyBox</Text>
+                <Text style={{ ...styles.title }}>Party Box</Text>
                 <Text>v.{version}</Text>
             </>
             <MenuButton color={colors.primary.green} text="Partie Rapide" onPress={() => handleClick()} />
