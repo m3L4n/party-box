@@ -5,6 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
+import AnimatedBackground from '../../components/organisms/AnimatedBackground';
 import ModalComponent from '../../components/organisms/ModalComponent';
 import SettingsButton from '../../components/organisms/SettingsButton';
 import { loadModes } from '../../services/mode';
@@ -42,6 +43,7 @@ const HomeScreen = ({ navigation }) => {
     const closeModal = () => setModalVisible(false);
     return (
         <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
+            <AnimatedBackground />
             <SettingsButton onPress={openModal} />
             <>
                 <Text style={{ ...styles.title }}>Party Box</Text>

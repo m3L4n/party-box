@@ -7,6 +7,7 @@ import { colors } from "../../assets/colors";
 import modesData from "../../assets/modes.json";
 import Text from "../../components/atoms/CustomText";
 import MenuButton from "../../components/molecules/MenuButton";
+import AnimatedBackground from "../../components/organisms/AnimatedBackground";
 import BackButton from "../../components/organisms/BackButton";
 import ModeCard from "../../components/organisms/ModeCard";
 import ReloadButton from "../../components/organisms/ReloadButton";
@@ -66,6 +67,7 @@ const ModesScreen = ({ navigation }) => {
 
   return (
     <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
+      <AnimatedBackground />
       <BackButton navigation={navigation} />
       <ReloadButton onPress={handleReloadPress} />
       <Text style={{ ...styles.title }}>Modes</Text>

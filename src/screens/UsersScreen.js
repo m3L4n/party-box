@@ -7,6 +7,7 @@ import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 import AddButton from '../../components/organisms/AddButton';
+import AnimatedBackground from '../../components/organisms/AnimatedBackground';
 import BackButton from '../../components/organisms/BackButton';
 import TrashButton from '../../components/organisms/TrashButton';
 import UserCard from '../../components/organisms/UserCard';
@@ -63,6 +64,7 @@ const UsersScreen = ({ navigation }) => {
 
     return (
         <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
+            <AnimatedBackground />
             <BackButton navigation={navigation} />
             <TrashButton onPress={toggleDeleteMode} />
             <Text style={{ ...styles.title }}>Users</Text>
