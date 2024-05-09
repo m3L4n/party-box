@@ -19,7 +19,7 @@ const CrossButton = ({ onPress }) => {
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        top: 20,
+        top: 10,
         right: 20,
         zIndex: 99,
         fontSize: 30,
