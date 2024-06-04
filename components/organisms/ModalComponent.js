@@ -24,9 +24,12 @@ const ModalComponent = ({ visible, closeModal }) => {
     <Modal animationType="slide" transparent={true} visible={visible}>
       <View style={{ ...styles.modal }}>
         <CrossButton onPress={closeModal} />
-        <Text style={{ ...styles.title }}>About</Text>
+        <Text style={{ ...styles.title }}>Options</Text>
         <View>
-          <MenuButton text="Github" onPress={handlePress} />
+          <MenuButton text="Rules" onPress={handlePress} />
+          <MenuButton text="Want to join?" onPress={handlePress} />
+          <MenuButton text="Report a bug" onPress={handlePress} />
+          <MenuButton text="Credits" onPress={handlePress} />
         </View>
       </View>
     </Modal>
