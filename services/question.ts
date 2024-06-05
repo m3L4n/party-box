@@ -7,10 +7,11 @@ import dataQuiz1 from '../assets/questions/fr/quiz/quiz.json';
 import dataQuiz2 from '../assets/questions/fr/quiz/quiz_cinema.json';
 import dataQuiz3 from '../assets/questions/fr/quiz/quiz_geography.json';
 import dataWheel1 from '../assets/questions/fr/wheel/wheel.json';
-import Question from '../models/Question';
+import { Mode } from '../models/Mode';
+import { Question } from '../models/Question';
+import { User } from '../models/User';
 
-export const getQuestionsList = async (mode, userList) => {
-
+export const getQuestionsList = async (mode: Mode, userList: User[]): Promise<Question[]> => {
   try {
     switch (mode.name) {
       case 'classic':
@@ -41,10 +42,10 @@ export const getQuestionsList = async (mode, userList) => {
   }
 }
 
-const getRandomUsers = (userList, n) => {
+const getRandomUsers = (userList: User[], n: number): User[] => {
   n = Math.min(n, userList.length);
   const copy = [...userList];
-  const ret = [];
+  const ret: User[] = [];
 
   for (let i = 0; i < n; i++) {
     const randIdx = Math.floor(Math.random() * copy.length);
@@ -55,7 +56,7 @@ const getRandomUsers = (userList, n) => {
   return ret;
 }
 
-const parseQuestion = (userList, question) => {
+const parseQuestion = (userList: User[], question: string): string => {
   const count = (question.match(/\$\{user\}/g) || []).length;
 
   const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -80,7 +81,7 @@ const parseQuestion = (userList, question) => {
   return parsedQuestion;
 }
 
-const getQuestions = async (userList, data, mode) => {
+const getQuestions = async (userList: User[], data: any[], mode: string): Promise<Question[]> => {
   try {
     let dataToUse = data;
     dataToUse.sort(() => Math.random() - 0.5);
@@ -96,7 +97,13 @@ const getQuestions = async (userList, data, mode) => {
 
     const questions = dataToUse.map((questionData, index) => {
       const parsedContent = parseQuestion(userList, questionData.content);
-      return new Question(index, parsedContent, mode, questionData.options || []);
+      // return new Question(index, parsedContent, mode, questionData.options || []);
+      return {
+        id: index,
+        content: parsedContent,
+        mode: mode,
+        options: questionData.options || []
+      };
     });
 
     return questions;

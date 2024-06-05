@@ -4,13 +4,14 @@ import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import SquareButton from '../atoms/SquareButton';
+import { ButtonProps } from '../atoms/Button';
 
-const IconButton = ({ name, onPress, style }) => {
+const IconButton = ({ content, onPress, style }: ButtonProps) => {
   return (
     <SquareButton onPress={onPress}
       style={{ ...styles.container, ...style }}
       content={
-        <Ionicons name={name} style={{ ...styles.icon }} />
+        <Ionicons name={content} style={{ ...styles.icon }} />
       }
     />
   );

@@ -1,10 +1,16 @@
 // models/Question.tsx
 
-export default class Question {
-  constructor(id, content, mode, options) {
-    this.id = id;
-    this.content = content;
-    this.mode = mode;
-    this.options = options || [];
-  }
+import { Mode } from "./Mode";
+
+export interface Question {
+  id: number;
+  content: string;
+  mode: Mode;
+  options: Option[];
+}
+
+interface Option {
+  id: number;
+  content: string;
+  isAnswer: boolean;
 }

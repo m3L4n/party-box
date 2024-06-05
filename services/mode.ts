@@ -1,18 +1,19 @@
 // services/mode.tsx
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Mode } from '../models/Mode';
 
-export const loadModes = async () => {
+export const loadModes = async (): Promise<Mode[]> => {
   try {
-    const modes = await AsyncStorage.getItem('modes');
-    return modes ? JSON.parse(modes) : [];
+    const modesString = await AsyncStorage.getItem('modes');
+    return modesString ? JSON.parse(modesString) : [];
   } catch (error) {
     console.error('Erreur lors du chargement des modes : ', error);
     return [];
   }
 };
 
-export const addMode = async (mode) => {
+export const addMode = async (mode: Mode): Promise<Mode[]> => {
   try {
     const modes = await loadModes();
     mode.isActive = false;
@@ -25,7 +26,7 @@ export const addMode = async (mode) => {
   }
 };
 
-export const toggleModeStatus = async (modeName) => {
+export const toggleModeStatus = async (modeName: string): Promise<Mode[]> => {
   try {
     const modes = await loadModes();
     const modeIndex = modes.findIndex(mode => mode.name === modeName);
@@ -44,7 +45,7 @@ export const toggleModeStatus = async (modeName) => {
   }
 }
 
-export const deleteAllModes = async () => {
+export const deleteAllModes = async (): Promise<void> => {
   try {
     await AsyncStorage.removeItem('modes');
   } catch (error) {
@@ -52,11 +53,12 @@ export const deleteAllModes = async () => {
   }
 }
 
-export const getActiveModes = async () => {
+export const getActiveModes = async (): Promise<Mode[]> => {
   try {
     const modes = await loadModes();
     return modes.filter(mode => mode.isActive);
   } catch (error) {
     console.error('Erreur lors de la récupération des modes actifs : ', error);
+    return [];
   }
 }

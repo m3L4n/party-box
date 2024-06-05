@@ -4,8 +4,14 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import Text from '../atoms/CustomText';
 import RectangleButton from '../atoms/RectangleButton';
+import { ButtonProps } from '../atoms/Button';
 
-const MenuButton = ({ onPress, text, color, style }) => {
+interface MenuButtonProps extends ButtonProps {
+  text: string;
+  color: string;
+}
+
+const MenuButton = ({ onPress, text, color, style }: MenuButtonProps) => {
 
   return (
     <RectangleButton

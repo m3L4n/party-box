@@ -1,10 +1,18 @@
 // components/molecules/ActiveCardButton.tsx
 
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleProp, StyleSheet } from 'react-native';
 import CardButton from '../atoms/CardButton';
+import ButtonProps from '../atoms/Button';
 
-const ActiveCardButton = ({ onPress, content, style, active }) => {
+interface ButtonProps {
+  onPress: (isActive: boolean) => void;
+  content: string;
+  style?: StyleProp<any>;
+  active?: boolean;
+}
+
+const ActiveCardButton = ({ onPress, content, style, active }: ButtonProps) => {
   const [isActive, setIsActive] = useState(active);
 
   const handlePress = () => {
@@ -17,7 +25,7 @@ const ActiveCardButton = ({ onPress, content, style, active }) => {
   return (
     <CardButton
       onPress={handlePress}
-      style={{ ...styles.container, ...style, opacity: isActive ? 1 : 0.3 }}
+      style={[styles.container, ...style, { opacity: isActive ? 1 : 0.3 }]}
       content={content}
     />
   );

@@ -3,10 +3,17 @@
 import { StyleSheet } from 'react-native';
 import Button from '../atoms/Button';
 
-const ColorButton = ({ onPress, color, isActive }) => {
+interface ColorButtonProps {
+  onPress: () => void;
+  color: string;
+  isActive: boolean;
+}
+
+const ColorButton = ({ onPress, color, isActive }: ColorButtonProps) => {
   return (
     <Button
       onPress={onPress}
+      content={''}
       style={{
         ...styles.container, backgroundColor: color, opacity: isActive ? 1 : 0.5,
       }}

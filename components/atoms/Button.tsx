@@ -1,13 +1,14 @@
 // components/atoms/Button.js
 
 import React from 'react';
-import { StyleProp, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
+import { StyleProp, StyleSheet, TouchableOpacity } from 'react-native';
 
-export type ButtonProps = {
-  content: string;
+export interface ButtonProps {
+  content: any;
   onPress: () => void;
   style?: StyleProp<any>;
-};
+  active?: boolean;
+}
 
 const Button = ({ content, onPress, style }: ButtonProps) => {
   return (
