@@ -7,6 +7,7 @@
       "es7",
       "esnext"
     ],
+    "allowJs": true,
     "jsx": "react-native",
     "strict": true,
     "moduleResolution": "node",
@@ -16,12 +17,16 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
   },
+  "include": [
+    "./**/*"
+  ],
   "exclude": [
     "node_modules",
     "babel.config.js",
     "metro.config.js",
     "jest.config.js"
-  ]
+  ],
+  "extends": "expo/tsconfig.base"
 }

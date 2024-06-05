@@ -4,13 +4,14 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { colors } from '../../assets/colors';
 import IconButton from '../molecules/IconButton';
+import { ButtonProps } from '../atoms/Button';
 
-const TrashButton = ({ onPress, style }) => {
+const TrashButton = ({ onPress, style }: ButtonProps) => {
   return (
     <IconButton
       onPress={onPress}
       style={{ ...styles.container, ...style }}
-      name="trash"
+      content="trash"
     />
   );
 };

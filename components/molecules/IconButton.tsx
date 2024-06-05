@@ -9,9 +9,9 @@ import { ButtonProps } from '../atoms/Button';
 const IconButton = ({ content, onPress, style }: ButtonProps) => {
   return (
     <SquareButton onPress={onPress}
-      style={{ ...styles.container, ...style }}
+      style={[styles.container, style]}
       content={
-        <Ionicons name={content} style={{ ...styles.icon }} />
+        <Ionicons name={content} style={styles.icon} />
       }
     />
   );

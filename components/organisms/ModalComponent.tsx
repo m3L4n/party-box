@@ -1,13 +1,13 @@
 // components/molecules/ModalComponent.tsx
 
 import React, { useState } from 'react';
-import { Linking, Modal, View } from 'react-native';
+import { Linking, Modal, StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../atoms/CustomText';
 import MenuButton from '../molecules/MenuButton';
 import CrossButton from './CrossButton';
 
-const ModalComponent = ({ visible, closeModal }) => {
+const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal: () => void }) => {
   const [rulesOpen, setRulesOpen] = useState(false);
 
   const handlePressRules = async () => {
@@ -82,7 +82,7 @@ const ModalComponent = ({ visible, closeModal }) => {
   );
 }
 
-const styles = {
+const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontFamily: 'BebasNeue-Regular',
@@ -106,8 +106,7 @@ const styles = {
   rules: {
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'start',
   }
-};
+});
 
 export default ModalComponent;

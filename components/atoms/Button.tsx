@@ -13,7 +13,7 @@ export interface ButtonProps {
 const Button = ({ content, onPress, style }: ButtonProps) => {
   return (
     <TouchableOpacity
-      style={[styles.container, ...style]}
+      style={[styles.container, style]}
       onPress={onPress}
     >
       {content}

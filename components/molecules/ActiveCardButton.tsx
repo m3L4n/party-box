@@ -25,7 +25,7 @@ const ActiveCardButton = ({ onPress, content, style, active }: ButtonProps) => {
   return (
     <CardButton
       onPress={handlePress}
-      style={[styles.container, ...style, { opacity: isActive ? 1 : 0.3 }]}
+      style={[styles.container, style, { opacity: isActive ? 1 : 0.3 }]}
       content={content}
     />
   );

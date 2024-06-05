@@ -1,6 +1,7 @@
 // services/user.tsx
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { User } from '../models/User';
 
 export const loadUsers = async () => {
   try {
@@ -12,7 +13,7 @@ export const loadUsers = async () => {
   }
 };
 
-export const addUser = async (user) => {
+export const addUser = async (user: User) => {
   try {
     const users = await loadUsers();
     user.isActive = true;
@@ -25,10 +26,10 @@ export const addUser = async (user) => {
   }
 };
 
-export const deleteUser = async (userName) => {
+export const deleteUser = async (userName: string) => {
   try {
     const users = await loadUsers();
-    const updatedUsers = users.filter(user => user.name !== userName);
+    const updatedUsers = users.filter((user: { name: string; }) => user.name !== userName);
     await AsyncStorage.setItem('users', JSON.stringify(updatedUsers));
     return updatedUsers;
   } catch (error) {
@@ -37,10 +38,10 @@ export const deleteUser = async (userName) => {
   }
 }
 
-export const toggleUserStatus = async (userName) => {
+export const toggleUserStatus = async (userName: string): Promise<User[]> => {
   try {
-    const users = await loadUsers();
-    const userIndex = users.findIndex(user => user.name === userName);
+    const users: User[] = await loadUsers();
+    const userIndex: number = users.findIndex((user: User) => user.name === userName);
 
     if (userIndex !== -1) {
       users[userIndex].isActive = !users[userIndex].isActive;
@@ -67,7 +68,7 @@ export const clearData = async () => {
 export const getActiveUsers = async () => {
   try {
     const users = await loadUsers();
-    return users.filter(user => user.isActive);
+    return users.filter((user: User) => user.isActive);
   } catch (error) {
     console.error('Erreur lors de la récupération des utilisateurs actifs : ', error);
     return [];

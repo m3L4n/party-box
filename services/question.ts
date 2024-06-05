@@ -95,13 +95,12 @@ const getQuestions = async (userList: User[], data: any[], mode: string): Promis
       dataToUse = dataToUse.slice(0, 30);
     }
 
-    const questions = dataToUse.map((questionData, index) => {
+    const questions: Question[] = dataToUse.map((questionData, index) => {
       const parsedContent = parseQuestion(userList, questionData.content);
-      // return new Question(index, parsedContent, mode, questionData.options || []);
       return {
         id: index,
         content: parsedContent,
-        mode: mode,
+        mode: mode as unknown as Mode,
         options: questionData.options || []
       };
     });

@@ -9,7 +9,7 @@ const RectangleButton = ({ content, onPress, style }: ButtonProps) => {
         <Button
             content={content}
             onPress={onPress}
-            style={[styles.container, ...style]}
+            style={[styles.container, style]}
         />
     );
 };

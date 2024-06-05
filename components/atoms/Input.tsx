@@ -12,7 +12,7 @@ type InputProps = {
 const Input = ({ placeholder, onChangeText, value }: InputProps) => {
   return (
     <TextInput
-      style={{ ...styles.container }}
+      style={[styles.container]}
       onChangeText={onChangeText}
       value={value}
       placeholder={placeholder}

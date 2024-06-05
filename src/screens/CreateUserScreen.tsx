@@ -8,19 +8,19 @@ import AddButton from "../../components/organisms/AddButton"
 import BackButton from "../../components/organisms/BackButton"
 import ChooseColorComponent from "../../components/organisms/ChooseColorComponent"
 import { EmptyUserCard } from "../../components/organisms/DefaultCards"
-import User from "../../models/User"
+import { User } from "../../models/User"
 import { addUser } from "../../services/user"
 import { getRandomColorBackground } from "../../services/utils"
 
-const CreateUserScreen = ({ navigation }) => {
+const CreateUserScreen = ({ navigation }: { navigation: any }) => {
   const [name, setName] = React.useState('')
   const [selectedColor, setSelectedColor] = React.useState(colors.primary.creme)
 
-  const handleNameChange = (text) => {
+  const handleNameChange = (text: string): void => {
     setName(text)
   }
 
-  const handleColorChange = (color) => {
+  const handleColorChange = (color: string): void => {
     setSelectedColor(color)
   }
 
@@ -29,7 +29,10 @@ const CreateUserScreen = ({ navigation }) => {
       alert('Veuillez entrer un nom');
       return;
     }
-    const newUser = new User(name.toLowerCase(), selectedColor);
+    const newUser = {
+      name: name,
+      color: selectedColor,
+    }
     setName('');
     setSelectedColor(colors.primary.creme);
     await addUser(newUser);
@@ -45,7 +48,7 @@ const CreateUserScreen = ({ navigation }) => {
       <ChooseColorComponent onPress={handleColorChange} active={colors.primary.creme} />
       <View style={{ ...styles.group }} >
         <Input placeholder="Nom" onChangeText={handleNameChange} value={name} autoFocus={true} />
-        <AddButton onPress={handleAddUser} />
+        <AddButton content="Add" onPress={handleAddUser} />
       </View>
     </View>
   )
@@ -68,3 +71,7 @@ const styles = StyleSheet.create({
 });
 
 export default CreateUserScreen
+
+function alert(arg0: string) {
+  throw new Error("Function not implemented.")
+}

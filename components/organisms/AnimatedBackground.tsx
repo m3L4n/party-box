@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Animated, Easing, ImageBackground, StyleSheet } from 'react-native';
-import backgroundImage from '../../assets/images.png';
+import backgroundImage from '../../assets/image.png'
+
 const INPUT_RANGE_START = 0
 const INPUT_RANGE_END = 1
 const OUTPUT_RANGE_START = -30

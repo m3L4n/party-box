@@ -12,7 +12,7 @@ import { loadModes } from '../../services/mode';
 import { loadUsers } from '../../services/user';
 import { getRandomColorBackground } from '../../services/utils';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation }: { navigation: any }) => {
     const version = require('../../package.json').version;
     const [modalVisible, setModalVisible] = useState(false);
     const [backgroundColor, setBackgroundColor] = useState(getRandomColorBackground());
