@@ -14,6 +14,10 @@ const ModalComponent = ({ visible, closeModal }) => {
     setRulesOpen(true);
   }
 
+  const handlePressRulesClose = async () => {
+    setRulesOpen(false);
+  }
+
   const handlePressCredits = async () => {
     const url = "https://www.github.com/jurichar/"
     const canOpen = await Linking.canOpenURL(url);
@@ -53,23 +57,24 @@ const ModalComponent = ({ visible, closeModal }) => {
   return (
     <Modal animationType="slide" transparent={true} visible={visible}>
       <View style={{ ...styles.modal }}>
-        <CrossButton onPress={closeModal} />
-        <Text style={{ ...styles.title }}>Options</Text>
+        <CrossButton onPress={rulesOpen ? handlePressRulesClose : closeModal} />
+        {rulesOpen ?
+          <Text style={{ ...styles.title }}>Options</Text> :
+          <Text style={{ ...styles.title }}>How to play ?</Text>
+        }
         {!rulesOpen &&
           <View>
-            <MenuButton text="Rules" onPress={handlePressRules} />
-            <MenuButton text="Want to join?" onPress={handlePressJoin} />
+            <MenuButton text="How to play ?" onPress={handlePressRules} />
+            <MenuButton text="Want to join ?" onPress={handlePressJoin} />
             <MenuButton text="Report a bug" onPress={handlePressReport} />
             <MenuButton text="Credits" onPress={handlePressCredits} />
-            {false && <MenuButton text="Log out" onPress={handlePressLogout} />}
           </View>
         }
         {rulesOpen &&
-          <View>
-            <Text>Rules</Text>
-            <Text>1. Don't cheat</Text>
-            <Text>2. Have fun</Text>
-            <MenuButton text="Back" onPress={() => setRulesOpen(false)} />
+          <View style={{ ...styles.rules }}>
+            <Text>- Select and create players</Text>
+            <Text>- Select game modes</Text>
+            <Text>- Start the game</Text>
           </View>
         }
       </View>
@@ -98,6 +103,11 @@ const styles = {
     borderWidth: 2,
     borderColor: 'black',
   },
+  rules: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'start',
+  }
 };
 
 export default ModalComponent;
