@@ -1,12 +1,12 @@
 // services/question.js
 
-import dataClassic1 from '../assets/questions/classic/classic.json';
-import dataClassic2 from '../assets/questions/classic/classic_vote.json';
-import dataDuel1 from '../assets/questions/duel/duel.json';
-import dataQuiz1 from '../assets/questions/quiz/quiz.json';
-import dataQuiz2 from '../assets/questions/quiz/quiz_cinema.json';
-import dataQuiz3 from '../assets/questions/quiz/quiz_geography.json';
-import dataWheel1 from '../assets/questions/wheel/wheel.json';
+import dataClassic1 from '../assets/questions/fr/classic/classic.json';
+import dataClassic2 from '../assets/questions/fr/classic/classic_vote.json';
+import dataDuel1 from '../assets/questions/fr/duel/duel.json';
+import dataQuiz1 from '../assets/questions/fr/quiz/quiz.json';
+import dataQuiz2 from '../assets/questions/fr/quiz/quiz_cinema.json';
+import dataQuiz3 from '../assets/questions/fr/quiz/quiz_geography.json';
+import dataWheel1 from '../assets/questions/fr/wheel/wheel.json';
 import Question from '../models/Question';
 
 export const getQuestionsList = async (mode, userList) => {

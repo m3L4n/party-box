@@ -1,6 +1,6 @@
 // components/molecules/ModalComponent.js
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Linking, Modal, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../atoms/CustomText';
@@ -8,8 +8,13 @@ import MenuButton from '../molecules/MenuButton';
 import CrossButton from './CrossButton';
 
 const ModalComponent = ({ visible, closeModal }) => {
+  const [rulesOpen, setRulesOpen] = useState(false);
 
-  const handlePress = async () => {
+  const handlePressRules = async () => {
+    setRulesOpen(true);
+  }
+
+  const handlePressCredits = async () => {
     const url = "https://www.github.com/jurichar/"
     const canOpen = await Linking.canOpenURL(url);
     if (canOpen) {
@@ -19,18 +24,54 @@ const ModalComponent = ({ visible, closeModal }) => {
     }
   };
 
+  const handlePressJoin = async () => {
+    const email = '';
+    const subject = 'Joining the game';
+    const body = 'I want to join the game';
+    const url = `mailto:${email}?subject=${subject}&body=${body}`;
+    const canOpen = await Linking.canOpenURL(url);
+    if (canOpen) {
+      Linking.openURL(url);
+    } else {
+      console.error(`Cannot open url: ${url}`);
+    }
+  }
+
+  const handlePressReport = async () => {
+    const email = '';
+    const subject = 'Reporting a bug';
+    const body = 'I want to report a bug';
+    const url = `mailto:${email}?subject=${subject}&body=${body}`;
+    const canOpen = await Linking.canOpenURL(url);
+    if (canOpen) {
+      Linking.openURL(url);
+    } else {
+      console.error(`Cannot open url: ${url}`);
+    }
+  }
 
   return (
     <Modal animationType="slide" transparent={true} visible={visible}>
       <View style={{ ...styles.modal }}>
         <CrossButton onPress={closeModal} />
         <Text style={{ ...styles.title }}>Options</Text>
-        <View>
-          <MenuButton text="Rules" onPress={handlePress} />
-          <MenuButton text="Want to join?" onPress={handlePress} />
-          <MenuButton text="Report a bug" onPress={handlePress} />
-          <MenuButton text="Credits" onPress={handlePress} />
-        </View>
+        {!rulesOpen &&
+          <View>
+            <MenuButton text="Rules" onPress={handlePressRules} />
+            <MenuButton text="Want to join?" onPress={handlePressJoin} />
+            <MenuButton text="Report a bug" onPress={handlePressReport} />
+            <MenuButton text="Credits" onPress={handlePressCredits} />
+            {false && <MenuButton text="Log out" onPress={handlePressLogout} />}
+          </View>
+        }
+        {rulesOpen &&
+          <View>
+            <Text>Rules</Text>
+            <Text>1. Don't cheat</Text>
+            <Text>2. Have fun</Text>
+            <MenuButton text="Back" onPress={() => setRulesOpen(false)} />
+          </View>
+        }
       </View>
     </Modal>
   );
