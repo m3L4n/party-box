@@ -9,6 +9,7 @@ import { EmptyUserCard } from "../../components/organisms/DefaultCards";
 import { User } from "../../models/User";
 import { addUser } from "../../services/user";
 import { getRandomColor, getRandomColorBackground } from "../../services/utils";
+import { t } from "i18next";
 
 interface CreateUserScreenProps {
   navigation: any;
@@ -29,7 +30,7 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
 
   const handleAddUser = async (): Promise<void> => {
     if (name.length <= 0) {
-      Alert.alert('Veuillez entrer un nom');
+      Alert.alert(t('alert_name'));
       return;
     }
     const newUser: User = {
@@ -54,7 +55,7 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
       <EmptyUserCard name={name} color={selectedColor} />
       <ChooseColorComponent onPress={handleColorChange} active={selectedColor} />
       <View style={styles.group}>
-        <Input placeholder="Nom" onChangeText={handleNameChange} value={name} />
+        <Input placeholder={t('name')} onChangeText={handleNameChange} value={name} />
         <AddButton content="Add" onPress={handleAddUser} />
       </View>
     </View >

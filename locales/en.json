@@ -1,12 +1,16 @@
 {
+  "options": "Options",
+  "settings": "Settings",
   "how_to_play": "How to play ?",
   "want_to_join": "Want to join ?",
   "report_bug": "Report a bug",
   "credits": "Credits",
-  "options": "Options",
-  "rules": {
-    "select_create_players": "- Select and create players",
-    "select_game_modes": "- Select game modes",
-    "start_game": "- Start the game"
-  }
+  "quick_play": "Quick play",
+  "custom_game": "Custom game",
+  "users": "Users",
+  "next": "Next",
+  "name": "Name",
+  "alert_name": "Please enter a name",
+  "alert_mode": "Please select a mode",
+  "alert_players": "Please select at least 2 players",
 }

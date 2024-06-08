@@ -14,6 +14,7 @@ import UserCard from '../../components/organisms/UserCard';
 import { deleteUser, getActiveUsers, loadUsers, toggleUserStatus } from "../../services/user";
 import { getRandomColorBackground } from '../../services/utils';
 import { User } from '../../models/User';
+import { t } from 'i18next';
 
 interface UsersScreenProps {
     navigation: any;
@@ -61,7 +62,7 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
     const handleNextButtonPress = async () => {
         const list: User[] = await getActiveUsers();
         if (list.length <= 1) {
-            Alert.alert('Veuillez sélectionner au moins deux joueurs !');
+            Alert.alert(t('alert_players'));
             return;
         }
         navigation.navigate('Modes');
@@ -72,7 +73,7 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
             <AnimatedBackground />
             <BackButton navigation={navigation} />
             <TrashButton onPress={toggleDeleteMode} />
-            <Text style={{ ...styles.title }}>Users</Text>
+            <Text style={{ ...styles.title }}>{t('users')}</Text>
             <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
                 {userList.map((user, index) => (
                     <View key={index} style={{ position: 'relative', }}>
@@ -84,7 +85,7 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
                 ))}
                 <AddButton onPress={() => navigation.navigate('CreateUser')} style={{ ...styles.addButton }} />
             </ScrollView>
-            <MenuButton color={colors.primary.green} text="Suivant" onPress={handleNextButtonPress} />
+            <MenuButton color={colors.primary.green} text={t('next')} onPress={handleNextButtonPress} />
         </View>
     );
 };
@@ -108,6 +109,7 @@ const styles = StyleSheet.create({
         letterSpacing: 5,
         color: 'black',
         marginBottom: 30,
+        marginTop: 30,
     },
     addButton: {
         marginHorizontal: 16.1,

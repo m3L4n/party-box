@@ -63,14 +63,14 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
         <CrossButton onPress={rulesOpen ? handlePressRulesClose : closeModal} />
         {rulesOpen ?
           <Text style={{ ...styles.title }}>{t('options')}</Text> :
-          <Text style={{ ...styles.title }}>{t('how_to_play')}</Text>
+          <Text style={{ ...styles.title }}>{t('settings')}</Text>
         }
         {!rulesOpen &&
           <View>
-            <MenuButton text="How to play ?" onPress={handlePressRules} />
-            <MenuButton text="Want to join ?" onPress={handlePressJoin} />
-            <MenuButton text="Report a bug" onPress={handlePressReport} />
-            <MenuButton text="Credits" onPress={handlePressCredits} />
+            <MenuButton text={t("how_to_play")} onPress={handlePressRules} />
+            <MenuButton text={t("want_to_join")} onPress={handlePressJoin} />
+            <MenuButton text={t("report_bug")} onPress={handlePressReport} />
+            <MenuButton text={t("credits")} onPress={handlePressCredits} />
             <LanguageComponent />
           </View>
         }

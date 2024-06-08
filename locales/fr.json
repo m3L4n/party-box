@@ -1,12 +1,16 @@
 {
+  "options": "Options",
+  "settings": "Paramètres",
   "how_to_play": "Comment jouer ?",
-  "want_to_join": "Voulez-vous rejoindre ?",
+  "want_to_join": "Nous rejoindre ?",
   "report_bug": "Signaler un bug",
   "credits": "Crédits",
-  "options": "Options",
-  "rules": {
-    "select_create_players": "- Sélectionnez et créez des joueurs",
-    "select_game_modes": "- Sélectionnez les modes de jeu",
-    "start_game": "- Commencez le jeu"
-  }
+  "quick_play": "Partie rapide",
+  "custom_game": "Partie personnalisée",
+  "users": "Utilisateurs",
+  "next": "Suivant",
+  "name": "Nom",
+  "alert_name": "Veuillez entrer un nom",
+  "alert_mode": "Veuillez choisir un mode de jeu",
+  "alert_players": "Veuillez choisir au moins deux joueurs",
 }

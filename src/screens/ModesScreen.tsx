@@ -14,6 +14,7 @@ import ReloadButton from "../../components/organisms/ReloadButton";
 import { Mode } from "../../models/Mode";
 import { addMode, deleteAllModes, getActiveModes, loadModes, toggleModeStatus } from "../../services/mode";
 import { getRandomColorBackground } from "../../services/utils";
+import { t } from "i18next";
 
 interface ModesScreenProps {
   navigation: any;
@@ -54,7 +55,7 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
   const handleNextButtonPress = async () => {
     const list = await getActiveModes();
     if (list.length === 0) {
-      Alert.alert('Veuillez sélectionner au moins un mode');
+      Alert.alert(t('alert_mode'));
       return;
     }
     navigation.navigate('Play');
@@ -80,7 +81,7 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
           <ModeCard key={index} mode={mode} onPress={() => handleModePress(mode.name)} />
         ))}
       </ScrollView>
-      <MenuButton color={colors.primary.green} text="Suivant" onPress={handleNextButtonPress} />
+      <MenuButton color={colors.primary.green} text={t('next')} onPress={handleNextButtonPress} />
     </View>
   );
 };
@@ -98,6 +99,7 @@ const styles = StyleSheet.create({
     letterSpacing: 5,
     color: 'black',
     marginBottom: 30,
+    marginTop: 30,
   },
 });
 

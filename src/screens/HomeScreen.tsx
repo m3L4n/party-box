@@ -11,6 +11,7 @@ import SettingsButton from '../../components/organisms/SettingsButton';
 import { loadModes } from '../../services/mode';
 import { loadUsers } from '../../services/user';
 import { getRandomColorBackground } from '../../services/utils';
+import { t } from 'i18next';
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
     const version = require('../../package.json').version;
@@ -49,8 +50,8 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
                 <Text style={{ ...styles.title }}>Party Box</Text>
                 <Text>v.{version}</Text>
             </>
-            <MenuButton color={colors.primary.green} text="Partie Rapide" onPress={() => handleClick()} />
-            <MenuButton color={colors.primary.blue} text="Partie Custom" onPress={() => navigation.navigate('Users')} />
+            <MenuButton color={colors.primary.green} text={t("quick_play")} onPress={() => handleClick()} />
+            <MenuButton color={colors.primary.blue} text={t("custom_game")} onPress={() => navigation.navigate('Users')} />
             <ModalComponent visible={modalVisible} closeModal={closeModal} />
         </View >
     );

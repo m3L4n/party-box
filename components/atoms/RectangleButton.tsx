@@ -16,7 +16,7 @@ const RectangleButton = ({ content, onPress, style }: ButtonProps) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 200,
+        width: 230,
         height: 50
     },
 });
