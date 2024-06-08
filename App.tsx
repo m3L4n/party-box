@@ -11,6 +11,9 @@ import ModesScreen from './src/screens/ModesScreen';
 import PlayScreen from './src/screens/PlayScreen';
 import UsersScreen from './src/screens/UsersScreen';
 import { StyleSheet, View } from 'react-native';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
+import i18next from 'i18next';
 
 const Stack = createStackNavigator();
 
@@ -36,18 +39,20 @@ const App = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Play" component={PlayScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Users" component={UsersScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Modes" component={ModesScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="CreateUser" component={CreateUserScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="PartyEnd" component={PartyEndScreen} options={{ headerShown: false }} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </View>
+    <I18nextProvider i18n={i18n}>
+      <View style={styles.container}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Play" component={PlayScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Users" component={UsersScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Modes" component={ModesScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="CreateUser" component={CreateUserScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="PartyEnd" component={PartyEndScreen} options={{ headerShown: false }} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </View>
+    </I18nextProvider>
   );
 };
 

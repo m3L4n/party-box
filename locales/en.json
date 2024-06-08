@@ -1,0 +1,12 @@
+{
+  "how_to_play": "How to play ?",
+  "want_to_join": "Want to join ?",
+  "report_bug": "Report a bug",
+  "credits": "Credits",
+  "options": "Options",
+  "rules": {
+    "select_create_players": "- Select and create players",
+    "select_game_modes": "- Select game modes",
+    "start_game": "- Start the game"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "how_to_play": "Comment jouer ?",
+  "want_to_join": "Voulez-vous rejoindre ?",
+  "report_bug": "Signaler un bug",
+  "credits": "Crédits",
+  "options": "Options",
+  "rules": {
+    "select_create_players": "- Sélectionnez et créez des joueurs",
+    "select_game_modes": "- Sélectionnez les modes de jeu",
+    "start_game": "- Commencez le jeu"
+  }
+}
