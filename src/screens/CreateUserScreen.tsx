@@ -8,7 +8,7 @@ import ChooseColorComponent from "../../components/organisms/ChooseColorComponen
 import { EmptyUserCard } from "../../components/organisms/DefaultCards";
 import { User } from "../../models/User";
 import { addUser } from "../../services/user";
-import { getRandomColorBackground } from "../../services/utils";
+import { getRandomColor, getRandomColorBackground } from "../../services/utils";
 
 interface CreateUserScreenProps {
   navigation: any;
@@ -16,7 +16,7 @@ interface CreateUserScreenProps {
 
 const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
   const [name, setName] = useState<string>('');
-  const [selectedColor, setSelectedColor] = useState<string>(colors.primary.creme);
+  const [selectedColor, setSelectedColor] = useState<string>(getRandomColor());
   const [backgroundColor, setBackgroundColor] = useState<string>(colors.primary.creme);
 
   const handleNameChange = (text: string): void => {

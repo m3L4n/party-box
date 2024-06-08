@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import ColorButton from '../molecules/ColorButton';
 
-const ChooseColorComponent = ({ onPress, active }) => {
+const ChooseColorComponent = ({ onPress, active }: { onPress: (color: string) => void, active: string }) => {
   const [activeColor, setActiveColor] = React.useState(active);
 
   React.useEffect(() => {
@@ -13,7 +13,7 @@ const ChooseColorComponent = ({ onPress, active }) => {
   }
     , [active]);
 
-  const handleColorPress = (color) => {
+  const handleColorPress = (color: string) => {
     setActiveColor(color);
     onPress(color);
   };

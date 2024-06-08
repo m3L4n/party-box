@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
   rules: {
     flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'flex-start',
   }
 });
 
