@@ -1,16 +1,16 @@
-// components/molecules/ModalComponent.tsx
+// components/organisms/ModalComponent.tsx
 
 import React, { useState } from 'react';
-import { Image, Linking, Modal, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Linking, Modal, StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../atoms/CustomText';
 import MenuButton from '../molecules/MenuButton';
 import CrossButton from './CrossButton';
-import i18n from '../../i18n';
 import { useTranslation } from 'react-i18next';
+import LanguageComponent from './LanguageComponent';
 
 const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal: () => void }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [rulesOpen, setRulesOpen] = useState(false);
 
   const handlePressRules = async () => {
@@ -57,10 +57,6 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
     }
   }
 
-  const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
-  };
-
   return (
     <Modal animationType="slide" transparent={true} visible={visible}>
       <View style={{ ...styles.modal }}>
@@ -75,14 +71,7 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
             <MenuButton text="Want to join ?" onPress={handlePressJoin} />
             <MenuButton text="Report a bug" onPress={handlePressReport} />
             <MenuButton text="Credits" onPress={handlePressCredits} />
-            <View style={styles.language}>
-              <TouchableOpacity onPress={() => changeLanguage('fr')} >
-                <Image source={require('../../assets/fr.png')} style={styles.language.image} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => changeLanguage('en')}>
-                <Image source={require('../../assets/uk.png')} style={styles.language.image} />
-              </TouchableOpacity>
-            </View>
+            <LanguageComponent />
           </View>
         }
         {rulesOpen &&
@@ -122,17 +111,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
-  },
-  language: {
-    paddingTop: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    image: {
-      borderRadius: 10,
-      width: 80,
-      height: 50,
-    }
   },
 });
 
