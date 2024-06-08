@@ -1,7 +1,6 @@
 // src/screens/ModesScreen.tsx
-
 import React, { useCallback, useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Alert } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { colors } from "../../assets/colors";
 import modesData from "../../assets/modes.json";
@@ -11,20 +10,24 @@ import AnimatedBackground from "../../components/organisms/AnimatedBackground";
 import BackButton from "../../components/organisms/BackButton";
 import ModeCard from "../../components/organisms/ModeCard";
 import ReloadButton from "../../components/organisms/ReloadButton";
-import Mode from "../../models/Mode";
+import { Mode } from "../../models/Mode";
 import { addMode, deleteAllModes, getActiveModes, loadModes, toggleModeStatus } from "../../services/mode";
 import { getRandomColorBackground } from "../../services/utils";
 
-const ModesScreen = ({ navigation }) => {
-  const [modeList, setModeList] = useState([]);
-  const [backgroundColor, setBackgroundColor] = useState(getRandomColorBackground());
+interface ModesScreenProps {
+  navigation: any;
+}
+
+const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
+  const [modeList, setModeList] = useState<Mode[]>([]);
+  const [backgroundColor, setBackgroundColor] = useState<string>(getRandomColorBackground());
 
   const fetchData = useCallback(async () => {
     const modes = await loadModes();
     setModeList(modes);
   }, []);
 
-  const handleModePress = async (modeName) => {
+  const handleModePress = async (modeName: string) => {
     const updatedModes = await toggleModeStatus(modeName);
     setModeList(updatedModes);
   };
@@ -40,7 +43,7 @@ const ModesScreen = ({ navigation }) => {
     const existingModes = await loadModes();
     if (existingModes.length <= 0) {
       for (const modeData of modesData.modes) {
-        const newMode = new Mode(modeData.name);
+        const newMode: Mode = { name: modeData.name, isActive: false };
         await addMode(newMode);
       }
     }
@@ -50,14 +53,14 @@ const ModesScreen = ({ navigation }) => {
   const handleNextButtonPress = async () => {
     const list = await getActiveModes();
     if (list.length === 0) {
-      alert('Veuillez sélectionner au moins un mode');
+      Alert.alert('Veuillez sélectionner au moins un mode');
       return;
     }
     navigation.navigate('Play');
   }
 
   const handleReloadPress = async () => {
-    deleteAllModes();
+    await deleteAllModes();
     await prefillModes();
   }
 
@@ -66,14 +69,14 @@ const ModesScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
+    <View style={[styles.container, { backgroundColor }]}>
       <AnimatedBackground />
       <BackButton navigation={navigation} />
       <ReloadButton onPress={handleReloadPress} />
-      <Text style={{ ...styles.title }}>Modes</Text>
+      <Text style={styles.title}>Modes</Text>
       <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
         {modeList.map((mode, index) => (
-          <ModeCard key={index} mode={mode} onPress={handleModePress} />
+          <ModeCard key={index} mode={mode} onPress={() => handleModePress(mode.name)} />
         ))}
       </ScrollView>
       <MenuButton color={colors.primary.green} text="Suivant" onPress={handleNextButtonPress} />

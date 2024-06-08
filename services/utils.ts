@@ -14,3 +14,7 @@ export const getRandomColor = () => {
   return randomColor;
 }
 
+
+export function alert(arg0: string) {
+  throw new Error("Function not implemented.")
+}

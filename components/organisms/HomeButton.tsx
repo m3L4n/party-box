@@ -4,8 +4,9 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { colors } from '../../assets/colors';
 import IconButton from '../molecules/IconButton';
+import { ButtonProps } from '../atoms/Button';
 
-const HomeButton = ({ navigation }) => {
+const HomeButton = ({ navigation, style }: ButtonProps) => {
   const onPress = () => {
     navigation.navigate('Home');
   }
@@ -13,8 +14,8 @@ const HomeButton = ({ navigation }) => {
   return (
     <IconButton
       onPress={onPress}
-      style={{ ...styles.container }}
-      name="home"
+      style={[styles.container, style]}
+      content="home"
     />
   );
 };

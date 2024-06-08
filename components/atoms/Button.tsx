@@ -4,10 +4,11 @@ import React from 'react';
 import { StyleProp, StyleSheet, TouchableOpacity } from 'react-native';
 
 export interface ButtonProps {
-  content: any;
-  onPress: () => void;
+  content?: any;
+  onPress?: () => void;
   style?: StyleProp<any>;
   active?: boolean;
+  navigation?: any;
 }
 
 const Button = ({ content, onPress, style }: ButtonProps) => {

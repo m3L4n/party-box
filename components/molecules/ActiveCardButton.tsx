@@ -7,7 +7,7 @@ import ButtonProps from '../atoms/Button';
 
 interface ButtonProps {
   onPress: (isActive: boolean) => void;
-  content: string;
+  content: any;
   style?: StyleProp<any>;
   active?: boolean;
 }

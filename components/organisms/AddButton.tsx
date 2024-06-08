@@ -10,7 +10,7 @@ const AddButton = ({ onPress, style }: ButtonProps) => {
   return (
     <IconButton
       onPress={onPress}
-      style={[styles.container, ...style]}
+      style={[styles.container, style]}
       content="add"
     />
   );

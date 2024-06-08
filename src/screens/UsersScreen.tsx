@@ -1,7 +1,7 @@
 // src/screens/UsersScreen.tsx
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
@@ -13,14 +13,19 @@ import TrashButton from '../../components/organisms/TrashButton';
 import UserCard from '../../components/organisms/UserCard';
 import { deleteUser, getActiveUsers, loadUsers, toggleUserStatus } from "../../services/user";
 import { getRandomColorBackground } from '../../services/utils';
+import { User } from '../../models/User';
 
-const UsersScreen = ({ navigation }) => {
-    const [userList, setUserList] = useState([]);
-    const [deleteMode, setDeleteMode] = useState(false);
-    const [backgroundColor, setBackgroundColor] = useState(getRandomColorBackground());
+interface UsersScreenProps {
+    navigation: any;
+}
+
+const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
+    const [userList, setUserList] = useState<User[]>([]);
+    const [deleteMode, setDeleteMode] = useState<boolean>(false);
+    const [backgroundColor, setBackgroundColor] = useState<string>(getRandomColorBackground());
 
     const fetchData = useCallback(async () => {
-        const users = await loadUsers();
+        const users: User[] = await loadUsers();
         setUserList(users);
     }, []);
 
@@ -39,7 +44,7 @@ const UsersScreen = ({ navigation }) => {
         return unsubscribe;
     }, [navigation]);
 
-    const handleUserPress = async (userName) => {
+    const handleUserPress = async (userName: string) => {
         if (deleteMode) {
             const updatedUsers = await deleteUser(userName);
             setUserList(updatedUsers);
@@ -49,18 +54,18 @@ const UsersScreen = ({ navigation }) => {
         }
     };
 
-    const toggleDeleteMode = async () => {
+    const toggleDeleteMode = () => {
         setDeleteMode(!deleteMode);
-    }
+    };
 
     const handleNextButtonPress = async () => {
-        const list = await getActiveUsers();
+        const list: User[] = await getActiveUsers();
         if (list.length <= 1) {
-            alert('Veuillez sélectionner au moins deux joueurs !');
+            Alert.alert('Veuillez sélectionner au moins deux joueurs !');
             return;
         }
         navigation.navigate('Modes');
-    }
+    };
 
     return (
         <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
@@ -74,13 +79,13 @@ const UsersScreen = ({ navigation }) => {
                         {deleteMode && (
                             <TrashButton onPress={() => handleUserPress(user.name)} style={{ ...styles.trashButton }} />
                         )}
-                        <UserCard key={index} user={user} onPress={(userName, isActive) => handleUserPress(userName, isActive)} />
+                        <UserCard key={index} user={user} onPress={() => handleUserPress(user.name)} />
                     </View>
                 ))}
                 <AddButton onPress={() => navigation.navigate('CreateUser')} style={{ ...styles.addButton }} />
             </ScrollView>
             <MenuButton color={colors.primary.green} text="Suivant" onPress={handleNextButtonPress} />
-        </View >
+        </View>
     );
 };
 

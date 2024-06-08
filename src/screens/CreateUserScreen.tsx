@@ -1,58 +1,65 @@
-// src/screens/CreateUserScreen.tsx
+import React, { useEffect, useState } from "react";
+import { Alert, StyleSheet, View } from "react-native";
+import { colors } from "../../assets/colors";
+import Input from "../../components/atoms/Input";
+import AddButton from "../../components/organisms/AddButton";
+import BackButton from "../../components/organisms/BackButton";
+import ChooseColorComponent from "../../components/organisms/ChooseColorComponent";
+import { EmptyUserCard } from "../../components/organisms/DefaultCards";
+import { User } from "../../models/User";
+import { addUser } from "../../services/user";
+import { getRandomColorBackground } from "../../services/utils";
 
-import React from "react"
-import { StyleSheet, View } from "react-native"
-import { colors } from "../../assets/colors"
-import Input from "../../components/atoms/Input"
-import AddButton from "../../components/organisms/AddButton"
-import BackButton from "../../components/organisms/BackButton"
-import ChooseColorComponent from "../../components/organisms/ChooseColorComponent"
-import { EmptyUserCard } from "../../components/organisms/DefaultCards"
-import { User } from "../../models/User"
-import { addUser } from "../../services/user"
-import { getRandomColorBackground } from "../../services/utils"
+interface CreateUserScreenProps {
+  navigation: any;
+}
 
-const CreateUserScreen = ({ navigation }: { navigation: any }) => {
-  const [name, setName] = React.useState('')
-  const [selectedColor, setSelectedColor] = React.useState(colors.primary.creme)
+const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
+  const [name, setName] = useState<string>('');
+  const [selectedColor, setSelectedColor] = useState<string>(colors.primary.creme);
+  const [backgroundColor, setBackgroundColor] = useState<string>(colors.primary.creme);
 
   const handleNameChange = (text: string): void => {
-    setName(text)
-  }
+    setName(text);
+  };
 
   const handleColorChange = (color: string): void => {
-    setSelectedColor(color)
-  }
+    setSelectedColor(color);
+  };
 
-  const handleAddUser = async () => {
+  const handleAddUser = async (): Promise<void> => {
     if (name.length <= 0) {
-      alert('Veuillez entrer un nom');
+      Alert.alert('Veuillez entrer un nom');
       return;
     }
-    const newUser = {
+    const newUser: User = {
       name: name,
       color: selectedColor,
-    }
+      isActive: true
+    };
     setName('');
     setSelectedColor(colors.primary.creme);
     await addUser(newUser);
     navigation.navigate('Users');
   };
 
-  const backgroundColor = getRandomColorBackground();
+  useEffect(() => {
+    setBackgroundColor(getRandomColorBackground());
+  }, []);
+
 
   return (
-    <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
+    <View style={[styles.container, { backgroundColor: backgroundColor }]}>
       <BackButton navigation={navigation} />
       <EmptyUserCard name={name} color={selectedColor} />
-      <ChooseColorComponent onPress={handleColorChange} active={colors.primary.creme} />
-      <View style={{ ...styles.group }} >
-        <Input placeholder="Nom" onChangeText={handleNameChange} value={name} autoFocus={true} />
+      <ChooseColorComponent onPress={handleColorChange} active={selectedColor} />
+      <View style={styles.group}>
+        <Input placeholder="Nom" onChangeText={handleNameChange} value={name} />
         <AddButton content="Add" onPress={handleAddUser} />
       </View>
-    </View>
-  )
-}
+    </View >
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -70,8 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateUserScreen
-
-function alert(arg0: string) {
-  throw new Error("Function not implemented.")
-}
+export default CreateUserScreen;

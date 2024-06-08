@@ -6,8 +6,14 @@ import { colors } from '../../assets/colors';
 import { toggleModeStatus } from '../../services/mode';
 import Text from '../atoms/CustomText';
 import ActiveCardButton from '../molecules/ActiveCardButton';
+import { Mode } from '../../models/Mode';
 
-const ModeCard = ({ mode }) => {
+interface ModeCardProps {
+  mode: Mode;
+  onPress?: () => Promise<void>;
+}
+
+const ModeCard: React.FC<ModeCardProps> = ({ mode, onPress }) => {
   const { name, isActive } = mode;
 
   const handleModePress = async () => {

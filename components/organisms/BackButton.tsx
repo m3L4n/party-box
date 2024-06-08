@@ -4,8 +4,9 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { colors } from '../../assets/colors';
 import IconButton from '../molecules/IconButton';
+import { ButtonProps } from '../atoms/Button';
 
-const BackButton = ({ navigation }: { navigation: any }) => {
+const BackButton = ({ navigation, style }: ButtonProps) => {
     const onPress = () => {
         navigation.goBack();
     }
@@ -13,7 +14,7 @@ const BackButton = ({ navigation }: { navigation: any }) => {
     return (
         <IconButton
             onPress={onPress}
-            style={styles.container}
+            style={[styles.container, style]}
             content="arrow-back"
         />
     );
