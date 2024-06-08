@@ -10,6 +10,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import ModesScreen from './src/screens/ModesScreen';
 import PlayScreen from './src/screens/PlayScreen';
 import UsersScreen from './src/screens/UsersScreen';
+import { StyleSheet, View } from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -35,17 +36,26 @@ const App = () => {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Play" component={PlayScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Users" component={UsersScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Modes" component={ModesScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="CreateUser" component={CreateUserScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="PartyEnd" component={PartyEndScreen} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={styles.container}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Play" component={PlayScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Users" component={UsersScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Modes" component={ModesScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="CreateUser" component={CreateUserScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="PartyEnd" component={PartyEndScreen} options={{ headerShown: false }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
 
 export default App;

@@ -1,5 +1,6 @@
 // src/screens/ModesScreen.tsx
-import React, { useCallback, useEffect, useState } from "react";
+
+import { useCallback, useEffect, useState } from "react";
 import { StyleSheet, View, Alert } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { colors } from "../../assets/colors";

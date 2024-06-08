@@ -10,19 +10,15 @@ import { Mode } from '../../models/Mode';
 
 interface ModeCardProps {
   mode: Mode;
-  onPress?: () => Promise<void>;
+  onPress: () => Promise<void>;
 }
 
 const ModeCard: React.FC<ModeCardProps> = ({ mode, onPress }) => {
   const { name, isActive } = mode;
 
-  const handleModePress = async () => {
-    await toggleModeStatus(name);
-  };
-
   return (
     <ActiveCardButton
-      onPress={handleModePress}
+      onPress={onPress}
       content={<Text>{name}</Text>}
       style={{ ...styles.container, backgroundColor: colors.primary.creme }}
       active={isActive}
