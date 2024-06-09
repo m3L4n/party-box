@@ -20,51 +20,10 @@ interface PlayScreenProps {
 }
 
 const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
-  const [modeList, setModeList] = useState<Mode[]>([])
-  const [userList, setUserList] = useState<User[]>([])
   const [questions, setQuestions] = useState<Question[]>([])
+  const [users, setUsers] = useState<User[]>([]);
+  const [modes, setModes] = useState<Mode[]>([]);
   const [end, setEnd] = useState<boolean>(false);
-
-  const handlePress = async () => {
-    if (questions.length === 0) return;
-
-    if (end) {
-      navigation.navigate('Home');
-      return;
-    }
-
-    if (questions.length === 1) {
-      setEnd(true);
-      return;
-    }
-
-    const nextQuestion = questions[1];
-    setQuestions((prevQuestions) => [nextQuestion, ...prevQuestions.slice(2)]);
-  };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [users, modes] = await Promise.all([getActiveUsers(), getActiveModes()]);
-        setUserList(users);
-        setModeList(modes);
-
-        if (modeList.length > 0) {
-          let questionsList: Question[] = [];
-          for (const mode of modeList) {
-            const questionListObj = await getQuestionsList(mode, users);
-            questionsList.push(...questionListObj);
-          }
-          questionsList.sort(() => Math.random() - 0.5);
-          setQuestions(questionsList.slice(0, 30));
-        }
-      } catch (error) {
-        console.error('Error while fetching data: ', error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const fetchQuestions = useCallback(async (modes: Mode[], users: User[]) => {
     try {
@@ -82,27 +41,48 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
   }, []);
 
   useEffect(() => {
-    const fetchDataAndQuestions = async () => {
-      const users = await getActiveUsers();
-      const modes = await getActiveModes();
-      setUserList(users);
-      setModeList(modes);
+    const fetchData = async () => {
+      try {
+        const fetchedUsers = await getActiveUsers();
+        const fetchedModes = await getActiveModes();
+        setUsers(fetchedUsers);
+        setModes(fetchedModes);
 
-      const questionsList = await fetchQuestions(modes, users);
-      setQuestions(questionsList);
+        if (fetchedModes.length > 0 && fetchedUsers.length > 0) {
+          const questionsList = await fetchQuestions(fetchedModes, fetchedUsers);
+          setQuestions(questionsList);
+        }
+      } catch (error) {
+        console.error('Error while fetching data: ', error);
+      }
     };
 
-    fetchDataAndQuestions();
-  }, []);
+    fetchData();
+  }, [fetchQuestions]);
 
-  // const randomColor = getRandomColor();
+  const handlePress = () => {
+    if (questions.length === 0) return;
+
+    if (end) {
+      navigation.navigate('Home');
+      return;
+    }
+
+    if (questions.length === 1) {
+      setEnd(true);
+      return;
+    }
+
+    const nextQuestion = questions[1];
+    setQuestions((prevQuestions) => [nextQuestion, ...prevQuestions.slice(2)]);
+  };
 
   return (
     <TouchableOpacity onPress={handlePress} style={{ ...styles.container, backgroundColor: getRandomColorBackground() }}>
-      {(questions.length === 0 || userList.length === 0) &&
+      {(questions.length === 0) &&
         <>
           <BackButton navigation={navigation} />
-          <Text>Chargement...</Text>
+          <Text>Loading...</Text>
         </>
       }
       {end && (
@@ -112,7 +92,7 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
       {!end && questions[0] && (
         <>
           <HomeButton navigation={navigation} />
-          <QuestionComponent question={questions[0]} players={userList.map(user => user.name)} />
+          <QuestionComponent question={questions[0]} players={users} />
         </>
       )}
     </TouchableOpacity>

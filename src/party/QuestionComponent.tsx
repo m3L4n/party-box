@@ -5,55 +5,41 @@ import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 import { getRandomColor } from '../../services/utils';
 import Wheel from './Wheel';
+import { Question } from '../../models/Question';
+import { User } from '../../models/User';
 
-const QuestionComponent = ({ question, players }) => {
+const QuestionComponent = ({ question, players }: { question: Question, players: User[] }) => {
+  // Quiz question
   const renderQuizQuestion = () => {
-    const [response, setResponse] = useState(null);
+    const [response, setResponse] = useState<string>("");
 
     useEffect(() => {
-      setResponse(null);
+      setResponse("");
     }, [question]);
+
     return (
       <View style={{ ...styles.container }}>
-        <Text style={{ ...styles.title }}>{question.mode}</Text>
+        <Text style={{ ...styles.title }}>{question.mode.name}</Text>
         <Text style={{ ...styles.text }}>{question.content}</Text>
-        <MenuButton text={response ? response : "response"} onPress={() => setResponse(question.options[0])} style={{ ...styles.button, backgroundColor: response ? colors.primary.green : getRandomColor() }} />
+        <MenuButton text='test' onPress={() => setResponse(question.options[0].content)} style={{ ...styles.button, backgroundColor: response ? colors.primary.green : getRandomColor() }} />
       </View>
     );
   };
 
+  // Default question
   const renderDefaultQuestion = () => {
     return (
       <View style={{ ...styles.container }}>
-        <Text style={{ ...styles.title }}>{question.mode}</Text>
+        <Text style={{ ...styles.title }}>{question.mode.name}</Text>
         <Text style={{ ...styles.text }}>{question.content}</Text>
       </View>
     );
   };
 
-  // const renderWheelQuestion = () => {
-  //   const randomColor = getRandomColor();
-  //   return (
-  //     <View style={{ ...styles.container }}>
-  //       <Text style={{ ...styles.title }}>{question.mode}</Text>
-  //       <Text>{question.content}</Text>
-  //       <SpinWheel players={players} color={randomColor} />
-  //     </View>
-  //   );
-  // };
-
-  switch (question.mode) {
+  console.log('question:', question.mode.name);
+  switch (question.mode?.name) {
     case 'quiz':
       return renderQuizQuestion();
-    case 'wheel':
-      const randomColor = getRandomColor();
-      return (
-        <View style={{ ...styles.container }}>
-          <Text style={{ ...styles.title }}>{question.mode}</Text>
-          <Text style={{ ...styles.text }}>{question.content}</Text>
-          <Wheel rewards={players} color={randomColor} onSpin={() => console.log('Spun!')} />
-        </View>
-      );
     default:
       return renderDefaultQuestion();
   }
@@ -76,7 +62,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 30,
     letterSpacing: 1.5,
-    // fontFamily: ''
     color: 'black',
   },
   button: {

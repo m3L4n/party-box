@@ -3,6 +3,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Text from '../atoms/CustomText';
+import { User } from '../../models/User';
+import { Question } from '../../models/Question';
 
 export const AllCard = () => {
   return (
@@ -14,20 +16,22 @@ export const AllCard = () => {
   );
 }
 
-export const EmptyUserCard = ({ name, color }: { name: string, color: string }) => {
+export const EmptyUserCard = ({ user }: { user: User }) => {
   return (
-    <View style={{ ...styles.allCard, backgroundColor: color }}>
+    <View style={{ ...styles.allCard, backgroundColor: user.color }}>
       <Text>
-        {name}
+        {user.name}
       </Text>
     </View>
   );
 }
 
-export const QuestionCard = ({ content }: { content: React.ReactNode }) => {
+export const QuestionCard = ({ question }: {
+  question: Question
+}) => {
   return (
     <View style={{ ...styles.allCard, width: '100%', height: '100%' }}>
-      {content}
+      {question.content}
     </View>
   );
 }

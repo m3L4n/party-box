@@ -70,7 +70,7 @@ export const getQuestionsList = async (mode: Mode, userList: User[]): Promise<Qu
       throw new Error(`Questions for mode ${modeName} in language ${language} not found`);
     }
 
-    return await getQuestions(userList, questionsData[language][modeName], modeName);
+    return await getQuestions(userList, questionsData[language][modeName], mode);
   } catch (error) {
     console.error('Error while loading questions: ', error);
     return [];
@@ -92,8 +92,8 @@ const getRandomUsers = (userList: User[], n: number): User[] => {
   return ret;
 }
 
-const parseQuestion = (userList: User[], question: string): string => {
-  const count = (question.match(/\$\{user\}/g) || []).length;
+const parseQuestion = (userList: User[], question: Question): string => {
+  const count = (question.content?.match(/\$\{user\}/g) || []).length;
 
   const randomNumber = Math.floor(Math.random() * 100) + 1;
   let numReplacement;
@@ -105,7 +105,7 @@ const parseQuestion = (userList: User[], question: string): string => {
     numReplacement = `${drinkNumber} ${drinkNumber > 1 ? t('drinks') : t('drink')}`;
   }
 
-  let parsedQuestion = question;
+  let parsedQuestion = question.content;
   let selectedUsers = getRandomUsers(userList, count);
 
   for (let user of selectedUsers) {
@@ -117,7 +117,7 @@ const parseQuestion = (userList: User[], question: string): string => {
   return parsedQuestion;
 }
 
-const getQuestions = async (userList: User[], data: any[], mode: string): Promise<Question[]> => {
+const getQuestions = async (userList: User[], data: any[], mode: Mode): Promise<Question[]> => {
   try {
     let dataToUse = data;
     dataToUse.sort(() => Math.random() - 0.5);
@@ -132,11 +132,11 @@ const getQuestions = async (userList: User[], data: any[], mode: string): Promis
     }
 
     const questions: Question[] = dataToUse.map((questionData, index) => {
-      const parsedContent = parseQuestion(userList, questionData.content);
+      const parsedContent = parseQuestion(userList, questionData);
       return {
         id: index,
         content: parsedContent,
-        mode: mode as unknown as Mode,
+        mode: mode,
         options: questionData.options || []
       };
     });

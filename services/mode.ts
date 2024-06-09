@@ -17,6 +17,9 @@ export const addMode = async (mode: Mode): Promise<Mode[]> => {
   try {
     const modes = await loadModes();
     mode.isActive = false;
+    if (modes.some(m => m.name === mode.name)) {
+      return modes;
+    }
     modes.push(mode);
     await AsyncStorage.setItem('modes', JSON.stringify(modes));
     return modes;

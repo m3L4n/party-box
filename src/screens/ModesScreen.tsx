@@ -4,7 +4,6 @@ import { useCallback, useEffect, useState } from "react";
 import { StyleSheet, View, Alert } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { colors } from "../../assets/colors";
-import modesData from "../../assets/modes.json";
 import Text from "../../components/atoms/CustomText";
 import MenuButton from "../../components/molecules/MenuButton";
 import AnimatedBackground from "../../components/organisms/AnimatedBackground";
@@ -12,72 +11,63 @@ import BackButton from "../../components/organisms/BackButton";
 import ModeCard from "../../components/organisms/ModeCard";
 import ReloadButton from "../../components/organisms/ReloadButton";
 import { Mode } from "../../models/Mode";
-import { addMode, deleteAllModes, getActiveModes, loadModes, toggleModeStatus } from "../../services/mode";
-import { getRandomColorBackground } from "../../services/utils";
+import { addMode, deleteAllModes, loadModes, toggleModeStatus } from "../../services/mode";
 import { t } from "i18next";
 
 interface ModesScreenProps {
   navigation: any;
 }
 
+export const initialModes = [
+  { name: 'classic', isActive: false },
+  { name: 'quiz', isActive: false },
+  { name: 'duel', isActive: false }
+];
+
 const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
-  const [modeList, setModeList] = useState<Mode[]>([]);
-  const [backgroundColor, setBackgroundColor] = useState<string>(getRandomColorBackground());
-
-  const fetchData = useCallback(async () => {
-    const modes = await loadModes();
-    setModeList(modes);
-  }, []);
-
-  const handleModePress = async (modeName: string) => {
-    const updatedModes = await toggleModeStatus(modeName);
-    setModeList(updatedModes);
-  };
-
-  useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      setBackgroundColor(getRandomColorBackground());
-    });
-    return unsubscribe;
-  }, [navigation]);
+  const [modes, setModes] = useState<Mode[]>([]);
 
   const prefillModes = async () => {
-    const existingModes = await loadModes();
-    if (existingModes.length <= 0) {
-      for (const modeData of modesData.modes) {
-        const newMode: Mode = { name: modeData.name, isActive: false };
-        await addMode(newMode);
-      }
+    for (const mode of initialModes) {
+      await addMode(mode);
     }
-    fetchData();
-  }
-
-  const handleNextButtonPress = async () => {
-    const list = await getActiveModes();
-    if (list.length === 0) {
-      Alert.alert(t('alert_mode'));
-      return;
-    }
-    navigation.navigate('Play');
-  }
-
-  const handleReloadPress = async () => {
-    await deleteAllModes();
-    await prefillModes();
+    const loadedModes = await loadModes();
+    setModes(loadedModes);
   }
 
   useEffect(() => {
     prefillModes();
   }, []);
 
+  const handleModePress = async (modeName: string) => {
+    const updatedModes = await toggleModeStatus(modeName);
+    setModes(updatedModes);
+  };
+
+  const handleNextButtonPress = async () => {
+    const activeModes = Object.values(modes).filter(mode => mode.isActive);
+    if (activeModes.length === 0) {
+      Alert.alert(t('alert_mode'));
+      return;
+    }
+    console.log('ModesScreen, activeModes:', activeModes);
+    navigation.navigate('Play');
+  }
+
+  const handleReloadPress = async () => {
+    await deleteAllModes();
+    setModes([]);
+    await prefillModes();
+  }
+
   return (
-    <View style={[styles.container, { backgroundColor }]}>
+    <View style={[styles.container]}>
       <AnimatedBackground />
       <BackButton navigation={navigation} />
       <ReloadButton onPress={handleReloadPress} />
       <Text style={styles.title}>Modes</Text>
       <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
-        {modeList.map((mode, index) => (
+        {Object.values(modes).map((mode, index) => (
           <ModeCard key={index} mode={mode} onPress={() => handleModePress(mode.name)} />
         ))}
       </ScrollView>
