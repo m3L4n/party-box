@@ -7,14 +7,13 @@ import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 import AddButton from '../../components/organisms/AddButton';
-import AnimatedBackground from '../../components/organisms/AnimatedBackground';
 import BackButton from '../../components/organisms/BackButton';
 import TrashButton from '../../components/organisms/TrashButton';
 import UserCard from '../../components/organisms/UserCard';
 import { deleteUser, getActiveUsers, loadUsers, toggleUserStatus } from "../../services/user";
 import { getRandomColorBackground } from '../../services/utils';
 import { User } from '../../models/User';
-import { t } from 'i18next';
+import { t, use } from 'i18next';
 
 interface UsersScreenProps {
     navigation: any;
@@ -39,11 +38,8 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
     }, [navigation, fetchData]);
 
     useEffect(() => {
-        const unsubscribe = navigation.addListener('focus', () => {
-            setBackgroundColor(getRandomColorBackground());
-        });
-        return unsubscribe;
-    }, [navigation]);
+        setBackgroundColor(getRandomColorBackground());
+    }, []);
 
     const handleUserPress = async (userName: string) => {
         if (deleteMode) {
@@ -70,7 +66,6 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
 
     return (
         <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
-            <AnimatedBackground />
             <BackButton navigation={navigation} />
             <TrashButton onPress={toggleDeleteMode} />
             <Text style={{ ...styles.title }}>{t('users')}</Text>

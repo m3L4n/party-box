@@ -6,13 +6,13 @@ import { ScrollView } from "react-native-gesture-handler";
 import { colors } from "../../assets/colors";
 import Text from "../../components/atoms/CustomText";
 import MenuButton from "../../components/molecules/MenuButton";
-import AnimatedBackground from "../../components/organisms/AnimatedBackground";
 import BackButton from "../../components/organisms/BackButton";
 import ModeCard from "../../components/organisms/ModeCard";
 import ReloadButton from "../../components/organisms/ReloadButton";
 import { Mode } from "../../models/Mode";
 import { addMode, deleteAllModes, loadModes, toggleModeStatus } from "../../services/mode";
 import { t } from "i18next";
+import { getRandomColorBackground } from "../../services/utils";
 
 interface ModesScreenProps {
   navigation: any;
@@ -26,6 +26,7 @@ export const initialModes = [
 
 const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
   const [modes, setModes] = useState<Mode[]>([]);
+  const [backgroundColor, setBackgroundColor] = useState<string>('');
 
   const prefillModes = async () => {
     for (const mode of initialModes) {
@@ -36,6 +37,7 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
   }
 
   useEffect(() => {
+    setBackgroundColor(getRandomColorBackground());
     prefillModes();
   }, []);
 
@@ -61,8 +63,7 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
   }
 
   return (
-    <View style={[styles.container]}>
-      <AnimatedBackground />
+    <View style={[styles.container, { backgroundColor: backgroundColor }]}>
       <BackButton navigation={navigation} />
       <ReloadButton onPress={handleReloadPress} />
       <Text style={styles.title}>Modes</Text>

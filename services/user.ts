@@ -26,19 +26,19 @@ export const addUser = async (user: User) => {
   }
 };
 
-export const deleteUser = async (userName: string) => {
+export const deleteUser = async (userName: string): Promise<User[]> => {
   try {
     const users = await loadUsers();
     const updatedUsers = users.filter((user: { name: string; }) => user.name !== userName);
     await AsyncStorage.setItem('users', JSON.stringify(updatedUsers));
-    return;
+    return updatedUsers;
   } catch (error) {
     console.error('Erreur lors de la suppression d\'un utilisateur : ', error);
-    return;
+    return [];
   }
 }
 
-export const toggleUserStatus = async (userName: string) => {
+export const toggleUserStatus = async (userName: string): Promise<User[]> => {
   try {
     const users: User[] = await loadUsers();
     const userIndex: number = users.findIndex((user: User) => user.name === userName);
@@ -46,14 +46,14 @@ export const toggleUserStatus = async (userName: string) => {
     if (userIndex !== -1) {
       users[userIndex].isActive = !users[userIndex].isActive;
       await AsyncStorage.setItem('users', JSON.stringify(users));
-      return;
+      return users;
     } else {
       console.error('Utilisateur non trouvé.');
       return [];
     }
   } catch (error) {
     console.error('Erreur lors de la modification du statut de l\'utilisateur : ', error);
-    return;
+    return [];
   }
 };
 
