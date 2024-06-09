@@ -23,6 +23,18 @@
     },
     {
       "content": "${user} et ${user} font une bataille de pouces. Le DERNIER qui se fait écraser prend ${num}  !"
+    },
+    {
+      "content": "${user} est animateur et on jouent au jeu du pendu. Les perdants prendront ${num} !"
+    },
+    {
+      "content": "${user} et ${user} font un bras de fer. Le perdant prend ${num} !"
+    },
+    {
+      "content": "${user} et ${user} font un battle de danse. Le perdant prend ${num} !"
+    },
+    {
+      "content": "${user} et ${user} jouent à un jeu de mimes. Le perdant prend ${num} !"
     }
   ]
 }

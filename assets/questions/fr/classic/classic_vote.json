@@ -52,7 +52,7 @@
       "content": "Vote ! Qui a le plus de chance se perdre même avec un GPS ? ${num} pour le plus tête en l'air !"
     },
     {
-      "content": "Vote ! Qui est le meilleur détective s'il s'agissait de résoudre un mystère ? ${num} pour Sherlock !"
+      "content": "Vote ! Qui est le meilleur quand il s'agit de résoudre un mystère ? ${num} pour Sherlock !"
     },
     {
       "content": "Vote ! Qui est le plus bordelique dans ses affaires ? ${num} pour le bordelique !"
@@ -131,6 +131,33 @@
     },
     {
       "content": "Vote ! En haut, être capable de parler toutes les langues du monde, en bas, être un génie en mathématiques. ${num} pour les perdants !"
+    },
+    {
+      "content": "Vote ! Qui est le plus susceptible de passer toute une journée à regarder une série télé ? ${num} pour le binge watcher !"
+    },
+    {
+      "content": "Vote ! Qui serait le pire détective privé ? ${num} pour l'espion amateur !"
+    },
+    {
+      "content": "Vote ! Qui chante sous la douche ? ${num} pour les chanteurs !"
+    },
+    {
+      "content": "Vote ! Qui est le plus susceptible de se perdre dans sa propre ville ? Cette personne prendra ${num} !"
+    },
+    {
+      "content": "Vote ! Qui est le plus rapide pour manger une pizza seul ? ${num} pour le gourmand !"
+    },
+    {
+      "content": "Vote ! Qui est le meilleur narrateur ? Cette personne prendra ${num} !"
+    },
+    {
+      "content": "Vote ! Qui est le plus susceptible de faire une blague à un inconnu ? ${num} pour le farceur !"
+    },
+    {
+      "content": "Vote ! Qui est le plus susceptible de passer une nuit blanche à jouer à des jeux vidéo ? ${num} pour le gamer !"
+    },
+    {
+      "content": "Vote ! Qui est le plus probable d'oublier un anniversaire important ? ${num} pour le distrait !"
     }
   ]
 }

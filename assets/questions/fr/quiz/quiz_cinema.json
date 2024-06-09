@@ -269,6 +269,210 @@
       "options": [
         "10"
       ]
+    },
+    {
+      "content": "Qui est le réalisateur de 'Interstellar' ?",
+      "options": [
+        "Christopher Nolan"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'Avatar' ?",
+      "options": [
+        "James Cameron"
+      ]
+    },
+    {
+      "content": "Qui est le réalisateur de 'Inglourious Basterds' ?",
+      "options": [
+        "Quentin Tarantino"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'Shawshank Redemption' ?",
+      "options": [
+        "Frank Darabont"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'Cinderella' ?",
+      "options": [
+        "Kenneth Branagh"
+      ]
+    },
+    {
+      "content": "Qui est le réalisateur de 'Guardians of the Galaxy' ?",
+      "options": [
+        "James Gunn"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'Close Encounters of the Third Kind' ?",
+      "options": [
+        "Steven Spielberg"
+      ]
+    },
+    {
+      "content": "Qui est le réalisateur de 'Whiplash' ?",
+      "options": [
+        "Damien Chazelle"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'The Godfather' ?",
+      "options": [
+        "Francis Ford Coppola"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'Indiana Jones and the Last Crusade' ?",
+      "options": [
+        "Steven Spielberg"
+      ]
+    },
+    {
+      "content": "Qui est le réalisateur de 'Jurassic World' ?",
+      "options": [
+        "Colin Trevorrow"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'The Hobbit' ?",
+      "options": [
+        "Peter Jackson"
+      ]
+    },
+    {
+      "content": "Qui est le réalisateur de 'Cast Away' ?",
+      "options": [
+        "Robert Zemeckis"
+      ]
+    },
+    {
+      "content": "Qui a créé la série 'Dark' ?",
+      "options": [
+        "Baran bo Odar et Jantje Friese"
+      ]
+    },
+    {
+      "content": "Qui a écrit 'The Hunger Games' ?",
+      "options": [
+        "Suzanne Collins"
+      ]
+    },
+    {
+      "content": "Qui est l'auteur de la série de livres 'Twilight' ?",
+      "options": [
+        "Stephenie Meyer"
+      ]
+    },
+    {
+      "content": "Qui a écrit 'The Chronicles of Narnia' ?",
+      "options": [
+        "C.S. Lewis"
+      ]
+    },
+    {
+      "content": "Qui est l'actrice principale de 'Moulin Rouge!' ?",
+      "options": [
+        "Nicole Kidman"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'Spider-Man: Far From Home' ?",
+      "options": [
+        "Tom Holland"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'The Green Mile' ?",
+      "options": [
+        "Tom Hanks"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'John Wick' ?",
+      "options": [
+        "Keanu Reeves"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'The Hobbit' ?",
+      "options": [
+        "Martin Freeman"
+      ]
+    },
+    {
+      "content": "Qui a joué le rôle de Captain America dans les films 'Avengers' ?",
+      "options": [
+        "Chris Evans"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'Seven' ?",
+      "options": [
+        "Brad Pitt"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'Blade Runner 2049' ?",
+      "options": [
+        "Ryan Gosling"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'Money Heist' ?",
+      "options": [
+        "El Profesor"
+      ]
+    },
+    {
+      "content": "Quel est le nom du célèbre sorcier à cicatrice en forme d'éclair ?",
+      "options": [
+        "Harry Potter"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'Peaky Blinders' ?",
+      "options": [
+        "Tommy Shelby"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'The Witcher' ?",
+      "options": [
+        "Geralt of Rivia"
+      ]
+    },
+    {
+      "content": "D'ou vient la replique 'Je reviendrai' ?",
+      "options": [
+        "Terminator"
+      ]
+    },
+    {
+      "content": "D'ou vient la replique 'Que la force soit avec toi' ?",
+      "options": [
+        "Star Wars"
+      ]
+    },
+    {
+      "content": "D'ou vient la replique 'Je suis ton père' ?",
+      "options": [
+        "Star Wars"
+      ]
+    },
+    {
+      "content": "D'ou vient la replique 'Je suis Groot' ?",
+      "options": [
+        "Les Gardiens de la Galaxie"
+      ]
+    },
+    {
+      "content": "D'ou vient la replique 'Je suis Iron Man' ?",
+      "options": [
+        "Iron Man 3"
+      ]
     }
   ]
 }

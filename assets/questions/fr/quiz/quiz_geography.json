@@ -203,6 +203,234 @@
       "options": [
         "Dollar australien"
       ]
+    },
+    {
+      "content": "Quelle est la capitale du Vietnam ?",
+      "options": [
+        "Hanoï"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale du Pérou ?",
+      "options": [
+        "Lima"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale du Nigeria ?",
+      "options": [
+        "Abuja"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de la Suède ?",
+      "options": [
+        "Stockholm"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de la Thaïlande ?",
+      "options": [
+        "Bangkok"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de la Grèce ?",
+      "options": [
+        "Athènes"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de la Norvège ?",
+      "options": [
+        "Oslo"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de la Pologne ?",
+      "options": [
+        "Varsovie"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de la Hongrie ?",
+      "options": [
+        "Budapest"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Éthiopie ?",
+      "options": [
+        "Addis-Abeba"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale du Chili ?",
+      "options": [
+        "Santiago"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de la Colombie ?",
+      "options": [
+        "Bogota"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de la Finlande ?",
+      "options": [
+        "Helsinki"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale du Portugal ?",
+      "options": [
+        "Lisbonne"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Irlande ?",
+      "options": [
+        "Dublin"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de la Suisse ?",
+      "options": [
+        "Berne"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de la Roumanie ?",
+      "options": [
+        "Bucarest"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute d'Australie ?",
+      "options": [
+        "Mont Kosciuszko"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute de Russie ?",
+      "options": [
+        "Mont Elbrouz"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute d'Italie ?",
+      "options": [
+        "Mont Blanc"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute de France ?",
+      "options": [
+        "Mont Blanc"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute d'Espagne ?",
+      "options": [
+        "Teide"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute d'Autriche ?",
+      "options": [
+        "Grossglockner"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute de Suède ?",
+      "options": [
+        "Kebnekaise"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée au Mexique ?",
+      "options": [
+        "Peso"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Suède ?",
+      "options": [
+        "Couronne suédoise"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Norvège ?",
+      "options": [
+        "Couronne norvégienne"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Suisse ?",
+      "options": [
+        "Franc suisse"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Corée du Sud ?",
+      "options": [
+        "Won"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Thaïlande ?",
+      "options": [
+        "Baht"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Israël ?",
+      "options": [
+        "Shekel"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Turquie ?",
+      "options": [
+        "Livre turque"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Malaisie ?",
+      "options": [
+        "Ringgit"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée aux Philippines ?",
+      "options": [
+        "Peso"
+      ]
+    },
+    {
+      "content": "Quel est le nom de l'ancienne route commerciale reliant l'Europe à l'Asie ?",
+      "options": [
+        "Route de la soie"
+      ]
+    },
+    {
+      "content": "Quel pays possède un drapeau rouge avec une étoile blanche au centre ?",
+      "options": [
+        "Vietnam"
+      ]
+    },
+    {
+      "content": "Quel pays possède un drapeau rouge avec un croissant et une étoile blanche ?",
+      "options": [
+        "Turquie"
+      ]
+    },
+    {
+      "content": "Quel pays possède un drapeau avec un aigle qui devore un serpent ?",
+      "options": [
+        "Mexique"
+      ]
     }
   ]
 }

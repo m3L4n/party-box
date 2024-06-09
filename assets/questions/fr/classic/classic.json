@@ -1,10 +1,10 @@
 {
   "questions": [
     {
-      "content": "Les animaux que tu peux mettre dans ta poche. ${user} commence. ${num} pour celui qui ne trouve pas !"
+      "content": "Les animaux que tu peux mettre dans ta poche. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
     },
     {
-      "content": "Tout le monde va donner une qualité à la personne à sa gauche. ${user} commence. ${num} pour celui qui ne trouve pas !"
+      "content": "Tout le monde va donner une qualité à la personne à sa gauche. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
     },
     {
       "content": "Tout le monde décrit une situation cocasse qui lui est arrivée. Le gagnant distribue ${num}. ${user} commence."
@@ -155,6 +155,36 @@
     },
     {
       "content": "Quel est le pire cadeau que ${user} ait jamais offert ? Si c'est vraiment nul, il prend ${num} !"
+    },
+    {
+      "content": "Tout le monde nomme une ville qu'il aimerait visiter. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
+    },
+    {
+      "content": "Tout le monde partage son plat préféré. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
+    },
+    {
+      "content": "${user}, quel est ton talent caché ? Avec une démo à l'appui, ou prend ${num}."
+    },
+    {
+      "content": "${user}, raconte une anecdote drôle qui t'est arrivée récemment."
+    },
+    {
+      "content": "${user}, quel est le meilleur cadeau que tu aies jamais reçu ?"
+    },
+    {
+      "content": "${user}, si tu pouvais vivre dans n'importe quel pays, lequel choisirais-tu ? Si quelqu'un a déjà vécu dans ce pays, il prend ${num}."
+    },
+    {
+      "content": "${user}, quel est ton plat préféré à cuisiner ? Decrit la preparation en détail, ou prend ${num}."
+    },
+    {
+      "content": "${user}, quel est ton animal préféré ? Si c'est le chien ou le chat, tu prends ${num}."
+    },
+    {
+      "content": "${user}, quelle est ta chanson préférée en ce moment ? Ceux qui l'ont dans leur playlist prennent ${num}."
+    },
+    {
+      "content": "${user}, quelle est ta série télé préférée ? Ceux qui ne l'ont jamais regardée prennent ${num}."
     }
   ]
 }
