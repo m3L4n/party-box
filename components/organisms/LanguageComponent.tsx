@@ -15,11 +15,11 @@ const LanguageComponent = () => {
   return (
     <View style={styles.language}>
       <TouchableOpacity onPress={() => changeLanguage('fr')} >
-        <Image source={require('../../assets/fr.png')} style={[styles.language.image, { opacity: i18n.language === 'fr' ? 1 : 0.5 }
+        <Image source={require('../../assets/images/fr.png')} style={[styles.language.image, { opacity: i18n.language === 'fr' ? 1 : 0.5 }
         ]} />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => changeLanguage('en')}>
-        <Image source={require('../../assets/uk.png')} style={[styles.language.image, { opacity: i18n.language === 'en' ? 1 : 0.5 }
+        <Image source={require('../../assets/images/uk.png')} style={[styles.language.image, { opacity: i18n.language === 'en' ? 1 : 0.5 }
         ]} />
       </TouchableOpacity>
     </View>
