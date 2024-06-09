@@ -1,11 +1,14 @@
 // components/organisms/LanguageComponent.tsx
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 
 const LanguageComponent = () => {
   const { i18n } = useTranslation();
-  const changeLanguage = (lng: string) => {
+  const changeLanguage = async (lng: string) => {
+    await AsyncStorage.setItem('lang', lng);
     i18n.changeLanguage(lng);
   };
 

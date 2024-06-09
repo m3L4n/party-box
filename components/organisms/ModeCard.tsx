@@ -7,6 +7,7 @@ import { toggleModeStatus } from '../../services/mode';
 import Text from '../atoms/CustomText';
 import ActiveCardButton from '../molecules/ActiveCardButton';
 import { Mode } from '../../models/Mode';
+import { t } from 'i18next';
 
 interface ModeCardProps {
   mode: Mode;
@@ -19,7 +20,7 @@ const ModeCard: React.FC<ModeCardProps> = ({ mode, onPress }) => {
   return (
     <ActiveCardButton
       onPress={onPress}
-      content={<Text>{name}</Text>}
+      content={<Text>{t(name)}</Text>}
       style={{ ...styles.container, backgroundColor: colors.primary.creme }}
       active={isActive}
     />

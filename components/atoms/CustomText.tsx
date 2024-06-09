@@ -9,7 +9,7 @@ const Text = ({ children, style }: { children: React.ReactNode, style?: object }
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 24,
+    fontSize: 22,
     fontFamily: 'BebasNeue-Regular',
     textAlign: 'center',
   },
