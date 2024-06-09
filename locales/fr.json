@@ -15,5 +15,9 @@
   "alert_players": "Veuillez choisir au moins deux joueurs",
   "shooter": "un shoot",
   "drinks": "gorgées",
-  "drink": "gorgée"
+  "drink": "gorgée",
+  "answer": "Réponse",
+  "quiz": "Quiz",
+  "classic": "Classique",
+  "duel": "Duel"
 }

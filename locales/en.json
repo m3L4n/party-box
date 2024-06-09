@@ -15,5 +15,9 @@
   "alert_players": "Please select at least 2 players",
   "shooter": "a shooter",
   "drink": "drink",
-  "drinks": "drinks"
+  "drinks": "drinks",
+  "answer": "Answer",
+  "quiz": "Quiz",
+  "classic": "Classic",
+  "duel": "Duel"
 }

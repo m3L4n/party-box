@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
@@ -7,22 +7,44 @@ import { getRandomColor } from '../../services/utils';
 import Wheel from './Wheel';
 import { Question } from '../../models/Question';
 import { User } from '../../models/User';
+import { t } from 'i18next';
 
 const QuestionComponent = ({ question, players }: { question: Question, players: User[] }) => {
   // Quiz question
   const renderQuizQuestion = () => {
-    const [response, setResponse] = useState<string>("");
+    const [showAnswer, setShowAnswer] = useState<boolean>(false);
 
     useEffect(() => {
-      setResponse("");
+      setShowAnswer(false);
     }, [question]);
 
     return (
-      <View style={{ ...styles.container }}>
-        <Text style={{ ...styles.title }}>{question.mode.name}</Text>
-        <Text style={{ ...styles.text }}>{question.content}</Text>
-        <MenuButton text='test' onPress={() => setResponse(question.options[0].content)} style={{ ...styles.button, backgroundColor: response ? colors.primary.green : getRandomColor() }} />
-      </View>
+
+      showAnswer ? (
+        <View style={{
+          ...styles.container
+        }}>
+          <Text style={{ ...styles.title }}>{t(question.mode.name)}</Text>
+          <Text style={{ ...styles.text }}>{question.content}</Text>
+          <MenuButton
+            text={String(question.options[0])}
+            onPress={() => setShowAnswer(true)}
+            color={colors.primary.green}
+            style={styles.button}
+          />
+        </View >
+      ) : (
+        <TouchableOpacity style={{ ...styles.container }} onPress={() => setShowAnswer(true)}>
+          <Text style={{ ...styles.title }}>{t(question.mode.name)}</Text>
+          <Text style={{ ...styles.text }}>{question.content}</Text>
+          <MenuButton
+            text={t('answer')}
+            onPress={() => setShowAnswer(true)}
+            color={colors.secondary.red}
+            style={styles.button}
+          />
+        </TouchableOpacity>
+      )
     );
   };
 
@@ -30,13 +52,12 @@ const QuestionComponent = ({ question, players }: { question: Question, players:
   const renderDefaultQuestion = () => {
     return (
       <View style={{ ...styles.container }}>
-        <Text style={{ ...styles.title }}>{question.mode.name}</Text>
+        <Text style={{ ...styles.title }}>{t(question.mode.name)}</Text>
         <Text style={{ ...styles.text }}>{question.content}</Text>
       </View>
     );
   };
 
-  console.log('question:', question.mode.name);
   switch (question.mode?.name) {
     case 'quiz':
       return renderQuizQuestion();
