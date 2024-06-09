@@ -1,207 +1,207 @@
 {
   "questions": [
     {
-      "content": "Quelle est la capitale de la Corée du Sud ?",
+      "content": "What is the capital of South Korea?",
       "options": [
-        "Séoul"
+        "Seoul"
       ]
     },
     {
-      "content": "Quelle est la capitale du Japon ?",
+      "content": "What is the capital of Japan?",
       "options": [
         "Tokyo"
       ]
     },
     {
-      "content": "Quelle est la capitale de l'Indonésie ?",
+      "content": "What is the capital of Indonesia?",
       "options": [
         "Jakarta"
       ]
     },
     {
-      "content": "Quelle est la capitale de l'Espagne ?",
+      "content": "What is the capital of Spain?",
       "options": [
         "Madrid"
       ]
     },
     {
-      "content": "Quelle est la capitale de l'Indonésie ?",
+      "content": "What is the capital of Indonesia?",
       "options": [
         "Jakarta"
       ]
     },
     {
-      "content": "Quelle est la capitale de l'Espagne ?",
+      "content": "What is the capital of Spain?",
       "options": [
         "Madrid"
       ]
     },
     {
-      "content": "Quelle est la capitale de l'Allemagne ?",
+      "content": "What is the capital of Germany?",
       "options": [
         "Berlin"
       ]
     },
     {
-      "content": "Quelle est la capitale du Canada ?",
+      "content": "What is the capital of Canada?",
       "options": [
         "Ottawa"
       ]
     },
     {
-      "content": "Quelle est la capitale de l'Argentine ?",
+      "content": "What is the capital of Argentina?",
       "options": [
         "Buenos Aires"
       ]
     },
     {
-      "content": "Quelle est la capitale de l'Arabie Saoudite ?",
+      "content": "What is the capital of Saudi Arabia?",
       "options": [
-        "Riyad"
+        "Riyadh"
       ]
     },
     {
-      "content": "Quelle est la capitale de l'Afrique du Sud ?",
+      "content": "What is the capital of South Africa?",
       "options": [
         "Pretoria"
       ]
     },
     {
-      "content": "Quelle est la capitale de l'Algérie ?",
+      "content": "What is the capital of Algeria?",
       "options": [
-        "Alger"
+        "Algiers"
       ]
     },
     {
-      "content": "Quelle est la capitale de l'Angola ?",
+      "content": "What is the capital of Angola?",
       "options": [
         "Luanda"
       ]
     },
     {
-      "content": "Quelle est la capitale de la Belgique ?",
+      "content": "What is the capital of Belgium?",
       "options": [
-        "Bruxelles"
+        "Brussels"
       ]
     },
     {
-      "content": "Quelle est la capitale de l'Australie ?",
+      "content": "What is the capital of Australia?",
       "options": [
         "Canberra"
       ]
     },
     {
-      "content": "Quel est le nom de la montagne la plus haute d'Amérique du Nord ?",
+      "content": "What is the name of the highest mountain in North America?",
       "options": [
         "Denali"
       ]
     },
     {
-      "content": "Quel est le nom de la montagne la plus haute d'Afrique ?",
+      "content": "What is the name of the highest mountain in Africa?",
       "options": [
-        "Kilimandjaro"
+        "Kilimanjaro"
       ]
     },
     {
-      "content": "Quel est le nom de la montagne la plus haute du monde ?",
+      "content": "What is the name of the highest mountain in the world?",
       "options": [
         "Everest"
       ]
     },
     {
-      "content": "Quel est le nom de la montagne la plus haute d'Europe ?",
+      "content": "What is the name of the highest mountain in Europe?",
       "options": [
         "Mont Blanc"
       ]
     },
     {
-      "content": "Quel est le nom de la montagne la plus haute d'Amérique du Sud ?",
+      "content": "What is the name of the highest mountain in South America?",
       "options": [
         "Aconcagua"
       ]
     },
     {
-      "content": "Quel est le nom de la montagne la plus haute d'Asie ?",
+      "content": "What is the name of the highest mountain in Asia?",
       "options": [
         "Everest"
       ]
     },
     {
-      "content": "Quel est le nom de la montagne la plus haute d'Océanie ?",
+      "content": "What is the name of the highest mountain in Oceania?",
       "options": [
         "Puncak Jaya"
       ]
     },
     {
-      "content": "Quel est le nom de la montagne la plus haute de l'Antarctique ?",
+      "content": "What is the name of the highest mountain in Antarctica?",
       "options": [
-        "Mont Vinson"
+        "Mount Vinson"
       ]
     },
     {
-      "content": "Quelle est la monnaie utilisée au Royaume-Uni ?",
+      "content": "What is the currency used in the United Kingdom?",
       "options": [
-        "Livre sterling"
+        "Pound sterling"
       ]
     },
     {
-      "content": "Quelle est la monnaie utilisée aux États-Unis ?",
+      "content": "What is the currency used in the United States?",
       "options": [
         "Dollar"
       ]
     },
     {
-      "content": "Quelle est la monnaie utilisée en Russie ?",
+      "content": "What is the currency used in Russia?",
       "options": [
-        "Rouble"
+        "Ruble"
       ]
     },
     {
-      "content": "Quelle est la monnaie utilisée en Chine ?",
+      "content": "What is the currency used in China?",
       "options": [
         "Yuan"
       ]
     },
     {
-      "content": "Quelle est la monnaie utilisée au Japon ?",
+      "content": "What is the currency used in Japan?",
       "options": [
         "Yen"
       ]
     },
     {
-      "content": "Quelle est la monnaie utilisée au Chili ?",
+      "content": "What is the currency used in Chile?",
       "options": [
         "Peso"
       ]
     },
     {
-      "content": "Quelle est la monnaie utilisée en Algérie ?",
+      "content": "What is the currency used in Algeria?",
       "options": [
         "Dinar"
       ]
     },
     {
-      "content": "Quelle est la monnaie utilisée en Inde ?",
+      "content": "What is the currency used in India?",
       "options": [
-        "Roupie"
+        "Rupee"
       ]
     },
     {
-      "content": "Quelle est la monnaie utilisée au Danemark ?",
+      "content": "What is the currency used in Denmark?",
       "options": [
-        "Couronne"
+        "Krone"
       ]
     },
     {
-      "content": "Quelle est la monnaie utilisée en Pologne ?",
+      "content": "What is the currency used in Poland?",
       "options": [
         "Zloty"
       ]
     },
     {
-      "content": "Quelle est la monnaie utilisée en Australie ?",
+      "content": "What is the currency used in Australia?",
       "options": [
-        "Dollar australien"
+        "Australian dollar"
       ]
     }
   ]

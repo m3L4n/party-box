@@ -1,271 +1,271 @@
 {
   "questions": [
     {
-      "content": "Qui est le réalisateur de 'Inception' ?",
+      "content": "Who is the director of 'Inception'?",
       "options": [
         "Christopher Nolan"
       ]
     },
     {
-      "content": "Qui a réalisé 'Le Titanic' ?",
+      "content": "Who directed 'Titanic'?",
       "options": [
         "James Cameron"
       ]
     },
     {
-      "content": "Qui est le réalisateur de 'Pulp Fiction' ?",
+      "content": "Who is the director of 'Pulp Fiction'?",
       "options": [
         "Quentin Tarantino"
       ]
     },
     {
-      "content": "Qui a réalisé 'Les Évadés' ?",
+      "content": "Who directed 'The Shawshank Redemption'?",
       "options": [
         "Frank Darabont"
       ]
     },
     {
-      "content": "Qui a réalisé 'Le Roi Lion' ?",
+      "content": "Who directed 'The Lion King'?",
       "options": [
         "Jon Favreau"
       ]
     },
     {
-      "content": "Qui est le réalisateur de 'Avengers: Endgame' ?",
+      "content": "Who is the director of 'Avengers: Endgame'?",
       "options": [
-        "Anthony et Joe Russo"
+        "Anthony and Joe Russo"
       ]
     },
     {
-      "content": "Qui a réalisé 'Les Dents de la Mer' ?",
+      "content": "Who directed 'Jaws'?",
       "options": [
         "Steven Spielberg"
       ]
     },
     {
-      "content": "Qui est le réalisateur de 'La La Land' ?",
+      "content": "Who is the director of 'La La Land'?",
       "options": [
         "Damien Chazelle"
       ]
     },
     {
-      "content": "Qui a réalisé 'Le Parrain' ?",
+      "content": "Who directed 'The Godfather'?",
       "options": [
         "Francis Ford Coppola"
       ]
     },
     {
-      "content": "Qui a réalisé 'E.T. l'extra-terrestre' ?",
+      "content": "Who directed 'E.T. the Extra-Terrestrial'?",
       "options": [
         "Steven Spielberg"
       ]
     },
     {
-      "content": "Qui est le réalisateur de 'Jurassic Park' ?",
+      "content": "Who is the director of 'Jurassic Park'?",
       "options": [
         "Steven Spielberg"
       ]
     },
     {
-      "content": "Qui a réalisé 'Le Seigneur des Anneaux' ?",
+      "content": "Who directed 'The Lord of the Rings'?",
       "options": [
         "Peter Jackson"
       ]
     },
     {
-      "content": "Qui est le réalisateur de 'Forrest Gump' ?",
+      "content": "Who is the director of 'Forrest Gump'?",
       "options": [
         "Robert Zemeckis"
       ]
     },
     {
-      "content": "Qui a créé la série 'Stranger Things' ?",
+      "content": "Who created the series 'Stranger Things'?",
       "options": [
         "Duffer Brothers"
       ]
     },
     {
-      "content": "Qui a écrit 'Harry Potter' ?",
+      "content": "Who wrote 'Harry Potter'?",
       "options": [
         "J.K. Rowling"
       ]
     },
     {
-      "content": "Qui est l'auteur de la série de livres 'Percy Jackson' ?",
+      "content": "Who is the author of the 'Percy Jackson' series?",
       "options": [
         "Rick Riordan"
       ]
     },
     {
-      "content": "Qui a écrit 'Le Seigneur des Anneaux' ?",
+      "content": "Who wrote 'The Lord of the Rings'?",
       "options": [
         "J.R.R. Tolkien"
       ]
     },
     {
-      "content": "Qui est l'actrice principale de 'La La Land' ?",
+      "content": "Who is the lead actress in 'La La Land'?",
       "options": [
         "Emma Stone"
       ]
     },
     {
-      "content": "Qui est l'acteur principal de 'Spider-Man: Homecoming' ?",
+      "content": "Who is the lead actor in 'Spider-Man: Homecoming'?",
       "options": [
         "Tom Holland"
       ]
     },
     {
-      "content": "Qui est l'acteur principal de 'Forrest Gump' ?",
+      "content": "Who is the lead actor in 'Forrest Gump'?",
       "options": [
         "Tom Hanks"
       ]
     },
     {
-      "content": "Qui est l'acteur principal de 'Matrix' ?",
+      "content": "Who is the lead actor in 'The Matrix'?",
       "options": [
         "Keanu Reeves"
       ]
     },
     {
-      "content": "Qui est l'acteur principal de 'Le Seigneur des Anneaux' ?",
+      "content": "Who is the lead actor in 'The Lord of the Rings'?",
       "options": [
         "Elijah Wood"
       ]
     },
     {
-      "content": "Qui a joué le rôle de Tony Stark dans les films 'Iron Man' ?",
+      "content": "Who played Tony Stark in the 'Iron Man' movies?",
       "options": [
         "Robert Downey Jr."
       ]
     },
     {
-      "content": "Qui est l'acteur principal de 'Fight Club' ?",
+      "content": "Who is the lead actor in 'Fight Club'?",
       "options": [
         "Brad Pitt"
       ]
     },
     {
-      "content": "Qui est l'acteur principal de 'La La Land' ?",
+      "content": "Who is the lead actor in 'La La Land'?",
       "options": [
         "Ryan Gosling"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'La Casa de Papel' ?",
+      "content": "What is the name of the main character in 'Money Heist'?",
       "options": [
-        "Le Professeur"
+        "The Professor"
       ]
     },
     {
-      "content": "Quel est le nom du célèbre sorcier à lunettes ?",
+      "content": "What is the name of the famous bespectacled wizard?",
       "options": [
         "Harry Potter"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'Breaking Bad' ?",
+      "content": "What is the name of the main character in 'Breaking Bad'?",
       "options": [
         "Walter White"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'The Walking Dead' ?",
+      "content": "What is the name of the main character in 'The Walking Dead'?",
       "options": [
         "Rick Grimes"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'Game of Thrones' ?",
+      "content": "What is the name of the main character in 'Game of Thrones'?",
       "options": [
         "Jon Snow"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'Sherlock' ?",
+      "content": "What is the name of the main character in 'Sherlock'?",
       "options": [
         "Sherlock Holmes"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'The Big Bang Theory' ?",
+      "content": "What is the name of the main character in 'The Big Bang Theory'?",
       "options": [
         "Sheldon Cooper"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'Friends' ?",
+      "content": "What is the name of the main character in 'Friends'?",
       "options": [
         "Rachel Green"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'How I Met Your Mother' ?",
+      "content": "What is the name of the main character in 'How I Met Your Mother'?",
       "options": [
         "Ted Mosby"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'Stranger Things' ?",
+      "content": "What is the name of the main character in 'Stranger Things'?",
       "options": [
         "Eleven"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'The Office' ?",
+      "content": "What is the name of the main character in 'The Office'?",
       "options": [
         "Michael Scott"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'The Mandalorian' ?",
+      "content": "What is the name of the main character in 'The Mandalorian'?",
       "options": [
         "Mando"
       ]
     },
     {
-      "content": "Quel est le nom du personnage principal de 'The Witcher' ?",
+      "content": "What is the name of the main character in 'The Witcher'?",
       "options": [
-        "Geralt de Riv"
+        "Geralt of Rivia"
       ]
     },
     {
-      "content": "Qui est l'acteur principal de 'Pirates des Caraïbes' ?",
+      "content": "Who is the lead actor in 'Pirates of the Caribbean'?",
       "options": [
         "Johnny Depp"
       ]
     },
     {
-      "content": "Combien de films dans l'univers d'Harry Potter existent-ils ?",
+      "content": "How many movies are there in the Harry Potter universe?",
       "options": [
         "10"
       ]
     },
     {
-      "content": "Combien de films dans l'univers Marvel existent-ils ?",
+      "content": "How many movies are there in the Marvel universe?",
       "options": [
         "23"
       ]
     },
     {
-      "content": "Combien de films dans l'univers Star Wars existent-ils ?",
+      "content": "How many movies are there in the Star Wars universe?",
       "options": [
         "11"
       ]
     },
     {
-      "content": "Combien il y de saisons de 'Game of Thrones' ?",
+      "content": "How many seasons of 'Game of Thrones' are there?",
       "options": [
         "8"
       ]
     },
     {
-      "content": "Combien il y de saisons de 'Breaking Bad' ?",
+      "content": "How many seasons of 'Breaking Bad' are there?",
       "options": [
         "5"
       ]
     },
     {
-      "content": "Combien il y de saisons de 'Friends' ?",
+      "content": "How many seasons of 'Friends' are there?",
       "options": [
         "10"
       ]

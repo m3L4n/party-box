@@ -1,28 +1,28 @@
 {
   "questions": [
     {
-      "content": "${user} et ${user} jouent à Chi-Fu-Mi. Celui qui PERD distribue ${num} !"
+      "content": "${user} and ${user} play Rock-Paper-Scissors. The LOSER distributes ${num}!"
     },
     {
-      "content": "${user} et ${user} jouent à Chi-Fu-Mi. Celui qui GAGNE distribue ${num} !"
+      "content": "${user} and ${user} play Rock-Paper-Scissors. The WINNER distributes ${num}!"
     },
     {
-      "content": "${user} et ${user} font une bataille de regard. Le premier qui détourne les yeux prend ${num} !"
+      "content": "${user} and ${user} have a staring contest. The first to look away takes ${num}!"
     },
     {
-      "content": "${user} et ${user} se lancent un défi : celui qui tient le plus longtemps en équilibre sur une jambe ! Le perdant prend ${num} !"
+      "content": "${user} and ${user} challenge each other to see who can balance on one leg the longest! The loser takes ${num}!"
     },
     {
-      "content": "${user} et ${user} jouent à 'je te tiens, tu me tiens par la barbichette'. Le PREMIER qui rit prend ${num} !"
+      "content": "${user} and ${user} play 'I Hold You, You Hold Me by the Goatee.' The FIRST to laugh takes ${num}!"
     },
     {
-      "content": "${user} et ${user} jouent à 'je te tiens, tu me tiens par la barbichette'. Le DERNIER qui rit prend ${num} !"
+      "content": "${user} and ${user} play 'I Hold You, You Hold Me by the Goatee.' The LAST to laugh takes ${num}!"
     },
     {
-      "content": "${user} et ${user} font une bataille de pouces. Le PREMIER qui se fait écraser prend ${num} !"
+      "content": "${user} and ${user} have a thumb war. The FIRST to get pinned takes ${num}!"
     },
     {
-      "content": "${user} et ${user} font une bataille de pouces. Le DERNIER qui se fait écraser prend ${num}  !"
+      "content": "${user} and ${user} have a thumb war. The LAST to get pinned takes ${num}!"
     }
   ]
 }

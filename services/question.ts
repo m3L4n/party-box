@@ -1,12 +1,19 @@
 // services/question.tsx
 
 import { t } from 'i18next';
-import dataClassic1 from '../assets/questions/fr/classic/classic.json';
-import dataClassic2 from '../assets/questions/fr/classic/classic_vote.json';
-import dataDuel1 from '../assets/questions/fr/duel/duel.json';
-import dataQuiz1 from '../assets/questions/fr/quiz/quiz.json';
-import dataQuiz2 from '../assets/questions/fr/quiz/quiz_cinema.json';
-import dataQuiz3 from '../assets/questions/fr/quiz/quiz_geography.json';
+import dataClassicEn1 from '../assets/questions/en/classic/classic.json';
+import dataClassicEn2 from '../assets/questions/en/classic/classic_vote.json';
+import dataDuelEn1 from '../assets/questions/en/duel/duel.json';
+import dataQuizEn1 from '../assets/questions/en/quiz/quiz.json';
+import dataQuizEn2 from '../assets/questions/en/quiz/quiz_cinema.json';
+import dataQuizEn3 from '../assets/questions/en/quiz/quiz_geography.json';
+import dataClassicFr1 from '../assets/questions/fr/classic/classic.json';
+import dataClassicFr2 from '../assets/questions/fr/classic/classic_vote.json';
+import dataDuelFr1 from '../assets/questions/fr/duel/duel.json';
+import dataQuizFr1 from '../assets/questions/fr/quiz/quiz.json';
+import dataQuizFr2 from '../assets/questions/fr/quiz/quiz_cinema.json';
+import dataQuizFr3 from '../assets/questions/fr/quiz/quiz_geography.json';
+import i18n from '../i18n';
 import { Mode } from '../models/Mode';
 import { Question } from '../models/Question';
 import { User } from '../models/User';
@@ -27,26 +34,37 @@ type QuestionsByLanguage = {
 const questionsData: QuestionsByLanguage = {
   fr: {
     classic: [
-      ...dataClassic1.questions,
-      ...dataClassic2.questions
+      ...dataClassicFr1.questions,
+      ...dataClassicFr2.questions
     ],
     quiz: [
-      ...dataQuiz1.questions,
-      ...dataQuiz2.questions,
-      ...dataQuiz3.questions,
+      ...dataQuizFr1.questions,
+      ...dataQuizFr2.questions,
+      ...dataQuizFr3.questions,
     ],
     duel: [
-      ...dataDuel1.questions
+      ...dataDuelFr1.questions
     ],
   },
   en: {
-
+    classic: [
+      ...dataClassicEn1.questions,
+      ...dataClassicEn2.questions
+    ],
+    quiz: [
+      ...dataQuizEn1.questions,
+      ...dataQuizEn2.questions,
+      ...dataQuizEn3.questions,
+    ],
+    duel: [
+      ...dataDuelEn1.questions
+    ]
   }
 }
 
 export const getQuestionsList = async (mode: Mode, userList: User[]): Promise<Question[]> => {
   try {
-    const language = 'fr';
+    const language = i18n.language;
     const modeName = mode.name;
     if (!questionsData[language] || !questionsData[language][modeName]) {
       throw new Error(`Questions for mode ${modeName} in language ${language} not found`);
