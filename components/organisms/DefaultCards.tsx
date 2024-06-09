@@ -14,7 +14,7 @@ export const AllCard = () => {
   );
 }
 
-export const EmptyUserCard = ({ name, color }) => {
+export const EmptyUserCard = ({ name, color }: { name: string, color: string }) => {
   return (
     <View style={{ ...styles.allCard, backgroundColor: color }}>
       <Text>
@@ -24,7 +24,7 @@ export const EmptyUserCard = ({ name, color }) => {
   );
 }
 
-export const QuestionCard = ({ content }) => {
+export const QuestionCard = ({ content }: { content: React.ReactNode }) => {
   return (
     <View style={{ ...styles.allCard, width: '100%', height: '100%' }}>
       {content}

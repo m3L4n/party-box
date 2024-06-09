@@ -4,7 +4,7 @@ import React from "react";
 import { StyleSheet, View } from 'react-native';
 import Text from "../../components/atoms/CustomText";
 
-const PartyEndScreen = ({ navigation, questions }: { navigation: any, questions?: any }) => {
+const PartyEndScreen = () => {
 
   return (
     <View style={{ ...styles.container }}>

@@ -11,12 +11,19 @@ import { getActiveUsers } from '../../services/user';
 import { getRandomColorBackground } from '../../services/utils';
 import PartyEndScreen from '../party/PartyEndScreen';
 import QuestionComponent from '../party/QuestionComponent';
+import { Mode } from '../../models/Mode';
+import { User } from '../../models/User';
+import { Question } from '../../models/Question';
 
-const PlayScreen = ({ navigation }) => {
-  const [modeList, setModeList] = useState([])
-  const [userList, setUserList] = useState([])
-  const [questions, setQuestions] = useState([])
-  const [end, setEnd] = useState(false)
+interface PlayScreenProps {
+  navigation: any;
+}
+
+const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
+  const [modeList, setModeList] = useState<Mode[]>([])
+  const [userList, setUserList] = useState<User[]>([])
+  const [questions, setQuestions] = useState<Question[]>([])
+  const [end, setEnd] = useState<boolean>(false);
 
   const handlePress = async () => {
     if (questions.length === 0) return;
@@ -35,40 +42,58 @@ const PlayScreen = ({ navigation }) => {
     setQuestions((prevQuestions) => [nextQuestion, ...prevQuestions.slice(2)]);
   };
 
-  const fetchData = useCallback(async () => {
-    const users = await getActiveUsers();
-    const modes = await getActiveModes();
-    setUserList(users);
-    setModeList(modes);
-  }, []);
-
-  const fetchQuestions = useCallback(async () => {
-    try {
-      let questionsList = [];
-      for (const mode of modeList) {
-        const questionListObj = await getQuestionsList(mode, userList);
-        questionsList.push(...questionListObj);
-      }
-      questionsList.sort(() => Math.random() - 0.5);
-      questionsList = questionsList.slice(0, 30);
-      for (const question of questionsList) {
-        setQuestions((prevQuestions) => [...prevQuestions, question]);
-      }
-    }
-    catch (error) {
-      console.error('Error while fetch questions: ', error);
-    }
-  });
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [users, modes] = await Promise.all([getActiveUsers(), getActiveModes()]);
+        setUserList(users);
+        setModeList(modes);
+
+        if (modeList.length > 0) {
+          let questionsList: Question[] = [];
+          for (const mode of modeList) {
+            const questionListObj = await getQuestionsList(mode, users);
+            questionsList.push(...questionListObj);
+          }
+          questionsList.sort(() => Math.random() - 0.5);
+          setQuestions(questionsList.slice(0, 30));
+        }
+      } catch (error) {
+        console.error('Error while fetching data: ', error);
+      }
+    };
+
     fetchData();
   }, []);
 
-  useEffect(() => {
-    if (modeList.length > 0) {
-      fetchQuestions();
+  const fetchQuestions = useCallback(async (modes: Mode[], users: User[]) => {
+    try {
+      let questionsList: Question[] = [];
+      for (const mode of modes) {
+        const questionListObj = await getQuestionsList(mode, users);
+        questionsList.push(...questionListObj);
+      }
+      questionsList.sort(() => Math.random() - 0.5);
+      return questionsList.slice(0, 30);
+    } catch (error) {
+      console.error('Error while fetching questions: ', error);
+      return [];
     }
-  }, [modeList]);
+  }, []);
+
+  useEffect(() => {
+    const fetchDataAndQuestions = async () => {
+      const users = await getActiveUsers();
+      const modes = await getActiveModes();
+      setUserList(users);
+      setModeList(modes);
+
+      const questionsList = await fetchQuestions(modes, users);
+      setQuestions(questionsList);
+    };
+
+    fetchDataAndQuestions();
+  }, []);
 
   // const randomColor = getRandomColor();
 
@@ -81,7 +106,7 @@ const PlayScreen = ({ navigation }) => {
         </>
       }
       {end && (
-        <PartyEndScreen navigation={navigation} questions={questions} />
+        <PartyEndScreen />
       )
       }
       {!end && questions[0] && (
