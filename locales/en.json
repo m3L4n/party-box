@@ -13,4 +13,7 @@
   "alert_name": "Please enter a name",
   "alert_mode": "Please select a mode",
   "alert_players": "Please select at least 2 players",
+  "shooter": "a shooter",
+  "drink": "drink",
+  "drinks": "drinks"
 }

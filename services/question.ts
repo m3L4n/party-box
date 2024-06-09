@@ -1,46 +1,64 @@
 // services/question.tsx
 
+import { t } from 'i18next';
 import dataClassic1 from '../assets/questions/fr/classic/classic.json';
 import dataClassic2 from '../assets/questions/fr/classic/classic_vote.json';
 import dataDuel1 from '../assets/questions/fr/duel/duel.json';
 import dataQuiz1 from '../assets/questions/fr/quiz/quiz.json';
 import dataQuiz2 from '../assets/questions/fr/quiz/quiz_cinema.json';
 import dataQuiz3 from '../assets/questions/fr/quiz/quiz_geography.json';
-import dataWheel1 from '../assets/questions/fr/wheel/wheel.json';
 import { Mode } from '../models/Mode';
 import { Question } from '../models/Question';
 import { User } from '../models/User';
 
+type QuestionData = {
+  content: string;
+  options?: string[];
+};
+
+type QuestionsByMode = {
+  [key: string]: QuestionData[];
+};
+
+type QuestionsByLanguage = {
+  [key: string]: QuestionsByMode;
+};
+
+const questionsData: QuestionsByLanguage = {
+  fr: {
+    classic: [
+      ...dataClassic1.questions,
+      ...dataClassic2.questions
+    ],
+    quiz: [
+      ...dataQuiz1.questions,
+      ...dataQuiz2.questions,
+      ...dataQuiz3.questions,
+    ],
+    duel: [
+      ...dataDuel1.questions
+    ],
+  },
+  en: {
+
+  }
+}
+
 export const getQuestionsList = async (mode: Mode, userList: User[]): Promise<Question[]> => {
   try {
-    switch (mode.name) {
-      case 'classic':
-        return await getQuestions(userList, [
-          ...dataClassic1.questions,
-          ...dataClassic2.questions
-        ], 'classic');
-      case 'quiz':
-        return await getQuestions(userList, [
-          ...dataQuiz1.questions,
-          ...dataQuiz2.questions,
-          ...dataQuiz3.questions,
-        ], 'quiz');
-      case 'duel':
-        return await getQuestions(userList, [
-          ...dataDuel1.questions
-        ], 'duel');
-      case 'wheel':
-        return await getQuestions(userList, [
-          ...dataWheel1.questions
-        ], 'wheel');
-      default:
-        return [];
+    const language = 'fr';
+    const modeName = mode.name;
+    if (!questionsData[language] || !questionsData[language][modeName]) {
+      throw new Error(`Questions for mode ${modeName} in language ${language} not found`);
     }
+
+    return await getQuestions(userList, questionsData[language][modeName], modeName);
   } catch (error) {
     console.error('Error while loading questions: ', error);
     return [];
   }
-}
+};
+
 
 const getRandomUsers = (userList: User[], n: number): User[] => {
   n = Math.min(n, userList.length);
@@ -63,10 +81,10 @@ const parseQuestion = (userList: User[], question: string): string => {
   let numReplacement;
 
   if (randomNumber === 1) {
-    numReplacement = 'un shoot';
+    numReplacement = t('shooter');
   } else {
     const drinkNumber = Math.floor(Math.random() * 5) + 1;
-    numReplacement = `${drinkNumber} ${drinkNumber > 1 ? 'gorgées' : 'gorgée'}`;
+    numReplacement = `${drinkNumber} ${drinkNumber > 1 ? t('drinks') : t('drink')}`;
   }
 
   let parsedQuestion = question;
