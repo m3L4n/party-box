@@ -8,7 +8,7 @@ export const loadUsers = async (): Promise<User[]> => {
     const users = await AsyncStorage.getItem('users');
     return users ? JSON.parse(users) : [];
   } catch (error) {
-    console.error('Erreur lors du chargement des utilisateurs : ', error);
+    console.error('Error while loading users: ', error);
     return [];
   }
 };
@@ -21,7 +21,7 @@ export const addUser = async (user: User) => {
     await AsyncStorage.setItem('users', JSON.stringify(users));
     return;
   } catch (error) {
-    console.error('Erreur lors de l\'ajout d\'un utilisateur : ', error);
+    console.error('Error while adding user: ', error);
     return;
   }
 };
@@ -33,7 +33,7 @@ export const deleteUser = async (userName: string): Promise<User[]> => {
     await AsyncStorage.setItem('users', JSON.stringify(updatedUsers));
     return updatedUsers;
   } catch (error) {
-    console.error('Erreur lors de la suppression d\'un utilisateur : ', error);
+    console.error('Error while deleting user: ', error);
     return [];
   }
 }
@@ -48,11 +48,11 @@ export const toggleUserStatus = async (userName: string): Promise<User[]> => {
       await AsyncStorage.setItem('users', JSON.stringify(users));
       return users;
     } else {
-      console.error('Utilisateur non trouvé.');
+      console.error('User not found.');
       return [];
     }
   } catch (error) {
-    console.error('Erreur lors de la modification du statut de l\'utilisateur : ', error);
+    console.error('Error while changing user status: ', error);
     return [];
   }
 };
@@ -61,7 +61,7 @@ export const clearData = async () => {
   try {
     await AsyncStorage.clear();
   } catch (error) {
-    console.error('Erreur lors de la suppression des données : ', error);
+    console.error('Error while clearing data:', error);
   }
 }
 
@@ -70,7 +70,17 @@ export const getActiveUsers = async (): Promise<User[]> => {
     const users = await loadUsers();
     return users.filter((user: User) => user.isActive);
   } catch (error) {
-    console.error('Erreur lors de la récupération des utilisateurs actifs : ', error);
+    console.error('Error while fetching users: ', error);
     return [];
+  }
+}
+
+export const checkUserExistence = async (userName: string): Promise<boolean> => {
+  try {
+    const users = await loadUsers();
+    return users.some((user: User) => user.name === userName);
+  } catch (error) {
+    console.error('Error while checking user existence: ', error);
+    return false;
   }
 }

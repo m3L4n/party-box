@@ -32,7 +32,7 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
   };
 
   const handlePressJoin = async () => {
-    const email = '';
+    const email = 'partybox.contactus@gmail.com';
     const subject = 'Joining the game';
     const body = 'I want to join the game';
     const url = `mailto:${email}?subject=${subject}&body=${body}`;
@@ -45,7 +45,7 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
   }
 
   const handlePressReport = async () => {
-    const email = '';
+    const email = 'partybox.contactus@gmail.com';
     const subject = 'Reporting a bug';
     const body = 'I want to report a bug';
     const url = `mailto:${email}?subject=${subject}&body=${body}`;

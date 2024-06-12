@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Alert, KeyboardAvoidingView, KeyboardAvoidingViewBase, Platform, StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import { colors } from "../../assets/colors";
 import Input from "../../components/atoms/Input";
 import AddButton from "../../components/organisms/AddButton";
@@ -7,7 +7,7 @@ import BackButton from "../../components/organisms/BackButton";
 import ChooseColorComponent from "../../components/organisms/ChooseColorComponent";
 import { EmptyUserCard } from "../../components/organisms/DefaultCards";
 import { User } from "../../models/User";
-import { addUser } from "../../services/user";
+import { addUser, checkUserExistence } from "../../services/user";
 import { getRandomColor, getRandomColorBackground } from "../../services/utils";
 import { t } from "i18next";
 
@@ -43,11 +43,17 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
     const newUser: User = {
       name: name,
       color: selectedColor,
-      isActive: false
+      isActive: true,
     };
     setName('');
     setSelectedColor(colors.primary.creme);
-    await addUser(newUser);
+    const exists = await checkUserExistence(newUser.name);
+    if (!exists) {
+      await addUser(newUser);
+    } else {
+      Alert.alert(t('alert_user_exist'));
+      return;
+    }
     navigation.navigate('Users');
   };
 

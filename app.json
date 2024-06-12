@@ -6,6 +6,9 @@
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "light",
+    "androidStatusBar": {
+      "translucent": true
+    },
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "cover",
@@ -23,9 +26,6 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "androidStatusBar": {
-        "translucent": true
       },
       "package": "com.ju.partybox"
     },

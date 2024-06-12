@@ -13,8 +13,3 @@ export const getRandomColor = () => {
   const randomColor = colorsList[Math.floor(Math.random() * colorsList.length)];
   return randomColor;
 }
-
-
-export function alert(arg0: string) {
-  throw new Error("Function not implemented.")
-}

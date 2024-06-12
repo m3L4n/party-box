@@ -67,7 +67,9 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
     return (
         <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
             <BackButton navigation={navigation} />
-            <TrashButton onPress={toggleDeleteMode} />
+            {userList.length !== 0 && (
+                <TrashButton onPress={toggleDeleteMode} />
+            )}
             <Text style={{ ...styles.title }}>{t('users')}</Text>
             <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
                 {userList.map((user, index) => (
@@ -80,7 +82,9 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
                 ))}
                 <AddButton onPress={() => navigation.navigate('CreateUser')} style={{ ...styles.addButton }} />
             </ScrollView>
-            <MenuButton color={colors.primary.green} text={t('next')} onPress={handleNextButtonPress} />
+            {userList.filter(user => user.isActive).length > 1 && (
+                <MenuButton color={colors.primary.green} text={t('next')} onPress={handleNextButtonPress} />
+            )}
         </View>
     );
 };

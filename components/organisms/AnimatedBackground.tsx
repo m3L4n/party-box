@@ -6,10 +6,10 @@ import backgroundImage from '../../assets/images/image.png'
 
 const INPUT_RANGE_START = 0
 const INPUT_RANGE_END = 1
-const OUTPUT_RANGE_START = -30
+const OUTPUT_RANGE_START = -281
 const OUTPUT_RANGE_END = 0
 const ANIMATION_TO_VALUE = 1
-const ANIMATION_DURATION = 2000
+const ANIMATION_DURATION = 25000
 
 const AnimatedBackground = () => {
   const initialValue = 0;
