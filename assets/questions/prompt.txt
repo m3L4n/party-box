@@ -1,0 +1,983 @@
+Hello je suis en train de faire un jeu de soirée ! Voici un exemple de question :
+{
+  "questions": [
+    {
+      "content": "${user} and ${user} play Rock-Paper-Scissors. The LOSER distributes ${num}!"
+    }
+ }
+
+${user} is "Tom", "Jerry" or any other player represented by a string.
+${num} is a number n with term "drink or drinks" that represent a penality for the question.
+
+Fais moi d'autres questions sous qui restent assez similaire a celle-ci :
+
+
+------ vote ------
+{
+  "questions": [
+    {
+      "content": "Vote ! Qui a le plus de chance de survivre dans un désert ? ${num} pour le moins adapté à la chaleur !"
+    },
+    {
+      "content": "Vote ! Qui est le plus susceptible de devenir un artiste renommé ? ${num} pour l'artiste !"
+    },
+    {
+      "content": "Vote ! Qui est le plus efficace pour résoudre une énigme mathématique ? ${num} pour le plus logique !"
+    },
+    {
+      "content": "Vote ! Qui est le plus susceptible de devenir une star de cinéma ? ${num} pour le cinéphile !"
+    },
+    {
+      "content": "Vote ! Qui est le plus à même de devenir célèbre sur les réseaux sociaux ? ${num} pour le plus influent !"
+    },
+    {
+      "content": "Vote ! Qui est le plus fort au blind test ? ${num} pour le plus vif !"
+    },
+    {
+      "content": "Chaqu'un raconte son expérience la plus insolite avec un animal. Le groupe vote de la meilleure, qui distribuera ${num} aux autres !"
+    },
+    {
+      "content": "Vote ! Qui a le plus de chance de devenir une star de la télé-réalité ? ${num} pour le moins 'showbiz' !"
+    },
+    {
+      "content": "Vote ! Qui est le plus susceptible de partir en voyage autour du monde sans planifier ? ${num} pour le globe trotteur !"
+    },
+    {
+      "content": "Vote ! Qui est le meilleur cuisto ? ${num} pour le cordon bleu !"
+    },
+    {
+      "content": "Vote ! Qui est plus tete en l'air ? ${num} pour le plus distrait !"
+    },
+    {
+      "content": "Vote ! Tout le monde désigne celui qui s'endort le premier lors d'une soirée ! ${num} pour le plus fatigué !"
+    },
+    {
+      "content": "Vote ! En haut, être capable de voler, en bas, être capable de changer d'apparence à volonté. ${num} pour la minorité !"
+    },
+    {
+      "content": "Vote ! En haut, devenir célèbre pour une danse étrange, en bas, devenir célèbre pour une chanson loufoque. ${num} pour les perdants !"
+    },
+    {
+      "content": "Vote ! Qui a le sens de l'humour le plus décalé dans le groupe ? ${num} pour le comique !"
+    },
+    {
+      "content": "Vote ! Qui est le plus aventureux quand il s'agit de tester de nouvelles choses ? ${num} pour l'explorateur !"
+    },
+    {
+      "content": "Vote ! Qui a le plus de chance se perdre même avec un GPS ? ${num} pour le plus tête en l'air !"
+    },
+    {
+      "content": "Vote ! Qui est le meilleur détective s'il s'agissait de résoudre un mystère ? ${num} pour Sherlock !"
+    },
+    {
+      "content": "Vote ! Qui est le plus bordelique dans ses affaires ? ${num} pour le bordelique !"
+    },
+    {
+      "content": "Vote ! Qui est la personne avec la plus grande taille de chaussure ? ${num} pour les grand panards !"
+    },
+    {
+      "content": "Vote ! Qui possède le plus grand nombre de vêtements ? ${num} pour le plus fashion !"
+    },
+    {
+      "content": "Vote ! Qui a la plus grande collection de figurines ? ${num} pour le collectionneur !"
+    },
+    {
+      "content": "Vote ! Qui a regardé le plus grand nombre de films ? ${num} pour le cinéphile !"
+    },
+    {
+      "content": "Vote ! Qui a regardé le plus grand nombre de séries TV ? ${num} pour le binge watcher !"
+    },
+    {
+      "content": "Vote ! Qui a regardé le plus grand nombre d'animes ? ${num} pour le weaboo !"
+    },
+    {
+      "content": "Vote ! Qui est le plus 'weeb' du groupe ? ${num} pour le plus otaku !"
+    },
+    {
+      "content": "Vote ! Qui est la personne la plus grande du groupe ? ${num} pour le ou les plus grands !"
+    },
+    {
+      "content": "Vote ! Qui est la personne la plus petite du groupe ? ${num} pour le ou les plus petits !"
+    },
+    {
+      "content": "Vote ! Qui est le plus passionné par les composants informatiques ? ${num} pour le geek !"
+    },
+    {
+      "content": "Vote ! Qui est le plus investi dans les activités sportives ? ${num} pour le sportif !"
+    },
+    {
+      "content": "Vote ! Qui pourrait avoir la motivation pour relever un défi sportif comme un marathon ? ${num} pour le plus endurant !"
+    },
+    {
+      "content": "Vote ! En haut, lire dans les pensées, en bas, voyage dans le passé (pas de retour au present). ${num} pour les perdants !"
+    },
+    {
+      "content": "Vote ! En haut, vivre éternellement, en bas ne plus jamais vieillir (un genre de vampire). ${num} pour les perdants !"
+    },
+    {
+      "content": "Vote ! Voyager dans le temps : en haut le futur, en bas le passé. ${num} pour les perdants !"
+    },
+    {
+      "content": "Vote ! En haut, la télékinesie, en bas pouvoir te téléporter. ${num} pour les perdants !"
+    },
+    {
+      "content": "Vote ! En haut avoir des mains à la place des pieds, en bas avoir des pieds à la place de mains. ${num} pour les perdants !"
+    },
+    {
+      "content": "Vote ! ${user} serait-il plus efficace pour survivre dans une apocalypse zombie ou extraterrestre ?"
+    },
+    {
+      "content": "Vote ! ${user} serait-il plus susceptible de devenir un artiste renommé ou un scientifique éminent ?"
+    },
+    {
+      "content": "Vote ! En haut, posséder une toutes les series, en bas, posséder tout les films. ${num} pour les perdants !"
+    },
+    {
+      "content": "Vote ! En haut, devenir invisible, en bas pouvoir lire dans les pensées. ${num} pour les perdants !"
+    },
+    {
+      "content": "Vote ! En haut, être le meilleur cuisinier, en bas être le meilleur forgeron. ${num} pour les perdants !"
+    },
+    {
+      "content": "Vote ! ${user} serait-il plus efficace pour résoudre une énigme policière ou une énigme mathématique ?"
+    },
+    {
+      "content": "Vote ! ${user} serait-il plus susceptible de survivre dans un désert ou dans une forêt dense ?"
+    },
+    {
+      "content": "Vote ! En haut, être capable de parler toutes les langues du monde, en bas, être un génie en mathématiques. ${num} pour les perdants !"
+    }
+  ]
+}
+------ classique ------
+{
+  "questions": [
+    {
+      "content": "Les animaux que tu peux mettre dans ta poche. ${user} commence. ${num} pour celui qui ne trouve pas !"
+    },
+    {
+      "content": "Tout le monde va donner une qualité à la personne à sa gauche. ${user} commence. ${num} pour celui qui ne trouve pas !"
+    },
+    {
+      "content": "Tout le monde décrit une situation cocasse qui lui est arrivée. Le gagnant distribue ${num}. ${user} commence."
+    },
+    {
+      "content": "Tout le monde imite ${user}. ${num} pour la meilleure imitation !"
+    },
+    {
+      "content": "${user}, raconte-nous ton experience la plus folle avec un animal."
+    },
+    {
+      "content": "${user}, ton 'date' le plus fou."
+    },
+    {
+      "content": "${user}, raconte ton moment le plus gênant en public."
+    },
+    {
+      "content": "${user}, dis-nous ta phobie."
+    },
+    {
+      "content": "${user}, raconte-nous ta meilleure blague."
+    },
+    {
+      "content": "${user}, si tu étais une chanson, laquelle serais-tu ?"
+    },
+    {
+      "content": "${user} et ${user}, faite un concours d'anecdotes !"
+    },
+    {
+      "content": "${user}, tu dois choisir un plat le reste de ta vie, quel ?"
+    },
+    {
+      "content": "${user}, raconte une expérience culinaire qui t'a marquée."
+    },
+    {
+      "content": "${user}, si tu pouvais voyager dans le temps, quelle époque choisirais-tu ? Pourquoi ?"
+    },
+    {
+      "content": "${user} choisi un livre a recommander à tout le monde et pourquoi ?"
+    },
+    {
+      "content": "${user}, quelle est la qualité que tu apprécies le plus chez ${user} ?"
+    },
+    {
+      "content": "${user}, si tu pouvais apprendre instantanément une compétence, laquelle choisirais-tu ? Et pourquoi le kung-fu ?"
+    },
+    {
+      "content": "${user} partage la plus grande leçon que tu aies apprise cette année."
+    },
+    {
+      "content": "${user}, si tu devenais soudainement du sexe opposé, que ferais-tu en premier ?"
+    },
+    {
+      "content": "${user}, quel serait le plus grand défi pour toi si tu étais soudainement aveugle ?"
+    },
+    {
+      "content": "${user}, quel serait le plus grand défi pour toi si tu étais soudainement sourd ?"
+    },
+    {
+      "content": "${user}, quel artiste ou groupe écoutes-tu le plus souvent en ce moment ?"
+    },
+    {
+      "content": "${user} fait une imitation de quelqu'un de célèbre, celui qui devine distribue ${num}."
+    },
+    {
+      "content": "${user} a 1 minutes pour raconte une blague et essayer de faire rire tout le monde sinon il prend ${num}."
+    },
+    {
+      "content": "${user} fais un tour de magie avec des objets courants ou prend ${num}."
+    },
+    {
+      "content": "${user} imite l'accent d'une région ou d'un pays étranger pendant 2 minutes ou prend ${num}."
+    },
+    {
+      "content": "${user} fais une danse improvisée sur la chanson de votre choix ou reçoit ${num}."
+    },
+    {
+      "content": "${user} joue une scène improvisée d'un film célèbre. Celui qui devine le film distribue ${num}."
+    },
+    {
+      "content": "${user}, a l'aide de bruitages, fais deviner une chanson célèbre. Celui qui devine distribue ${num}."
+    },
+    {
+      "content": "${user} fais une déclaration d'amour à un objet inanimé pendant 1 minute ou reçoit ${num}."
+    },
+    {
+      "content": "Ok ${user}, tu as 30 secondes pour nous convaincre de voter pour toi aux prochaines élections. Sinon, tu reçois ${num}."
+    },
+    {
+      "content": "Ok ${user}, on va te designer un objet et tu dois nous convaincre de son utilité en 1 minutes. Sinon, tu reçois ${num}."
+    },
+    {
+      "content": "Ok ${user}, on va te designer un objet et tu dois nous convaincre de l'acheter en 1 minutes. Sinon, tu reçois ${num}."
+    },
+    {
+      "content": "${user} imite quelqu'un que vous connaissez tous. Celui qui devine distribue ${num}."
+    },
+    {
+      "content": "${user} commence une histoire. Chaque personne ajoute une phrase à tour de rôle. Le premier qui se trompe reçoit ${num}."
+    },
+    {
+      "content": "Dans ma valise, j'ai... ${user} commence. Chaque personne ajoute un objet à tour de rôle. Le premier qui se trompe reçoit ${num}."
+    },
+    {
+      "content": "Tout le monde imite un animal de son choix. ${user} décide du meilleur. Le gagnant distribue ${num}."
+    },
+    {
+      "content": "Tout le raconte une expérience qu'il a eut avec une nouvelle cuisine étrangère. Les plus exotiques distribuent ${num}. ${user} commence."
+    },
+    {
+      "content": "Jouez au téléphone arabe ! ${user} commence par chuchoter un message à son voisin, et ainsi de suite. Le dernier répète à voix haute. Si c'est différent, il reçoit ${num}."
+    },
+    {
+      "content": "${user}, quel est ton meilleur conseil pour draguer ? Si quelqu'un a déjà utilisé ce conseil, il prend ${num}."
+    },
+    {
+      "content": "${user}, Quel est le pire film que tu ais vu ? Ceux ou celles qui ont le même avis boit ${num}."
+    },
+    {
+      "content": "Quel est le dernier texto cringe que ${user} a envoyé ? Si c'est trop gênant, prends ${num}!"
+    },
+    {
+      "content": "Si ${user} était un meme, lequel serait-il ? Si personne ne connaît le meme, ${user} boit ${num}."
+    },
+    {
+      "content": "${user}, quelle est la pire habitude de ${user} ? Celui qui partage la même habitude boit ${num}."
+    },
+    {
+      "content": "${user}, quel est le meilleur plat que tu préfères cuisiner ? Si tout le monde aime, tu prends ${num}."
+    },
+    {
+      "content": "${user}, designe un joueur et demande lui une recette que TU connais ? Si il l'a connais tu prends ${num} sinon c'est lui."
+    },
+    {
+      "content": "Quel est le pire plat que ${user} ait jamais cuisiné ? Si c'est vraiment mauvais, il distribue ${num}."
+    },
+    {
+      "content": "Quel est le pire conseil que ${user} ait jamais reçu ? Si c'est vraiment mauvais, il prend ${num} !"
+    },
+    {
+      "content": "${user}, quel est le pire conseil que tu aies jamais donné à quelqu'un ? Si c'est vraiment mauvais, il prend ${num} ! Les autres jugent."
+    },
+    {
+      "content": "Si ${user} tu pouvais avoir un animal de compagnie qui sort de l'ordinaire, lequel ? Si personne ne comprend le choix, ${user} prend ${num}."
+    },
+    {
+      "content": "Quel est le pire cadeau que ${user} ait jamais reçu ? Si c'est vraiment nul, distribue ${num}."
+    },
+    {
+      "content": "Quel est le pire cadeau que ${user} ait jamais offert ? Si c'est vraiment nul, il prend ${num} !"
+    }
+  ]
+}
+------ quiz cinema ------
+{
+  "questions": [
+    {
+      "content": "Qui est le réalisateur de 'Inception' ?",
+      "options": [
+        "Christopher Nolan"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'Le Titanic' ?",
+      "options": [
+        "James Cameron"
+      ]
+    },
+    {
+      "content": "Qui est le réalisateur de 'Pulp Fiction' ?",
+      "options": [
+        "Quentin Tarantino"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'Les Évadés' ?",
+      "options": [
+        "Frank Darabont"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'Le Roi Lion' ?",
+      "options": [
+        "Jon Favreau"
+      ]
+    },
+    {
+      "content": "Qui est le réalisateur de 'Avengers: Endgame' ?",
+      "options": [
+        "Anthony et Joe Russo"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'Les Dents de la Mer' ?",
+      "options": [
+        "Steven Spielberg"
+      ]
+    },
+    {
+      "content": "Qui est le réalisateur de 'La La Land' ?",
+      "options": [
+        "Damien Chazelle"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'Le Parrain' ?",
+      "options": [
+        "Francis Ford Coppola"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'E.T. l'extra-terrestre' ?",
+      "options": [
+        "Steven Spielberg"
+      ]
+    },
+    {
+      "content": "Qui est le réalisateur de 'Jurassic Park' ?",
+      "options": [
+        "Steven Spielberg"
+      ]
+    },
+    {
+      "content": "Qui a réalisé 'Le Seigneur des Anneaux' ?",
+      "options": [
+        "Peter Jackson"
+      ]
+    },
+    {
+      "content": "Qui est le réalisateur de 'Forrest Gump' ?",
+      "options": [
+        "Robert Zemeckis"
+      ]
+    },
+    {
+      "content": "Qui a créé la série 'Stranger Things' ?",
+      "options": [
+        "Duffer Brothers"
+      ]
+    },
+    {
+      "content": "Qui a écrit 'Harry Potter' ?",
+      "options": [
+        "J.K. Rowling"
+      ]
+    },
+    {
+      "content": "Qui est l'auteur de la série de livres 'Percy Jackson' ?",
+      "options": [
+        "Rick Riordan"
+      ]
+    },
+    {
+      "content": "Qui a écrit 'Le Seigneur des Anneaux' ?",
+      "options": [
+        "J.R.R. Tolkien"
+      ]
+    },
+    {
+      "content": "Qui est l'actrice principale de 'La La Land' ?",
+      "options": [
+        "Emma Stone"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'Spider-Man: Homecoming' ?",
+      "options": [
+        "Tom Holland"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'Forrest Gump' ?",
+      "options": [
+        "Tom Hanks"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'Matrix' ?",
+      "options": [
+        "Keanu Reeves"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'Le Seigneur des Anneaux' ?",
+      "options": [
+        "Elijah Wood"
+      ]
+    },
+    {
+      "content": "Qui a joué le rôle de Tony Stark dans les films 'Iron Man' ?",
+      "options": [
+        "Robert Downey Jr."
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'Fight Club' ?",
+      "options": [
+        "Brad Pitt"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'La La Land' ?",
+      "options": [
+        "Ryan Gosling"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'La Casa de Papel' ?",
+      "options": [
+        "Le Professeur"
+      ]
+    },
+    {
+      "content": "Quel est le nom du célèbre sorcier à lunettes ?",
+      "options": [
+        "Harry Potter"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'Breaking Bad' ?",
+      "options": [
+        "Walter White"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'The Walking Dead' ?",
+      "options": [
+        "Rick Grimes"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'Game of Thrones' ?",
+      "options": [
+        "Jon Snow"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'Sherlock' ?",
+      "options": [
+        "Sherlock Holmes"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'The Big Bang Theory' ?",
+      "options": [
+        "Sheldon Cooper"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'Friends' ?",
+      "options": [
+        "Rachel Green"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'How I Met Your Mother' ?",
+      "options": [
+        "Ted Mosby"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'Stranger Things' ?",
+      "options": [
+        "Eleven"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'The Office' ?",
+      "options": [
+        "Michael Scott"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'The Mandalorian' ?",
+      "options": [
+        "Mando"
+      ]
+    },
+    {
+      "content": "Quel est le nom du personnage principal de 'The Witcher' ?",
+      "options": [
+        "Geralt de Riv"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'Pirates des Caraïbes' ?",
+      "options": [
+        "Johnny Depp"
+      ]
+    },
+    {
+      "content": "Combien de films dans l'univers d'Harry Potter existent-ils ?",
+      "options": [
+        "10"
+      ]
+    },
+    {
+      "content": "Combien de films dans l'univers Marvel existent-ils ?",
+      "options": [
+        "23"
+      ]
+    },
+    {
+      "content": "Combien de films dans l'univers Star Wars existent-ils ?",
+      "options": [
+        "11"
+      ]
+    },
+    {
+      "content": "Combien il y de saisons de 'Game of Thrones' ?",
+      "options": [
+        "8"
+      ]
+    },
+    {
+      "content": "Combien il y de saisons de 'Breaking Bad' ?",
+      "options": [
+        "5"
+      ]
+    },
+    {
+      "content": "Combien il y de saisons de 'Friends' ?",
+      "options": [
+        "10"
+      ]
+    }
+  ]
+}
+------ quiz geographie ------
+{
+  "questions": [
+    {
+      "content": "Quelle est la capitale de la Corée du Sud ?",
+      "options": [
+        "Séoul"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale du Japon ?",
+      "options": [
+        "Tokyo"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Indonésie ?",
+      "options": [
+        "Jakarta"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Espagne ?",
+      "options": [
+        "Madrid"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Indonésie ?",
+      "options": [
+        "Jakarta"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Espagne ?",
+      "options": [
+        "Madrid"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Allemagne ?",
+      "options": [
+        "Berlin"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale du Canada ?",
+      "options": [
+        "Ottawa"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Argentine ?",
+      "options": [
+        "Buenos Aires"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Arabie Saoudite ?",
+      "options": [
+        "Riyad"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Afrique du Sud ?",
+      "options": [
+        "Pretoria"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Algérie ?",
+      "options": [
+        "Alger"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Angola ?",
+      "options": [
+        "Luanda"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de la Belgique ?",
+      "options": [
+        "Bruxelles"
+      ]
+    },
+    {
+      "content": "Quelle est la capitale de l'Australie ?",
+      "options": [
+        "Canberra"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute d'Amérique du Nord ?",
+      "options": [
+        "Denali"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute d'Afrique ?",
+      "options": [
+        "Kilimandjaro"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute du monde ?",
+      "options": [
+        "Everest"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute d'Europe ?",
+      "options": [
+        "Mont Blanc"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute d'Amérique du Sud ?",
+      "options": [
+        "Aconcagua"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute d'Asie ?",
+      "options": [
+        "Everest"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute d'Océanie ?",
+      "options": [
+        "Puncak Jaya"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la montagne la plus haute de l'Antarctique ?",
+      "options": [
+        "Mont Vinson"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée au Royaume-Uni ?",
+      "options": [
+        "Livre sterling"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée aux États-Unis ?",
+      "options": [
+        "Dollar"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Russie ?",
+      "options": [
+        "Rouble"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Chine ?",
+      "options": [
+        "Yuan"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée au Japon ?",
+      "options": [
+        "Yen"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée au Chili ?",
+      "options": [
+        "Peso"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Algérie ?",
+      "options": [
+        "Dinar"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Inde ?",
+      "options": [
+        "Roupie"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée au Danemark ?",
+      "options": [
+        "Couronne"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Pologne ?",
+      "options": [
+        "Zloty"
+      ]
+    },
+    {
+      "content": "Quelle est la monnaie utilisée en Australie ?",
+      "options": [
+        "Dollar australien"
+      ]
+    }
+  ]
+}
+------ quiz ------
+{
+  "questions": [
+    {
+      "content": "Quel est le nom du dernier album de Taylor Swift ?",
+      "options": [
+        "Folklore"
+      ]
+    },
+    {
+      "content": "Qui a peint 'La Joconde' ?",
+      "options": [
+        "Leonardo da Vinci"
+      ]
+    },
+    {
+      "content": "Quel est le nom du créateur de Facebook ?",
+      "options": [
+        "Mark Zuckerberg"
+      ]
+    },
+    {
+      "content": "Quel est le nom du jeu le plus vendu de l'histoire ?",
+      "options": [
+        "Minecraft"
+      ]
+    },
+    {
+      "content": "Qui a écrit '1984' ?",
+      "options": [
+        "George Orwell"
+      ]
+    },
+    {
+      "content": "Quel est le nom du célèbre personnage de jeu vidéo avec une casquette rouge ?",
+      "options": [
+        "Mario"
+      ]
+    },
+    {
+      "content": "Qui a écrit 'Les Misérables' ?",
+      "options": [
+        "Victor Hugo"
+      ]
+    },
+    {
+      "content": "Qui a peint 'La Nuit étoilée' ?",
+      "options": [
+        "Vincent van Gogh"
+      ]
+    },
+    {
+      "content": "Quel est le nom du créateur de Tesla et SpaceX ?",
+      "options": [
+        "Elon Musk"
+      ]
+    },
+    {
+      "content": "Qui a écrit 'Le Petit Prince' ?",
+      "options": [
+        "Antoine de Saint-Exupéry"
+      ]
+    },
+    {
+      "content": "Quel est le nom du créateur de Microsoft ?",
+      "options": [
+        "Bill Gates"
+      ]
+    },
+    {
+      "content": "Quel est le nom du célèbre parc d'attractions en Floride ?",
+      "options": [
+        "Disney World"
+      ]
+    },
+    {
+      "content": "Quel est le nom du célèbre pharaon égyptien ?",
+      "options": [
+        "Toutankhamon"
+      ]
+    },
+    {
+      "content": "Qui est l'actrice principale de 'Titanic' ?",
+      "options": [
+        "Kate Winslet"
+      ]
+    },
+    {
+      "content": "Quel est le nom du célèbre personnage de jeu vidéo avec une épée et un bouclier ?",
+      "options": [
+        "Link"
+      ]
+    },
+    {
+      "content": "Quel est le nom du célèbre personnage de jeu vidéo avec une épée en forme de clé ?",
+      "options": [
+        "Sora"
+      ]
+    },
+    {
+      "content": "Qui a écrit 'Le Parfum' ?",
+      "options": [
+        "Patrick Süskind"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'Jurassic Park' ?",
+      "options": [
+        "Sam Neill"
+      ]
+    },
+    {
+      "content": "Qui a écrit 'Le Tour du monde en quatre-vingts jours' ?",
+      "options": [
+        "Jules Verne"
+      ]
+    },
+    {
+      "content": "Qui est l'acteur principal de 'Le Loup de Wall Street' ?",
+      "options": [
+        "Leonardo DiCaprio"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la célèbre série animée mettant en scène des créatures de poche ?",
+      "options": [
+        "Pokémon"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la célèbre franchise de jeux vidéo avec des combats entre robots géants ?",
+      "options": [
+        "Gundam"
+      ]
+    },
+    {
+      "content": "Quel est le nom de la célèbre série animée mettant en scène des enfants du Colorado ?",
+      "options": [
+        "South Park"
+      ]
+    },
+    {
+      "content": "Qui a écrit 'Les Trois Mousquetaires' ?",
+      "options": [
+        "Alexandre Dumas"
+      ]
+    }
+  ]
+}
+------ duel ------
+{
+  "questions": [
+    {
+      "content": "${user} et ${user} jouent à Chi-Fu-Mi. Celui qui PERD distribue ${num} !"
+    },
+    {
+      "content": "${user} et ${user} jouent à Chi-Fu-Mi. Celui qui GAGNE distribue ${num} !"
+    },
+    {
+      "content": "${user} et ${user} font une bataille de regard. Le premier qui détourne les yeux prend ${num} !"
+    },
+    {
+      "content": "${user} et ${user} se lancent un défi : celui qui tient le plus longtemps en équilibre sur une jambe ! Le perdant prend ${num} !"
+    },
+    {
+      "content": "${user} et ${user} jouent à 'je te tiens, tu me tiens par la barbichette'. Le PREMIER qui rit prend ${num} !"
+    },
+    {
+      "content": "${user} et ${user} jouent à 'je te tiens, tu me tiens par la barbichette'. Le DERNIER qui rit prend ${num} !"
+    },
+    {
+      "content": "${user} et ${user} font une bataille de pouces. Le PREMIER qui se fait écraser prend ${num} !"
+    },
+    {
+      "content": "${user} et ${user} font une bataille de pouces. Le DERNIER qui se fait écraser prend ${num}  !"
+    }
+  ]
+}
+
+
+Mais je ne veux aucune questions identique ou trop similaire a celle deja existante.
+Je veux que pour une partie des questions que tu vas generer pour moi, tu ajoute une penalite comme pour les questions de type duel ou vote.
+Geres aussi mes categories de questions, et mes questions par categories.
+
+Verifie la pertinence de mes questions, et pour les questions de type quiz, verifie que les reponses sont correctes.
+
+Genere moi directement un ou plusieurs json.

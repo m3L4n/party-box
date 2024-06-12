@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Alert, StyleSheet, View } from "react-native";
+import { Alert, KeyboardAvoidingView, KeyboardAvoidingViewBase, Platform, StyleSheet, View } from "react-native";
 import { colors } from "../../assets/colors";
 import Input from "../../components/atoms/Input";
 import AddButton from "../../components/organisms/AddButton";
@@ -21,6 +21,13 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
   const [backgroundColor, setBackgroundColor] = useState<string>(colors.primary.creme);
 
   const handleNameChange = (text: string): void => {
+    let regex = /^[a-zA-Z\s]*$/;
+    if (!regex.test(text)) {
+      return;
+    }
+    if (text.length > 12) {
+      return;
+    }
     setName(text);
   };
 
@@ -36,7 +43,7 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
     const newUser: User = {
       name: name,
       color: selectedColor,
-      isActive: true
+      isActive: false
     };
     setName('');
     setSelectedColor(colors.primary.creme);
@@ -50,11 +57,14 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
 
 
   return (
-    <View style={[styles.container, { backgroundColor: backgroundColor }]}>
+    <View style={[styles.container, { backgroundColor: backgroundColor }]}
+    >
       <BackButton navigation={navigation} />
-      <EmptyUserCard name={name} color={selectedColor} />
+      <EmptyUserCard user={{ name: name, color: selectedColor, isActive: false }} />
       <ChooseColorComponent onPress={handleColorChange} active={selectedColor} />
-      <View style={styles.group}>
+      <View
+        style={styles.group}
+      >
         <Input placeholder={t('name')} onChangeText={handleNameChange} value={name} />
         <AddButton content="Add" onPress={handleAddUser} />
       </View>
@@ -64,7 +74,6 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 120,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

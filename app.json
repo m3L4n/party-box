@@ -24,6 +24,9 @@
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
       },
+      "androidStatusBar": {
+        "translucent": true
+      },
       "package": "com.ju.partybox"
     },
     "web": {

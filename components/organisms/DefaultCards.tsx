@@ -8,7 +8,7 @@ import { Question } from '../../models/Question';
 
 export const AllCard = () => {
   return (
-    <View style={{ ...styles.allCard }}>
+    <View style={styles.allCard}>
       <Text>
         TOUT LE MONDE JOUE !
       </Text>
@@ -18,7 +18,7 @@ export const AllCard = () => {
 
 export const EmptyUserCard = ({ user }: { user: User }) => {
   return (
-    <View style={{ ...styles.allCard, backgroundColor: user.color }}>
+    <View style={[styles.allCard, { backgroundColor: user.color }]}>
       <Text>
         {user.name}
       </Text>
