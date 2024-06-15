@@ -8,7 +8,7 @@
     "userInterfaceStyle": "light",
     "androidStatusBar": {
       "translucent": true,
-      "backgroundColor": "rgba(0, 0, 0, 0)"
+      "backgroundColor": "#00000000"
     },
     "splash": {
       "image": "./assets/images/splash.png",
