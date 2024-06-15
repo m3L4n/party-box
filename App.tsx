@@ -13,8 +13,8 @@ import UsersScreen from './src/screens/UsersScreen';
 import { StyleSheet, View } from 'react-native';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
-import i18next from 'i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StatusBar } from 'expo-status-bar';
 
 const Stack = createStackNavigator();
 
@@ -51,19 +51,25 @@ const App = () => {
 
   return (
     <I18nextProvider i18n={i18n}>
+      <StatusBar
+        translucent={true}
+        backgroundColor="transparent"
+        style="light"
+      />
+
       <View style={styles.container}>
         <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Play" component={PlayScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Users" component={UsersScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Modes" component={ModesScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="CreateUser" component={CreateUserScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="PartyEnd" component={PartyEndScreen} options={{ headerShown: false }} />
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Play" component={PlayScreen} />
+            <Stack.Screen name="Users" component={UsersScreen} />
+            <Stack.Screen name="Modes" component={ModesScreen} />
+            <Stack.Screen name="CreateUser" component={CreateUserScreen} />
+            <Stack.Screen name="PartyEnd" component={PartyEndScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
-    </I18nextProvider>
+    </I18nextProvider >
   );
 };
 
