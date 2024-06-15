@@ -13,6 +13,7 @@ import { Mode } from "../../models/Mode";
 import { addMode, deleteAllModes, loadModes, toggleModeStatus } from "../../services/mode";
 import { t } from "i18next";
 import { getRandomColorBackground } from "../../services/utils";
+import Background from "../../components/organisms/Background";
 
 interface ModesScreenProps {
   navigation: any;
@@ -63,6 +64,7 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
 
   return (
     <View style={[styles.container, { backgroundColor: backgroundColor }]}>
+      <Background />
       <BackButton navigation={navigation} />
       <ReloadButton onPress={handleReloadPress} />
       <Text style={styles.title}>Modes</Text>

@@ -14,6 +14,7 @@ import { deleteUser, getActiveUsers, loadUsers, toggleUserStatus } from "../../s
 import { getRandomColorBackground } from '../../services/utils';
 import { User } from '../../models/User';
 import { t, use } from 'i18next';
+import Background from '../../components/organisms/Background';
 
 interface UsersScreenProps {
     navigation: any;
@@ -66,6 +67,7 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
 
     return (
         <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
+            <Background />
             <BackButton navigation={navigation} />
             {userList.length !== 0 && (
                 <TrashButton onPress={toggleDeleteMode} />

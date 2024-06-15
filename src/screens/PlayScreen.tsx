@@ -14,6 +14,7 @@ import QuestionComponent from '../party/QuestionComponent';
 import { Mode } from '../../models/Mode';
 import { User } from '../../models/User';
 import { Question } from '../../models/Question';
+import Background from '../../components/organisms/Background';
 
 interface PlayScreenProps {
   navigation: any;
@@ -79,6 +80,7 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
 
   return (
     <TouchableOpacity onPress={handlePress} style={{ ...styles.container, backgroundColor: getRandomColorBackground() }}>
+      <Background />
       {(questions.length === 0) &&
         <>
           <BackButton navigation={navigation} />

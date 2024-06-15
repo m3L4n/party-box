@@ -5,13 +5,13 @@ import { StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
-import AnimatedBackground from '../../components/organisms/AnimatedBackground';
 import ModalComponent from '../../components/organisms/ModalComponent';
 import SettingsButton from '../../components/organisms/SettingsButton';
 import { loadModes } from '../../services/mode';
 import { loadUsers } from '../../services/user';
 import { getRandomColorBackground } from '../../services/utils';
 import { t } from 'i18next';
+import Background from '../../components/organisms/Background';
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
     const version = require('../../package.json').version;
@@ -44,7 +44,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
     const closeModal = () => setModalVisible(false);
     return (
         <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
-            <AnimatedBackground />
+            <Background />
             <SettingsButton onPress={openModal} />
             <>
                 <Text style={{ ...styles.title }}>Party Box</Text>
