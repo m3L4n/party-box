@@ -23,8 +23,8 @@ const ColorButton = ({ onPress, color, isActive }: ColorButtonProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 30,
-    height: 30,
+    width: 48,
+    height: 48,
     borderRadius: 10,
   },
 });
