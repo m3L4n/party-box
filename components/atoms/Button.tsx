@@ -16,6 +16,9 @@ const Button = ({ content, onPress, style }: ButtonProps) => {
     <TouchableOpacity
       style={[styles.container, style]}
       onPress={onPress}
+      accessible={true}
+      accessibilityRole="button"
+      accessibilityLabel={content ? content.toString() : 'Button'}
     >
       {content}
     </TouchableOpacity>
