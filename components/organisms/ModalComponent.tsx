@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.secondary.pink,
+    backgroundColor: colors.secondary.creme,
     margin: 30,
     borderRadius: 10,
     borderStyle: 'solid',
