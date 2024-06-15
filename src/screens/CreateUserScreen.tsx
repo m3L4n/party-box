@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Alert, StyleSheet, View } from "react-native";
+import { Alert, KeyboardAvoidingView, Platform, StyleSheet, View } from "react-native";
 import { colors } from "../../assets/colors";
 import Input from "../../components/atoms/Input";
 import AddButton from "../../components/organisms/AddButton";
@@ -63,7 +63,9 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
 
 
   return (
-    <View style={[styles.container, { backgroundColor: backgroundColor }]}
+    <KeyboardAvoidingView style={[styles.container, { backgroundColor: backgroundColor }]}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20}
     >
       <BackButton navigation={navigation} />
       <EmptyUserCard user={{ name: name, color: selectedColor, isActive: false }} />
@@ -74,7 +76,7 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
         <Input placeholder={t('name')} onChangeText={handleNameChange} value={name} />
         <AddButton content="Add" onPress={handleAddUser} />
       </View>
-    </View >
+    </KeyboardAvoidingView >
   );
 };
 
