@@ -14,11 +14,11 @@ const LanguageComponent = () => {
 
   return (
     <View style={styles.language}>
-      <TouchableOpacity onPress={() => changeLanguage('fr')} >
+      <TouchableOpacity onPress={() => changeLanguage('fr')} accessibilityLabel="Changer la langue en Français">
         <Image source={require('../../assets/images/fr.png')} style={[styles.language.image, { opacity: i18n.language === 'fr' ? 1 : 0.5 }
         ]} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => changeLanguage('en')}>
+      <TouchableOpacity onPress={() => changeLanguage('en')} accessibilityLabel="Change language to English">
         <Image source={require('../../assets/images/uk.png')} style={[styles.language.image, { opacity: i18n.language === 'en' ? 1 : 0.5 }
         ]} />
       </TouchableOpacity>
