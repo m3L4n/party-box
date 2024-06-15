@@ -4,6 +4,7 @@ import React from 'react';
 import { StyleSheet, View, Linking } from 'react-native';
 import Text from '../atoms/CustomText';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { t } from 'i18next';
 
 const contributors = [
   { name: 'Jurichar', url: 'https://github.com/jurichar' },
@@ -21,13 +22,16 @@ const CreditsComponent = () => {
   };
 
   return (
-    <View style={styles.credits}>
-      {contributors.map((contributor, index) => (
-        <TouchableOpacity key={index} onPress={() => handlePress(contributor.url)}>
-          <Text style={styles.contributor}>{contributor.name}</Text>
-        </TouchableOpacity>
-      ))}
-    </View>
+    <>
+      <Text style={{ ...styles.title }}>{t('contributors')}</Text>
+      <View style={styles.credits}>
+        {contributors.map((contributor, index) => (
+          <TouchableOpacity key={index} onPress={() => handlePress(contributor.url)}>
+            <Text style={styles.contributor}>{contributor.name}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    </>
   );
 };
 
@@ -38,10 +42,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   contributor: {
-    fontSize: 20,
+    fontSize: 32,
     color: 'blue',
     textDecorationLine: 'underline',
     marginVertical: 5,
+  },
+  title: {
+    fontSize: 30,
+    fontFamily: 'BebasNeue-Regular',
+    letterSpacing: 5,
+    color: 'black',
+    marginBottom: 20,
   },
 });
 

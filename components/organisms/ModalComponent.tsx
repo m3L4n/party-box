@@ -64,15 +64,17 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
     <Modal animationType="slide" transparent={true} visible={visible}>
       <View style={{ ...styles.modal }}>
         <CrossButton onPress={handlePressClose} />
-        <Text style={{ ...styles.title }}>{t(rulesOpen || creditsOpen ? 'options' : 'settings')}</Text>
         {!rulesOpen && !creditsOpen &&
-          <View>
-            <MenuButton text={t("how_to_play")} onPress={handlePressRules} />
-            <MenuButton text={t("want_to_join")} onPress={handlePressJoin} />
-            <MenuButton text={t("report_bug")} onPress={handlePressReport} />
-            <MenuButton text={t("credits")} onPress={handlePressCredits} />
-            <LanguageComponent />
-          </View>
+          <>
+            <Text style={{ ...styles.title }}>{t('settings')}</Text>
+            <View>
+              <MenuButton text={t("how_to_play")} onPress={handlePressRules} />
+              <MenuButton text={t("want_to_join")} onPress={handlePressJoin} />
+              <MenuButton text={t("report_bug")} onPress={handlePressReport} />
+              <MenuButton text={t("credits")} onPress={handlePressCredits} />
+              <LanguageComponent />
+            </View>
+          </>
         }
         {rulesOpen && <RulesComponent />}
         {creditsOpen && <CreditsComponent />}
