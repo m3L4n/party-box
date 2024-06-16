@@ -8,7 +8,7 @@ import ChooseColorComponent from "../../components/organisms/ChooseColorComponen
 import { EmptyUserCard } from "../../components/organisms/DefaultCards";
 import { User } from "../../models/User";
 import { addUser, checkUserExistence } from "../../services/user";
-import { getRandomColor, getRandomColorBackground } from "../../services/utils";
+import { getRandomColor } from "../../services/utils";
 import { t } from "i18next";
 
 interface CreateUserScreenProps {
@@ -18,7 +18,6 @@ interface CreateUserScreenProps {
 const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
   const [name, setName] = useState<string>('');
   const [selectedColor, setSelectedColor] = useState<string>(getRandomColor());
-  const [backgroundColor, setBackgroundColor] = useState<string>(colors.primary.creme);
 
   const handleNameChange = (text: string): void => {
     let regex = /^[a-zA-Z\s]*$/;
@@ -57,13 +56,8 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
     navigation.navigate('Users');
   };
 
-  useEffect(() => {
-    setBackgroundColor(getRandomColorBackground());
-  }, []);
-
-
   return (
-    <KeyboardAvoidingView style={[styles.container, { backgroundColor: backgroundColor }]}
+    <KeyboardAvoidingView style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20}
     >

@@ -80,7 +80,6 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
 
   return (
     <TouchableOpacity onPress={handlePress} style={{ ...styles.container, backgroundColor: getRandomColorBackground() }}>
-      <Background />
       {(questions.length === 0) &&
         <>
           <BackButton navigation={navigation} />

@@ -27,7 +27,6 @@ export const initialModes = [
 
 const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
   const [modes, setModes] = useState<Mode[]>([]);
-  const [backgroundColor, setBackgroundColor] = useState<string>('');
 
   const prefillModes = async () => {
     for (const mode of initialModes) {
@@ -38,7 +37,6 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
   }
 
   useEffect(() => {
-    setBackgroundColor(getRandomColorBackground());
     prefillModes();
   }, []);
 
@@ -63,8 +61,7 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
   }
 
   return (
-    <View style={[styles.container, { backgroundColor: backgroundColor }]}>
-      <Background />
+    <View style={styles.container}>
       <BackButton navigation={navigation} />
       <ReloadButton onPress={handleReloadPress} />
       <Text style={styles.title}>Modes</Text>
