@@ -1,6 +1,6 @@
 // components/organisms/ModalComponent.tsx
 
-import React, { useState } from 'react';
+import React, { useState, version } from 'react';
 import { Linking, Modal, StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../atoms/CustomText';
@@ -12,6 +12,7 @@ import RulesComponent from './RulesComponent';
 import CreditsComponent from './CreditsComponent';
 
 const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal: () => void }) => {
+  const version = require('../../package.json').version;
   const { t } = useTranslation();
   const [rulesOpen, setRulesOpen] = useState(false);
   const [creditsOpen, setCreditsOpen] = useState(false);
@@ -73,6 +74,7 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
               <MenuButton text={t("report_bug")} onPress={handlePressReport} />
               <MenuButton text={t("credits")} onPress={handlePressCredits} />
               <LanguageComponent />
+              <Text style={styles.version}>v.{version}</Text>
             </View>
           </>
         }
@@ -103,6 +105,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 4,
     borderWidth: 2,
     borderColor: 'black',
+  },
+  version: {
+    fontSize: 20,
+    fontFamily: 'BebasNeue-Regular',
+    letterSpacing: 5,
+    color: 'black',
+    marginTop: 40,
   },
 });
 

@@ -12,7 +12,6 @@ import { loadUsers } from '../../services/user';
 import { t } from 'i18next';
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
-    const version = require('../../package.json').version;
     const [modalVisible, setModalVisible] = useState(false);
 
     const handleClick = async () => {
@@ -35,10 +34,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
     return (
         <View style={styles.container}>
             <SettingsButton onPress={openModal} />
-            <>
-                <Text style={{ ...styles.title }}>Party Box</Text>
-                <Text>v.{version}</Text>
-            </>
+            <Text style={{ ...styles.title }}>Party Box</Text>
             <MenuButton color={colors.primary.green} text={t("quick_play")} onPress={() => handleClick()} />
             <MenuButton color={colors.primary.blue} text={t("custom_game")} onPress={() => navigation.navigate('Users')} />
             <ModalComponent visible={modalVisible} closeModal={closeModal} />
