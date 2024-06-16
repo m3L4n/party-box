@@ -23,7 +23,6 @@ interface UsersScreenProps {
 const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
     const [userList, setUserList] = useState<User[]>([]);
     const [deleteMode, setDeleteMode] = useState<boolean>(false);
-    const [backgroundColor, setBackgroundColor] = useState<string>(getRandomColorBackground());
 
     const fetchData = useCallback(async () => {
         const users: User[] = await loadUsers();
@@ -37,10 +36,6 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
 
         return unsubscribe;
     }, [navigation, fetchData]);
-
-    useEffect(() => {
-        setBackgroundColor(getRandomColorBackground());
-    }, []);
 
     const handleUserPress = async (userName: string) => {
         if (deleteMode) {
@@ -66,8 +61,7 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
     };
 
     return (
-        <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
-            <Background />
+        <View style={{ ...styles.container }}>
             <BackButton navigation={navigation} />
             {userList.length !== 0 && (
                 <TrashButton onPress={toggleDeleteMode} />

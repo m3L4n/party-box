@@ -1,6 +1,6 @@
 // App.tsx
 
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
@@ -10,17 +10,21 @@ import HomeScreen from './src/screens/HomeScreen';
 import ModesScreen from './src/screens/ModesScreen';
 import PlayScreen from './src/screens/PlayScreen';
 import UsersScreen from './src/screens/UsersScreen';
-import { ImageBackground, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StatusBar } from 'expo-status-bar';
-import AnimatedBackground from './components/organisms/Background';
+import Background from './components/organisms/Background';
+import { getRandomColorBackground } from './services/utils';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState(getRandomColorBackground());
+  const backgroundImage = require('./assets/images/image.png');
+
 
   useEffect(() => {
     const loadFonts = async () => {
@@ -58,25 +62,35 @@ const App = () => {
         style="light"
       />
       <View style={styles.container}>
-        <NavigationContainer>
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Play" component={PlayScreen} />
-            <Stack.Screen name="Users" component={UsersScreen} />
-            <Stack.Screen name="Modes" component={ModesScreen} />
-            <Stack.Screen name="CreateUser" component={CreateUserScreen} />
-            <Stack.Screen name="PartyEnd" component={PartyEndScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <Background backgroundColor={backgroundColor} backgroundImage={backgroundImage} >
+          <NavigationContainer theme={navTheme}>
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="Home" component={HomeScreen} />
+              <Stack.Screen name="Play" component={PlayScreen} />
+              <Stack.Screen name="Users" component={UsersScreen} />
+              <Stack.Screen name="Modes" component={ModesScreen} />
+              <Stack.Screen name="CreateUser" component={CreateUserScreen} />
+              <Stack.Screen name="PartyEnd" component={PartyEndScreen} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </Background>
       </View>
     </I18nextProvider >
   );
 };
 
+const navTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: 'transparent',
+  },
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
+  }
 });
 
 

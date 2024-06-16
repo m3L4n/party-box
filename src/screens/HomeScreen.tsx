@@ -16,7 +16,7 @@ import Background from '../../components/organisms/Background';
 const HomeScreen = ({ navigation }: { navigation: any }) => {
     const version = require('../../package.json').version;
     const [modalVisible, setModalVisible] = useState(false);
-    const [backgroundColor, setBackgroundColor] = useState(getRandomColorBackground());
+    // const [backgroundColor, setBackgroundColor] = useState(getRandomColorBackground());
 
     const handleClick = async () => {
         const users = await loadUsers();
@@ -33,18 +33,17 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
         }
     }
 
-    useEffect(() => {
-        const unsubscribe = navigation.addListener('focus', () => {
-            setBackgroundColor(getRandomColorBackground());
-        });
-        return unsubscribe;
-    }, [navigation]);
+    // useEffect(() => {
+    //     const unsubscribe = navigation.addListener('focus', () => {
+    //         setBackgroundColor(getRandomColorBackground());
+    //     });
+    //     return unsubscribe;
+    // }, [navigation]);
 
     const openModal = () => setModalVisible(true);
     const closeModal = () => setModalVisible(false);
     return (
-        <View style={{ ...styles.container, backgroundColor: backgroundColor }}>
-            <Background />
+        <View style={styles.container}>
             <SettingsButton onPress={openModal} />
             <>
                 <Text style={{ ...styles.title }}>Party Box</Text>

@@ -1,24 +1,43 @@
 // src/components/organisms/Background.tsx
 
-import { ImageBackground, StyleSheet } from 'react-native';
-import backgroundImage from '../../assets/images/image.png'
+import React from 'react';
+import { ImageBackground, StyleSheet, View } from 'react-native';
 
-const Background = () => {
-  return (
-    <ImageBackground
-      resizeMode={"repeat"}
-      style={styles.background}
-      source={backgroundImage} />
-  );
+interface BackgroundProps {
+  backgroundColor: string;
+  backgroundImage: any;
+  children: React.ReactNode;
 }
 
+const Background: React.FC<BackgroundProps> = ({ backgroundColor, backgroundImage, children }) => {
+  return (
+    <View
+      style={[styles.color, { backgroundColor: backgroundColor }]}
+    >
+      {children}
+      <ImageBackground
+        resizeMode="repeat"
+        style={styles.background}
+        source={backgroundImage}
+      />
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
-  background: {
+  color: {
     position: 'absolute',
-    width: 1200,
-    height: 1200,
+    opacity: 1,
     top: 0,
+    width: "100%",
+    height: "100%",
+  },
+  background: {
+    zIndex: -1,
+    position: 'absolute',
     opacity: 0.2,
+    width: "100%",
+    height: "100%",
   },
 });
 
