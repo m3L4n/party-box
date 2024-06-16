@@ -1,6 +1,6 @@
 // App.tsx
 
-import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer, useNavigationState } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
@@ -18,13 +18,11 @@ import { StatusBar } from 'expo-status-bar';
 import Background from './components/organisms/Background';
 import { getRandomColorBackground } from './services/utils';
 
-const Stack = createStackNavigator();
-
 const App = () => {
+  const Stack = createStackNavigator();
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState(getRandomColorBackground());
   const backgroundImage = require('./assets/images/image.png');
-
 
   useEffect(() => {
     const loadFonts = async () => {
@@ -53,17 +51,20 @@ const App = () => {
     return null;
   }
 
+  const handleNavigationStateChange = () => {
+    setBackgroundColor(getRandomColorBackground());
+  };
 
   return (
-    <I18nextProvider i18n={i18n}>
-      <StatusBar
-        translucent={true}
-        backgroundColor="transparent"
-        style="light"
-      />
-      <View style={styles.container}>
-        <Background backgroundColor={backgroundColor} backgroundImage={backgroundImage} >
-          <NavigationContainer theme={navTheme}>
+    <NavigationContainer theme={navTheme} onStateChange={handleNavigationStateChange}>
+      <I18nextProvider i18n={i18n}>
+        <View style={styles.container}>
+          <StatusBar
+            translucent={true}
+            backgroundColor="transparent"
+            style="light"
+          />
+          <Background backgroundColor={backgroundColor} backgroundImage={backgroundImage} >
             <Stack.Navigator screenOptions={{ headerShown: false }}>
               <Stack.Screen name="Home" component={HomeScreen} />
               <Stack.Screen name="Play" component={PlayScreen} />
@@ -72,10 +73,10 @@ const App = () => {
               <Stack.Screen name="CreateUser" component={CreateUserScreen} />
               <Stack.Screen name="PartyEnd" component={PartyEndScreen} />
             </Stack.Navigator>
-          </NavigationContainer>
-        </Background>
-      </View>
-    </I18nextProvider >
+          </Background>
+        </View>
+      </I18nextProvider >
+    </NavigationContainer>
   );
 };
 
