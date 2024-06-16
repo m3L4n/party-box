@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   background: {
     zIndex: -1,
     position: 'absolute',
-    opacity: 0.2,
+    opacity: 0.15,
     width: "100%",
     height: "100%",
   },

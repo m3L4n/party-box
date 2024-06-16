@@ -25,6 +25,7 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
   const [users, setUsers] = useState<User[]>([]);
   const [modes, setModes] = useState<Mode[]>([]);
   const [end, setEnd] = useState<boolean>(false);
+  const [backgroundColor, setBackgroundColor] = useState<string>(getRandomColorBackground());
 
   const fetchQuestions = useCallback(async (modes: Mode[], users: User[]) => {
     try {
@@ -76,26 +77,29 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
 
     const nextQuestion = questions[1];
     setQuestions((prevQuestions) => [nextQuestion, ...prevQuestions.slice(2)]);
+    setBackgroundColor(getRandomColorBackground());
   };
 
   return (
-    <TouchableOpacity onPress={handlePress} style={{ ...styles.container, backgroundColor: getRandomColorBackground() }}>
-      {(questions.length === 0) &&
-        <>
-          <BackButton navigation={navigation} />
-          <Text>Loading...</Text>
-        </>
-      }
-      {end && (
-        <PartyEndScreen />
-      )
-      }
-      {!end && questions[0] && (
-        <>
-          <HomeButton navigation={navigation} />
-          <QuestionComponent question={questions[0]} players={users} />
-        </>
-      )}
+    <TouchableOpacity onPress={handlePress} style={styles.container}>
+      <Background backgroundColor={backgroundColor} backgroundImage={require('../../assets/images/image.png')}>
+        {(questions.length === 0) &&
+          <>
+            <BackButton navigation={navigation} />
+            <Text>Loading...</Text>
+          </>
+        }
+        {end && (
+          <PartyEndScreen />
+        )
+        }
+        {!end && questions[0] && (
+          <>
+            <HomeButton navigation={navigation} />
+            <QuestionComponent question={questions[0]} players={users} />
+          </>
+        )}
+      </Background>
     </TouchableOpacity>
   );
 }
@@ -103,7 +107,6 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
