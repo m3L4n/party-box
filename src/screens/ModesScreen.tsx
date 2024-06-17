@@ -70,6 +70,7 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
           <ModeCard key={index} mode={mode} onPress={() => handleModePress(mode.name)} />
         ))}
       </ScrollView>
+      <Text>{Object.values(modes).filter(user => user.isActive).length + " " + t('select_modes')}</Text>
       {Object.values(modes).filter(mode => mode.isActive).length === 0 ? null : <MenuButton color={colors.primary.green} text={t('next')} onPress={handleNextButtonPress} />}
     </View>
   );

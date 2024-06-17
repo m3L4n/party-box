@@ -11,10 +11,8 @@ import BackButton from '../../components/organisms/BackButton';
 import TrashButton from '../../components/organisms/TrashButton';
 import UserCard from '../../components/organisms/UserCard';
 import { deleteUser, getActiveUsers, loadUsers, toggleUserStatus } from "../../services/user";
-import { getRandomColorBackground } from '../../services/utils';
 import { User } from '../../models/User';
-import { t, use } from 'i18next';
-import Background from '../../components/organisms/Background';
+import { t } from 'i18next';
 
 interface UsersScreenProps {
     navigation: any;
@@ -78,6 +76,7 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
                 ))}
                 <AddButton onPress={() => navigation.navigate('CreateUser')} style={{ ...styles.addButton }} />
             </ScrollView>
+            <Text>{userList.filter(user => user.isActive).length + " " + t('select_players')}</Text>
             {userList.filter(user => user.isActive).length > 1 && (
                 <MenuButton color={colors.primary.green} text={t('next')} onPress={handleNextButtonPress} />
             )}
