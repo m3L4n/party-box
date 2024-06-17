@@ -10,13 +10,14 @@ import HomeScreen from './src/screens/HomeScreen';
 import ModesScreen from './src/screens/ModesScreen';
 import PlayScreen from './src/screens/PlayScreen';
 import UsersScreen from './src/screens/UsersScreen';
-import { StyleSheet, View } from 'react-native';
+import { PermissionsAndroid, StyleSheet, View } from 'react-native';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StatusBar } from 'expo-status-bar';
 import Background from './components/organisms/Background';
 import { getRandomColorBackground } from './services/utils';
+import Button from './components/atoms/Button';
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -51,6 +52,8 @@ const App = () => {
     return null;
   }
 
+
+
   const handleNavigationStateChange = () => {
     setBackgroundColor(getRandomColorBackground());
   };
@@ -59,11 +62,11 @@ const App = () => {
     <NavigationContainer theme={navTheme} onStateChange={handleNavigationStateChange}>
       <I18nextProvider i18n={i18n}>
         <View style={styles.container}>
-          {/* <StatusBar
+          <StatusBar
             translucent={true}
             backgroundColor="transparent"
             style="light"
-          /> */}
+          />
           <Background backgroundColor={backgroundColor} backgroundImage={backgroundImage} >
             <Stack.Navigator screenOptions={{ headerShown: false }}>
               <Stack.Screen name="Home" component={HomeScreen} />

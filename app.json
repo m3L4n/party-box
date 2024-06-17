@@ -31,7 +31,8 @@
       "package": "com.ju.partybox",
       "permissions": [
         "INTERNET",
-        "ACCESS_NETWORK_STATE"
+        "ACCESS_NETWORK_STATE",
+        "QUERY_ALL_PACKAGES"
       ]
     },
     "web": {

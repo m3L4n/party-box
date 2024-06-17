@@ -1,7 +1,7 @@
 // components/organisms/ModalComponent.tsx
 
 import React, { useState } from 'react';
-import { Linking, Modal, StyleSheet, View } from 'react-native';
+import { Modal, StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../atoms/CustomText';
 import MenuButton from '../molecules/MenuButton';
@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import LanguageComponent from './LanguageComponent';
 import RulesComponent from './RulesComponent';
 import CreditsComponent from './CreditsComponent';
+import * as Linking from 'expo-linking';
 
 const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal: () => void }) => {
   const version = require('../../package.json').version;
@@ -37,8 +38,8 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
 
   const handlePressJoin = async () => {
     const email = 'partybox.contactus@gmail.com';
-    const subject = 'Joining the game';
-    const body = 'I want to join the game';
+    const subject = encodeURIComponent('Joining the game');
+    const body = encodeURIComponent('I want to join the game');
     const url = `mailto:${email}?subject=${subject}&body=${body}`;
     const canOpen = await Linking.canOpenURL(url);
     if (canOpen) {
@@ -55,6 +56,7 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
     const url = `mailto:${email}?subject=${subject}&body=${body}`;
     const canOpen = await Linking.canOpenURL(url);
     if (canOpen) {
+      console.log(`Opening URL: ${url}`);
       Linking.openURL(url);
     } else {
       console.error(`Cannot open url: ${url}`);
