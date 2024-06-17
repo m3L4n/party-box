@@ -1,6 +1,6 @@
 // App.tsx
 
-import { DefaultTheme, NavigationContainer, useNavigationState } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
@@ -59,11 +59,11 @@ const App = () => {
     <NavigationContainer theme={navTheme} onStateChange={handleNavigationStateChange}>
       <I18nextProvider i18n={i18n}>
         <View style={styles.container}>
-          <StatusBar
+          {/* <StatusBar
             translucent={true}
             backgroundColor="transparent"
             style="light"
-          />
+          /> */}
           <Background backgroundColor={backgroundColor} backgroundImage={backgroundImage} >
             <Stack.Navigator screenOptions={{ headerShown: false }}>
               <Stack.Screen name="Home" component={HomeScreen} />

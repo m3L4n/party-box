@@ -7,7 +7,7 @@
       "es7",
       "esnext"
     ],
-    "allowJs": true,
+    "allowJs": false,
     "jsx": "react-native",
     "strict": true,
     "moduleResolution": "node",
@@ -17,7 +17,7 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": true
   },
   "include": [
     "./**/*"

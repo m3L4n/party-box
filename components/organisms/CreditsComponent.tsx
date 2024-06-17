@@ -5,6 +5,7 @@ import { StyleSheet, View, Linking } from 'react-native';
 import Text from '../atoms/CustomText';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { t } from 'i18next';
+import MenuButton from '../molecules/MenuButton';
 
 const contributors = [
   { name: 'Jurichar', url: 'https://github.com/jurichar' },
@@ -13,11 +14,15 @@ const contributors = [
 
 const CreditsComponent = () => {
   const handlePress = async (url: string) => {
-    const canOpen = await Linking.canOpenURL(url);
-    if (canOpen) {
-      Linking.openURL(url);
-    } else {
-      console.error(`Cannot open url: ${url}`);
+    try {
+      const canOpen = await Linking.canOpenURL(url);
+      if (canOpen) {
+        await Linking.openURL(url);
+      } else {
+        console.error(`Cannot open url: ${url}`);
+      }
+    } catch (error) {
+      console.error('Error opening URL:', error);
     }
   };
 
@@ -26,9 +31,8 @@ const CreditsComponent = () => {
       <Text style={{ ...styles.title }}>{t('contributors')}</Text>
       <View style={styles.credits}>
         {contributors.map((contributor, index) => (
-          <TouchableOpacity key={index} onPress={() => handlePress(contributor.url)}>
-            <Text style={styles.contributor}>{contributor.name}</Text>
-          </TouchableOpacity>
+          <MenuButton key={index} onPress={() => handlePress(contributor.url)} text={contributor.name} >
+          </MenuButton>
         ))}
       </View>
     </>
@@ -53,6 +57,12 @@ const styles = StyleSheet.create({
     letterSpacing: 5,
     color: 'black',
     marginBottom: 20,
+  },
+  link: {
+    height: 50,
+    width: 200,
+    justifyContent: 'center',
+    backgroundColor: 'white',
   },
 });
 
