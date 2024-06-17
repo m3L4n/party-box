@@ -19,5 +19,10 @@
   "answer": "Réponse",
   "quiz": "Quiz",
   "classic": "Classique",
-  "duel": "Duel"
+  "duel": "Duel",
+  "rules": "Règles",
+  "rules_details": "1. Créer un.e ou plusieurs joueur.euse.s \n\n2. Choisir un ou plusieurs modes de jeu\n\n3. Lancer la partie\n\n4. Vous êtes libre de modifier les règles comme bon vous semble.\n\n5. Amusez-vous !",
+  "contributors": "Contributeurs :",
+  "selected_players": "Joueurs sélectionnés",
+  "selected_modes": "Modes de jeu sélectionnés"
 }

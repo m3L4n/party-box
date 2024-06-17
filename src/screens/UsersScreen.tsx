@@ -76,7 +76,7 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
                 ))}
                 <AddButton onPress={() => navigation.navigate('CreateUser')} style={{ ...styles.addButton }} />
             </ScrollView>
-            <Text>{userList.filter(user => user.isActive).length + " " + t('select_players')}</Text>
+            <Text style={styles.info_text}>{userList.filter(user => user.isActive).length + " " + t('selected_players')}</Text>
             {userList.filter(user => user.isActive).length > 1 && (
                 <MenuButton color={colors.primary.green} text={t('next')} onPress={handleNextButtonPress} />
             )}
@@ -108,6 +108,11 @@ const styles = StyleSheet.create({
     addButton: {
         marginHorizontal: 16.1,
         marginVertical: 40,
+    },
+    info_text: {
+        fontSize: 30,
+        fontFamily: 'BebasNeue-Regular',
+        color: 'black',
     }
 });
 

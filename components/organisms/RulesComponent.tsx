@@ -7,11 +7,9 @@ import { t } from "i18next";
 const RulesComponent = () => {
   return (
     <>
-      <Text style={{ ...styles.title }}>{t('option')}</Text>
+      <Text style={{ ...styles.title }}>{t('rules')}</Text>
       <View style={styles.rules}>
-        <Text>- Select and create players</Text>
-        <Text>- Select game modes</Text>
-        <Text>- Start the game</Text>
+        <Text>{t('rules_details')}</Text>
       </View >
     </>
   )
@@ -22,6 +20,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
+    marginHorizontal: 20,
   },
   title: {
     fontSize: 30,

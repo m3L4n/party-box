@@ -68,7 +68,7 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
           <ModeCard key={index} mode={mode} onPress={() => handleModePress(mode.name)} />
         ))}
       </ScrollView>
-      <Text>{Object.values(modes).filter(user => user.isActive).length + " " + t('select_modes')}</Text>
+      <Text style={styles.info_text}>{Object.values(modes).filter(user => user.isActive).length + " " + t('selected_modes')}</Text>
       {Object.values(modes).filter(mode => mode.isActive).length === 0 ? null : <MenuButton color={colors.primary.green} text={t('next')} onPress={handleNextButtonPress} />}
     </View>
   );
@@ -89,6 +89,11 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     marginTop: 30,
   },
+  info_text: {
+    fontSize: 30,
+    fontFamily: 'BebasNeue-Regular',
+    color: 'black',
+  }
 });
 
 export default ModesScreen;
