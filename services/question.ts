@@ -98,7 +98,7 @@ const parseQuestion = (userList: User[], question: Question): string => {
   const randomNumber = Math.floor(Math.random() * 100) + 1;
   let numReplacement;
 
-  if (randomNumber === 1) {
+  if (randomNumber <= 10) {
     numReplacement = t('shooter');
   } else {
     const drinkNumber = Math.floor(Math.random() * 5) + 1;

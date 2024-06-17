@@ -20,7 +20,7 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
   const [selectedColor, setSelectedColor] = useState<string>(getRandomColor());
 
   const handleNameChange = (text: string): void => {
-    let regex = /^[a-zA-Z\s]*$/;
+    let regex = /^[a-zA-Z0-9\s]*$/;
     if (!regex.test(text)) {
       return;
     }

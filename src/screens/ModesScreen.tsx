@@ -1,6 +1,6 @@
 // src/screens/ModesScreen.tsx
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, View, Alert } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { colors } from "../../assets/colors";
@@ -12,8 +12,6 @@ import ReloadButton from "../../components/organisms/ReloadButton";
 import { Mode } from "../../models/Mode";
 import { addMode, deleteAllModes, loadModes, toggleModeStatus } from "../../services/mode";
 import { t } from "i18next";
-import { getRandomColorBackground } from "../../services/utils";
-import Background from "../../components/organisms/Background";
 
 interface ModesScreenProps {
   navigation: any;

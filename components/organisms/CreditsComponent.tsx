@@ -3,7 +3,6 @@
 import React from 'react';
 import { StyleSheet, View, Linking } from 'react-native';
 import Text from '../atoms/CustomText';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { t } from 'i18next';
 import MenuButton from '../molecules/MenuButton';
 
@@ -57,12 +56,6 @@ const styles = StyleSheet.create({
     letterSpacing: 5,
     color: 'black',
     marginBottom: 20,
-  },
-  link: {
-    height: 50,
-    width: 200,
-    justifyContent: 'center',
-    backgroundColor: 'white',
   },
 });
 

@@ -1,6 +1,6 @@
 // components/organisms/ModalComponent.tsx
 
-import React, { useState, version } from 'react';
+import React, { useState } from 'react';
 import { Linking, Modal, StyleSheet, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../atoms/CustomText';
