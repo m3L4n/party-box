@@ -11,8 +11,7 @@ const ChooseColorComponent = ({ onPress, active }: { onPress: (color: string) =>
 
   React.useEffect(() => {
     setActiveColor(active);
-  }
-    , [active]);
+  }, [active]);
 
   const handleColorPress = (color: string) => {
     setActiveColor(color);

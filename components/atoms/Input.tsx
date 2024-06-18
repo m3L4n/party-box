@@ -18,6 +18,10 @@ const Input = ({ placeholder, onChangeText, value }: InputProps) => {
       placeholder={placeholder}
       editable={true}
       maxLength={40}
+      focusable={true}
+      accessibilityRole='text'
+      accessible={true}
+      accessibilityLabel={placeholder}
     />
   );
 };
