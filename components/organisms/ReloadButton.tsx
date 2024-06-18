@@ -12,6 +12,7 @@ const ReloadButton = ({ onPress, style }: ButtonProps) => {
       onPress={onPress}
       style={[styles.container, style]}
       content="refresh"
+      accessibilityLabel='Reload button'
     />
   );
 };

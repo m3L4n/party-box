@@ -23,7 +23,7 @@
       "bundleIdentifier": "com.juuuuu.party-box"
     },
     "android": {
-      "versionCode": 8,
+      "versionCode": 9,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"

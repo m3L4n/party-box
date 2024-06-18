@@ -7,9 +7,10 @@ interface ColorButtonProps {
   onPress: () => void;
   color: string;
   isActive: boolean;
+  accessibilityLabel?: string;
 }
 
-const ColorButton = ({ onPress, color, isActive }: ColorButtonProps) => {
+const ColorButton = ({ onPress, color, isActive, accessibilityLabel }: ColorButtonProps) => {
   return (
     <Button
       onPress={onPress}
@@ -17,6 +18,7 @@ const ColorButton = ({ onPress, color, isActive }: ColorButtonProps) => {
       style={{
         ...styles.container, backgroundColor: color, opacity: isActive ? 1 : 0.5,
       }}
+      accessibilityLabel={accessibilityLabel ? accessibilityLabel : 'Color button'}
     />
   );
 };

@@ -14,6 +14,7 @@ const CrossButton = ({ onPress, style }: ButtonProps) => {
             onPress={onPress}
             style={[styles.container, style]}
             content="close"
+            accessibilityLabel='Close button'
         />
     );
 };

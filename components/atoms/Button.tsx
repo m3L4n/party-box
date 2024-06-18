@@ -9,16 +9,17 @@ export interface ButtonProps {
   style?: StyleProp<any>;
   active?: boolean;
   navigation?: any;
+  accessibilityLabel?: string;
 }
 
-const Button = ({ content, onPress, style }: ButtonProps) => {
+const Button = ({ content, onPress, style, accessibilityLabel }: ButtonProps) => {
   return (
     <TouchableOpacity
       style={[styles.container, style]}
       onPress={onPress}
       accessible={true}
       accessibilityRole="button"
-      accessibilityLabel={content ? content.toString() : 'Button'}
+      accessibilityLabel={accessibilityLabel || 'Button'}
     >
       {content}
     </TouchableOpacity>

@@ -12,6 +12,7 @@ const AddButton = ({ onPress, style }: ButtonProps) => {
       onPress={onPress}
       style={[styles.container, style]}
       content="add"
+      accessibilityLabel='Add button'
     />
   );
 };
