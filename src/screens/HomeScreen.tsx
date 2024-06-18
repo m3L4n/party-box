@@ -7,21 +7,18 @@ import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 import ModalComponent from '../../components/organisms/ModalComponent';
 import SettingsButton from '../../components/organisms/SettingsButton';
-import { loadModes } from '../../services/mode';
-import { loadUsers } from '../../services/user';
+import { getActiveModes, loadModes } from '../../services/mode';
+import { getActiveUsers, loadUsers } from '../../services/user';
 import { t } from 'i18next';
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
     const [modalVisible, setModalVisible] = useState(false);
 
     const handleClick = async () => {
-        const users = await loadUsers();
-        const modes = await loadModes();
-
-        if (users.length === 0) {
+        if ((await getActiveUsers()).length < 2) {
             navigation.navigate('Users');
         }
-        else if (modes.length === 0) {
+        else if ((await getActiveModes()).length < 1) {
             navigation.navigate('Modes');
         }
         else {
