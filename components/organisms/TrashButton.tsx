@@ -6,13 +6,13 @@ import { colors } from '../../assets/colors';
 import IconButton from '../molecules/IconButton';
 import { ButtonProps } from '../atoms/Button';
 
-const TrashButton = ({ onPress, style }: ButtonProps) => {
+const TrashButton = ({ onPress, style, accessibilityLabel }: ButtonProps) => {
   return (
     <IconButton
       onPress={onPress}
       style={[styles.container, style]}
       content="trash"
-      accessibilityLabel='trash_button'
+      accessibilityLabel={`trash_button_${accessibilityLabel}`}
     />
   );
 };

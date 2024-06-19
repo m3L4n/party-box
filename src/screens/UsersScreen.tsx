@@ -69,7 +69,7 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
                 {userList.map((user, index) => (
                     <View key={index} style={{ position: 'relative', }}>
                         {deleteMode && (
-                            <TrashButton onPress={() => handleUserPress(user.name)} style={{ ...styles.trashButton }} />
+                            <TrashButton onPress={() => handleUserPress(user.name)} style={styles.trashButton} accessibilityLabel={user.name} />
                         )}
                         <UserCard key={index} user={user} onPress={() => handleUserPress(user.name)} />
                     </View>
