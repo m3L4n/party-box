@@ -71,10 +71,10 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
           <>
             <Text style={{ ...styles.title }}>{t('settings')}</Text>
             <View>
-              <MenuButton text={t("how_to_play")} onPress={handlePressRules} />
-              <MenuButton text={t("want_to_join")} onPress={handlePressJoin} />
-              <MenuButton text={t("report_bug")} onPress={handlePressReport} />
-              <MenuButton text={t("credits")} onPress={handlePressCredits} />
+              <MenuButton text={t("how_to_play")} onPress={handlePressRules} accessibilityLabel='how_to_play' />
+              <MenuButton text={t("want_to_join")} onPress={handlePressJoin} accessibilityLabel='want_to_join' />
+              <MenuButton text={t("report_bug")} onPress={handlePressReport} accessibilityLabel='report_bug' />
+              <MenuButton text={t("credits")} onPress={handlePressCredits} accessibilityLabel='credits' />
               <LanguageComponent />
               <Text style={styles.version}>v.{version}</Text>
             </View>

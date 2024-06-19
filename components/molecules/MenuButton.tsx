@@ -11,10 +11,11 @@ interface MenuButtonProps {
   color?: string;
   onPress: () => void;
   style?: StyleProp<any>;
+  accessibilityLabel?: string;
 }
 
 const
-  MenuButton = ({ onPress, text, color, style }: MenuButtonProps) => {
+  MenuButton = ({ onPress, text, color, style, accessibilityLabel }: MenuButtonProps) => {
 
     return (
       <RectangleButton
@@ -25,6 +26,7 @@ const
             {text}
           </Text >
         }
+        accessibilityLabel={accessibilityLabel || 'MenuButton'}
       />
     );
   };
