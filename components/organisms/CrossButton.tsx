@@ -7,14 +7,12 @@ import IconButton from '../molecules/IconButton';
 import { ButtonProps } from '../atoms/Button';
 
 const CrossButton = ({ onPress, style }: ButtonProps) => {
-
-
     return (
         <IconButton
             onPress={onPress}
             style={[styles.container, style]}
             content="close"
-            accessibilityLabel='Close button'
+            accessibilityLabel='close_button'
         />
     );
 };

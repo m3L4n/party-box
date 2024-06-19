@@ -16,7 +16,7 @@ const HomeButton = ({ navigation, style }: ButtonProps) => {
       onPress={onPress}
       style={[styles.container, style]}
       content="home"
-      accessibilityLabel='Home button'
+      accessibilityLabel='home_button'
     />
   );
 };

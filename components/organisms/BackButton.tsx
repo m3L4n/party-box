@@ -16,7 +16,7 @@ const BackButton = ({ navigation, style }: ButtonProps) => {
             onPress={onPress}
             style={[styles.container, style]}
             content="arrow-back"
-            accessibilityLabel='Back button'
+            accessibilityLabel='back_button'
         />
     );
 };

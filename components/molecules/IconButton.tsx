@@ -6,13 +6,14 @@ import { StyleSheet } from 'react-native';
 import SquareButton from '../atoms/SquareButton';
 import { ButtonProps } from '../atoms/Button';
 
-const IconButton = ({ content, onPress, style }: ButtonProps) => {
+const IconButton = ({ content, onPress, style, accessibilityLabel }: ButtonProps) => {
   return (
     <SquareButton onPress={onPress}
       style={[styles.container, style]}
       content={
         <Ionicons name={content} style={styles.icon} />
       }
+      accessibilityLabel={accessibilityLabel}
     />
   );
 };

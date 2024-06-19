@@ -28,7 +28,7 @@ const ChooseColorComponent = ({ onPress, active }: { onPress: (color: string) =>
               onPress={() => handleColorPress(color)}
               color={color}
               isActive={activeColor === color}
-              accessibilityLabel={`Color ${color}`}
+              accessibilityLabel={`color_${color}`}
             />
           ))
         }

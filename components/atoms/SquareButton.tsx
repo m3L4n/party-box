@@ -4,11 +4,12 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import Button, { ButtonProps } from './Button';
 
-const SquareButton = ({ content, onPress, style }: ButtonProps) => {
+const SquareButton = ({ content, onPress, style, accessibilityLabel }: ButtonProps) => {
   return (
     <Button
       content={content}
       onPress={onPress}
+      accessibilityLabel={accessibilityLabel}
       style={[styles.container, style]}
     />
   );

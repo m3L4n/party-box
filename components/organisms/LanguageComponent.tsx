@@ -14,12 +14,12 @@ const LanguageComponent = () => {
 
   return (
     <View style={styles.language}>
-      <TouchableOpacity onPress={() => changeLanguage('fr')} accessibilityLabel="Changer la langue en Français">
-        <Image source={require('../../assets/images/fr.png')} style={[styles.language.image, { opacity: i18n.language === 'fr' ? 1 : 0.5 }
+      <TouchableOpacity onPress={() => changeLanguage('fr')} accessibilityLabel="change_lang_fr" accessible={true}>
+        <Image source={require('../../assets/images/fr.png')} style={[styles.image, { opacity: i18n.language === 'fr' ? 1 : 0.5 }
         ]} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => changeLanguage('en')} accessibilityLabel="Change language to English">
-        <Image source={require('../../assets/images/uk.png')} style={[styles.language.image, { opacity: i18n.language === 'en' ? 1 : 0.5 }
+      <TouchableOpacity onPress={() => changeLanguage('en')} accessibilityLabel="change_lang_en" accessible={true}>
+        <Image source={require('../../assets/images/uk.png')} style={[styles.image, { opacity: i18n.language === 'en' ? 1 : 0.5 }
         ]} />
       </TouchableOpacity>
     </View>
@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    image: {
-      borderRadius: 10,
-      width: 80,
-      height: 50,
-    }
   },
+  image: {
+    borderRadius: 10,
+    width: 80,
+    height: 50,
+  }
 });
 
 export default LanguageComponent;
