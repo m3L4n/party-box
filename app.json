@@ -7,7 +7,7 @@
       ]
     ],
     "slug": "party-box",
-    "version": "1.11",
+    "version": "1.12",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "light",
@@ -28,7 +28,7 @@
       "bundleIdentifier": "com.juuuuu.party-box"
     },
     "android": {
-      "versionCode": 11,
+      "versionCode": 12,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
