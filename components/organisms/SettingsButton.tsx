@@ -13,7 +13,7 @@ const SettingsButton = ({ onPress, style }: ButtonProps) => {
             onPress={onPress}
             style={[styles.container, style]}
             content="settings"
-            accessibilityLabel='Settings button'
+            accessibilityLabel='settings_button'
         />
     );
 };

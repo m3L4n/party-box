@@ -32,8 +32,8 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
         <View style={styles.container}>
             <SettingsButton onPress={openModal} />
             <Text style={styles.title}>Party Box</Text>
-            <MenuButton color={colors.primary.green} text={t("quick_play")} onPress={() => handleClick()} />
-            <MenuButton color={colors.primary.blue} text={t("custom_game")} onPress={() => navigation.navigate('Users')} />
+            <MenuButton color={colors.primary.green} text={t("quick_play")} accessibilityLabel="quick_play" onPress={() => handleClick()} />
+            <MenuButton color={colors.primary.blue} text={t("custom_game")} accessibilityLabel="custom_game" onPress={() => navigation.navigate('Users')} />
             <ModalComponent visible={modalVisible} closeModal={closeModal} />
         </View >
     );

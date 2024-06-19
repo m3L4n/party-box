@@ -12,7 +12,7 @@ const TrashButton = ({ onPress, style }: ButtonProps) => {
       onPress={onPress}
       style={[styles.container, style]}
       content="trash"
-      accessibilityLabel='Trash button'
+      accessibilityLabel='trash_button'
     />
   );
 };
