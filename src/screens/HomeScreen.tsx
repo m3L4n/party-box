@@ -7,8 +7,8 @@ import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 import ModalComponent from '../../components/organisms/ModalComponent';
 import SettingsButton from '../../components/organisms/SettingsButton';
-import { getActiveModes, loadModes } from '../../services/mode';
-import { getActiveUsers, loadUsers } from '../../services/user';
+import { getActiveModes } from '../../services/mode';
+import { getActiveUsers } from '../../services/user';
 import { t } from 'i18next';
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
