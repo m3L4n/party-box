@@ -15,7 +15,7 @@ const LanguageComponent = () => {
   return (
     <View style={styles.language}>
       <TouchableOpacity onPress={() => changeLanguage('fr')} accessibilityLabel="change_lang_fr" accessible={true}>
-        <Image source={require('../../assets/images/fr.png')} style={[styles.image, { opacity: i18n.language === 'fr' ? 1 : 0.5 }
+        <Image source={require('../../assets/images/fr.png')} style={[styles.image, { opacity: i18n.language === 'fr' ? 1 : 0.5, borderColor: i18n.language === 'fr' ? 'black' : 'transparent', borderWidth: 2, borderRadius: 10 }
         ]} />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => changeLanguage('en')} accessibilityLabel="change_lang_en" accessible={true}>

@@ -1,8 +1,13 @@
 {
   "expo": {
     "name": "party-box",
+    "plugins": [
+      [
+        "./my-plugin"
+      ]
+    ],
     "slug": "party-box",
-    "version": "1.10",
+    "version": "1.11",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "light",
@@ -23,7 +28,7 @@
       "bundleIdentifier": "com.juuuuu.party-box"
     },
     "android": {
-      "versionCode": 10,
+      "versionCode": 11,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
