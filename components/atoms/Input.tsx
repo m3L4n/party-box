@@ -21,7 +21,6 @@ const Input = ({ placeholder, onChangeText, value }: InputProps) => {
       focusable={true}
       accessibilityRole='text'
       accessible={true}
-      accessibilityLabel={placeholder}
     />
   );
 };
