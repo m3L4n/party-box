@@ -10,14 +10,13 @@ import HomeScreen from './src/screens/HomeScreen';
 import ModesScreen from './src/screens/ModesScreen';
 import PlayScreen from './src/screens/PlayScreen';
 import UsersScreen from './src/screens/UsersScreen';
-import { PermissionsAndroid, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StatusBar } from 'expo-status-bar';
 import Background from './components/organisms/Background';
 import { getRandomColorBackground } from './services/utils';
-import Button from './components/atoms/Button';
 
 const App = () => {
   const Stack = createStackNavigator();

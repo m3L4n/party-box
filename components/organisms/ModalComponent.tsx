@@ -37,29 +37,37 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
   };
 
   const handlePressJoin = async () => {
-    const email = 'partybox.contactus@gmail.com';
-    const subject = encodeURIComponent('Joining the game');
-    const body = encodeURIComponent('I want to join the game');
-    const url = `mailto:${email}?subject=${subject}&body=${body}`;
-    const canOpen = await Linking.canOpenURL(url);
-    if (canOpen) {
-      Linking.openURL(url);
-    } else {
-      console.error(`Cannot open url: ${url}`);
+    try {
+      const email = 'partybox.contactus@gmail.com';
+      const subject = encodeURIComponent('Joining the game');
+      const body = encodeURIComponent('I want to join the game');
+      const url = `mailto:${email}?subject=${subject}&body=${body}`;
+      const canOpen = await Linking.canOpenURL(url);
+      if (canOpen) {
+        Linking.openURL(url);
+      } else {
+        console.error(`Cannot open url: ${url}`);
+      }
+    } catch (error) {
+      console.error('Error opening URL:', error);
     }
   };
 
   const handlePressReport = async () => {
-    const email = 'partybox.contactus@gmail.com';
-    const subject = 'Reporting a bug';
-    const body = 'I want to report a bug';
-    const url = `mailto:${email}?subject=${subject}&body=${body}`;
-    const canOpen = await Linking.canOpenURL(url);
-    if (canOpen) {
-      console.log(`Opening URL: ${url}`);
-      Linking.openURL(url);
-    } else {
-      console.error(`Cannot open url: ${url}`);
+    try {
+      const email = 'partybox.contactus@gmail.com';
+      const subject = encodeURIComponent('Reporting a bug');
+      const body = encodeURIComponent('I want to report a bug');
+      const url = `mailto:${email}?subject=${subject}&body=${body}`;
+      const canOpen = await Linking.canOpenURL(url);
+      if (canOpen) {
+        console.log(`Opening URL: ${url}`);
+        Linking.openURL(url);
+      } else {
+        console.error(`Cannot open url: ${url}`);
+      }
+    } catch (error) {
+      console.error('Error opening URL:', error);
     }
   };
 

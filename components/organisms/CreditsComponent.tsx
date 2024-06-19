@@ -1,10 +1,11 @@
 // components/organisms/CreditsComponent.tsx
 
 import React from 'react';
-import { StyleSheet, View, Linking } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Text from '../atoms/CustomText';
 import { t } from 'i18next';
 import MenuButton from '../molecules/MenuButton';
+import * as Linking from 'expo-linking';
 
 const contributors = [
   { name: 'Jurichar', url: 'https://github.com/jurichar' },
