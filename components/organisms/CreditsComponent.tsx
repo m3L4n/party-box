@@ -30,10 +30,9 @@ const CreditsComponent = () => {
       <Text style={{ ...styles.title }}>{t('contributors')}</Text>
       <View style={styles.credits}>
         {contributors.map((contributor, index) => (
-          <MenuButton key={index} onPress={() => handlePress(contributor.url)} text={contributor.name} >
-          </MenuButton>
+          <MenuButton key={index} onPress={() => handlePress(contributor.url)} text={contributor.name} accessibilityLabel={contributor.name} />
         ))}
-      </View>
+      </View >
     </>
   );
 };
