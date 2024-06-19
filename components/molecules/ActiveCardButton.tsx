@@ -10,9 +10,10 @@ interface ButtonProps {
   content: any;
   style?: StyleProp<any>;
   active?: boolean;
+  accessibilityLabel?: string;
 }
 
-const ActiveCardButton = ({ onPress, content, style, active }: ButtonProps) => {
+const ActiveCardButton = ({ onPress, content, style, active, accessibilityLabel }: ButtonProps) => {
   const [isActive, setIsActive] = useState(active);
 
   const handlePress = () => {
@@ -27,6 +28,7 @@ const ActiveCardButton = ({ onPress, content, style, active }: ButtonProps) => {
       onPress={handlePress}
       style={[styles.container, style, { opacity: isActive ? 1 : 0.3 }]}
       content={content}
+      accessibilityLabel={accessibilityLabel || 'active_card_button'}
     />
   );
 };

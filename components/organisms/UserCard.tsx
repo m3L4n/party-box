@@ -18,6 +18,7 @@ const UserCard: React.FC<UserCardProps> = ({ user, onPress }) => {
       content={<Text>{name}</Text>}
       style={{ ...styles.container, backgroundColor: color }}
       active={isActive}
+      accessibilityLabel={`user_card_${name}`}
     />
   );
 };
