@@ -99,7 +99,7 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
         {!end && questions[0] && (
           <>
             <HomeButton navigation={navigation} />
-            <LikeDislikeComponent />
+            <LikeDislikeComponent content={questions[0].content} />
             <QuestionComponent question={questions[0]} players={users} />
           </>
         )}

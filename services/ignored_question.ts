@@ -1,11 +1,10 @@
 // services/ignored_question.tsx
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Question } from "../models/Question";
 
-export const getIgnoredQuestions = async (): Promise<Question[]> => {
+export const getIgnoredQuestions = async (): Promise<String[]> => {
   try {
-    const questions = await AsyncStorage.getItem('users');
+    const questions = await AsyncStorage.getItem('ignored_questions');
     return questions ? JSON.parse(questions) : [];
   } catch (error) {
     console.error('Error while loading ignored_questions: ', error);
@@ -13,7 +12,7 @@ export const getIgnoredQuestions = async (): Promise<Question[]> => {
   }
 };
 
-export const addIgnoredQuestion = async (question: Question) => {
+export const addIgnoredQuestion = async (question: String) => {
   try {
     const ignored_questions = await getIgnoredQuestions();
     ignored_questions.push(question)
