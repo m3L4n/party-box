@@ -157,7 +157,7 @@
       "content": "${user}, quel est ton talent caché ? Avec une démo à l'appui, ou prend ${num}."
     },
     {
-      "content": "${user}, raconte une anecdote drôle qui t'est arrivée récemment."
+      "content": "${user}, raconte une anecdote drôle qui t'est arrivée récemment et prend ${num}."
     },
     {
       "content": "${user}, quel est le meilleur cadeau que tu aies jamais reçu ?"
@@ -176,6 +176,9 @@
     },
     {
       "content": "${user}, quelle est ta série télé préférée ? Ceux qui ne l'ont jamais vu prennent ${num}."
+    },
+    {
+      "content": "Chacun nomme un film avec une couleur dans le titre. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
     }
   ]
 }

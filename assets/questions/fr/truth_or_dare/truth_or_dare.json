@@ -1,0 +1,15 @@
+{
+  "questions": [
+    {
+      "content": "${user}",
+      "options": [
+        "Action",
+        "Vérité"
+      ]
+    },
+    {
+      "content": "${user}",
+      "options": []
+    }
+  ]
+}
