@@ -15,6 +15,7 @@ import { Mode } from '../../models/Mode';
 import { User } from '../../models/User';
 import { Question } from '../../models/Question';
 import Background from '../../components/organisms/Background';
+import DislikeButton from '../../components/organisms/DislikeButton';
 
 interface PlayScreenProps {
   navigation: any;
@@ -96,7 +97,7 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
         {!end && questions[0] && (
           <>
             <HomeButton navigation={navigation} />
-
+            <DislikeButton />
             <QuestionComponent question={questions[0]} players={users} />
           </>
         )}
