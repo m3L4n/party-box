@@ -13,28 +13,7 @@
       "content": "${user} et ${user} se lancent un défi : celui qui tient le plus longtemps en équilibre sur une jambe ! Le perdant prend ${num} !"
     },
     {
-      "content": "${user} et ${user} jouent à 'je te tiens, tu me tiens par la barbichette'. Le PREMIER qui rit prend ${num} !"
+      "content": "${user} et ${user}, faite un concours d'anecdotes ! Les autres jugent, la meilleur distribue ${num}!"
     },
-    {
-      "content": "${user} et ${user} jouent à 'je te tiens, tu me tiens par la barbichette'. Le DERNIER qui rit prend ${num} !"
-    },
-    {
-      "content": "${user} et ${user} font une bataille de pouces. Le PREMIER qui se fait écraser prend ${num} !"
-    },
-    {
-      "content": "${user} et ${user} font une bataille de pouces. Le DERNIER qui se fait écraser prend ${num}  !"
-    },
-    {
-      "content": "${user} est animateur et on jouent au jeu du pendu. Les perdants prendront ${num} !"
-    },
-    {
-      "content": "${user} et ${user} font un bras de fer. Le perdant prend ${num} !"
-    },
-    {
-      "content": "${user} et ${user} font un battle de danse. Le perdant prend ${num} !"
-    },
-    {
-      "content": "${user} et ${user} jouent à un jeu de mimes. Le perdant prend ${num} !"
-    }
   ]
 }

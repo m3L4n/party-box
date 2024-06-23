@@ -7,52 +7,43 @@
       "content": "Tout le monde va donner une qualité à la personne à sa gauche. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
     },
     {
-      "content": "Tout le monde décrit une situation cocasse qui lui est arrivée. Le gagnant distribue ${num}. ${user} commence."
+      "content": "Tout le monde décrit une situation cocasse qui lui est arrivée. la pire prend ${num}. ${user} est juge! ${user} commence."
     },
     {
       "content": "Tout le monde imite ${user}. ${num} pour la meilleure imitation !"
     },
     {
-      "content": "${user}, raconte-nous ton experience la plus folle avec un animal."
+      "content": "${user}, raconte-nous ton experience la plus folle avec un animal et donne ${num} sinon prends les."
     },
     {
-      "content": "${user}, ton 'date' le plus fou."
+      "content": "${user}, ton 'date' le plus fou et donne ${num} sinon prends les."
     },
     {
-      "content": "${user}, raconte ton moment le plus gênant en public."
+      "content": "${user}, raconte ton moment le plus gênant en public et donne ${num} sinon prends les."
     },
     {
-      "content": "${user}, dis-nous ta phobie."
+      "content": "${user}, dis-nous ta phobie et ceux la partage prennent ${num}"
     },
     {
-      "content": "${user}, raconte-nous ta meilleure blague."
+      "content": "${user}, raconte-nous ta meilleure blague. Ceux qui ris prennent ${num}"
     },
     {
-      "content": "${user}, si tu étais une chanson, laquelle serais-tu ?"
+      "content": "${user}, si tu étais une chanson, laquelle serais-tu ? Ceux qui l'on dans leur playlist prenne ${num}!"
     },
     {
-      "content": "${user} et ${user}, faite un concours d'anecdotes !"
+      "content": "${user}, tu dois choisir un plat le reste de ta vie. Ceux qui peuvent donner la recette distribuent ${num}!"
     },
     {
-      "content": "${user}, tu dois choisir un plat le reste de ta vie, quel ?"
+      "content": "${user}, raconte une expérience culinaire qui t'a marquée et distribues ${num} sinon prends les."
     },
     {
-      "content": "${user}, raconte une expérience culinaire qui t'a marquée."
-    },
-    {
-      "content": "${user}, si tu pouvais voyager dans le temps, quelle époque choisirais-tu ? Pourquoi ?"
-    },
-    {
-      "content": "${user} choisi un livre a recommander à tout le monde et pourquoi ?"
+      "content": "${user} choisi un livre a recommander à tout le monde et pourquoi ? Si tu n'en as pas prends ${num}"
     },
     {
       "content": "${user}, quelle est la qualité que tu apprécies le plus chez ${user} ?"
     },
     {
-      "content": "${user}, si tu pouvais apprendre instantanément une compétence, laquelle choisirais-tu ? Et pourquoi le kung-fu ?"
-    },
-    {
-      "content": "${user} partage la plus grande leçon que tu aies apprise cette année."
+      "content": "${user}, si tu pouvais apprendre instantanément une compétence, laquelle choisirais-tu ? Ceux qui possede cette competence prennent ${num}."
     },
     {
       "content": "${user}, si tu devenais soudainement du sexe opposé, que ferais-tu en premier ?"
@@ -175,16 +166,16 @@
       "content": "${user}, si tu pouvais vivre dans n'importe quel pays, lequel choisirais-tu ? Si quelqu'un a déjà vécu dans ce pays, il prend ${num}."
     },
     {
-      "content": "${user}, quel est ton plat préféré à cuisiner ? Decrit la preparation en détail, ou prend ${num}."
+      "content": "${user}, quel est ton plat préféré à cuisiner ? Decrit la preparation en détail et distribue ${num}, ou prend ${num}."
     },
     {
-      "content": "${user}, quel est ton animal préféré ? Si c'est le chien ou le chat, tu prends ${num}."
+      "content": "${user}, quel est ton animal préféré ? Si c'est le chien ou le chat, tu prends ${num} sinon distribue les."
     },
     {
       "content": "${user}, quelle est ta chanson préférée en ce moment ? Ceux qui l'ont dans leur playlist prennent ${num}."
     },
     {
-      "content": "${user}, quelle est ta série télé préférée ? Ceux qui ne l'ont jamais regardée prennent ${num}."
+      "content": "${user}, quelle est ta série télé préférée ? Ceux qui ne l'ont jamais vu prennent ${num}."
     }
   ]
 }

@@ -1,6 +1,6 @@
 // my-plugin.js
 
-const { withAndroidManifest, AndroidConfig } = require('@expo/config-plugins');
+const { withAndroidManifest } = require('@expo/config-plugins');
 
 const withAndroidQueries = config => {
   return withAndroidManifest(config, async config => {
@@ -24,9 +24,6 @@ const withAndroidQueries = config => {
     ];
 
     config.modResults.manifest.queries = [...appQueries, ...newQueries];
-
-    AndroidConfig.Permissions.addPermission(config, 'android.permission.INTERNET')
-    AndroidConfig.Permissions.addPermission(config, 'android.permission.ACCESS_NETWORK_STATE')
 
     return config;
   });
