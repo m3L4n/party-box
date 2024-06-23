@@ -3,7 +3,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Question } from "../models/Question";
 
-export const loadIgnoredQuestions = async (): Promise<Question[]> => {
+export const getIgnoredQuestions = async (): Promise<Question[]> => {
   try {
     const questions = await AsyncStorage.getItem('users');
     return questions ? JSON.parse(questions) : [];
@@ -15,7 +15,7 @@ export const loadIgnoredQuestions = async (): Promise<Question[]> => {
 
 export const addIgnoredQuestion = async (question: Question) => {
   try {
-    const ignored_questions = await loadIgnoredQuestions();
+    const ignored_questions = await getIgnoredQuestions();
     ignored_questions.push(question)
     await AsyncStorage.setItem('ignored_questions', JSON.stringify(ignored_questions))
     return;
