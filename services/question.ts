@@ -146,4 +146,4 @@ const getQuestions = async (userList: User[], data: any[], mode: Mode): Promise<
     console.error('Error while loading ', mode, ' questions: ', error);
     return [];
   }
-} 
+}
