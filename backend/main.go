@@ -29,6 +29,6 @@ func main() {
 
 	app.Get("/questions", handlers.GetQuestions)
 	app.Get("/questions/:id", handlers.GetQuestion)
-
+	app.Get("/questions/:mode/:language", handlers.GetQuestionsByModeAndLanguage)
 	app.Listen(":3000")
 }

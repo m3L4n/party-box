@@ -22,11 +22,11 @@ func SeedDatabase() {
 	db.Exec("DELETE FROM questions")
 
 	questions := []models.Question{
-		{ID: 1, Content: "What is the chemical symbol for water?", CorrectAnswer: "H2O"},
-		{ID: 2, Content: "Who developed the theory of relativity?", CorrectAnswer: "Albert Einstein"},
-		{ID: 3, Content: "Who was the first President of the United States?", CorrectAnswer: "George Washington"},
-		{ID: 4, Content: "What is the capital of France?", CorrectAnswer: "Paris"},
-		{ID: 5, Content: "What is the capital of France?", CorrectAnswer: "Paris"},
+		{ID: 1, Mode: "A", Language: "fr", Content: "What is the chemical symbol for water?", Answer: "H2O"},
+		{ID: 2, Mode: "B", Language: "fr", Content: "Who developed the theory of relativity?"},
+		{ID: 3, Mode: "A", Language: "fr", Content: "Who was the first President of the United States?"},
+		{ID: 4, Mode: "C", Language: "fr", Content: "What is the capital of France?"},
+		{ID: 5, Mode: "B", Language: "en", Content: "What is the capital of France?"},
 	}
 
 	for _, question := range questions {

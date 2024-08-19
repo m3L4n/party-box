@@ -35,3 +35,15 @@ func GetQuestion(c *fiber.Ctx) error {
 	}
 	return c.JSON(question)
 }
+
+func GetQuestionsByModeAndLanguage(c *fiber.Ctx) error {
+	mode := c.Params("mode")
+	language := c.Params("language")
+	var questions []models.Question
+	if err := db.Find(&questions, "mode = ? AND language = ?", mode, language).Error; err != nil {
+		return c.Status(500).JSON(fiber.Map{
+			"error": "Failed to retrieve questions",
+		})
+	}
+	return c.JSON(questions)
+}

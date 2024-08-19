@@ -3,14 +3,11 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
-import { getRandomColor } from '../../services/utils';
-import Wheel from './Wheel';
 import { Question } from '../../models/Question';
 import { User } from '../../models/User';
 import { t } from 'i18next';
 
 const QuestionComponent = ({ question, players }: { question: Question, players: User[] }) => {
-  // Quiz question
   const renderQuizQuestion = () => {
     const [showAnswer, setShowAnswer] = useState<boolean>(false);
 

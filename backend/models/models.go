@@ -13,9 +13,11 @@ import (
 // }
 
 type Question struct {
-	ID            uint   `gorm:"primaryKey"`
-	Content       string `gorm:"type:text"`
-	CorrectAnswer string `gorm:"type:text"`
+	ID       uint   `gorm:"primaryKey"`
+	Mode     string `gorm:"type:text"`
+	Language string `gorm:"type:text"`
+	Content  string `gorm:"type:text"`
+	Answer   string `gorm:"type:text"`
 }
 
 // type Player struct {

@@ -51,8 +51,6 @@ const App = () => {
     return null;
   }
 
-
-
   const handleNavigationStateChange = () => {
     setBackgroundColor(getRandomColorBackground());
   };

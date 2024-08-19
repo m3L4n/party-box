@@ -13,12 +13,6 @@ import { t } from 'i18next';
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
     const [modalVisible, setModalVisible] = useState(false);
-    const [message, setMessage] = useState('');
-
-    useEffect(() => {
-        fetch('http://10.0.2.2:3000/questions/').then(response => response.json()).then(data => setMessage(data.message));
-    }
-    , []);
 
     const handleClick = async () => {
         if ((await getActiveUsers()).length < 2) {
@@ -38,7 +32,6 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
         <View style={styles.container}>
             <SettingsButton onPress={openModal} />
             <Text style={styles.title}>Party Box</Text>
-            <Text style={styles.title}>{message}</Text>
             <MenuButton color={colors.primary.green} text={t("quick_play")} accessibilityLabel="quick_play" onPress={() => handleClick()} />
             <MenuButton color={colors.primary.blue} text={t("custom_game")} accessibilityLabel="custom_game" onPress={() => navigation.navigate('Users')} />
             <ModalComponent visible={modalVisible} closeModal={closeModal} />
