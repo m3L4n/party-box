@@ -14,7 +14,7 @@ import (
 func main() {
 	app := fiber.New()
 
-	dsn := "host=localhost user=postgres password=postgres dbname=postgres port=5432 sslmode=disable TimeZone=Etc/UTC"
+	dsn := "host=db user=postgres password=postgres dbname=postgres port=5432 sslmode=disable TimeZone=Etc/UTC"
 	var err error
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
@@ -27,8 +27,8 @@ func main() {
 
 	handlers.SetDatabase(db)
 
-	app.Get("/questions", handlers.GetQuestions)
-	app.Get("/questions/:id", handlers.GetQuestion)
-	app.Get("/questions/:mode/:language", handlers.GetQuestionsByModeAndLanguage)
+	app.Get("api/questions", handlers.GetQuestions)
+	app.Get("api/questions/:id", handlers.GetQuestion)
+	app.Get("api/questions/:mode/:language", handlers.GetQuestionsByModeAndLanguage)
 	app.Listen(":3000")
 }
