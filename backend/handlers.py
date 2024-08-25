@@ -1,39 +1,25 @@
 # handlers.py
 
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
+from flask import Blueprint, jsonify
 
-router = APIRouter()
+from database import get_db
+from models import Question
 
+router = Blueprint("questions", __name__)
 
-@router.get("/")
+@router.route("/")
 def read_root():
-    return {"Hello": "World"}
+    return jsonify({"message": "Hello World"})
 
+@router.route("/questions", methods=["GET"])
+def get_questions():
+    db = next(get_db())
+    questions = db.query(Question).all()
+    return jsonify([{
+        "id": q.id,
+        "mode": q.mode,
+        "language": q.language,
+        "content": q.content,
+        "answer": q.answer
+    } for q in questions])
 
-# from models import Question
-# from database import get_db
-
-
-# @router.get("/api/questions")
-# def get_questions(db: Session = Depends(get_db)):
-#     return db.query(Question).all()
-
-
-# @router.get("/api/questions/{id}")
-# def get_question(id: int, db: Session = Depends(get_db)):
-#     question = db.query(Question).filter(Question.id == id).first()
-#     if question is None:
-#         raise HTTPException(status_code=404, detail="Question not found")
-#     return question
-
-
-# @router.get("/api/questions/{mode}/{language}")
-# def get_questions_by_mode_and_language(
-#     mode: str, language: str, db: Session = Depends(get_db)
-# ):
-#     return (
-#         db.query(Question)
-#         .filter(Question.mode == mode, Question.language == language)
-#         .all()
-#     )
