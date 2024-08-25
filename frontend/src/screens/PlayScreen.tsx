@@ -6,7 +6,6 @@ import Text from '../../components/atoms/CustomText';
 import BackButton from '../../components/organisms/BackButton';
 import HomeButton from '../../components/organisms/HomeButton';
 import { getActiveModes } from '../../services/mode';
-import { getQuestionsList } from '../../services/question';
 import { getActiveUsers } from '../../services/user';
 import { getRandomColorBackground } from '../../services/utils';
 import PartyEndScreen from '../party/PartyEndScreen';
@@ -16,6 +15,7 @@ import { User } from '../../models/User';
 import { Question } from '../../models/Question';
 import Background from '../../components/organisms/Background';
 import LikeDislikeComponent from '../../components/organisms/LikeDislikeComponent';
+import { QuestionService } from '../../services/QuestionService';
 
 interface PlayScreenProps {
   navigation: any;
@@ -28,11 +28,13 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
   const [end, setEnd] = useState<boolean>(false);
   const [backgroundColor, setBackgroundColor] = useState<string>(getRandomColorBackground());
 
+  const questionService = QuestionService.getInstance();
+
   const fetchQuestions = useCallback(async (modes: Mode[], users: User[]) => {
     try {
       let questionsList: Question[] = [];
       for (const mode of modes) {
-        const questionListObj = await getQuestionsList(mode, users);
+        const questionListObj = await questionService.getQuestionsList(mode, users);
         questionsList.push(...questionListObj);
       }
       questionsList.sort(() => Math.random() - 0.5);
@@ -41,7 +43,7 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
       console.error('Error while fetching questions: ', error);
       return [];
     }
-  }, []);
+  }, [questionService]);
 
   useEffect(() => {
     const fetchData = async () => {
