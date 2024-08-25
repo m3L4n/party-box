@@ -1,11 +1,11 @@
 // src/services/QuestionService.ts
 
+import { BACKEND_URL } from '@env';
 import { t } from 'i18next';
 import i18n from '../i18n';
 import { Mode } from '../models/Mode';
 import { Question } from '../models/Question';
 import { User } from '../models/User';
-
 export class QuestionService {
   private static instance: QuestionService;
   private questionsCache: { [key: string]: Question[] } = {};
@@ -26,11 +26,11 @@ export class QuestionService {
     }
 
     try {
-      const response = await fetch(`http://176.175.39.226:3000/questions/`);
+      const response = await fetch(`${BACKEND_URL}/questions`);
       const data = await response.json();
       console.log(data)
 
-      if (!data.questions || data.questions.length === 0) {
+      if (!data || data.length === 0) {
         throw new Error('No questions found');
       }
 
