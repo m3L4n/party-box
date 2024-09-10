@@ -3,5 +3,6 @@
 ## Installation
 
 ```bash
-yarn add bouar
+yarn
+yarn android
 ```
