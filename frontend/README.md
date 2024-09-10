@@ -1,4 +1,4 @@
-# Bouar
+# Party Box
 
 ## Installation
 
