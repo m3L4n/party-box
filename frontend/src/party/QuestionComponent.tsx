@@ -7,6 +7,7 @@ import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 import { Question } from '../../models/Question';
 import { t } from 'i18next';
+import LikeDislikeComponent from '../../components/organisms/LikeDislikeComponent';
 
 const QuestionComponent = ({ question }: { question: Question }) => {
   // Quiz question
@@ -18,38 +19,42 @@ const QuestionComponent = ({ question }: { question: Question }) => {
     }, [question]);
 
     return (
-
-      showAnswer ? (
-        <View style={{
-          ...styles.container
-        }}>
-          <Text style={{ ...styles.title }}>{t(question.mode)}</Text>
-          <Text style={{ ...styles.text }}>{question.content}</Text>
-          <MenuButton
-            text={String(question?.answer)}
-            onPress={() => setShowAnswer(true)}
-            color={colors.primary.green}
-            style={styles.button}
-          />
-        </View >
-      ) : (
-        <TouchableOpacity style={{ ...styles.container }} onPress={() => setShowAnswer(true)}>
-          <Text style={{ ...styles.title }}>{t(question.mode)}</Text>
-          <Text style={{ ...styles.text }}>{question.content}</Text>
-          <MenuButton
-            text={t('answer')}
-            onPress={() => setShowAnswer(true)}
-            color={colors.secondary.red}
-            style={styles.button}
-          />
-        </TouchableOpacity>
-      )
+      <>
+      <LikeDislikeComponent />
+        {showAnswer ? (
+          <View style={{
+            ...styles.container
+          }}>
+            <Text style={{ ...styles.title }}>{t(question.mode)}</Text>
+            <Text style={{ ...styles.text }}>{question.content}</Text>
+            <MenuButton
+              text={String(question?.answer)}
+              onPress={() => setShowAnswer(true)}
+              color={colors.primary.green}
+              style={styles.button}
+            />
+          </View >
+        ) : (
+          <TouchableOpacity style={{ ...styles.container }} onPress={() => setShowAnswer(true)}>
+            <Text style={{ ...styles.title }}>{t(question.mode)}</Text>
+            <Text style={{ ...styles.text }}>{question.content}</Text>
+            <MenuButton
+              text={t('answer')}
+              onPress={() => setShowAnswer(true)}
+              color={colors.secondary.red}
+              style={styles.button}
+            />
+          </TouchableOpacity>
+        )
+        }
+      </>
     );
   };
 
   const renderDefaultQuestion = () => {
     return (
       <View style={{ ...styles.container }}>
+        <LikeDislikeComponent />
         <Text style={{ ...styles.title }}>{t(question.mode)}</Text>
         <Text style={{ ...styles.text }}>{question.content}</Text>
       </View>
