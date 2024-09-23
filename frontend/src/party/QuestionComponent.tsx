@@ -1,13 +1,15 @@
+// src/party/QuestionComponent.tsx
+
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { colors } from '../../assets/colors';
 import Text from '../../components/atoms/CustomText';
 import MenuButton from '../../components/molecules/MenuButton';
 import { Question } from '../../models/Question';
-import { User } from '../../models/User';
 import { t } from 'i18next';
 
-const QuestionComponent = ({ question, players }: { question: Question, players: User[] }) => {
+const QuestionComponent = ({ question }: { question: Question }) => {
+  // Quiz question
   const renderQuizQuestion = () => {
     const [showAnswer, setShowAnswer] = useState<boolean>(false);
 
@@ -21,10 +23,10 @@ const QuestionComponent = ({ question, players }: { question: Question, players:
         <View style={{
           ...styles.container
         }}>
-          <Text style={{ ...styles.title }}>{t(question.mode.name)}</Text>
+          <Text style={{ ...styles.title }}>{t(question.mode)}</Text>
           <Text style={{ ...styles.text }}>{question.content}</Text>
           <MenuButton
-            text={String(question.options[0])}
+            text={String(question?.answer)}
             onPress={() => setShowAnswer(true)}
             color={colors.primary.green}
             style={styles.button}
@@ -32,7 +34,7 @@ const QuestionComponent = ({ question, players }: { question: Question, players:
         </View >
       ) : (
         <TouchableOpacity style={{ ...styles.container }} onPress={() => setShowAnswer(true)}>
-          <Text style={{ ...styles.title }}>{t(question.mode.name)}</Text>
+          <Text style={{ ...styles.title }}>{t(question.mode)}</Text>
           <Text style={{ ...styles.text }}>{question.content}</Text>
           <MenuButton
             text={t('answer')}
@@ -45,17 +47,16 @@ const QuestionComponent = ({ question, players }: { question: Question, players:
     );
   };
 
-  // Default question
   const renderDefaultQuestion = () => {
     return (
       <View style={{ ...styles.container }}>
-        <Text style={{ ...styles.title }}>{t(question.mode.name)}</Text>
+        <Text style={{ ...styles.title }}>{t(question.mode)}</Text>
         <Text style={{ ...styles.text }}>{question.content}</Text>
       </View>
     );
   };
 
-  switch (question.mode?.name) {
+  switch (question.mode) {
     case 'quiz':
       return renderQuizQuestion();
     default:

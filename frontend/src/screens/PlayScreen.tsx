@@ -15,7 +15,6 @@ import { User } from '../../models/User';
 import { Question } from '../../models/Question';
 import Background from '../../components/organisms/Background';
 import LikeDislikeComponent from '../../components/organisms/LikeDislikeComponent';
-import { QuestionService } from '../../services/QuestionService';
 
 interface PlayScreenProps {
   navigation: any;
@@ -28,40 +27,55 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
   const [end, setEnd] = useState<boolean>(false);
   const [backgroundColor, setBackgroundColor] = useState<string>(getRandomColorBackground());
 
-  const questionService = QuestionService.getInstance();
-
   const fetchQuestions = useCallback(async (modes: Mode[], users: User[]) => {
     try {
       let questionsList: Question[] = [];
-      for (const mode of modes) {
-        const questionListObj = await questionService.getQuestionsList(mode, users);
-        questionsList.push(...questionListObj);
+      const response = await fetch(`https://partybox.jurichar.fr/api/questions/fetch`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          "users": (users.map((user: User) => user.name)),
+          "modes": (modes.map((mode: Mode) => mode.name)),
+          "language": "fr"
+        }),
+      });
+      const questions = await response.json();
+      questionsList = questions.map((question: any) => {
+        return {
+          id: question.id,
+          content: question.content,
+          mode: question.mode,
+          user: question.user,
+          answer: question?.answer,
+        };
       }
-      questionsList.sort(() => Math.random() - 0.5);
-      return questionsList.slice(0, 30);
+      );
+      return questionsList;
     } catch (error) {
       console.error('Error while fetching questions: ', error);
       return [];
     }
-  }, [questionService]);
+  }, []);
+
+  const fetchData = useCallback(async () => {
+    try {
+      const fetchedUsers = await getActiveUsers();
+      const fetchedModes = await getActiveModes();
+      setUsers(fetchedUsers);
+      setModes(fetchedModes);
+
+      if (fetchedModes.length > 0 && fetchedUsers.length > 0) {
+        const questionsList = await fetchQuestions(fetchedModes, fetchedUsers);
+        setQuestions(questionsList);
+      }
+    } catch (error) {
+      console.error('Error while fetching data: ', error);
+    }
+  }, [fetchQuestions]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const fetchedUsers = await getActiveUsers();
-        const fetchedModes = await getActiveModes();
-        setUsers(fetchedUsers);
-        setModes(fetchedModes);
-
-        if (fetchedModes.length > 0 && fetchedUsers.length > 0) {
-          const questionsList = await fetchQuestions(fetchedModes, fetchedUsers);
-          setQuestions(questionsList);
-        }
-      } catch (error) {
-        console.error('Error while fetching data: ', error);
-      }
-    };
-
     fetchData();
   }, [fetchQuestions]);
 
@@ -99,8 +113,8 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
         {!end && questions[0] && (
           <>
             <HomeButton navigation={navigation} />
-            <LikeDislikeComponent content={questions[0].content} />
-            <QuestionComponent question={questions[0]} players={users} />
+            <LikeDislikeComponent />
+            <QuestionComponent question={questions[0]} />
           </>
         )}
       </Background>

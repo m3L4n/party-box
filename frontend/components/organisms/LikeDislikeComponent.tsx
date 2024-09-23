@@ -1,19 +1,16 @@
 // components/organisms/LikeDislikeComponent.tsx
 
-import { addIgnoredQuestion, getIgnoredQuestions } from "../../services/ignored_question"
 import DislikeButton from "./DislikeButton"
 import LikeButton from "./LikeButton"
 
-const LikeDislikeComponent = ({ content }: { content: String }) => {
+const LikeDislikeComponent = () => {
 
   const handleLikeClick = async () => {
-    await addIgnoredQuestion(content)
-    const ignored_questions = await getIgnoredQuestions()
-    console.log(ignored_questions)
+    console.log('Like clicked')
   }
 
   const handleDislikeClick = async () => {
-    await addIgnoredQuestion(content)
+    console.log('Dislike clicked')
   }
 
   return (

@@ -69,7 +69,7 @@ const App = () => {
               <Stack.Screen name="Home" component={HomeScreen} />
               <Stack.Screen name="Play" component={PlayScreen} />
               <Stack.Screen name="Users" component={UsersScreen} />
-              <Stack.Screen name="Modes" component={ModesScreen} />
+            <Stack.Screen name="Modes" component={ModesScreen} />
               <Stack.Screen name="CreateUser" component={CreateUserScreen} />
               <Stack.Screen name="PartyEnd" component={PartyEndScreen} />
             </Stack.Navigator>
