@@ -91,6 +91,8 @@ const styles = StyleSheet.create({
   button: {
     position: 'absolute',
     bottom: 50,
+    width: 300,
+    height: 80,
     zIndex: 99,
   }
 });

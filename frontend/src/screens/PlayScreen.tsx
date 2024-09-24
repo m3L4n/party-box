@@ -14,6 +14,7 @@ import { Mode } from '../../models/Mode';
 import { User } from '../../models/User';
 import { Question } from '../../models/Question';
 import Background from '../../components/organisms/Background';
+import { BACKEND_URL } from '@env'; 
 
 interface PlayScreenProps {
   navigation: any;
@@ -21,15 +22,13 @@ interface PlayScreenProps {
 
 const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
   const [questions, setQuestions] = useState<Question[]>([])
-  const [users, setUsers] = useState<User[]>([]);
-  const [modes, setModes] = useState<Mode[]>([]);
   const [end, setEnd] = useState<boolean>(false);
   const [backgroundColor, setBackgroundColor] = useState<string>(getRandomColorBackground());
 
   const fetchQuestions = useCallback(async (modes: Mode[], users: User[]) => {
     try {
       let questionsList: Question[] = [];
-      const response = await fetch(`https://partybox.jurichar.fr/api/questions/fetch`, {
+      const response = await fetch(`${BACKEND_URL}/questions/fetch`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,8 +61,6 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
     try {
       const fetchedUsers = await getActiveUsers();
       const fetchedModes = await getActiveModes();
-      setUsers(fetchedUsers);
-      setModes(fetchedModes);
 
       if (fetchedModes.length > 0 && fetchedUsers.length > 0) {
         const questionsList = await fetchQuestions(fetchedModes, fetchedUsers);

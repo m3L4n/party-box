@@ -12,27 +12,42 @@ import ReloadButton from "../../components/organisms/ReloadButton";
 import { Mode } from "../../models/Mode";
 import { addMode, deleteAllModes, loadModes, toggleModeStatus } from "../../services/mode";
 import { t } from "i18next";
+import { BACKEND_URL } from "@env";
 
 interface ModesScreenProps {
   navigation: any;
 }
 
-export const initialModes = [
-  { name: 'classic', isActive: false },
-  { name: 'quiz', isActive: false },
-  { name: 'duel', isActive: false }
-];
-
 const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
   const [modes, setModes] = useState<Mode[]>([]);
-
-  const prefillModes = async () => {
-    for (const mode of initialModes) {
-      await addMode(mode);
+  
+  const fetchModesFromBackend = async () => {
+    try {
+      const response = await fetch(`${BACKEND_URL}/modes`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const fetchedModes: Mode[] = await response.json();
+      for (const mode of fetchedModes) {
+        await addMode(mode);
+      }
+      setModes(fetchedModes);
+    } catch (error) {
+      console.error('Error fetching modes from backend:', error);
     }
-    const loadedModes = await loadModes();
-    setModes(loadedModes);
-  }
+  };
+  
+  const prefillModes = async () => {
+    const storedModes = await loadModes();
+    
+    if (storedModes.length > 0) {
+      setModes(storedModes);
+    } else {
+      await fetchModesFromBackend();
+    }
+  };
 
   useEffect(() => {
     prefillModes();

@@ -111,3 +111,10 @@ def fetch_questions():
     final_questions = prepare_final_questions(selected_questions, user_list)
     
     return jsonify(final_questions)
+
+@router.route("/modes", methods=["GET"])
+def get_modes():
+    db = next(get_db())
+    modes = db.query(Question.mode).distinct().all()
+
+    return jsonify([mode[0] for mode in modes])

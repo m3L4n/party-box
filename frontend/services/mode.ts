@@ -8,7 +8,7 @@ export const loadModes = async (): Promise<Mode[]> => {
     const modesString = await AsyncStorage.getItem('modes');
     return modesString ? JSON.parse(modesString) : [];
   } catch (error) {
-    console.error('Erreur lors du chargement des modes : ', error);
+    console.error('Error while loading modes from AsyncStorage : ', error);
     return [];
   }
 };
@@ -16,7 +16,7 @@ export const loadModes = async (): Promise<Mode[]> => {
 export const addMode = async (mode: Mode): Promise<Mode[]> => {
   try {
     const modes = await loadModes();
-    mode.isActive = false;
+    mode.isActive = false
     if (modes.some(m => m.name === mode.name)) {
       return modes;
     }
@@ -24,7 +24,7 @@ export const addMode = async (mode: Mode): Promise<Mode[]> => {
     await AsyncStorage.setItem('modes', JSON.stringify(modes));
     return modes;
   } catch (error) {
-    console.error('Erreur lors de l\'ajout d\'un mode : ', error);
+    console.error('Error while adding a mode : ', error);
     return [];
   }
 };
@@ -39,11 +39,11 @@ export const toggleModeStatus = async (modeName: string): Promise<Mode[]> => {
       await AsyncStorage.setItem('modes', JSON.stringify(modes));
       return modes;
     } else {
-      console.error('Mode non trouvé.');
+      console.error('Mode not found.');
       return [];
     }
   } catch (error) {
-    console.error('Erreur lors de la modification du statut du mode : ', error);
+    console.error('Error while editing mode\'s status : ', error);
     return [];
   }
 }
@@ -52,7 +52,7 @@ export const deleteAllModes = async (): Promise<void> => {
   try {
     await AsyncStorage.removeItem('modes');
   } catch (error) {
-    console.error('Erreur lors de la suppression des modes : ', error);
+    console.error('Error while deleting modes : ', error);
   }
 }
 
@@ -61,7 +61,7 @@ export const getActiveModes = async (): Promise<Mode[]> => {
     const modes = await loadModes();
     return modes.filter(mode => mode.isActive);
   } catch (error) {
-    console.error('Erreur lors de la récupération des modes actifs : ', error);
+    console.error('Error while fetching active modes : ', error);
     return [];
   }
 }
