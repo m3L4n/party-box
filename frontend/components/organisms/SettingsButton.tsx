@@ -1,10 +1,10 @@
 // components/molecules/SettingsButton.tsx
 
-import React from "react";
-import { StyleSheet } from "react-native";
-import { colors } from "../../assets/colors";
-import IconButton from "../molecules/IconButton";
-import { ButtonProps } from "../atoms/Button";
+import React from "react"
+import { StyleSheet } from "react-native"
+import { colors } from "../../assets/colors"
+import IconButton from "../molecules/IconButton"
+import { ButtonProps } from "../atoms/Button"
 
 const SettingsButton = ({ onPress, style }: ButtonProps) => {
   return (
@@ -14,8 +14,8 @@ const SettingsButton = ({ onPress, style }: ButtonProps) => {
       onPress={onPress}
       style={[styles.container, style]}
     />
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
     opacity: 0.8,
     backgroundColor: colors.primary.creme,
   },
-});
+})
 
-export default SettingsButton;
+export default SettingsButton

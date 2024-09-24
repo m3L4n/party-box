@@ -1,23 +1,23 @@
 // components/organisms/LikeDislikeComponent.tsx
 
-import DislikeButton from "./DislikeButton";
-import LikeButton from "./LikeButton";
+import DislikeButton from "./DislikeButton"
+import LikeButton from "./LikeButton"
 
-import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { useState } from "react"
+import { StyleSheet, Text, View } from "react-native"
 
 const LikeDislikeComponent = () => {
-  const [rated, setRated] = useState<boolean>(false);
+  const [rated, setRated] = useState<boolean>(false)
 
   const handleLikeClick = async () => {
-    console.log("Like clicked");
-    setRated(true);
-  };
+    console.log("Like clicked")
+    setRated(true)
+  }
 
   const handleDislikeClick = async () => {
-    console.log("Dislike clicked");
-    setRated(true);
-  };
+    console.log("Dislike clicked")
+    setRated(true)
+  }
 
   return (
     <View style={{ ...styles.container }}>
@@ -30,8 +30,8 @@ const LikeDislikeComponent = () => {
         </>
       )}
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -53,6 +53,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 10,
   },
-});
+})
 
-export default LikeDislikeComponent;
+export default LikeDislikeComponent

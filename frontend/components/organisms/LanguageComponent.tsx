@@ -1,15 +1,15 @@
 // components/organisms/LanguageComponent.tsx
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useTranslation } from "react-i18next";
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import { useTranslation } from "react-i18next"
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native"
 
 const LanguageComponent = () => {
-  const { i18n } = useTranslation();
+  const { i18n } = useTranslation()
   const changeLanguage = async (lng: string) => {
-    await AsyncStorage.setItem("lang", lng);
-    i18n.changeLanguage(lng);
-  };
+    await AsyncStorage.setItem("lang", lng)
+    i18n.changeLanguage(lng)
+  }
 
   return (
     <View style={styles.language}>
@@ -50,8 +50,8 @@ const LanguageComponent = () => {
         />
       </TouchableOpacity>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   language: {
@@ -65,6 +65,6 @@ const styles = StyleSheet.create({
     width: 80,
     height: 50,
   },
-});
+})
 
-export default LanguageComponent;
+export default LanguageComponent

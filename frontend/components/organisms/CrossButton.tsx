@@ -1,10 +1,10 @@
 // components/molecules/CrossButton.tsx
 
-import React from "react";
-import { StyleSheet } from "react-native";
-import { colors } from "../../assets/colors";
-import IconButton from "../molecules/IconButton";
-import { ButtonProps } from "../atoms/Button";
+import React from "react"
+import { StyleSheet } from "react-native"
+import { colors } from "../../assets/colors"
+import IconButton from "../molecules/IconButton"
+import { ButtonProps } from "../atoms/Button"
 
 const CrossButton = ({ onPress, style }: ButtonProps) => {
   return (
@@ -14,8 +14,8 @@ const CrossButton = ({ onPress, style }: ButtonProps) => {
       onPress={onPress}
       style={[styles.container, style]}
     />
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -27,6 +27,6 @@ const styles = StyleSheet.create({
     color: "black",
     backgroundColor: colors.primary.red,
   },
-});
+})
 
-export default CrossButton;
+export default CrossButton

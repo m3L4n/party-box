@@ -1,13 +1,13 @@
 // components/atoms/Input.tsx
 
-import React from "react";
-import { StyleSheet, TextInput } from "react-native";
+import React from "react"
+import { StyleSheet, TextInput } from "react-native"
 
 type InputProps = {
-  placeholder: string;
-  onChangeText: (text: string) => void;
-  value: string;
-};
+  placeholder: string
+  onChangeText: (text: string) => void
+  value: string
+}
 
 const Input = ({ placeholder, onChangeText, value }: InputProps) => {
   return (
@@ -22,8 +22,8 @@ const Input = ({ placeholder, onChangeText, value }: InputProps) => {
       style={[styles.container]}
       value={value}
     />
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
     borderColor: "black",
     fontFamily: "BebasNeue-Regular",
   },
-});
+})
 
-export default Input;
+export default Input

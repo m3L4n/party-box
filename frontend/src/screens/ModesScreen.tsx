@@ -1,30 +1,30 @@
 // src/screens/ModesScreen.tsx
 
-import { useEffect, useState } from "react";
-import { StyleSheet, View, Alert } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import { colors } from "../../assets/colors";
-import Text from "../../components/atoms/CustomText";
-import MenuButton from "../../components/molecules/MenuButton";
-import BackButton from "../../components/organisms/BackButton";
-import ModeCard from "../../components/organisms/ModeCard";
-import ReloadButton from "../../components/organisms/ReloadButton";
-import { Mode } from "../../models/Mode";
+import { useEffect, useState, useCallback } from "react"
+import { StyleSheet, View, Alert } from "react-native"
+import { ScrollView } from "react-native-gesture-handler"
+import { colors } from "../../assets/colors"
+import Text from "../../components/atoms/CustomText"
+import MenuButton from "../../components/molecules/MenuButton"
+import BackButton from "../../components/organisms/BackButton"
+import ModeCard from "../../components/organisms/ModeCard"
+import ReloadButton from "../../components/organisms/ReloadButton"
+import { Mode } from "../../models/Mode"
 import {
   addMode,
   deleteAllModes,
   loadModes,
   toggleModeStatus,
-} from "../../services/mode";
-import { t } from "i18next";
-import { BACKEND_URL } from "@env";
+} from "../../services/mode"
+import { t } from "i18next"
+import { BACKEND_URL } from "@env"
 
 interface ModesScreenProps {
-  navigation: any;
+  navigation: any
 }
 
 const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
-  const [modes, setModes] = useState<Mode[]>([]);
+  const [modes, setModes] = useState<Mode[]>([])
 
   const fetchModesFromBackend = async () => {
     try {
@@ -33,50 +33,50 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      });
-      const fetchedModes: Mode[] = await response.json();
+      })
+      const fetchedModes: Mode[] = await response.json()
       for (const mode of fetchedModes) {
-        await addMode(mode);
+        await addMode(mode)
       }
-      setModes(fetchedModes);
+      setModes(fetchedModes)
     } catch (error) {
-      console.error("Error fetching modes from backend:", error);
+      console.error("Error fetching modes from backend:", error)
     }
-  };
+  }
 
-  const prefillModes = async () => {
-    const storedModes = await loadModes();
+  const prefillModes = useCallback(async () => {
+    const storedModes = await loadModes()
 
     if (storedModes.length > 0) {
-      setModes(storedModes);
+      setModes(storedModes)
     } else {
-      await fetchModesFromBackend();
+      await fetchModesFromBackend()
     }
-  };
+  }, [])
 
   useEffect(() => {
-    prefillModes();
-  }, []);
+    prefillModes()
+  }, [prefillModes])
 
   const handleModePress = async (modeName: string) => {
-    const updatedModes = await toggleModeStatus(modeName);
-    setModes(updatedModes);
-  };
+    const updatedModes = await toggleModeStatus(modeName)
+    setModes(updatedModes)
+  }
 
   const handleNextButtonPress = async () => {
-    const activeModes = Object.values(modes).filter((mode) => mode.isActive);
+    const activeModes = Object.values(modes).filter(mode => mode.isActive)
     if (activeModes.length === 0) {
-      Alert.alert(t("alert_mode"));
-      return;
+      Alert.alert(t("alert_mode"))
+      return
     }
-    navigation.navigate("Play");
-  };
+    navigation.navigate("Play")
+  }
 
   const handleReloadPress = async () => {
-    await deleteAllModes();
-    setModes([]);
-    await prefillModes();
-  };
+    await deleteAllModes()
+    setModes([])
+    await prefillModes()
+  }
 
   return (
     <View style={styles.container}>
@@ -101,11 +101,11 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
         ))}
       </ScrollView>
       <Text style={styles.info_text}>
-        {Object.values(modes).filter((user) => user.isActive).length +
+        {Object.values(modes).filter(user => user.isActive).length +
           " " +
           t("selected_modes")}
       </Text>
-      {Object.values(modes).filter((mode) => mode.isActive).length ===
+      {Object.values(modes).filter(mode => mode.isActive).length ===
       0 ? null : (
         <MenuButton
           color={colors.primary.green}
@@ -114,8 +114,8 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
         />
       )}
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -137,6 +137,6 @@ const styles = StyleSheet.create({
     fontFamily: "BebasNeue-Regular",
     color: "black",
   },
-});
+})
 
-export default ModesScreen;
+export default ModesScreen

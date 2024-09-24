@@ -1,6 +1,6 @@
 // services/utils.tsx
 
-import { colors } from "../assets/colors";
+import { colors } from "../assets/colors"
 
 export const getRandomColorBackground = () => {
   const colorsList = [
@@ -9,10 +9,10 @@ export const getRandomColorBackground = () => {
     colors.secondary.pink,
     colors.secondary.red,
     colors.secondary.yellow,
-  ];
-  const randomColor = colorsList[Math.floor(Math.random() * colorsList.length)];
-  return randomColor;
-};
+  ]
+  const randomColor = colorsList[Math.floor(Math.random() * colorsList.length)]
+  return randomColor
+}
 
 export const getRandomColor = () => {
   const colorsList = [
@@ -21,7 +21,7 @@ export const getRandomColor = () => {
     colors.primary.pink,
     colors.primary.red,
     colors.primary.yellow,
-  ];
-  const randomColor = colorsList[Math.floor(Math.random() * colorsList.length)];
-  return randomColor;
-};
+  ]
+  const randomColor = colorsList[Math.floor(Math.random() * colorsList.length)]
+  return randomColor
+}

@@ -1,3 +1,3 @@
 declare module "@env" {
-  export const FEATURE_ENABLED: boolean;
+  export const FEATURE_ENABLED: boolean
 }

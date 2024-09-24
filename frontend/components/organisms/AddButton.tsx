@@ -1,10 +1,10 @@
 // components/molecules/AddButton.tsx
 
-import React from "react";
-import { StyleSheet } from "react-native";
-import { colors } from "../../assets/colors";
-import IconButton from "../molecules/IconButton";
-import { ButtonProps } from "../atoms/Button";
+import React from "react"
+import { StyleSheet } from "react-native"
+import { colors } from "../../assets/colors"
+import IconButton from "../molecules/IconButton"
+import { ButtonProps } from "../atoms/Button"
 
 const AddButton = ({ onPress, style }: ButtonProps) => {
   return (
@@ -14,8 +14,8 @@ const AddButton = ({ onPress, style }: ButtonProps) => {
       onPress={onPress}
       style={[styles.container, style]}
     />
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
     color: "black",
     backgroundColor: colors.primary.blue,
   },
-});
+})
 
-export default AddButton;
+export default AddButton

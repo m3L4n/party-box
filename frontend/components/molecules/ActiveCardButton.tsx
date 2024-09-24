@@ -1,16 +1,16 @@
 // components/molecules/ActiveCardButton.tsx
 
-import React, { useState } from "react";
-import { StyleProp, StyleSheet } from "react-native";
-import CardButton from "../atoms/CardButton";
-import ButtonProps from "../atoms/Button";
+import React, { useState } from "react"
+import { StyleProp, StyleSheet } from "react-native"
+import CardButton from "../atoms/CardButton"
+import { ButtonProps as BaseButtonProps } from "../atoms/Button"
 
-interface ButtonProps {
-  onPress: (isActive: boolean) => void;
-  content: any;
-  style?: StyleProp<any>;
-  active?: boolean;
-  accessibilityLabel?: string;
+interface ActiveCardButtonProps extends BaseButtonProps {
+  onPress: () => void
+  content: any
+  style?: StyleProp<any>
+  active?: boolean
+  accessibilityLabel?: string
 }
 
 const ActiveCardButton = ({
@@ -19,15 +19,15 @@ const ActiveCardButton = ({
   style,
   active,
   accessibilityLabel,
-}: ButtonProps) => {
-  const [isActive, setIsActive] = useState(active);
+}: ActiveCardButtonProps) => {
+  const [isActive, setIsActive] = useState(active)
 
   const handlePress = () => {
-    setIsActive(!isActive);
+    setIsActive(!isActive)
     if (typeof onPress === "function") {
-      onPress(!isActive);
+      onPress()
     }
-  };
+  }
 
   return (
     <CardButton
@@ -36,13 +36,13 @@ const ActiveCardButton = ({
       onPress={handlePress}
       style={[styles.container, style, { opacity: isActive ? 1 : 0.3 }]}
     />
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
     color: "black",
   },
-});
+})
 
-export default ActiveCardButton;
+export default ActiveCardButton

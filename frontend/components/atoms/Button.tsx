@@ -1,15 +1,15 @@
 // components/atoms/Button.js
 
-import React from "react";
-import { StyleProp, StyleSheet, TouchableOpacity } from "react-native";
+import React from "react"
+import { StyleProp, StyleSheet, TouchableOpacity } from "react-native"
 
 export interface ButtonProps {
-  content?: any;
-  onPress?: () => void;
-  style?: StyleProp<any>;
-  active?: boolean;
-  navigation?: any;
-  accessibilityLabel?: string;
+  content?: any
+  onPress?: () => void
+  style?: StyleProp<any>
+  active?: boolean
+  navigation?: any
+  accessibilityLabel?: string
 }
 
 const Button = ({
@@ -28,8 +28,8 @@ const Button = ({
     >
       {content}
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
     fontFamily: "BebasNeue-Regular",
     textAlign: "center",
   },
-});
+})
 
-export default Button;
+export default Button

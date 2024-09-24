@@ -1,23 +1,19 @@
 // src/party/QuestionComponent.tsx
 
-import React, { useEffect, useState } from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { colors } from "../../assets/colors";
-import Text from "../../components/atoms/CustomText";
-import MenuButton from "../../components/molecules/MenuButton";
-import { Question } from "../../models/Question";
-import { t } from "i18next";
-import LikeDislikeComponent from "../../components/organisms/LikeDislikeComponent";
+import React, { useState } from "react"
+import { StyleSheet, TouchableOpacity, View } from "react-native"
+import { colors } from "../../assets/colors"
+import Text from "../../components/atoms/CustomText"
+import MenuButton from "../../components/molecules/MenuButton"
+import { Question } from "../../models/Question"
+import { t } from "i18next"
+import LikeDislikeComponent from "../../components/organisms/LikeDislikeComponent"
 
 const QuestionComponent = ({ question }: { question: Question }) => {
   // Quiz question
+  const [showAnswer, setShowAnswer] = useState<boolean>(false)
+
   const renderQuizQuestion = () => {
-    const [showAnswer, setShowAnswer] = useState<boolean>(false);
-
-    useEffect(() => {
-      setShowAnswer(false);
-    }, [question]);
-
     return (
       <>
         <LikeDislikeComponent />
@@ -52,8 +48,8 @@ const QuestionComponent = ({ question }: { question: Question }) => {
           </TouchableOpacity>
         )}
       </>
-    );
-  };
+    )
+  }
 
   const renderDefaultQuestion = () => {
     return (
@@ -62,16 +58,16 @@ const QuestionComponent = ({ question }: { question: Question }) => {
         <Text style={{ ...styles.title }}>{t(question.mode)}</Text>
         <Text style={{ ...styles.text }}>{question.content}</Text>
       </View>
-    );
-  };
+    )
+  }
 
   switch (question.mode) {
     case "quiz":
-      return renderQuizQuestion();
+      return renderQuizQuestion()
     default:
-      return renderDefaultQuestion();
+      return renderDefaultQuestion()
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -99,6 +95,6 @@ const styles = StyleSheet.create({
     height: 80,
     zIndex: 99,
   },
-});
+})
 
-export default QuestionComponent;
+export default QuestionComponent

@@ -1,67 +1,67 @@
 // src/screens/UsersScreen.tsx
 
-import React, { useCallback, useEffect, useState } from "react";
-import { Alert, StyleSheet, View } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import { colors } from "../../assets/colors";
-import Text from "../../components/atoms/CustomText";
-import MenuButton from "../../components/molecules/MenuButton";
-import AddButton from "../../components/organisms/AddButton";
-import BackButton from "../../components/organisms/BackButton";
-import TrashButton from "../../components/organisms/TrashButton";
-import UserCard from "../../components/organisms/UserCard";
+import React, { useCallback, useEffect, useState } from "react"
+import { Alert, StyleSheet, View } from "react-native"
+import { ScrollView } from "react-native-gesture-handler"
+import { colors } from "../../assets/colors"
+import Text from "../../components/atoms/CustomText"
+import MenuButton from "../../components/molecules/MenuButton"
+import AddButton from "../../components/organisms/AddButton"
+import BackButton from "../../components/organisms/BackButton"
+import TrashButton from "../../components/organisms/TrashButton"
+import UserCard from "../../components/organisms/UserCard"
 import {
   deleteUser,
   getActiveUsers,
   loadUsers,
   toggleUserStatus,
-} from "../../services/user";
-import { User } from "../../models/User";
-import { t } from "i18next";
+} from "../../services/user"
+import { User } from "../../models/User"
+import { t } from "i18next"
 
 interface UsersScreenProps {
-  navigation: any;
+  navigation: any
 }
 
 const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
-  const [userList, setUserList] = useState<User[]>([]);
-  const [deleteMode, setDeleteMode] = useState<boolean>(false);
+  const [userList, setUserList] = useState<User[]>([])
+  const [deleteMode, setDeleteMode] = useState<boolean>(false)
 
   const fetchData = useCallback(async () => {
-    const users: User[] = await loadUsers();
-    setUserList(users);
-  }, []);
+    const users: User[] = await loadUsers()
+    setUserList(users)
+  }, [])
 
   useEffect(() => {
     const unsubscribe = navigation.addListener("focus", () => {
-      fetchData();
-    });
+      fetchData()
+    })
 
-    return unsubscribe;
-  }, [navigation, fetchData]);
+    return unsubscribe
+  }, [navigation, fetchData])
 
   const handleUserPress = async (userName: string) => {
     if (deleteMode) {
-      const updatedUsers = await deleteUser(userName);
-      setUserList(updatedUsers);
+      const updatedUsers = await deleteUser(userName)
+      setUserList(updatedUsers)
     } else {
-      const updatedUsers = await toggleUserStatus(userName);
-      setUserList(updatedUsers);
+      const updatedUsers = await toggleUserStatus(userName)
+      setUserList(updatedUsers)
     }
-  };
+  }
 
   const toggleDeleteMode = () => {
-    setDeleteMode(!deleteMode);
-  };
+    setDeleteMode(!deleteMode)
+  }
 
   const handleNextButtonPress = async () => {
-    const list: User[] = await getActiveUsers();
+    const list: User[] = await getActiveUsers()
     if (list.length <= 1) {
-      Alert.alert(t("alert_players"));
-      return;
+      Alert.alert(t("alert_players"))
+      return
     }
-    navigation.navigate("Modes");
-  };
+    navigation.navigate("Modes")
+  }
 
   return (
     <View style={{ ...styles.container }}>
@@ -101,11 +101,11 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
         />
       </ScrollView>
       <Text style={styles.info_text}>
-        {userList.filter((user) => user.isActive).length +
+        {userList.filter(user => user.isActive).length +
           " " +
           t("selected_players")}
       </Text>
-      {userList.filter((user) => user.isActive).length > 1 ? (
+      {userList.filter(user => user.isActive).length > 1 ? (
         <MenuButton
           color={colors.primary.green}
           onPress={handleNextButtonPress}
@@ -113,8 +113,8 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
         />
       ) : null}
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   trashButton: {
@@ -146,6 +146,6 @@ const styles = StyleSheet.create({
     fontFamily: "BebasNeue-Regular",
     color: "black",
   },
-});
+})
 
-export default UsersScreen;
+export default UsersScreen

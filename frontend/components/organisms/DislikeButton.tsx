@@ -1,10 +1,10 @@
 // components/molecules/DislikeButton.tsx
 
-import React from "react";
-import { StyleSheet } from "react-native";
-import { colors } from "../../assets/colors";
-import IconButton from "../molecules/IconButton";
-import { ButtonProps } from "../atoms/Button";
+import React from "react"
+import { StyleSheet } from "react-native"
+import { colors } from "../../assets/colors"
+import IconButton from "../molecules/IconButton"
+import { ButtonProps } from "../atoms/Button"
 
 const DislikeButton = ({ onPress, style, accessibilityLabel }: ButtonProps) => {
   return (
@@ -14,8 +14,8 @@ const DislikeButton = ({ onPress, style, accessibilityLabel }: ButtonProps) => {
       onPress={onPress}
       style={[styles.container, style]}
     />
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -25,6 +25,6 @@ const styles = StyleSheet.create({
     opacity: 0.8,
     backgroundColor: colors.primary.red,
   },
-});
+})
 
-export default DislikeButton;
+export default DislikeButton

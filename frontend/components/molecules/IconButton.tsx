@@ -1,10 +1,10 @@
 // components/molecules/IconButton.tsx
 
-import { Ionicons } from "@expo/vector-icons";
-import React from "react";
-import { StyleSheet } from "react-native";
-import SquareButton from "../atoms/SquareButton";
-import { ButtonProps } from "../atoms/Button";
+import { Ionicons } from "@expo/vector-icons"
+import React from "react"
+import { StyleSheet } from "react-native"
+import SquareButton from "../atoms/SquareButton"
+import { ButtonProps } from "../atoms/Button"
 
 const IconButton = ({
   content,
@@ -19,8 +19,8 @@ const IconButton = ({
       onPress={onPress}
       style={[styles.container, style]}
     />
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "black",
   },
-});
+})
 
-export default IconButton;
+export default IconButton

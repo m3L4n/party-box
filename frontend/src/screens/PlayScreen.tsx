@@ -1,35 +1,35 @@
 // src/screens/PlayScreen.tsx
 
-import React, { useCallback, useEffect, useState } from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
-import Text from "../../components/atoms/CustomText";
-import BackButton from "../../components/organisms/BackButton";
-import HomeButton from "../../components/organisms/HomeButton";
-import { getActiveModes } from "../../services/mode";
-import { getActiveUsers } from "../../services/user";
-import { getRandomColorBackground } from "../../services/utils";
-import PartyEndScreen from "../party/PartyEndScreen";
-import QuestionComponent from "../party/QuestionComponent";
-import { Mode } from "../../models/Mode";
-import { User } from "../../models/User";
-import { Question } from "../../models/Question";
-import Background from "../../components/organisms/Background";
-import { BACKEND_URL } from "@env";
+import React, { useCallback, useEffect, useState } from "react"
+import { StyleSheet, TouchableOpacity } from "react-native"
+import Text from "../../components/atoms/CustomText"
+import BackButton from "../../components/organisms/BackButton"
+import HomeButton from "../../components/organisms/HomeButton"
+import { getActiveModes } from "../../services/mode"
+import { getActiveUsers } from "../../services/user"
+import { getRandomColorBackground } from "../../services/utils"
+import PartyEndScreen from "../party/PartyEndScreen"
+import QuestionComponent from "../party/QuestionComponent"
+import { Mode } from "../../models/Mode"
+import { User } from "../../models/User"
+import { Question } from "../../models/Question"
+import Background from "../../components/organisms/Background"
+import { BACKEND_URL } from "@env"
 
 interface PlayScreenProps {
-  navigation: any;
+  navigation: any
 }
 
 const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [end, setEnd] = useState<boolean>(false);
+  const [questions, setQuestions] = useState<Question[]>([])
+  const [end, setEnd] = useState<boolean>(false)
   const [backgroundColor, setBackgroundColor] = useState<string>(
-    getRandomColorBackground(),
-  );
+    getRandomColorBackground()
+  )
 
   const fetchQuestions = useCallback(async (modes: Mode[], users: User[]) => {
     try {
-      let questionsList: Question[] = [];
+      let questionsList: Question[] = []
       const response = await fetch(`${BACKEND_URL}/questions/fetch`, {
         method: "POST",
         headers: {
@@ -40,8 +40,8 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
           modes: modes.map((mode: Mode) => mode.name),
           language: "fr",
         }),
-      });
-      const questions = await response.json();
+      })
+      const questions = await response.json()
       questionsList = questions.map((question: any) => {
         return {
           id: question.id,
@@ -49,50 +49,50 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
           mode: question.mode,
           user: question.user,
           answer: question?.answer,
-        };
-      });
-      return questionsList;
+        }
+      })
+      return questionsList
     } catch (error) {
-      console.error("Error while fetching questions: ", error);
-      return [];
+      console.error("Error while fetching questions: ", error)
+      return []
     }
-  }, []);
+  }, [])
 
   const fetchData = useCallback(async () => {
     try {
-      const fetchedUsers = await getActiveUsers();
-      const fetchedModes = await getActiveModes();
+      const fetchedUsers = await getActiveUsers()
+      const fetchedModes = await getActiveModes()
 
       if (fetchedModes.length > 0 && fetchedUsers.length > 0) {
-        const questionsList = await fetchQuestions(fetchedModes, fetchedUsers);
-        setQuestions(questionsList);
+        const questionsList = await fetchQuestions(fetchedModes, fetchedUsers)
+        setQuestions(questionsList)
       }
     } catch (error) {
-      console.error("Error while fetching data: ", error);
+      console.error("Error while fetching data: ", error)
     }
-  }, [fetchQuestions]);
+  }, [fetchQuestions])
 
   useEffect(() => {
-    fetchData();
-  }, [fetchQuestions]);
+    fetchData()
+  }, [fetchData])
 
   const handlePress = () => {
-    if (questions.length === 0) return;
+    if (questions.length === 0) return
 
     if (end) {
-      navigation.navigate("Home");
-      return;
+      navigation.navigate("Home")
+      return
     }
 
     if (questions.length === 1) {
-      setEnd(true);
-      return;
+      setEnd(true)
+      return
     }
 
-    const nextQuestion = questions[1];
-    setQuestions((prevQuestions) => [nextQuestion, ...prevQuestions.slice(2)]);
-    setBackgroundColor(getRandomColorBackground());
-  };
+    const nextQuestion = questions[1]
+    setQuestions(prevQuestions => [nextQuestion, ...prevQuestions.slice(2)])
+    setBackgroundColor(getRandomColorBackground())
+  }
 
   return (
     <TouchableOpacity onPress={handlePress} style={styles.container}>
@@ -115,8 +115,8 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
         ) : null}
       </Background>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -124,6 +124,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-});
+})
 
-export default PlayScreen;
+export default PlayScreen

@@ -1,10 +1,10 @@
 // my-plugin.js
 
-const { withAndroidManifest } = require("@expo/config-plugins");
+const { withAndroidManifest } = require("@expo/config-plugins")
 
-const withAndroidQueries = (config) => {
-  return withAndroidManifest(config, async (config) => {
-    const appQueries = config.modResults.manifest.queries || [];
+const withAndroidQueries = config => {
+  return withAndroidManifest(config, async config => {
+    const appQueries = config.modResults.manifest.queries || []
     const newQueries = [
       {
         intent: [
@@ -21,12 +21,12 @@ const withAndroidQueries = (config) => {
           },
         ],
       },
-    ];
+    ]
 
-    config.modResults.manifest.queries = [...appQueries, ...newQueries];
+    config.modResults.manifest.queries = [...appQueries, ...newQueries]
 
-    return config;
-  });
-};
+    return config
+  })
+}
 
-module.exports = withAndroidQueries;
+module.exports = withAndroidQueries

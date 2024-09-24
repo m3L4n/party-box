@@ -1,8 +1,8 @@
 // components/atoms/SquareButton.tsx
 
-import React from "react";
-import { StyleSheet } from "react-native";
-import Button, { ButtonProps } from "./Button";
+import React from "react"
+import { StyleSheet } from "react-native"
+import Button, { ButtonProps } from "./Button"
 
 const SquareButton = ({
   content,
@@ -17,14 +17,14 @@ const SquareButton = ({
       onPress={onPress}
       style={[styles.container, style]}
     />
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
     width: 50,
     height: 50,
   },
-});
+})
 
-export default SquareButton;
+export default SquareButton

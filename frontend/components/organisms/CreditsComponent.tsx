@@ -1,30 +1,30 @@
 // components/organisms/CreditsComponent.tsx
 
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import Text from "../atoms/CustomText";
-import { t } from "i18next";
-import MenuButton from "../molecules/MenuButton";
-import * as Linking from "expo-linking";
+import React from "react"
+import { StyleSheet, View } from "react-native"
+import Text from "../atoms/CustomText"
+import { t } from "i18next"
+import MenuButton from "../molecules/MenuButton"
+import * as Linking from "expo-linking"
 
 const contributors = [
   { name: "Jurichar", url: "https://github.com/jurichar" },
   { name: "Mpochard", url: "https://github.com/m3L4n" },
-];
+]
 
 const CreditsComponent = () => {
   const handlePress = async (url: string) => {
     try {
-      const canOpen = await Linking.canOpenURL(url);
+      const canOpen = await Linking.canOpenURL(url)
       if (canOpen) {
-        await Linking.openURL(url);
+        await Linking.openURL(url)
       } else {
-        console.error(`Cannot open url: ${url}`);
+        console.error(`Cannot open url: ${url}`)
       }
     } catch (error) {
-      console.error("Error opening URL:", error);
+      console.error("Error opening URL:", error)
     }
-  };
+  }
 
   return (
     <>
@@ -40,8 +40,8 @@ const CreditsComponent = () => {
         ))}
       </View>
     </>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   credits: {
@@ -62,6 +62,6 @@ const styles = StyleSheet.create({
     color: "black",
     marginBottom: 20,
   },
-});
+})
 
-export default CreditsComponent;
+export default CreditsComponent

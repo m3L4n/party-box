@@ -1,8 +1,8 @@
-import i18n from "i18next";
-import "intl-pluralrules";
-import { initReactI18next } from "react-i18next";
-import en from "./locales/en.json";
-import fr from "./locales/fr.json";
+import i18n from "i18next"
+import "intl-pluralrules"
+import { initReactI18next } from "react-i18next"
+import en from "./locales/en.json"
+import fr from "./locales/fr.json"
 
 const resources = {
   en: {
@@ -11,7 +11,7 @@ const resources = {
   fr: {
     translation: fr,
   },
-};
+}
 
 i18n.use(initReactI18next).init({
   resources,
@@ -20,6 +20,6 @@ i18n.use(initReactI18next).init({
   interpolation: {
     escapeValue: false,
   },
-});
+})
 
-export default i18n;
+export default i18n

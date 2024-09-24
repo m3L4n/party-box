@@ -1,8 +1,8 @@
 // components/organisms/RulesComponent.tsx
 
-import { StyleSheet, View } from "react-native";
-import Text from "../atoms/CustomText";
-import { t } from "i18next";
+import { StyleSheet, View } from "react-native"
+import Text from "../atoms/CustomText"
+import { t } from "i18next"
 
 const RulesComponent = () => {
   return (
@@ -12,8 +12,8 @@ const RulesComponent = () => {
         <Text>{t("rules_details")}</Text>
       </View>
     </>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   rules: {
@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
     color: "black",
     marginBottom: 20,
   },
-});
+})
 
-export default RulesComponent;
+export default RulesComponent

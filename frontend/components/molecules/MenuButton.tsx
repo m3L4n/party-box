@@ -1,17 +1,16 @@
 // components/molecules/MenuButton.tsx
 
-import React from "react";
-import { StyleProp, StyleSheet } from "react-native";
-import Text from "../atoms/CustomText";
-import RectangleButton from "../atoms/RectangleButton";
-import { ButtonProps } from "../atoms/Button";
+import React from "react"
+import { StyleProp, StyleSheet } from "react-native"
+import Text from "../atoms/CustomText"
+import RectangleButton from "../atoms/RectangleButton"
 
 interface MenuButtonProps {
-  text: string;
-  color?: string;
-  onPress: () => void;
-  style?: StyleProp<any>;
-  accessibilityLabel?: string;
+  text: string
+  color?: string
+  onPress: () => void
+  style?: StyleProp<any>
+  accessibilityLabel?: string
 }
 
 const MenuButton = ({
@@ -28,8 +27,8 @@ const MenuButton = ({
       onPress={onPress}
       style={{ ...styles.container, backgroundColor: color, ...style }}
     />
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -38,6 +37,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 30,
   },
-});
+})
 
-export default MenuButton;
+export default MenuButton

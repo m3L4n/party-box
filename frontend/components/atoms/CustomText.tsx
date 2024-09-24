@@ -1,17 +1,17 @@
 // components/atoms/CustomText.tsx
 
-import React from "react";
-import { Text as RNText, StyleSheet } from "react-native";
+import React from "react"
+import { Text as RNText, StyleSheet } from "react-native"
 
 const Text = ({
   children,
   style,
 }: {
-  children: React.ReactNode;
-  style?: object;
+  children: React.ReactNode
+  style?: object
 }) => {
-  return <RNText style={[styles.text, style]}>{children}</RNText>;
-};
+  return <RNText style={[styles.text, style]}>{children}</RNText>
+}
 
 const styles = StyleSheet.create({
   text: {
@@ -19,6 +19,6 @@ const styles = StyleSheet.create({
     fontFamily: "BebasNeue-Regular",
     textAlign: "center",
   },
-});
+})
 
-export default Text;
+export default Text

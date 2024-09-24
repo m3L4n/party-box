@@ -1,13 +1,13 @@
 // components/molecules/ColorButton.tsx
 
-import { StyleSheet } from "react-native";
-import Button from "../atoms/Button";
+import { StyleSheet } from "react-native"
+import Button from "../atoms/Button"
 
 interface ColorButtonProps {
-  onPress: () => void;
-  color: string;
-  isActive: boolean;
-  accessibilityLabel?: string;
+  onPress: () => void
+  color: string
+  isActive: boolean
+  accessibilityLabel?: string
 }
 
 const ColorButton = ({
@@ -29,8 +29,8 @@ const ColorButton = ({
         opacity: isActive ? 1 : 0.5,
       }}
     />
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -38,6 +38,6 @@ const styles = StyleSheet.create({
     height: 48,
     borderRadius: 10,
   },
-});
+})
 
-export default ColorButton;
+export default ColorButton

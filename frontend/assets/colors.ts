@@ -24,4 +24,4 @@ export const colors = {
     pink: "rgb(255, 198, 255)", // Rose
     creme: "rgb(255, 255, 235)", // Creme
   },
-};
+}
