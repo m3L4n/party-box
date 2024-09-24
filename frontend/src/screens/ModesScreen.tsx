@@ -11,7 +11,7 @@ import ModeCard from "../../components/organisms/ModeCard"
 import ReloadButton from "../../components/organisms/ReloadButton"
 import { Mode } from "../../models/Mode"
 import {
-  addMode,
+  addAllModes,
   deleteAllModes,
   loadModes,
   toggleModeStatus,
@@ -34,11 +34,14 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
           "Content-Type": "application/json",
         },
       })
-      const fetchedModes: Mode[] = await response.json()
-      for (const mode of fetchedModes) {
-        await addMode(mode)
-      }
-      setModes(fetchedModes)
+      const fetchedModes = await response.json()
+      const newModes = fetchedModes.map((mode: string) => ({
+        name: mode,
+        isActive: false,
+      }))
+      await addAllModes(newModes)
+      const updatedModes = await loadModes()
+      setModes(updatedModes)
     } catch (error) {
       console.error("Error fetching modes from backend:", error)
     }

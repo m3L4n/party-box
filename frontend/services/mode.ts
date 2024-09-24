@@ -29,6 +29,21 @@ export const addMode = async (mode: Mode): Promise<Mode[]> => {
   }
 }
 
+export const addAllModes = async (newModes: Mode[]): Promise<Mode[]> => {
+  try {
+    const existingModes = await loadModes()
+    const modesToAdd = newModes.filter(
+      newMode => !existingModes.some(m => m.name === newMode.name)
+    )
+    const updatedModes = [...existingModes, ...modesToAdd]
+    await AsyncStorage.setItem("modes", JSON.stringify(updatedModes))
+    return updatedModes
+  } catch (error) {
+    console.error("Error while adding modes: ", error)
+    return []
+  }
+}
+
 export const toggleModeStatus = async (modeName: string): Promise<Mode[]> => {
   try {
     const modes = await loadModes()
