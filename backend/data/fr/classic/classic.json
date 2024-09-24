@@ -1,0 +1,184 @@
+{
+  "questions": [
+    {
+      "content": "Les animaux que tu peux mettre dans ta poche. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
+    },
+    {
+      "content": "Tout le monde va donner une qualité à la personne à sa gauche. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
+    },
+    {
+      "content": "Tout le monde décrit une situation cocasse qui lui est arrivée. La pire prend ${num}. ${user} est juge ! ${user} commence."
+    },
+    {
+      "content": "Tout le monde imite ${user}. ${num} pour la meilleure imitation !"
+    },
+    {
+      "content": "${user}, raconte-nous ton expérience la plus folle avec un animal et donne ${num} sinon prends-les."
+    },
+    {
+      "content": "${user}, ton 'date' le plus fou et donne ${num} sinon prends-les."
+    },
+    {
+      "content": "${user}, raconte ton moment le plus gênant en public et donne ${num} sinon prends-les."
+    },
+    {
+      "content": "${user}, dis-nous ta phobie et ceux qui la partagent prennent ${num}"
+    },
+    {
+      "content": "${user}, raconte-nous ta meilleure blague. Ceux qui rient prennent ${num}"
+    },
+    {
+      "content": "${user}, si tu étais une chanson, laquelle serais-tu ? Ceux qui l'ont dans leur playlist prennent ${num} !"
+    },
+    {
+      "content": "${user}, tu dois choisir un plat le reste de ta vie. Ceux qui peuvent donner la recette distribuent ${num}!"
+    },
+    {
+      "content": "${user}, raconte une expérience culinaire qui t'a marquée et distribues ${num} sinon prends les."
+    },
+    {
+      "content": "${user} choisit un livre a recommander à tout le monde et pourquoi ? Si tu n'en as pas prends ${num}"
+    },
+    {
+      "content": "${user}, quelle est la qualité que tu apprécies le plus chez ${user} ? ${num} si tu ne trouves pas sinon distribue les !"
+    },
+    {
+      "content": "${user}, si tu pouvais apprendre instantanément une compétence, laquelle choisirais-tu ? Ceux qui possèdent cette compétence prennent ${num}."
+    },
+    {
+      "content": "${user}, si tu devenais soudainement du sexe opposé, que ferais-tu en premier ?"
+    },
+    {
+      "content": "${user}, quel serait le plus grand défi pour toi si tu étais soudainement aveugle ?"
+    },
+    {
+      "content": "${user}, quel serait le plus grand défi pour toi si tu étais soudainement sourd ?"
+    },
+    {
+      "content": "${user}, quel artiste ou groupe écoutes-tu le plus souvent en ce moment ?"
+    },
+    {
+      "content": "${user} fait une imitation de quelqu'un de célèbre, celui qui devine distribue ${num}."
+    },
+    {
+      "content": "${user} a 1 minute pour raconter une blague et essayer de faire rire tout le monde sinon il prend ${num}."
+    },
+    {
+      "content": "${user} fait un tour de magie avec des objets courants ou prend ${num}."
+    },
+    {
+      "content": "${user} imite l'accent d'une région ou d'un pays étranger pendant 2 minutes ou prend ${num}."
+    },
+    {
+      "content": "${user} fait une danse improvisée sur la chanson de votre choix ou reçoit ${num}."
+    },
+    {
+      "content": "${user} joue une scène improvisée d'un film célèbre. Celui qui devine le film distribue ${num}."
+    },
+    {
+      "content": "${user}, à l'aide de bruitages, fais deviner une chanson célèbre. Celui qui devine distribue ${num}."
+    },
+    {
+      "content": "${user} fais une déclaration d'amour à un objet inanimé pendant 1 minute ou reçoit ${num}."
+    },
+    {
+      "content": "Ok ${user}, tu as 30 secondes pour nous convaincre de voter pour toi aux prochaines élections. Sinon, tu reçois ${num}."
+    },
+    {
+      "content": "Ok ${user}, on va te désigner un objet et tu dois nous convaincre de son utilité en 1 minute. Sinon, tu reçois ${num}."
+    },
+    {
+      "content": "Ok ${user}, on va te désigner un objet et tu dois nous convaincre de l'acheter en 1 minute. Sinon, tu reçois ${num}."
+    },
+    {
+      "content": "${user} imite quelqu'un que vous connaissez tous. Celui qui devine distribue ${num}."
+    },
+    {
+      "content": "${user} commence une histoire. Chaque personne ajoute une phrase à tour de rôle. Le premier qui se trompe reçoit ${num}."
+    },
+    {
+      "content": "Dans ma valise, j'ai... ${user} commence. Chaque personne ajoute un objet à tour de rôle. Le premier qui se trompe reçoit ${num}."
+    },
+    {
+      "content": "Tout le monde imite un animal de son choix. ${user} décide du meilleur. Le gagnant distribue ${num}."
+    },
+    {
+      "content": "Tout le monde raconte une expérience qu'il a eue avec une nouvelle cuisine étrangère. Les plus exotiques distribuent ${num}. ${user} commence."
+    },
+    {
+      "content": "Jouez au téléphone arabe ! ${user} commence par chuchoter un message à son voisin, et ainsi de suite. Le dernier répète à voix haute. Si c'est différent, il reçoit ${num}."
+    },
+    {
+      "content": "${user}, quel est ton meilleur conseil pour draguer ? Si quelqu'un a déjà utilisé ce conseil, il prend ${num}."
+    },
+    {
+      "content": "${user}, quel est le pire film que tu aies vu ? Ceux ou celles qui ont le même avis boivent ${num}."
+    },
+    {
+      "content": "Quel est le dernier texto cringe que ${user} a envoyé ? Si c'est trop gênant, prends ${num}!"
+    },
+    {
+      "content": "Si ${user} était un meme, lequel serait-il ? Si personne ne connaît le meme, tu distribues ${num}. Sinon prends-les."
+    },
+    {
+      "content": "${user}, quelle est la pire habitude de ${user} ? Celui qui partagent la même habitude boivent ${num}."
+    },
+    {
+      "content": "${user}, quel est le meilleur plat que tu préfères cuisiner ? Si tout le monde aime, tu prends ${num}."
+    },
+    {
+      "content": "${user}, désigne un joueur et demande-lui une recette que TU connais ? S'il la connaît tu prends ${num} sinon c'est lui."
+    },
+    {
+      "content": "Quel est le pire plat que ${user} ait jamais cuisiné ? Si c'est vraiment mauvais, il distribue ${num}."
+    },
+    {
+      "content": "Quel est le pire conseil que ${user} ait jamais reçu ? Si c'est vraiment mauvais, il prend ${num} !"
+    },
+    {
+      "content": "${user}, quel est le pire conseil que tu aies jamais donné à quelqu'un ? Si c'est vraiment mauvais, il prend ${num} ! Les autres jugent."
+    },
+    {
+      "content": "Si ${user} tu pouvais avoir un animal de compagnie qui sort de l'ordinaire, lequel ? Si personne ne comprend le choix, ${user} prend ${num}."
+    },
+    {
+      "content": "Quel est le pire cadeau que ${user} ait jamais reçu ? Si c'est vraiment nul, distribue ${num}."
+    },
+    {
+      "content": "Quel est le pire cadeau que ${user} ait jamais offert ? Si c'est vraiment nul, il prend ${num} !"
+    },
+    {
+      "content": "Tout le monde nomme une ville qu'il aimerait visiter. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
+    },
+    {
+      "content": "Tout le monde partagent son plat préféré. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
+    },
+    {
+      "content": "${user}, quel est ton talent caché ? Avec une démo à l'appui, ou prend ${num}."
+    },
+    {
+      "content": "${user}, raconte une anecdote drôle qui t'est arrivée récemment et prends ${num}."
+    },
+    {
+      "content": "${user}, quel est le meilleur cadeau que tu aies jamais reçu ?"
+    },
+    {
+      "content": "${user}, si tu pouvais vivre dans n'importe quel pays, lequel choisirais-tu ? Si quelqu'un a déjà vécu dans ce pays, il prend ${num}."
+    },
+    {
+      "content": "${user}, quel est le plat que tu préféres cuisiner ? Decrit la preparation en détail et distribue ${num}, ou prend ${num}."
+    },
+    {
+      "content": "${user}, quel est ton animal préféré ? Si c'est le chien ou le chat, tu prends ${num} sinon distribue les."
+    },
+    {
+      "content": "${user}, quelle est ta chanson préférée en ce moment ? Ceux qui l'ont dans leur playlist prennent ${num}."
+    },
+    {
+      "content": "${user}, quelle est ta série télé préférée ? Ceux qui ne l'ont jamais vu prennent ${num}."
+    },
+    {
+      "content": "Chacun nomme un film avec une couleur dans le titre. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "questions": [
+    {
+      "content": "Vote! Who is most likely to survive in a desert? ${num} for the least suited to the heat!"
+    },
+    {
+      "content": "Vote! Who is most likely to become a renowned artist? ${num} for the artist!"
+    },
+    {
+      "content": "Vote! Who is the most efficient at solving a math puzzle? ${num} for the most logical!"
+    },
+    {
+      "content": "Vote! Who is most likely to become a movie star? ${num} for the film lover!"
+    },
+    {
+      "content": "Vote! Who is most likely to become famous on social media? ${num} for the most influential!"
+    },
+    {
+      "content": "Vote! Who is the best at blind tests? ${num} for the quickest!"
+    },
+    {
+      "content": "Everyone tells their most unusual experience with an animal. The group votes for the best, who will distribute ${num} to the others!"
+    },
+    {
+      "content": "Vote! Who is most likely to become a reality TV star? ${num} for the least 'showbiz'!"
+    },
+    {
+      "content": "Vote! Who is most likely to travel around the world without planning? ${num} for the globe-trotter!"
+    },
+    {
+      "content": "Vote! Who is the best cook? ${num} for the chef!"
+    },
+    {
+      "content": "Vote! Who is the most forgetful? ${num} for the most absent-minded!"
+    },
+    {
+      "content": "Vote! Everyone names the person who falls asleep first at a party! ${num} for the most tired!"
+    },
+    {
+      "content": "Vote! Top, being able to fly, bottom, being able to change appearance at will. ${num} for the minority!"
+    },
+    {
+      "content": "Vote! Top, becoming famous for a strange dance, bottom, becoming famous for a silly song. ${num} for the losers!"
+    },
+    {
+      "content": "Vote! Who has the most quirky sense of humor in the group? ${num} for the comedian!"
+    },
+    {
+      "content": "Vote! Who is the most adventurous when it comes to trying new things? ${num} for the explorer!"
+    },
+    {
+      "content": "Vote! Who is most likely to get lost even with a GPS? ${num} for the most absent-minded!"
+    },
+    {
+      "content": "Vote! Who is the best detective when it comes to solving a mystery? ${num} for Sherlock!"
+    },
+    {
+      "content": "Vote! Who is the most messy with their stuff? ${num} for the messy one!"
+    },
+    {
+      "content": "Vote! Who has the largest shoe size? ${num} for the big feet!"
+    },
+    {
+      "content": "Vote! Who owns the most clothes? ${num} for the fashionista!"
+    },
+    {
+      "content": "Vote! Who has the largest collection of figurines? ${num} for the collector!"
+    },
+    {
+      "content": "Vote! Who has watched the most movies? ${num} for the film lover!"
+    },
+    {
+      "content": "Vote! Who has watched the most TV series? ${num} for the binge-watcher!"
+    },
+    {
+      "content": "Vote! Who has watched the most anime? ${num} for the weeb!"
+    },
+    {
+      "content": "Vote! Who is the biggest 'weeb' in the group? ${num} for the biggest otaku!"
+    },
+    {
+      "content": "Vote! Who is the tallest person in the group? ${num} for the tallest!"
+    },
+    {
+      "content": "Vote! Who is the shortest person in the group? ${num} for the shortest!"
+    },
+    {
+      "content": "Vote! Who is the most passionate about computer components? ${num} for the geek!"
+    },
+    {
+      "content": "Vote! Who is the most invested in sports activities? ${num} for the athlete!"
+    },
+    {
+      "content": "Vote! Who would have the motivation to take on a sporting challenge like a marathon? ${num} for the most enduring!"
+    },
+    {
+      "content": "Vote! Top, read minds, bottom, travel to the past (no return to the present). ${num} for the losers!"
+    },
+    {
+      "content": "Vote! Top, live forever, bottom, never age again (a kind of vampire). ${num} for the losers!"
+    },
+    {
+      "content": "Vote! Travel in time: top the future, bottom the past. ${num} for the losers!"
+    },
+    {
+      "content": "Vote! Top, telekinesis, bottom, teleportation. ${num} for the losers!"
+    },
+    {
+      "content": "Vote! Top, having hands instead of feet, bottom, having feet instead of hands. ${num} for the losers!"
+    },
+    {
+      "content": "Vote! Would ${user} be more effective at surviving a zombie apocalypse or an alien invasion?"
+    },
+    {
+      "content": "Vote! Would ${user} be more likely to become a renowned artist or a prominent scientist?"
+    },
+    {
+      "content": "Vote! Top, owning all series, bottom, owning all movies. ${num} for the losers!"
+    },
+    {
+      "content": "Vote! Top, becoming invisible, bottom, being able to read minds. ${num} for the losers!"
+    },
+    {
+      "content": "Vote! Top, being the best cook, bottom, being the best blacksmith. ${num} for the losers!"
+    },
+    {
+      "content": "Vote! Would ${user} be more effective at solving a crime mystery or a math puzzle?"
+    },
+    {
+      "content": "Vote! Would ${user} be more likely to survive in a desert or a dense forest?"
+    },
+    {
+      "content": "Vote! Top, being able to speak all the world's languages, bottom, being a genius in mathematics. ${num} for the losers!"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "questions": [
+    {
+      "content": "C'est la roue qui designera le prochain joueur qui devra boire ${num}."
+    },
+    {
+      "content": "${user} va trinquer avec le joueur designé par la roue avec ${num} !"
+    },
+    {
+      "content": "Le joueur designé par la roue devra boire ${num}."
+    },
+    {
+      "content": "Pas de bol! ${num} pour le joueur designé par la roue!"
+    },
+    {
+      "content": "Le joueur designé par la roue devra boire ${num}."
+    }
+  ]
+}

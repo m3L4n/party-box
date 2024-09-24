@@ -1,0 +1,28 @@
+{
+  "questions": [
+    {
+      "content": "${user} and ${user} play Rock-Paper-Scissors. The LOSER distributes ${num}!"
+    },
+    {
+      "content": "${user} and ${user} play Rock-Paper-Scissors. The WINNER distributes ${num}!"
+    },
+    {
+      "content": "${user} and ${user} have a staring contest. The first to look away takes ${num}!"
+    },
+    {
+      "content": "${user} and ${user} challenge each other to see who can balance on one leg the longest! The loser takes ${num}!"
+    },
+    {
+      "content": "${user} and ${user} play 'I Hold You, You Hold Me by the Goatee.' The FIRST to laugh takes ${num}!"
+    },
+    {
+      "content": "${user} and ${user} play 'I Hold You, You Hold Me by the Goatee.' The LAST to laugh takes ${num}!"
+    },
+    {
+      "content": "${user} and ${user} have a thumb war. The FIRST to get pinned takes ${num}!"
+    },
+    {
+      "content": "${user} and ${user} have a thumb war. The LAST to get pinned takes ${num}!"
+    }
+  ]
+}
