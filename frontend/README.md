@@ -1,7 +1,8 @@
-# Bouar
+# Party Box
 
 ## Installation
 
 ```bash
-yarn add bouar
+yarn
+yarn android
 ```
