@@ -1,7 +1,7 @@
 // src/components/organisms/Background.tsx
 
-import React from 'react';
-import { ImageBackground, StyleSheet, View } from 'react-native';
+import React from "react";
+import { ImageBackground, StyleSheet, View } from "react-native";
 
 interface BackgroundProps {
   backgroundColor: string;
@@ -9,16 +9,18 @@ interface BackgroundProps {
   children: React.ReactNode;
 }
 
-const Background: React.FC<BackgroundProps> = ({ backgroundColor, backgroundImage, children }) => {
+const Background: React.FC<BackgroundProps> = ({
+  backgroundColor,
+  backgroundImage,
+  children,
+}) => {
   return (
-    <View
-      style={[styles.color, { backgroundColor: backgroundColor }]}
-    >
+    <View style={[styles.color, { backgroundColor: backgroundColor }]}>
       {children}
       <ImageBackground
         resizeMode="repeat"
-        style={styles.background}
         source={backgroundImage}
+        style={styles.background}
       />
     </View>
   );
@@ -26,7 +28,7 @@ const Background: React.FC<BackgroundProps> = ({ backgroundColor, backgroundImag
 
 const styles = StyleSheet.create({
   color: {
-    position: 'absolute',
+    position: "absolute",
     opacity: 1,
     top: 0,
     width: "100%",
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
   },
   background: {
     zIndex: -1,
-    position: 'absolute',
+    position: "absolute",
     opacity: 0.15,
     width: "100%",
     height: "100%",

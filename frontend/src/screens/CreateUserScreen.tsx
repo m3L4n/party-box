@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Alert, KeyboardAvoidingView, Platform, StyleSheet, View } from "react-native";
+import {
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  View,
+} from "react-native";
 import { colors } from "../../assets/colors";
 import Input from "../../components/atoms/Input";
 import AddButton from "../../components/organisms/AddButton";
@@ -16,7 +22,7 @@ interface CreateUserScreenProps {
 }
 
 const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
-  const [name, setName] = useState<string>('');
+  const [name, setName] = useState<string>("");
   const [selectedColor, setSelectedColor] = useState<string>(getRandomColor());
 
   const handleNameChange = (text: string): void => {
@@ -36,7 +42,7 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
 
   const handleAddUser = async (): Promise<void> => {
     if (name.length <= 0) {
-      Alert.alert(t('alert_name'));
+      Alert.alert(t("alert_name"));
       return;
     }
     const newUser: User = {
@@ -44,47 +50,55 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
       color: selectedColor,
       isActive: true,
     };
-    setName('');
+    setName("");
     setSelectedColor(colors.primary.creme);
     const exists = await checkUserExistence(newUser.name);
     if (!exists) {
       await addUser(newUser);
     } else {
-      Alert.alert(t('alert_user_exist'));
+      Alert.alert(t("alert_user_exist"));
       return;
     }
-    navigation.navigate('Users');
+    navigation.navigate("Users");
   };
 
   return (
-    <KeyboardAvoidingView style={styles.container}
+    <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20}
+      style={styles.container}
     >
       <BackButton navigation={navigation} />
-      <EmptyUserCard user={{ name: name, color: selectedColor, isActive: false }} />
-      <ChooseColorComponent onPress={handleColorChange} active={selectedColor} />
-      <View
-        style={styles.group}
-      >
-        <Input placeholder={t('name')} onChangeText={handleNameChange} value={name} />
+      <EmptyUserCard
+        user={{ name: name, color: selectedColor, isActive: false }}
+      />
+      <ChooseColorComponent
+        active={selectedColor}
+        onPress={handleColorChange}
+      />
+      <View style={styles.group}>
+        <Input
+          onChangeText={handleNameChange}
+          placeholder={t("name")}
+          value={name}
+        />
         <AddButton content="Add" onPress={handleAddUser} />
       </View>
-    </KeyboardAvoidingView >
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-  alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   group: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '85%',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "85%",
     gap: 10,
   },
 });

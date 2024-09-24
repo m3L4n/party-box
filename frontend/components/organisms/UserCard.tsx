@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import Text from '../atoms/CustomText';
-import ActiveCardButton from '../molecules/ActiveCardButton';
-import { User } from '../../models/User';
+import React from "react";
+import { StyleSheet } from "react-native";
+import Text from "../atoms/CustomText";
+import ActiveCardButton from "../molecules/ActiveCardButton";
+import { User } from "../../models/User";
 
 interface UserCardProps {
   user: User;
@@ -14,18 +14,18 @@ const UserCard: React.FC<UserCardProps> = ({ user, onPress }) => {
 
   return (
     <ActiveCardButton
-      onPress={onPress}
-      content={<Text>{name}</Text>}
-      style={{ ...styles.container, backgroundColor: color }}
-      active={isActive}
       accessibilityLabel={`user_card_${name}`}
+      active={isActive}
+      content={<Text>{name}</Text>}
+      onPress={onPress}
+      style={{ ...styles.container, backgroundColor: color }}
     />
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    color: 'black',
+    color: "black",
   },
 });
 

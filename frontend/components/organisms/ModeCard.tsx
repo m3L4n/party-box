@@ -1,13 +1,13 @@
 // components/molecules/ModeCard.tsx
 
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { colors } from '../../assets/colors';
-import { toggleModeStatus } from '../../services/mode';
-import Text from '../atoms/CustomText';
-import ActiveCardButton from '../molecules/ActiveCardButton';
-import { Mode } from '../../models/Mode';
-import { t } from 'i18next';
+import React from "react";
+import { StyleSheet } from "react-native";
+import { colors } from "../../assets/colors";
+import { toggleModeStatus } from "../../services/mode";
+import Text from "../atoms/CustomText";
+import ActiveCardButton from "../molecules/ActiveCardButton";
+import { Mode } from "../../models/Mode";
+import { t } from "i18next";
 
 interface ModeCardProps {
   mode: Mode;
@@ -19,17 +19,17 @@ const ModeCard: React.FC<ModeCardProps> = ({ mode, onPress }) => {
 
   return (
     <ActiveCardButton
-      onPress={onPress}
-      content={<Text>{t(name)}</Text>}
-      style={{ ...styles.container, backgroundColor: colors.primary.creme }}
       active={isActive}
+      content={<Text>{t(name)}</Text>}
+      onPress={onPress}
+      style={{ ...styles.container, backgroundColor: colors.primary.creme }}
     />
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    color: 'black',
+    color: "black",
   },
 });
 

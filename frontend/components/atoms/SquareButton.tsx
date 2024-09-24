@@ -1,15 +1,20 @@
 // components/atoms/SquareButton.tsx
 
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import Button, { ButtonProps } from './Button';
+import React from "react";
+import { StyleSheet } from "react-native";
+import Button, { ButtonProps } from "./Button";
 
-const SquareButton = ({ content, onPress, style, accessibilityLabel }: ButtonProps) => {
+const SquareButton = ({
+  content,
+  onPress,
+  style,
+  accessibilityLabel,
+}: ButtonProps) => {
   return (
     <Button
+      accessibilityLabel={accessibilityLabel}
       content={content}
       onPress={onPress}
-      accessibilityLabel={accessibilityLabel}
       style={[styles.container, style]}
     />
   );

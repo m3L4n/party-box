@@ -1,11 +1,10 @@
 // src/screens/PartyEnd.tsx
 
 import React from "react";
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from "react-native";
 import Text from "../../components/atoms/CustomText";
 
 const PartyEndScreen = () => {
-
   return (
     <View style={{ ...styles.container }}>
       <Text style={{ ...styles.title }}> Fin de la partie !</Text>
@@ -23,13 +22,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 50,
-    fontFamily: 'BebasNeue-Regular',
+    fontFamily: "BebasNeue-Regular",
     letterSpacing: 5,
-    color: 'black',
+    color: "black",
   },
 });
 
 export default PartyEndScreen;
-
-
-

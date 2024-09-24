@@ -1,5 +1,7 @@
 // eslint.config.js
 
+import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin';
+import typescriptEslintParser from '@typescript-eslint/parser';
 import prettier from 'eslint-plugin-prettier';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -16,10 +18,12 @@ export default [
         ...globals.browser,
         ...globals.es2020,
       },
+      parser: typescriptEslintParser,
     },
     plugins: {
       react,
       reactHooks,
+      '@typescript-eslint': typescriptEslintPlugin,
       prettier,
     },
     rules: {

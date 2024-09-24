@@ -1,19 +1,25 @@
 // components/organisms/ModalComponent.tsx
 
-import React, { useState } from 'react';
-import { Modal, StyleSheet, View } from 'react-native';
-import { colors } from '../../assets/colors';
-import Text from '../atoms/CustomText';
-import MenuButton from '../molecules/MenuButton';
-import CrossButton from './CrossButton';
-import { useTranslation } from 'react-i18next';
-import LanguageComponent from './LanguageComponent';
-import RulesComponent from './RulesComponent';
-import CreditsComponent from './CreditsComponent';
-import * as Linking from 'expo-linking';
+import React, { useState } from "react";
+import { Modal, StyleSheet, View } from "react-native";
+import { colors } from "../../assets/colors";
+import Text from "../atoms/CustomText";
+import MenuButton from "../molecules/MenuButton";
+import CrossButton from "./CrossButton";
+import { useTranslation } from "react-i18next";
+import LanguageComponent from "./LanguageComponent";
+import RulesComponent from "./RulesComponent";
+import CreditsComponent from "./CreditsComponent";
+import * as Linking from "expo-linking";
 
-const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal: () => void }) => {
-  const version = require('../../package.json').version;
+const ModalComponent = ({
+  visible,
+  closeModal,
+}: {
+  visible: boolean;
+  closeModal: () => void;
+}) => {
+  const version = require("../../package.json").version;
   const { t } = useTranslation();
   const [rulesOpen, setRulesOpen] = useState(false);
   const [creditsOpen, setCreditsOpen] = useState(false);
@@ -38,9 +44,9 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
 
   const handlePressJoin = async () => {
     try {
-      const email = 'partybox.contactus@gmail.com';
-      const subject = encodeURIComponent('Joining the game');
-      const body = encodeURIComponent('I want to join the game');
+      const email = "partybox.contactus@gmail.com";
+      const subject = encodeURIComponent("Joining the game");
+      const body = encodeURIComponent("I want to join the game");
       const url = `mailto:${email}?subject=${subject}&body=${body}`;
       const canOpen = await Linking.canOpenURL(url);
       if (canOpen) {
@@ -49,15 +55,15 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
         console.error(`Cannot open url: ${url}`);
       }
     } catch (error) {
-      console.error('Error opening URL:', error);
+      console.error("Error opening URL:", error);
     }
   };
 
   const handlePressReport = async () => {
     try {
-      const email = 'partybox.contactus@gmail.com';
-      const subject = encodeURIComponent('Reporting a bug');
-      const body = encodeURIComponent('I want to report a bug');
+      const email = "partybox.contactus@gmail.com";
+      const subject = encodeURIComponent("Reporting a bug");
+      const body = encodeURIComponent("I want to report a bug");
       const url = `mailto:${email}?subject=${subject}&body=${body}`;
       const canOpen = await Linking.canOpenURL(url);
       if (canOpen) {
@@ -67,7 +73,7 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
         console.error(`Cannot open url: ${url}`);
       }
     } catch (error) {
-      console.error('Error opening URL:', error);
+      console.error("Error opening URL:", error);
     }
   };
 
@@ -75,8 +81,7 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
     <Modal animationType="slide" transparent={true} visible={visible}>
       <View style={{ ...styles.modal }}>
         <CrossButton onPress={handlePressClose} />
-        {!rulesOpen && !creditsOpen &&
-          <>
+        {!rulesOpen && !creditsOpen ? <>
             <Text style={{ ...styles.title }}>{t('settings')}</Text>
             <View>
               <MenuButton text={t("how_to_play")} onPress={handlePressRules} accessibilityLabel='how_to_play' />
@@ -86,41 +91,41 @@ const ModalComponent = ({ visible, closeModal }: { visible: boolean, closeModal:
               <LanguageComponent />
               <Text style={styles.version}>v.{version}</Text>
             </View>
-          </>
-        }
-        {rulesOpen && <RulesComponent />}
-        {creditsOpen && <CreditsComponent />}
+          </> : null
+        )}
+        {rulesOpen ? <RulesComponent /> : null}
+        {creditsOpen ? <CreditsComponent /> : null}
       </View>
-    </Modal >
+    </Modal>
   );
-}
+};
 
 const styles = StyleSheet.create({
   title: {
     fontSize: 30,
-    fontFamily: 'BebasNeue-Regular',
+    fontFamily: "BebasNeue-Regular",
     letterSpacing: 5,
-    color: 'black',
+    color: "black",
     marginBottom: 20,
   },
   modal: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: colors.secondary.creme,
     margin: 30,
     borderRadius: 10,
-    borderStyle: 'solid',
+    borderStyle: "solid",
     borderRightWidth: 4,
     borderBottomWidth: 4,
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: "black",
   },
   version: {
     fontSize: 20,
-    fontFamily: 'BebasNeue-Regular',
+    fontFamily: "BebasNeue-Regular",
     letterSpacing: 5,
-    color: 'black',
+    color: "black",
     marginTop: 40,
   },
 });

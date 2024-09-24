@@ -10,7 +10,12 @@ import BackButton from "../../components/organisms/BackButton";
 import ModeCard from "../../components/organisms/ModeCard";
 import ReloadButton from "../../components/organisms/ReloadButton";
 import { Mode } from "../../models/Mode";
-import { addMode, deleteAllModes, loadModes, toggleModeStatus } from "../../services/mode";
+import {
+  addMode,
+  deleteAllModes,
+  loadModes,
+  toggleModeStatus,
+} from "../../services/mode";
 import { t } from "i18next";
 import { BACKEND_URL } from "@env";
 
@@ -20,13 +25,13 @@ interface ModesScreenProps {
 
 const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
   const [modes, setModes] = useState<Mode[]>([]);
-  
+
   const fetchModesFromBackend = async () => {
     try {
       const response = await fetch(`${BACKEND_URL}/modes`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
       const fetchedModes: Mode[] = await response.json();
@@ -35,13 +40,13 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
       }
       setModes(fetchedModes);
     } catch (error) {
-      console.error('Error fetching modes from backend:', error);
+      console.error("Error fetching modes from backend:", error);
     }
   };
-  
+
   const prefillModes = async () => {
     const storedModes = await loadModes();
-    
+
     if (storedModes.length > 0) {
       setModes(storedModes);
     } else {
@@ -59,32 +64,55 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
   };
 
   const handleNextButtonPress = async () => {
-    const activeModes = Object.values(modes).filter(mode => mode.isActive);
+    const activeModes = Object.values(modes).filter((mode) => mode.isActive);
     if (activeModes.length === 0) {
-      Alert.alert(t('alert_mode'));
+      Alert.alert(t("alert_mode"));
       return;
     }
-    navigation.navigate('Play');
-  }
+    navigation.navigate("Play");
+  };
 
   const handleReloadPress = async () => {
     await deleteAllModes();
     setModes([]);
     await prefillModes();
-  }
+  };
 
   return (
     <View style={styles.container}>
       <BackButton navigation={navigation} />
       <ReloadButton onPress={handleReloadPress} />
       <Text style={styles.title}>Modes</Text>
-      <ScrollView style={{ width: '100%' }} contentContainerStyle={{ justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row', gap: 10 }}>
+      <ScrollView
+        contentContainerStyle={{
+          justifyContent: "center",
+          flexWrap: "wrap",
+          flexDirection: "row",
+          gap: 10,
+        }}
+        style={{ width: "100%" }}
+      >
         {Object.values(modes).map((mode, index) => (
-          <ModeCard key={index} mode={mode} onPress={() => handleModePress(mode.name)} />
+          <ModeCard
+            key={index}
+            mode={mode}
+            onPress={() => handleModePress(mode.name)}
+          />
         ))}
       </ScrollView>
-      <Text style={styles.info_text}>{Object.values(modes).filter(user => user.isActive).length + " " + t('selected_modes')}</Text>
-      {Object.values(modes).filter(mode => mode.isActive).length === 0 ? null : <MenuButton color={colors.primary.green} text={t('next')} onPress={handleNextButtonPress} />}
+      <Text style={styles.info_text}>
+        {Object.values(modes).filter((user) => user.isActive).length +
+          " " +
+          t("selected_modes")}
+      </Text>
+      {Object.values(modes).filter((mode) => mode.isActive).length ===
+      0 ? null : (
+        <MenuButton
+          color={colors.primary.green}
+          onPress={handleNextButtonPress}
+          text={t("next")}
+        />
+      )}
     </View>
   );
 };
@@ -94,21 +122,21 @@ const styles = StyleSheet.create({
     paddingTop: 100,
     paddingBottom: 100,
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   title: {
     fontSize: 50,
     letterSpacing: 5,
-    color: 'black',
+    color: "black",
     marginBottom: 30,
     marginTop: 30,
   },
   info_text: {
     fontSize: 30,
-    fontFamily: 'BebasNeue-Regular',
-    color: 'black',
-  }
+    fontFamily: "BebasNeue-Regular",
+    color: "black",
+  },
 });
 
 export default ModesScreen;

@@ -1,7 +1,7 @@
 // components/atoms/Input.tsx
 
-import React from 'react';
-import { StyleSheet, TextInput } from 'react-native';
+import React from "react";
+import { StyleSheet, TextInput } from "react-native";
 
 type InputProps = {
   placeholder: string;
@@ -12,32 +12,32 @@ type InputProps = {
 const Input = ({ placeholder, onChangeText, value }: InputProps) => {
   return (
     <TextInput
-      style={[styles.container]}
-      onChangeText={onChangeText}
-      value={value}
-      placeholder={placeholder}
-      editable={true}
-      maxLength={40}
-      focusable={true}
-      accessibilityRole='text'
+      accessibilityRole="text"
       accessible={true}
+      editable={true}
+      focusable={true}
+      maxLength={40}
+      onChangeText={onChangeText}
+      placeholder={placeholder}
+      style={[styles.container]}
+      value={value}
     />
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: '80%',
+    width: "80%",
     height: 50,
     padding: 10,
     marginVertical: 10,
     borderRadius: 10,
-    borderStyle: 'solid',
+    borderStyle: "solid",
     borderRightWidth: 4,
     borderBottomWidth: 4,
     borderWidth: 2,
-    borderColor: 'black',
-    fontFamily: 'BebasNeue-Regular',
+    borderColor: "black",
+    fontFamily: "BebasNeue-Regular",
   },
 });
 

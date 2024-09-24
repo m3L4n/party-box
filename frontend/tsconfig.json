@@ -7,7 +7,7 @@
       "es7",
       "esnext"
     ],
-    "allowJs": false,
+    "allowJs": true,
     "jsx": "react-native",
     "strict": true,
     "moduleResolution": "node",

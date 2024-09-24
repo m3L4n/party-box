@@ -1,12 +1,18 @@
 // components/organisms/ChooseColorComponent.tsx
 
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { colors } from '../../assets/colors';
-import ColorButton from '../molecules/ColorButton';
-import { ScrollView } from 'react-native-gesture-handler';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { colors } from "../../assets/colors";
+import ColorButton from "../molecules/ColorButton";
+import { ScrollView } from "react-native-gesture-handler";
 
-const ChooseColorComponent = ({ onPress, active }: { onPress: (color: string) => void, active: string }) => {
+const ChooseColorComponent = ({
+  onPress,
+  active,
+}: {
+  onPress: (color: string) => void;
+  active: string;
+}) => {
   const [activeColor, setActiveColor] = React.useState(active);
 
   React.useEffect(() => {
@@ -19,20 +25,22 @@ const ChooseColorComponent = ({ onPress, active }: { onPress: (color: string) =>
   };
 
   return (
-    <ScrollView style={styles.container} horizontal={true} showsHorizontalScrollIndicator={false}>
-      <View style={styles.container} >
-        {
-          Object.values(colors.primary).map((color) => (
-            <ColorButton
-              key={color}
-              onPress={() => handleColorPress(color)}
-              color={color}
-              isActive={activeColor === color}
-              accessibilityLabel={`color_${color}`}
-            />
-          ))
-        }
-      </View >
+    <ScrollView
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      style={styles.container}
+    >
+      <View style={styles.container}>
+        {Object.values(colors.primary).map((color) => (
+          <ColorButton
+            accessibilityLabel={`color_${color}`}
+            color={color}
+            isActive={activeColor === color}
+            key={color}
+            onPress={() => handleColorPress(color)}
+          />
+        ))}
+      </View>
     </ScrollView>
   );
 };
@@ -42,7 +50,7 @@ const styles = StyleSheet.create({
     height: 48,
     maxHeight: 60,
     marginHorizontal: 10,
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 10,
   },
 });
