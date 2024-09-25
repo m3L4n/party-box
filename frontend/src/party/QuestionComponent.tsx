@@ -1,6 +1,6 @@
 // src/party/QuestionComponent.tsx
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { StyleSheet, TouchableOpacity, View } from "react-native"
 import { colors } from "../../assets/colors"
 import Text from "../../components/atoms/CustomText"
@@ -10,8 +10,11 @@ import { t } from "i18next"
 import LikeDislikeComponent from "../../components/organisms/LikeDislikeComponent"
 
 const QuestionComponent = ({ question }: { question: Question }) => {
-  // Quiz question
   const [showAnswer, setShowAnswer] = useState<boolean>(false)
+
+  useEffect(() => {
+    setShowAnswer(false)
+  }, [question])
 
   const renderQuizQuestion = () => {
     return (

@@ -2,435 +2,378 @@
   "questions": [
     {
       "content": "Quelle est la capitale de la Corée du Sud ?",
-      "options": [
-        "Séoul"
-      ]
+      "answer": "Séoul",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale du Japon ?",
-      "options": [
-        "Tokyo"
-      ]
+      "answer": "Tokyo",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Indonésie ?",
-      "options": [
-        "Jakarta"
-      ]
+      "answer": "Jakarta",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Espagne ?",
-      "options": [
-        "Madrid"
-      ]
+      "answer": "Madrid",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Indonésie ?",
-      "options": [
-        "Jakarta"
-      ]
+      "answer": "Jakarta",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Espagne ?",
-      "options": [
-        "Madrid"
-      ]
+      "answer": "Madrid",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Allemagne ?",
-      "options": [
-        "Berlin"
-      ]
+      "answer": "Berlin",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale du Canada ?",
-      "options": [
-        "Ottawa"
-      ]
+      "answer": "Ottawa",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Argentine ?",
-      "options": [
-        "Buenos Aires"
-      ]
+      "answer": "Buenos Aires",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Arabie Saoudite ?",
-      "options": [
-        "Riyad"
-      ]
+      "answer": "Riyad",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Afrique du Sud ?",
-      "options": [
-        "Pretoria"
-      ]
+      "answer": "Pretoria",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Algérie ?",
-      "options": [
-        "Alger"
-      ]
+      "answer": "Alger",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Angola ?",
-      "options": [
-        "Luanda"
-      ]
+      "answer": "Luanda",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de la Belgique ?",
-      "options": [
-        "Bruxelles"
-      ]
+      "answer": "Bruxelles",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Australie ?",
-      "options": [
-        "Canberra"
-      ]
+      "answer": "Canberra",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute d'Amérique du Nord ?",
-      "options": [
-        "Denali"
-      ]
+      "answer": "Denali",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute d'Afrique ?",
-      "options": [
-        "Kilimandjaro"
-      ]
+      "answer": "Kilimandjaro",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute du monde ?",
-      "options": [
-        "Everest"
-      ]
+      "answer": "Everest",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute d'Europe ?",
-      "options": [
-        "Mont Blanc"
-      ]
+      "answer": "Mont Blanc",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute d'Amérique du Sud ?",
-      "options": [
-        "Aconcagua"
-      ]
+      "answer": "Aconcagua",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute d'Asie ?",
-      "options": [
-        "Everest"
-      ]
+      "answer": "Everest",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute d'Océanie ?",
-      "options": [
-        "Puncak Jaya"
-      ]
+      "answer": "Puncak Jaya",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute de l'Antarctique ?",
-      "options": [
-        "Mont Vinson"
-      ]
+      "answer": "Mont Vinson",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée au Royaume-Uni ?",
-      "options": [
-        "Livre sterling"
-      ]
+      "answer": "Livre sterling",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée aux États-Unis ?",
-      "options": [
-        "Dollar"
-      ]
+      "answer": "Dollar",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Russie ?",
-      "options": [
-        "Rouble"
-      ]
+      "answer": "Rouble",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Chine ?",
-      "options": [
-        "Yuan"
-      ]
+      "answer": "Yuan",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée au Japon ?",
-      "options": [
-        "Yen"
-      ]
+      "answer": "Yen",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée au Chili ?",
-      "options": [
-        "Peso"
-      ]
+      "answer": "Peso",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Algérie ?",
-      "options": [
-        "Dinar"
-      ]
+      "answer": "Dinar",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Inde ?",
-      "options": [
-        "Roupie"
-      ]
+      "answer": "Roupie",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée au Danemark ?",
-      "options": [
-        "Couronne"
-      ]
+      "answer": "Couronne",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Pologne ?",
-      "options": [
-        "Zloty"
-      ]
+      "answer": "Zloty",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Australie ?",
-      "options": [
-        "Dollar australien"
-      ]
+      "answer": "Dollar australien",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale du Vietnam ?",
-      "options": [
-        "Hanoï"
-      ]
+      "answer": "Hanoï",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale du Pérou ?",
-      "options": [
-        "Lima"
-      ]
+      "answer": "Lima",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale du Nigeria ?",
-      "options": [
-        "Abuja"
-      ]
+      "answer": "Abuja",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de la Suède ?",
-      "options": [
-        "Stockholm"
-      ]
+      "answer": "Stockholm",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de la Thaïlande ?",
-      "options": [
-        "Bangkok"
-      ]
+      "answer": "Bangkok",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de la Grèce ?",
-      "options": [
-        "Athènes"
-      ]
+      "answer": "Athènes",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de la Norvège ?",
-      "options": [
-        "Oslo"
-      ]
+      "answer": "Oslo",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de la Pologne ?",
-      "options": [
-        "Varsovie"
-      ]
+      "answer": "Varsovie",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de la Hongrie ?",
-      "options": [
-        "Budapest"
-      ]
+      "answer": "Budapest",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Éthiopie ?",
-      "options": [
-        "Addis-Abeba"
-      ]
+      "answer": "Addis-Abeba",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale du Chili ?",
-      "options": [
-        "Santiago"
-      ]
+      "answer": "Santiago",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de la Colombie ?",
-      "options": [
-        "Bogota"
-      ]
+      "answer": "Bogota",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de la Finlande ?",
-      "options": [
-        "Helsinki"
-      ]
+      "answer": "Helsinki",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale du Portugal ?",
-      "options": [
-        "Lisbonne"
-      ]
+      "answer": "Lisbonne",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de l'Irlande ?",
-      "options": [
-        "Dublin"
-      ]
+      "answer": "Dublin",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de la Suisse ?",
-      "options": [
-        "Berne"
-      ]
+      "answer": "Berne",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la capitale de la Roumanie ?",
-      "options": [
-        "Bucarest"
-      ]
+      "answer": "Bucarest",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute d'Australie ?",
-      "options": [
-        "Mont Kosciuszko"
-      ]
+      "answer": "Mont Kosciuszko",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute de Russie ?",
-      "options": [
-        "Mont Elbrouz"
-      ]
+      "answer": "Mont Elbrouz",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute d'Italie ?",
-      "options": [
-        "Mont Blanc"
-      ]
+      "answer": "Mont Blanc",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute de France ?",
-      "options": [
-        "Mont Blanc"
-      ]
+      "answer": "Mont Blanc",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute d'Espagne ?",
-      "options": [
-        "Teide"
-      ]
+      "answer": "Teide",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute d'Autriche ?",
-      "options": [
-        "Grossglockner"
-      ]
+      "answer": "Grossglockner",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de la montagne la plus haute de Suède ?",
-      "options": [
-        "Kebnekaise"
-      ]
+      "answer": "Kebnekaise",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée au Mexique ?",
-      "options": [
-        "Peso"
-      ]
+      "answer": "Peso",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Suède ?",
-      "options": [
-        "Couronne suédoise"
-      ]
+      "answer": "Couronne suédoise",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Norvège ?",
-      "options": [
-        "Couronne norvégienne"
-      ]
+      "answer": "Couronne norvégienne",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Suisse ?",
-      "options": [
-        "Franc suisse"
-      ]
+      "answer": "Franc suisse",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Corée du Sud ?",
-      "options": [
-        "Won"
-      ]
+      "answer": "Won",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Thaïlande ?",
-      "options": [
-        "Baht"
-      ]
+      "answer": "Baht",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Israël ?",
-      "options": [
-        "Shekel"
-      ]
+      "answer": "Shekel",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Turquie ?",
-      "options": [
-        "Livre turque"
-      ]
+      "answer": "Livre turque",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée en Malaisie ?",
-      "options": [
-        "Ringgit"
-      ]
+      "answer": "Ringgit",
+      "type": "quiz"
     },
     {
       "content": "Quelle est la monnaie utilisée aux Philippines ?",
-      "options": [
-        "Peso"
-      ]
+      "answer": "Peso",
+      "type": "quiz"
     },
     {
       "content": "Quel est le nom de l'ancienne route commerciale reliant l'Europe à l'Asie ?",
-      "options": [
-        "Route de la soie"
-      ]
+      "answer": "Route de la soie",
+      "type": "quiz"
     },
     {
       "content": "Quel pays possède un drapeau rouge avec une étoile blanche au centre ?",
-      "options": [
-        "Vietnam"
-      ]
+      "answer": "Vietnam",
+      "type": "quiz"
     },
     {
       "content": "Quel pays possède un drapeau rouge avec un croissant et une étoile blanche ?",
-      "options": [
-        "Turquie"
-      ]
+      "answer": "Turquie",
+      "type": "quiz"
     },
     {
       "content": "Quel pays possède un drapeau avec un aigle qui devore un serpent ?",
-      "options": [
-        "Mexique"
-      ]
+      "answer": "Mexique",
+      "type": "quiz"
+    },
+    {
+      "content": "Quel est le nom du célèbre empereur romain ?",
+      "answer": "Jules César",
+      "type": "quiz"
+    },
+    {
+      "content": "Quel est la date de la prise de la Bastille ?",
+      "answer": "14 juillet 1789",
+      "type": "quiz"
+    },
+    {
+      "content": "Quelle année a vu la fin de la Seconde Guerre mondiale ?",
+      "answer": "1945",
+      "type": "quiz"
     }
   ]
 }

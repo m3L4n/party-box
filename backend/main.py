@@ -3,7 +3,7 @@
 from flask import Flask
 from models import Base
 from database import engine
-from handlers import router as question_router
+from backend.question_service import router as question_router
 
 app = Flask(__name__)
 

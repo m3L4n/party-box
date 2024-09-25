@@ -179,6 +179,15 @@
     },
     {
       "content": "Chacun nomme un film avec une couleur dans le titre. ${user} commence. ${num} pour celui qui ne trouve pas, ou répète !"
+    },
+    {
+      "content": "Le dernier a toucher un objet de couleur rouge prend ${num}."
+    },
+    {
+      "content": "Le dernier a toucher un objet de couleur vert prend ${num}."
+    },
+    {
+      "content": "Le dernier a toucher un objet de couleur jaune prend ${num}."
     }
   ]
 }

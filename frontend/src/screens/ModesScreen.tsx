@@ -18,6 +18,7 @@ import {
 } from "../../services/mode"
 import { t } from "i18next"
 import { BACKEND_URL } from "@env"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 
 interface ModesScreenProps {
   navigation: any
@@ -28,13 +29,15 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
 
   const fetchModesFromBackend = async () => {
     try {
-      const response = await fetch(`${BACKEND_URL}/modes`, {
+      const lang = (await AsyncStorage.getItem("lang")) || "fr"
+      const response = await fetch(`${BACKEND_URL}/modes/${lang}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
       })
       const fetchedModes = await response.json()
+      console.log("response", fetchedModes)
       const newModes = fetchedModes.map((mode: string) => ({
         name: mode,
         isActive: false,
