@@ -37,7 +37,6 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
         },
       })
       const fetchedModes = await response.json()
-      console.log("response", fetchedModes)
       const newModes = fetchedModes.map((mode: string) => ({
         name: mode,
         isActive: false,

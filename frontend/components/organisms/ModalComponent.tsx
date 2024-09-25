@@ -67,7 +67,6 @@ const ModalComponent = ({
       const url = `mailto:${email}?subject=${subject}&body=${body}`
       const canOpen = await Linking.canOpenURL(url)
       if (canOpen) {
-        console.log(`Opening URL: ${url}`)
         Linking.openURL(url)
       } else {
         console.error(`Cannot open url: ${url}`)

@@ -2,20 +2,22 @@
 
 import DislikeButton from "./DislikeButton"
 import LikeButton from "./LikeButton"
-
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { StyleSheet, Text, View } from "react-native"
+import { BACKEND_URL } from "@env"
 
 const LikeDislikeComponent = ({ questionId }: { questionId: number }) => {
   const [rated, setRated] = useState<boolean>(false)
 
+  useEffect(() => {
+    setRated(false)
+  }, [questionId])
+
   const handleLikeClick = async () => {
     try {
-      const response = await fetch(`/questions/${questionId}/like`, {
+      await fetch(`${BACKEND_URL}/questions/${questionId}/like`, {
         method: "POST",
       })
-      const data = await response.json()
-      console.log(data.message, data.new_score)
       setRated(true)
     } catch (error) {
       console.error("Error liking the question:", error)
@@ -24,11 +26,9 @@ const LikeDislikeComponent = ({ questionId }: { questionId: number }) => {
 
   const handleDislikeClick = async () => {
     try {
-      const response = await fetch(`/questions/${questionId}/dislike`, {
+      await fetch(`${BACKEND_URL}/questions/${questionId}/dislike`, {
         method: "POST",
       })
-      const data = await response.json()
-      console.log(data.message, data.new_score)
       setRated(true)
     } catch (error) {
       console.error("Error disliking the question:", error)
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: "BebasNeue-Regular",
     textAlign: "center",
-    marginTop: 10,
+    marginTop: 18,
     marginLeft: 10,
   },
 })
