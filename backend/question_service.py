@@ -6,6 +6,9 @@ from models import Question
 def fetch_questions_by_mode(db, mode_list, language):
     return db.query(Question).filter(Question.mode.in_(mode_list), Question.language == language).all()
 
+def get_question_by_id(db, question_id):
+    return db.query(Question).filter(Question.id == question_id).first()
+
 def get_unique_questions(questions):
     seen_contents = set()
     unique_questions = [q for q in questions if q.content not in seen_contents and not seen_contents.add(q.content)]
@@ -49,7 +52,8 @@ def prepare_questions_for_game(questions, user_list):
             "mode": q.mode,
             "language": q.language,
             "content": final_content,
-            "answer": q.answer
+            "answer": q.answer,
+            "score": q.score
         })
 
     return final_questions

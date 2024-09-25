@@ -19,7 +19,7 @@ const QuestionComponent = ({ question }: { question: Question }) => {
   const renderQuizQuestion = () => {
     return (
       <>
-        <LikeDislikeComponent />
+        <LikeDislikeComponent questionId={question.id} />
         {showAnswer ? (
           <View
             style={{
@@ -57,7 +57,7 @@ const QuestionComponent = ({ question }: { question: Question }) => {
   const renderDefaultQuestion = () => {
     return (
       <View style={{ ...styles.container }}>
-        <LikeDislikeComponent />
+        <LikeDislikeComponent questionId={question.id} />
         <Text style={{ ...styles.title }}>{t(question.mode)}</Text>
         <Text style={{ ...styles.text }}>{question.content}</Text>
       </View>

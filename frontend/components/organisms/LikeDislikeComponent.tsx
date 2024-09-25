@@ -6,17 +6,33 @@ import LikeButton from "./LikeButton"
 import { useState } from "react"
 import { StyleSheet, Text, View } from "react-native"
 
-const LikeDislikeComponent = () => {
+const LikeDislikeComponent = ({ questionId }: { questionId: number }) => {
   const [rated, setRated] = useState<boolean>(false)
 
   const handleLikeClick = async () => {
-    console.log("Like clicked")
-    setRated(true)
+    try {
+      const response = await fetch(`/questions/${questionId}/like`, {
+        method: "POST",
+      })
+      const data = await response.json()
+      console.log(data.message, data.new_score)
+      setRated(true)
+    } catch (error) {
+      console.error("Error liking the question:", error)
+    }
   }
 
   const handleDislikeClick = async () => {
-    console.log("Dislike clicked")
-    setRated(true)
+    try {
+      const response = await fetch(`/questions/${questionId}/dislike`, {
+        method: "POST",
+      })
+      const data = await response.json()
+      console.log(data.message, data.new_score)
+      setRated(true)
+    } catch (error) {
+      console.error("Error disliking the question:", error)
+    }
   }
 
   return (

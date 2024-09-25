@@ -50,6 +50,7 @@ def insert_questions(session: Session, questions):
             language=item["language"],
             content=item["content"],
             answer=item["answer"],
+            score=0
         )
         session.add(question)
     session.commit()

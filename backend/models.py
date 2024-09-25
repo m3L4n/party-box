@@ -12,3 +12,4 @@ class Question(Base):
     language = Column(String(50))
     content = Column(String(250))
     answer = Column(String(250))
+    score = Column(Integer, default=0)
