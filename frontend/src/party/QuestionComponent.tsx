@@ -64,7 +64,7 @@ const QuestionComponent = ({ question }: { question: Question }) => {
     )
   }
 
-  switch (question.mode) {
+  switch (question.type) {
     case "quiz":
       return renderQuizQuestion()
     default:

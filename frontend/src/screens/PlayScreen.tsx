@@ -44,8 +44,12 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
             session_id: sessionId,
           }),
         })
+        if (!response.ok) {
+          const errorText = await response.text()
+          console.error("Erreur côté serveur:", errorText)
+          return []
+        }
         const data = await response.json()
-        console.log("Data: ", data)
         if (!sessionId && data.session_id) {
           setSessionId(data.session_id)
         }
@@ -55,6 +59,7 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
             id: question.id,
             content: question.content,
             mode: question.mode,
+            type: question.type,
             user: question.user,
             answer: question?.answer,
           }
