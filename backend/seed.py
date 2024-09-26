@@ -31,6 +31,7 @@ def load_json_data(json_dir):
         for file in files:
             if file.endswith(".json"):
                 filepath = os.path.join(root, file)
+                print(f"Loading questions from {filepath}...")
                 with open(filepath, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     mode, language = parse_mode_and_language(filepath)
