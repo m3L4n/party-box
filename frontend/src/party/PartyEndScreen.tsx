@@ -3,11 +3,18 @@
 import React from "react"
 import { StyleSheet, View } from "react-native"
 import Text from "../../components/atoms/CustomText"
+import LottieView from "lottie-react-native"
 
 const PartyEndScreen = () => {
   return (
     <View style={{ ...styles.container }}>
       <Text style={{ ...styles.title }}> Fin de la partie !</Text>
+      <LottieView
+        source={require("../../assets/end.json")}
+        autoPlay
+        loop={false}
+        style={{ width: 400, height: 400, position: "absolute" }}
+      />
     </View>
   )
 }

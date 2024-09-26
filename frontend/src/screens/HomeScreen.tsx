@@ -55,9 +55,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 64,
+    marginBottom: 50,
     fontFamily: "BebasNeue-Regular",
-    letterSpacing: 2,
-    color: "black",
+    letterSpacing: 3,
+    color: "rgba(0,0,0,0.8)",
   },
 })
 

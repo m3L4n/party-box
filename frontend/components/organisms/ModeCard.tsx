@@ -28,6 +28,8 @@ const ModeCard: React.FC<ModeCardProps> = ({ mode, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
+    width: 100,
+    padding: 5,
     color: "black",
   },
 })

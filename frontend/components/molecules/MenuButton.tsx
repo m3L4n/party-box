@@ -32,6 +32,8 @@ const MenuButton = ({
 
 const styles = StyleSheet.create({
   container: {
+    height: 70,
+    width: 300,
     color: "black",
   },
   text: {

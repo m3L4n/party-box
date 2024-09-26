@@ -24,5 +24,9 @@
   "rules_details": "1. Créer un.e ou plusieurs joueur.euse.s \n\n2. Choisir un ou plusieurs modes de jeu\n\n3. Lancer la partie\n\n4. Vous êtes libre de modifier les règles comme bon vous semble.\n\n5. Amusez-vous !",
   "contributors": "Contributeurs :",
   "selected_players": "Joueurs sélectionnés",
-  "selected_modes": "Modes de jeu sélectionnés"
+  "selected_modes": "Modes de jeu sélectionnés",
+  "quiz_common": "Quiz général",
+  "quiz_history_geo": "Quiz histoire et géographie",
+  "quiz_sciences": "Quiz sciences",
+  "quiz_pop_culture": "Quiz culture pop"
 }

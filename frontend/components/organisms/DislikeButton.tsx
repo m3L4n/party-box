@@ -3,14 +3,14 @@
 import React from "react"
 import { StyleSheet } from "react-native"
 import { colors } from "../../assets/colors"
-import IconButton from "../molecules/IconButton"
 import { ButtonProps } from "../atoms/Button"
+import LottieButton from "../molecules/LottieButton"
 
 const DislikeButton = ({ onPress, style, accessibilityLabel }: ButtonProps) => {
   return (
-    <IconButton
-      accessibilityLabel={`dislike_button_${accessibilityLabel}`}
-      content="sad"
+    <LottieButton
+      accessibilityLabel={accessibilityLabel}
+      animationSource={require("../../assets/sad_face.json")}
       onPress={onPress}
       style={[styles.container, style]}
     />

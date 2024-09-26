@@ -2,7 +2,6 @@
 
 import React, { useCallback, useEffect, useState } from "react"
 import { StyleSheet, TouchableOpacity } from "react-native"
-import Text from "../../components/atoms/CustomText"
 import BackButton from "../../components/organisms/BackButton"
 import HomeButton from "../../components/organisms/HomeButton"
 import { getActiveModes } from "../../services/mode"
@@ -15,6 +14,7 @@ import { User } from "../../models/User"
 import { Question } from "../../models/Question"
 import Background from "../../components/organisms/Background"
 import { BACKEND_URL } from "@env"
+import LoadingScreen from "./LoadingScreen"
 
 interface PlayScreenProps {
   navigation: any
@@ -118,7 +118,7 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
         {questions.length === 0 ? (
           <>
             <BackButton navigation={navigation} />
-            <Text>Loading...</Text>
+            <LoadingScreen />
           </>
         ) : null}
         {end ? <PartyEndScreen /> : null}
