@@ -1,45 +1,55 @@
-from random import choice
+from random import sample, shuffle
 from collections import Counter
 from models import Question
+from utils import replace_placeholders
+from config import redis_client
 
 
-def fetch_questions_by_mode(db, mode_list, language):
-    return db.query(Question).filter(Question.mode.in_(mode_list), Question.language == language).all()
+def fetch_questions_by_mode(db, mode_list, language, session_id):
+    already_asked = get_already_asked_questions(session_id)
+    already_asked = set(map(int, already_asked))
 
-def get_question_by_id(db, question_id):
-    return db.query(Question).filter(Question.id == question_id).first()
+    questions_by_mode = {}
+    for mode in mode_list:
+        questions = (
+            db.query(Question)
+            .filter(
+                Question.mode == mode,
+                Question.language == language,
+                ~Question.id.in_(already_asked),
+            )
+            .all()
+        )
+        questions_by_mode[mode] = questions
+    return questions_by_mode
 
-def get_unique_questions(questions):
-    seen_contents = set()
-    unique_questions = [q for q in questions if q.content not in seen_contents and not seen_contents.add(q.content)]
-    return unique_questions
 
-def replace_user_placeholders(content, user_list, user_count):
-    user_placeholders = content.count("${user}")
-    selected_users = []
-    
-    for _ in range(user_placeholders):
-        min_count = min(user_count.values()) if user_count else 0
-        eligible_users = [user for user in user_list if user_count[user] == min_count]
-        selected_user = choice(eligible_users)
-        selected_users.append(selected_user)
-        user_count[selected_user] += 1
+def select_questions_balanced(questions_by_mode, target_count=30):
+    mode_list = list(questions_by_mode.keys())
+    questions_per_mode = target_count // len(mode_list)
+    selected_questions = []
 
-    for user in selected_users:
-        content = content.replace("${user}", user, 1)
-    
-    return content
+    for mode in mode_list:
+        mode_questions = questions_by_mode[mode]
+        selected_questions.extend(
+            sample(mode_questions, min(questions_per_mode, len(mode_questions)))
+        )
 
-def replace_num_placeholders(content):
-    num_placeholders = content.count("${num}")
-    
-    for _ in range(num_placeholders):
-        random_num = str(choice(range(1, 11)))
-        if random_num == "10":
-            random_num = "un shooter"
-        content = content.replace("${num}", random_num, 1)
-    
-    return content
+    remaining_count = target_count - len(selected_questions)
+    if remaining_count > 0:
+        remaining_questions = [
+            q
+            for mode_questions in questions_by_mode.values()
+            for q in mode_questions
+            if q not in selected_questions
+        ]
+        additional_questions = sample(
+            remaining_questions, min(remaining_count, len(remaining_questions))
+        )
+        selected_questions.extend(additional_questions)
+
+    return selected_questions
+
 
 def prepare_questions_for_game(questions, user_list):
     user_count = Counter()
@@ -47,36 +57,31 @@ def prepare_questions_for_game(questions, user_list):
 
     for q in questions:
         final_content = replace_placeholders(q.content, user_list, user_count)
-        final_questions.append({
-            "id": q.id,
-            "mode": q.mode,
-            "language": q.language,
-            "content": final_content,
-            "answer": q.answer,
-            "score": q.score
-        })
+        final_questions.append(
+            {
+                "id": q.id,
+                "mode": q.mode,
+                "language": q.language,
+                "content": final_content,
+                "answer": q.answer,
+                "score": q.score,
+            }
+        )
+    shuffle(final_questions)
 
     return final_questions
 
-def replace_placeholders(content, user_list, user_count):
-    content = replace_user_placeholders(content, user_list, user_count)
-    content = replace_num_placeholders(content)
-    return content
 
-def select_balanced_questions(questions, mode_list, target_count=30):
-    mode_weights = {mode: 0 for mode in mode_list}
-    selected_questions = []
+def get_question_by_id(db, question_id):
+    return db.query(Question).filter(Question.id == question_id).first()
 
-    for _ in range(target_count):
-        min_weight = min(mode_weights.values())
-        modes_with_min_weight = [mode for mode, weight in mode_weights.items() if weight == min_weight]
-        eligible_questions = [q for q in questions if q.mode in modes_with_min_weight]
 
-        if not eligible_questions:
-            break
+def get_already_asked_questions(session_id):
+    redis_key = f"session:{session_id}:questions"
+    return redis_client.smembers(redis_key)
 
-        selected_question = choice(eligible_questions)
-        selected_questions.append(selected_question)
-        mode_weights[selected_question.mode] += 1
 
-    return selected_questions
+def save_questions_to_redis(session_id, question_ids):
+    redis_key = f"session:{session_id}:questions"
+    redis_client.sadd(redis_key, *question_ids)
+    redis_client.expire(redis_key, 3600)

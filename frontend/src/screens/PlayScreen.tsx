@@ -22,41 +22,51 @@ interface PlayScreenProps {
 
 const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
   const [questions, setQuestions] = useState<Question[]>([])
+  const [sessionId, setSessionId] = useState<string | null>(null)
   const [end, setEnd] = useState<boolean>(false)
   const [backgroundColor, setBackgroundColor] = useState<string>(
     getRandomColorBackground()
   )
 
-  const fetchQuestions = useCallback(async (modes: Mode[], users: User[]) => {
-    try {
-      let questionsList: Question[] = []
-      const response = await fetch(`${BACKEND_URL}/questions/fetch`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          users: users.map((user: User) => user.name),
-          modes: modes.map((mode: Mode) => mode.name),
-          language: "fr",
-        }),
-      })
-      const questions = await response.json()
-      questionsList = questions.map((question: any) => {
-        return {
-          id: question.id,
-          content: question.content,
-          mode: question.mode,
-          user: question.user,
-          answer: question?.answer,
+  const fetchQuestions = useCallback(
+    async (modes: Mode[], users: User[]) => {
+      try {
+        let questionsList: Question[] = []
+        const response = await fetch(`${BACKEND_URL}/questions/fetch`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            users: users.map((user: User) => user.name),
+            modes: modes.map((mode: Mode) => mode.name),
+            language: "fr",
+            session_id: sessionId,
+          }),
+        })
+        const data = await response.json()
+
+        if (!sessionId && data.session_id) {
+          setSessionId(data.session_id)
         }
-      })
-      return questionsList
-    } catch (error) {
-      console.error("Error while fetching questions: ", error)
-      return []
-    }
-  }, [])
+
+        questionsList = data.questions.map((question: any) => {
+          return {
+            id: question.id,
+            content: question.content,
+            mode: question.mode,
+            user: question.user,
+            answer: question?.answer,
+          }
+        })
+        return questionsList
+      } catch (error) {
+        console.error("Error while fetching questions: ", error)
+        return []
+      }
+    },
+    [sessionId]
+  )
 
   const fetchData = useCallback(async () => {
     try {
