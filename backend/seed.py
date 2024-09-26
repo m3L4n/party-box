@@ -5,20 +5,24 @@ from database import SessionLocal, engine
 from models import Question
 from sqlalchemy import MetaData
 
+
 def drop_tables():
     meta = MetaData()
     meta.reflect(bind=engine)
     meta.drop_all(bind=engine)
 
+
 def create_tables():
     Question.metadata.create_all(bind=engine)
 
+
 def parse_mode_and_language(filepath):
     """Extracts mode and language from the filepath."""
-    parts = filepath.split(os.sep)  
-    language = parts[-3] 
+    parts = filepath.split(os.sep)
+    language = parts[-3]
     mode = parts[-2]
     return mode, language
+
 
 def load_json_data(json_dir):
     """Loads all questions from JSON files in the given directory."""
@@ -41,6 +45,7 @@ def load_json_data(json_dir):
                         questions.append(question)
     return questions
 
+
 def insert_questions(session: Session, questions):
     """Inserts all the questions into the database."""
     for item in questions:
@@ -50,28 +55,28 @@ def insert_questions(session: Session, questions):
             language=item["language"],
             content=item["content"],
             answer=item["answer"],
-            score=0
+            score=0,
         )
         session.add(question)
     session.commit()
 
+
 def main():
     drop_tables()
     create_tables()
-    
+
     session = SessionLocal()
-    json_dir = "data"  
+    json_dir = "data"
 
     try:
         questions = load_json_data(json_dir)
         insert_questions(session, questions)
         print(f"Successfully loaded {len(questions)} questions into the database.")
-        # for question in questions:
-        #     print("> ",question)
     except Exception as e:
         print(f"An error occurred: {e}")
     finally:
         session.close()
+
 
 if __name__ == "__main__":
     main()

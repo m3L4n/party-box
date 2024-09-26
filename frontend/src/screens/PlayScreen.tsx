@@ -45,7 +45,7 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
           }),
         })
         const data = await response.json()
-
+        console.log("Data: ", data)
         if (!sessionId && data.session_id) {
           setSessionId(data.session_id)
         }

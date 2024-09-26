@@ -20,8 +20,22 @@ def fetch_questions_by_mode(db, mode_list, language, session_id):
             )
             .all()
         )
+
+        if not questions:
+            reset_redis(session_id)
+            questions = (
+                db.query(Question)
+                .filter(Question.mode == mode, Question.language == language)
+                .all()
+            )
         questions_by_mode[mode] = questions
+
     return questions_by_mode
+
+
+def reset_redis(session_id):
+    redis_key = f"session:{session_id}:questions"
+    redis_client.delete(redis_key)
 
 
 def select_questions_balanced(questions_by_mode, target_count=30):
@@ -61,6 +75,7 @@ def prepare_questions_for_game(questions, user_list):
             {
                 "id": q.id,
                 "mode": q.mode,
+                "type": q.type,
                 "language": q.language,
                 "content": final_content,
                 "answer": q.answer,
