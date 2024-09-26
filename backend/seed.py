@@ -48,6 +48,7 @@ def load_json_data(json_dir):
 
 def insert_questions(session: Session, questions):
     """Inserts all the questions into the database."""
+    modes = set([item["mode"] for item in questions])
     for item in questions:
         question = Question(
             mode=item["mode"],
@@ -58,6 +59,7 @@ def insert_questions(session: Session, questions):
             score=0,
         )
         session.add(question)
+    print("modes:", modes)
     session.commit()
 
 
@@ -72,6 +74,8 @@ def main():
         questions = load_json_data(json_dir)
         insert_questions(session, questions)
         print(f"Successfully loaded {len(questions)} questions into the database.")
+        # for question in questions:
+        #     print("> ",question)
     except Exception as e:
         print(f"An error occurred: {e}")
     finally:
