@@ -1,0 +1,23 @@
+{
+  "cli": {
+    "version": ">= 0.34.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "preview": {
+      "android": {
+        "buildType": "apk",
+        "env": {
+          "BACKEND_URL": "${BACKEND_URL}"
+        }
+      }
+    },
+    "production": {
+      "distribution": "store",
+      "autoIncrement": true,
+      "env": {
+        "BACKEND_URL": "${BACKEND_URL}"
+      }
+    }
+  }
+}

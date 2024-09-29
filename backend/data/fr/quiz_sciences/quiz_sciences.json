@@ -1,0 +1,59 @@
+{
+  "questions": [
+    {
+      "content": "Combien de planètes composent notre système solaire ?",
+      "answer": "8",
+      "type": "quiz"
+    },
+    {
+      "content": "Quelle est la planète la plus proche du soleil ?",
+      "answer": "Mercure",
+      "type": "quiz"
+    },
+    {
+      "content": "De quoi les arbres ont-ils besoin pour faire de la photosynthèse ?",
+      "answer": "Lumière du soleil",
+      "type": "quiz"
+    },
+    {
+      "content": "",
+      "answer": "",
+      "type": "quiz"
+    },
+    {
+      "content": "",
+      "answer": "",
+      "type": "quiz"
+    },
+    {
+      "content": "",
+      "answer": "",
+      "type": "quiz"
+    },
+    {
+      "content": "",
+      "answer": "",
+      "type": "quiz"
+    },
+    {
+      "content": "Quel est le nom de ce theoreme : a² + b² = c² ?",
+      "answer": "Théorème de Pythagore",
+      "type": "quiz"
+    },
+    {
+      "content": "Quel est la somme des angles d'un triangle ?",
+      "answer": "180°",
+      "type": "quiz"
+    },
+    {
+      "content": "Combien de côtés a un pentagone ?",
+      "answer": "5",
+      "type": "quiz"
+    },
+    {
+      "content": "Combien de côtés a un hexagone ?",
+      "answer": "6",
+      "type": "quiz"
+    }
+  ]
+}

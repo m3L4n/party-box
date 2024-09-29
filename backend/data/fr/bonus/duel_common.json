@@ -1,0 +1,25 @@
+{
+  "questions": [
+    {
+      "content": "${user} et ${user} jouent à Chi-Fu-Mi. Celui qui perd distribue ${num} !"
+    },
+    {
+      "content": "${user} et ${user} jouent à Chi-Fu-Mi. Celui qui gagne distribue ${num} !"
+    },
+    {
+      "content": "${user} et ${user} font une bataille de regards. Le premier qui détourne les yeux prend ${num} !"
+    },
+    {
+      "content": "${user} et ${user} se lancent un défi : celui qui tient le plus longtemps en équilibre sur une jambe ! Le perdant prend ${num} !"
+    },
+    {
+      "content": "${user} et ${user}, faites un concours d'anecdotes ! Les autres jugent, le ou la meilleure distribue ${num}!"
+    },
+    {
+      "content": "${user} et ${user} jouent une partie de Tic-Tac-Toe. Celui qui perd prend ${num}. En cas d'égalité, tout le monde prend !"
+    },
+    {
+      "content": "${user} et ${user} doivent faire un compliment à l'autre. Le plus sincère distribue ${num} !"
+    }
+  ]
+}
