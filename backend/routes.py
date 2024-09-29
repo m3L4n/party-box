@@ -10,7 +10,8 @@ from question_service import (
 )
 from mode_service import get_available_modes
 from utils import generate_session_id
-
+from flask_mail import Message
+from config import mail
 
 router = Blueprint("questions", __name__)
 
@@ -77,3 +78,45 @@ def test_redis():
             return jsonify({"questions_already_asked": list(map(int, already_asked))})
         return "Aucune question posée pour cette session."
     return "Veuillez fournir un 'session_id'."
+
+
+@router.route("/send-support-email", methods=["POST"])
+def send_support_email():
+    try:
+        data = request.json
+        message_body = data.get("message", "")
+
+        msg = Message(
+            subject="Support Request",
+            recipients=["support@partybox.jurichar.fr"],  # Send to support
+            body=message_body,
+        )
+        mail.send(msg)
+        return jsonify({"status": "success", "message": "Email sent to support"}), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+
+@router.route("/send-no-reply-email", methods=["POST"])
+def send_no_reply_email():
+    try:
+        data = request.json
+        recipient = data.get("recipient", "")
+        message_body = data.get("message", "")
+
+        if not recipient:
+            return jsonify({"status": "error", "message": "Recipient is required"}), 400
+
+        msg = Message(
+            subject="No Reply",
+            recipients=[recipient],
+            body=message_body,
+            sender="no_reply@partybox.jurichar.fr",
+        )
+        mail.send(msg)
+        return (
+            jsonify({"status": "success", "message": "Email sent from no_reply"}),
+            200,
+        )
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500

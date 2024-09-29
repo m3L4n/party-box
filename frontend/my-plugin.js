@@ -19,6 +19,14 @@ const withAndroidQueries = config => {
           {
             action: [{ $: { "android:name": "android.intent.action.DIAL" } }],
           },
+          {
+            action: [{ $: { "android:name": "android.intent.action.VIEW" } }],
+            data: [{ $: { "android:scheme": "https" } }],
+            category: [
+              { $: { "android:name": "android.intent.category.BROWSABLE" } },
+              { $: { "android:name": "android.intent.category.DEFAULT" } },
+            ],
+          },
         ],
       },
     ]
