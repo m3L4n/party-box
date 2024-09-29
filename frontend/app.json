@@ -7,7 +7,7 @@
       ]
     ],
     "slug": "party-box",
-    "version": "1.13",
+    "version": "1.14",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "light",
