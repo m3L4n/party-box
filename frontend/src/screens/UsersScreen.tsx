@@ -3,9 +3,7 @@
 import React, { useCallback, useEffect, useState } from "react"
 import { Alert, StyleSheet, View } from "react-native"
 import { ScrollView } from "react-native-gesture-handler"
-import { colors } from "../../assets/colors"
 import Text from "../../components/atoms/CustomText"
-import MenuButton from "../../components/molecules/MenuButton"
 import AddButton from "../../components/organisms/AddButton"
 import BackButton from "../../components/organisms/BackButton"
 import TrashButton from "../../components/organisms/TrashButton"
@@ -18,6 +16,7 @@ import {
 } from "../../services/user"
 import { User } from "../../models/User"
 import { t } from "i18next"
+import NextModeButton from "../../components/organisms/NextModeButton"
 
 interface UsersScreenProps {
   navigation: any
@@ -106,11 +105,12 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
           t("selected_players")}
       </Text>
       {userList.filter(user => user.isActive).length > 1 ? (
-        <MenuButton
-          color={colors.primary.green}
-          onPress={handleNextButtonPress}
-          text={t("next")}
-        />
+        // <MenuButton
+        //   color={colors.primary.green}
+        //   onPress={handleNextButtonPress}
+        //   text={t("next")}
+        // />
+        <NextModeButton onPress={handleNextButtonPress} />
       ) : null}
     </View>
   )

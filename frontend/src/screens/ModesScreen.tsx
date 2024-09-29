@@ -19,6 +19,7 @@ import {
 import { t } from "i18next"
 import { BACKEND_URL } from "@env"
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import NextPlayButton from "../../components/organisms/NextPlayButton"
 
 interface ModesScreenProps {
   navigation: any
@@ -113,11 +114,7 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
       </Text>
       {Object.values(modes).filter(mode => mode.isActive).length ===
       0 ? null : (
-        <MenuButton
-          color={colors.primary.green}
-          onPress={handleNextButtonPress}
-          text={t("next")}
-        />
+        <NextPlayButton onPress={handleNextButtonPress} />
       )}
     </View>
   )
