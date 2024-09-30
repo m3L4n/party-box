@@ -88,7 +88,7 @@ def send_support_email():
 
         msg = Message(
             subject="Support Request",
-            recipients=["support@partybox.jurichar.fr"],  # Send to support
+            recipients=["support@partybox.jurichar.fr"],
             body=message_body,
         )
         mail.send(msg)

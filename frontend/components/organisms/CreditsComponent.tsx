@@ -1,21 +1,20 @@
 // components/organisms/CreditsComponent.tsx
 
 import React from "react"
-import { StyleSheet, View } from "react-native"
+import { Linking, StyleSheet, View } from "react-native"
 import Text from "../atoms/CustomText"
 import { t } from "i18next"
 import MenuButton from "../molecules/MenuButton"
-import * as Linking from "expo-linking"
 
 const contributors = [
-  { name: "Jurichar", url: "https://github.com/jurichar" },
-  { name: "Mpochard", url: "https://github.com/m3L4n" },
+  { name: "jurichar", url: "https://github.com/jurichar" },
+  { name: "mpochard", url: "https://github.com/m3L4n" },
 ]
 
 const CreditsComponent = () => {
   const handlePress = async (url: string) => {
     try {
-      const canOpen = await Linking.canOpenURL(url)
+      const canOpen = await Linking.openURL(url)
       if (canOpen) {
         await Linking.openURL(url)
       } else {
