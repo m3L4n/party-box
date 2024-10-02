@@ -1,40 +1,42 @@
 import uuid
-from random import choice
+from random import choices, choice
 
 
 def replace_num_placeholders(content):
     num_placeholders = content.count("${num}")
 
     for _ in range(num_placeholders):
-        random_num = str(choice(range(1, 11)))
-        if random_num == "10":
-            random_num = "un shooter"
-        else:
-            random_num = random_num + " penalties"
+        options = [
+            "1 penalties",
+            "2 penalties",
+            "3 penalties",
+            "4 penalties",
+            "5 penalties",
+            "un shooter",
+        ]
+        probabilities = [0.3, 0.3, 0.2, 0.2, 0.2, 0.1]
+        random_num = choices(options, probabilities)[0]
+
         content = content.replace("${num}", random_num, 1)
 
     return content
 
 
-def replace_user_placeholders(content, user_list, user_count):
-    user_placeholders = content.count("${user}")
-    selected_users = []
+def replace_user_placeholders(content, user_list):
+    nb_placeholders = content.count("${user}")
+    selected_users = set()
+    while len(selected_users) < nb_placeholders:
+        selected_users.add(choice(user_list))
 
-    for _ in range(user_placeholders):
-        min_count = min(user_count.values()) if user_count else 0
-        eligible_users = [user for user in user_list if user_count[user] == min_count]
-        selected_user = choice(eligible_users)
-        selected_users.append(selected_user)
-        user_count[selected_user] += 1
-
-    for user in selected_users:
+    for _ in range(nb_placeholders):
+        user = selected_users.pop()
         content = content.replace("${user}", user, 1)
 
     return content
 
 
-def replace_placeholders(content, user_list, user_count):
-    content = replace_user_placeholders(content, user_list, user_count)
+def replace_placeholders(content, user_list):
+    content = replace_user_placeholders(content, user_list)
     content = replace_num_placeholders(content)
     return content
 

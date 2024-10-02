@@ -28,10 +28,11 @@ def load_json_data(json_dir):
     """Loads all questions from JSON files in the given directory."""
     questions = []
     for root, dirs, files in os.walk(json_dir):
+        if root.startswith(json_dir + "/."):
+            continue
         for file in files:
             if file.endswith(".json"):
                 filepath = os.path.join(root, file)
-                print(f"Loading questions from {filepath}...")
                 with open(filepath, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     mode, language = parse_mode_and_language(filepath)
@@ -44,6 +45,7 @@ def load_json_data(json_dir):
                             "answer": question_data.get("answer", ""),
                         }
                         questions.append(question)
+                print(f"Loaded {len(data.get('questions'))} questions from {filepath}")
     return questions
 
 
@@ -60,23 +62,23 @@ def insert_questions(session: Session, questions):
             score=0,
         )
         session.add(question)
-    print("modes:", modes)
+    print("Modes:", modes)
     session.commit()
 
 
 def main():
     drop_tables()
+    print("Tables dropped")
     create_tables()
+    print("Tables created")
 
     session = SessionLocal()
-    json_dir = "data"
+    json_dir = "../../data"
 
     try:
         questions = load_json_data(json_dir)
         insert_questions(session, questions)
         print(f"Successfully loaded {len(questions)} questions into the database.")
-        # for question in questions:
-        #     print("> ",question)
     except Exception as e:
         print(f"An error occurred: {e}")
     finally:

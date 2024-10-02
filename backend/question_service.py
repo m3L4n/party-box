@@ -66,11 +66,10 @@ def select_questions_balanced(questions_by_mode, target_count=30):
 
 
 def prepare_questions_for_game(questions, user_list):
-    user_count = Counter()
     final_questions = []
 
     for q in questions:
-        final_content = replace_placeholders(q.content, user_list, user_count)
+        final_content = replace_placeholders(q.content, user_list)
         final_questions.append(
             {
                 "id": q.id,
