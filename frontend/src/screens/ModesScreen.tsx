@@ -1,7 +1,7 @@
 // src/screens/ModesScreen.tsx
 
 import { useEffect, useState, useCallback } from "react"
-import { StyleSheet, View, Alert } from "react-native"
+import { StyleSheet, Alert } from "react-native"
 import { ScrollView } from "react-native-gesture-handler"
 import Text from "../../components/atoms/CustomText"
 import BackButton from "../../components/organisms/BackButton"
