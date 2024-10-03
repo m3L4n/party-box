@@ -123,8 +123,6 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 100,
-    paddingBottom: 100,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -133,10 +131,11 @@ const styles = StyleSheet.create({
     fontSize: 50,
     letterSpacing: 5,
     color: "black",
-    marginBottom: 30,
+    marginBottom: 50,
     marginTop: 30,
   },
   info_text: {
+    paddingTop: 10,
     fontSize: 30,
     fontFamily: "BebasNeue-Regular",
     color: "black",

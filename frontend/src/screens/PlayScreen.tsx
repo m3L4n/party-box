@@ -11,6 +11,7 @@ import { Question } from "../../models/Question"
 import Background from "../../components/organisms/Background"
 import LoadingScreen from "./LoadingScreen"
 import { fetchQuestions } from "../../services/questions"
+import HomeButton from "../../components/organisms/HomeButton"
 
 interface PlayScreenProps {
   navigation: any
@@ -61,6 +62,7 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation, route }) => {
 
   return (
     <Background backgroundColor={backgroundColor}>
+      <HomeButton navigation={navigation} />
       <TouchableOpacity
         onPress={handlePress}
         style={[styles.container, { backgroundColor: "transparent" }]}

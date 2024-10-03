@@ -28,5 +28,7 @@
   "quiz_common": "Quiz général",
   "quiz_history_geo": "Quiz histoire et géographie",
   "quiz_sciences": "Quiz sciences",
-  "quiz_pop_culture": "Quiz culture pop"
+  "quiz_pop_culture": "Quiz culture pop",
+  "quiz_arts_books": "Quiz arts et littérature",
+  "play": "Jouer"
 }

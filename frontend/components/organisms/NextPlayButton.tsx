@@ -30,7 +30,6 @@ const NextPlayButton = ({
           <LottieView
             source={require("../../assets/arrow.json")}
             autoPlay
-            rotation={-90}
             style={styles.lottieAnimation}
           />
         </>
@@ -57,6 +56,7 @@ const styles = StyleSheet.create({
   lottieAnimation: {
     width: 42,
     height: 42,
+    transform: [{ rotate: "-90deg" }],
   },
 })
 

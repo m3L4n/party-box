@@ -16,14 +16,20 @@ import { User } from "../../models/User"
 import { addUser, checkUserExistence } from "../../services/user"
 import { getRandomColor } from "../../services/utils"
 import { t } from "i18next"
+import Background from "../../components/organisms/Background"
 
 interface CreateUserScreenProps {
   navigation: any
+  route: any
 }
 
-const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
+const CreateUserScreen: React.FC<CreateUserScreenProps> = ({
+  navigation,
+  route,
+}) => {
   const [name, setName] = useState<string>("")
   const [selectedColor, setSelectedColor] = useState<string>(getRandomColor())
+  const backgroundColor = route.params?.backgroundColor || "white"
 
   const handleNameChange = (text: string): void => {
     let regex = /^[a-zA-Z0-9\s]*$/
@@ -63,28 +69,30 @@ const CreateUserScreen: React.FC<CreateUserScreenProps> = ({ navigation }) => {
   }
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20}
-      style={styles.container}
-    >
-      <BackButton navigation={navigation} />
-      <EmptyUserCard
-        user={{ name: name, color: selectedColor, isActive: false }}
-      />
-      <ChooseColorComponent
-        active={selectedColor}
-        onPress={handleColorChange}
-      />
-      <View style={styles.group}>
-        <Input
-          onChangeText={handleNameChange}
-          placeholder={t("name")}
-          value={name}
+    <Background style={[styles.container]} backgroundColor={backgroundColor}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20}
+        style={styles.container}
+      >
+        <BackButton navigation={navigation} />
+        <EmptyUserCard
+          user={{ name: name, color: selectedColor, isActive: false }}
         />
-        <AddButton content="Add" onPress={handleAddUser} />
-      </View>
-    </KeyboardAvoidingView>
+        <ChooseColorComponent
+          active={selectedColor}
+          onPress={handleColorChange}
+        />
+        <View style={styles.group}>
+          <Input
+            onChangeText={handleNameChange}
+            placeholder={t("name")}
+            value={name}
+          />
+          <AddButton content="Add" onPress={handleAddUser} />
+        </View>
+      </KeyboardAvoidingView>
+    </Background>
   )
 }
 

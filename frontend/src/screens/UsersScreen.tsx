@@ -117,13 +117,9 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   trashButton: {
     position: "absolute",
-    bottom: -10,
-    left: 15,
     zIndex: 99,
   },
   container: {
-    paddingTop: 100,
-    paddingBottom: 100,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -132,7 +128,7 @@ const styles = StyleSheet.create({
     fontSize: 50,
     letterSpacing: 5,
     color: "black",
-    marginBottom: 30,
+    marginBottom: 50,
     marginTop: 30,
   },
   addButton: {
