@@ -24,7 +24,6 @@ const App = () => {
   const [backgroundColor, setBackgroundColor] = useState(
     getRandomColorBackground()
   )
-  const backgroundImage = require("./assets/images/image.png")
 
   useEffect(() => {
     const loadFonts = async () => {
@@ -69,19 +68,38 @@ const App = () => {
             style="light"
             translucent={true}
           />
-          <Background
-            backgroundColor={backgroundColor}
-            backgroundImage={backgroundImage}
-          >
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
-              <Stack.Screen component={HomeScreen} name="Home" />
-              <Stack.Screen component={PlayScreen} name="Play" />
-              <Stack.Screen component={UsersScreen} name="Users" />
-              <Stack.Screen component={ModesScreen} name="Modes" />
-              <Stack.Screen component={CreateUserScreen} name="CreateUser" />
-              <Stack.Screen component={PartyEndScreen} name="PartyEnd" />
-            </Stack.Navigator>
-          </Background>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen
+              component={HomeScreen}
+              name="Home"
+              initialParams={{ backgroundColor: backgroundColor }}
+            />
+            <Stack.Screen
+              component={PlayScreen}
+              name="Play"
+              initialParams={{ backgroundColor: getRandomColorBackground() }}
+            />
+            <Stack.Screen
+              component={UsersScreen}
+              name="Users"
+              initialParams={{ backgroundColor: getRandomColorBackground() }}
+            />
+            <Stack.Screen
+              component={ModesScreen}
+              name="Modes"
+              initialParams={{ backgroundColor: getRandomColorBackground() }}
+            />
+            <Stack.Screen
+              component={CreateUserScreen}
+              name="CreateUser"
+              initialParams={{ backgroundColor: getRandomColorBackground() }}
+            />
+            <Stack.Screen
+              component={PartyEndScreen}
+              name="PartyEnd"
+              initialParams={{ backgroundColor: getRandomColorBackground() }}
+            />
+          </Stack.Navigator>
         </View>
       </I18nextProvider>
     </NavigationContainer>

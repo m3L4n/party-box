@@ -10,8 +10,15 @@ import SettingsButton from "../../components/organisms/SettingsButton"
 import { getActiveModes } from "../../services/mode"
 import { getActiveUsers } from "../../services/user"
 import { t } from "i18next"
+import Background from "../../components/organisms/Background"
 
-const HomeScreen = ({ navigation }: { navigation: any }) => {
+interface HomeScreenProps {
+  navigation: any
+  route: any
+}
+
+const HomeScreen: React.FC<HomeScreenProps> = ({ navigation, route }) => {
+  const backgroundColor = route.params?.backgroundColor || "white"
   const [modalVisible, setModalVisible] = useState(false)
 
   const handleClick = async () => {
@@ -27,7 +34,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   const openModal = () => setModalVisible(true)
   const closeModal = () => setModalVisible(false)
   return (
-    <View style={styles.container}>
+    <Background style={[styles.container]} backgroundColor={backgroundColor}>
       <SettingsButton onPress={openModal} />
       <Text style={styles.title}>Party Box</Text>
       <MenuButton
@@ -43,7 +50,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
         text={t("custom_game")}
       />
       <ModalComponent closeModal={closeModal} visible={modalVisible} />
-    </View>
+    </Background>
   )
 }
 

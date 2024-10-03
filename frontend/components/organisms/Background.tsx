@@ -5,21 +5,21 @@ import { ImageBackground, StyleSheet, View } from "react-native"
 
 interface BackgroundProps {
   backgroundColor: string
-  backgroundImage: any
   children: React.ReactNode
+  style?: any
 }
 
 const Background: React.FC<BackgroundProps> = ({
   backgroundColor,
-  backgroundImage,
   children,
+  style = {},
 }) => {
   return (
-    <View style={[styles.color, { backgroundColor: backgroundColor }]}>
+    <View style={[style, styles.color, { backgroundColor: backgroundColor }]}>
       {children}
       <ImageBackground
         resizeMode="repeat"
-        source={backgroundImage}
+        source={require("../../assets/images/image.png")}
         style={styles.background}
       />
     </View>

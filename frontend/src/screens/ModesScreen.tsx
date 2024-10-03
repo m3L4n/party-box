@@ -3,9 +3,7 @@
 import { useEffect, useState, useCallback } from "react"
 import { StyleSheet, View, Alert } from "react-native"
 import { ScrollView } from "react-native-gesture-handler"
-import { colors } from "../../assets/colors"
 import Text from "../../components/atoms/CustomText"
-import MenuButton from "../../components/molecules/MenuButton"
 import BackButton from "../../components/organisms/BackButton"
 import ModeCard from "../../components/organisms/ModeCard"
 import ReloadButton from "../../components/organisms/ReloadButton"
@@ -20,13 +18,16 @@ import { t } from "i18next"
 import { BACKEND_URL } from "@env"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import NextPlayButton from "../../components/organisms/NextPlayButton"
+import Background from "../../components/organisms/Background"
 
 interface ModesScreenProps {
   navigation: any
+  route: any
 }
 
-const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
+const ModesScreen: React.FC<ModesScreenProps> = ({ navigation, route }) => {
   const [modes, setModes] = useState<Mode[]>([])
+  const backgroundColor = route.params?.backgroundColor || "white"
 
   const fetchModesFromBackend = async () => {
     try {
@@ -86,7 +87,7 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <Background style={[styles.container]} backgroundColor={backgroundColor}>
       <BackButton navigation={navigation} />
       <ReloadButton onPress={handleReloadPress} />
       <Text style={styles.title}>Modes</Text>
@@ -116,7 +117,7 @@ const ModesScreen: React.FC<ModesScreenProps> = ({ navigation }) => {
       0 ? null : (
         <NextPlayButton onPress={handleNextButtonPress} />
       )}
-    </View>
+    </Background>
   )
 }
 

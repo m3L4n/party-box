@@ -17,14 +17,17 @@ import {
 import { User } from "../../models/User"
 import { t } from "i18next"
 import NextModeButton from "../../components/organisms/NextModeButton"
+import Background from "../../components/organisms/Background"
 
 interface UsersScreenProps {
   navigation: any
+  route: any
 }
 
-const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
+const UsersScreen: React.FC<UsersScreenProps> = ({ navigation, route }) => {
   const [userList, setUserList] = useState<User[]>([])
   const [deleteMode, setDeleteMode] = useState<boolean>(false)
+  const backgroundColor = route.params?.backgroundColor || "white"
 
   const fetchData = useCallback(async () => {
     const users: User[] = await loadUsers()
@@ -63,7 +66,7 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
   }
 
   return (
-    <View style={{ ...styles.container }}>
+    <Background style={[styles.container]} backgroundColor={backgroundColor}>
       <BackButton navigation={navigation} />
       {userList.length !== 0 ? (
         <TrashButton onPress={toggleDeleteMode} />
@@ -105,14 +108,9 @@ const UsersScreen: React.FC<UsersScreenProps> = ({ navigation }) => {
           t("selected_players")}
       </Text>
       {userList.filter(user => user.isActive).length > 1 ? (
-        // <MenuButton
-        //   color={colors.primary.green}
-        //   onPress={handleNextButtonPress}
-        //   text={t("next")}
-        // />
         <NextModeButton onPress={handleNextButtonPress} />
       ) : null}
-    </View>
+    </Background>
   )
 }
 

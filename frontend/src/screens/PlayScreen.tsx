@@ -2,94 +2,46 @@
 
 import React, { useCallback, useEffect, useState } from "react"
 import { StyleSheet, TouchableOpacity } from "react-native"
-import BackButton from "../../components/organisms/BackButton"
-import HomeButton from "../../components/organisms/HomeButton"
 import { getActiveModes } from "../../services/mode"
 import { getActiveUsers } from "../../services/user"
 import { getRandomColorBackground } from "../../services/utils"
 import PartyEndScreen from "../party/PartyEndScreen"
 import QuestionComponent from "../party/QuestionComponent"
-import { Mode } from "../../models/Mode"
-import { User } from "../../models/User"
 import { Question } from "../../models/Question"
 import Background from "../../components/organisms/Background"
-import { BACKEND_URL } from "@env"
 import LoadingScreen from "./LoadingScreen"
+import { fetchQuestions } from "../../services/questions"
 
 interface PlayScreenProps {
   navigation: any
+  route: any
 }
 
-const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
+const PlayScreen: React.FC<PlayScreenProps> = ({ navigation, route }) => {
   const [questions, setQuestions] = useState<Question[]>([])
-  const [sessionId, setSessionId] = useState<string | null>(null)
+  const [sessionId] = useState<string | null>(null)
   const [end, setEnd] = useState<boolean>(false)
   const [backgroundColor, setBackgroundColor] = useState<string>(
-    getRandomColorBackground()
+    route.params?.backgroundColor || getRandomColorBackground()
   )
 
-  const fetchQuestions = useCallback(
-    async (modes: Mode[], users: User[]) => {
-      try {
-        let questionsList: Question[] = []
-        const response = await fetch(`${BACKEND_URL}/questions/fetch`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            users: users.map((user: User) => user.name),
-            modes: modes.map((mode: Mode) => mode.name),
-            language: "fr",
-            session_id: sessionId,
-          }),
-        })
-        if (!response.ok) {
-          const errorText = await response.text()
-          console.error("Erreur côté serveur:", errorText)
-          return []
-        }
-        const data = await response.json()
-        if (!sessionId && data.session_id) {
-          setSessionId(data.session_id)
-        }
+  const loadQuestions = useCallback(async () => {
+    const modes = await getActiveModes()
+    const users = await getActiveUsers()
 
-        questionsList = data.questions.map((question: any) => {
-          return {
-            id: question.id,
-            content: question.content,
-            mode: question.mode,
-            type: question.type,
-            user: question.user,
-            answer: question?.answer,
-          }
-        })
-        return questionsList
-      } catch (error) {
-        console.error("Error while fetching questions: ", error)
-        return []
-      }
-    },
-    [sessionId]
-  )
-
-  const fetchData = useCallback(async () => {
-    try {
-      const fetchedUsers = await getActiveUsers()
-      const fetchedModes = await getActiveModes()
-
-      if (fetchedModes.length > 0 && fetchedUsers.length > 0) {
-        const questionsList = await fetchQuestions(fetchedModes, fetchedUsers)
-        setQuestions(questionsList)
-      }
-    } catch (error) {
-      console.error("Error while fetching data: ", error)
+    if (modes.length > 0 && users.length > 0) {
+      const questionsList = await fetchQuestions(
+        modes.map(mode => mode.name),
+        users.map(user => user.name),
+        sessionId
+      )
+      setQuestions(questionsList)
     }
-  }, [fetchQuestions])
+  }, [sessionId])
 
   useEffect(() => {
-    fetchData()
-  }, [fetchData])
+    loadQuestions()
+  }, [loadQuestions])
 
   const handlePress = () => {
     if (questions.length === 0) return
@@ -101,35 +53,27 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ navigation }) => {
 
     if (questions.length === 1) {
       setEnd(true)
-      return
+    } else {
+      setQuestions(prevQuestions => prevQuestions.slice(1))
+      setBackgroundColor(getRandomColorBackground())
     }
-
-    const nextQuestion = questions[1]
-    setQuestions(prevQuestions => [nextQuestion, ...prevQuestions.slice(2)])
-    setBackgroundColor(getRandomColorBackground())
   }
 
   return (
-    <TouchableOpacity onPress={handlePress} style={styles.container}>
-      <Background
-        backgroundColor={backgroundColor}
-        backgroundImage={require("../../assets/images/image.png")}
+    <Background backgroundColor={backgroundColor}>
+      <TouchableOpacity
+        onPress={handlePress}
+        style={[styles.container, { backgroundColor: "transparent" }]}
       >
         {questions.length === 0 ? (
-          <>
-            <BackButton navigation={navigation} />
-            <LoadingScreen />
-          </>
-        ) : null}
-        {end ? <PartyEndScreen /> : null}
-        {!end && questions[0] ? (
-          <>
-            <HomeButton navigation={navigation} />
-            <QuestionComponent question={questions[0]} />
-          </>
-        ) : null}
-      </Background>
-    </TouchableOpacity>
+          <LoadingScreen />
+        ) : end ? (
+          <PartyEndScreen />
+        ) : (
+          <QuestionComponent question={questions[0]} />
+        )}
+      </TouchableOpacity>
+    </Background>
   )
 }
 
