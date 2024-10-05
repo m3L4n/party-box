@@ -1,5 +1,4 @@
 from random import sample, shuffle
-from collections import Counter
 from models import Question
 from utils import replace_placeholders
 from config import redis_client

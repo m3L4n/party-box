@@ -1,4 +1,5 @@
 import { BACKEND_URL } from "@env"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import { Question } from "../models/Question"
 
 export const fetchQuestions = async (
@@ -7,6 +8,7 @@ export const fetchQuestions = async (
   sessionId: string | null
 ): Promise<Question[]> => {
   try {
+    const lang = (await AsyncStorage.getItem("lang")) || "fr"
     const response = await fetch(`${BACKEND_URL}/questions/fetch`, {
       method: "POST",
       headers: {
@@ -15,7 +17,7 @@ export const fetchQuestions = async (
       body: JSON.stringify({
         users: users,
         modes: modes,
-        language: "fr",
+        language: lang,
         session_id: sessionId,
       }),
     })
