@@ -9,7 +9,11 @@ const RulesComponent = () => {
     <>
       <Text style={{ ...styles.title }}>{t("rules")}</Text>
       <View style={styles.rules}>
-        <Text>{t("rules_details")}</Text>
+        <Text>{t("rules_details_1")}</Text>
+        <Text>{t("rules_details_2")}</Text>
+        <Text>{t("rules_details_3")}</Text>
+        <Text>{t("rules_details_4")}</Text>
+        <Text>{t("rules_details_5")}</Text>
       </View>
     </>
   )

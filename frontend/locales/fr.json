@@ -21,7 +21,11 @@
   "classic": "Classique",
   "duel": "Duel",
   "rules": "RÈgles",
-  "rules_details": "1. CRÉER un.e ou plusieurs joueur.euse.s \n\n2. Choisir un ou plusieurs modes de jeu\n\n3. Lancer la partie\n\n4. Vous êtes libre de modifier les règles comme bon vous semble.\n\n5. Amusez-vous !",
+  "rules_details_1": "1. Créez un ou plusieurs joueurs.\n",
+  "rules_details_2": "2. Choisissez un ou plusieurs modes de jeu.",
+  "rules_details_3": "3. Lancez la partie.",
+  "rules_details_4": "4. Vous êtes libre de modifier les règles à votre convenance.\n",
+  "rules_details_5": "5. Amusez-vous bien !",
   "contributors": "Contributeurs :",
   "selected_players": "Joueurs sÉlectionnÉs",
   "selected_modes": "Modes de jeu sÉlectionnÉs",
@@ -30,5 +34,6 @@
   "quiz_sciences": "Quiz sciences",
   "quiz_pop_culture": "Quiz culture pop",
   "quiz_arts_books": "Quiz arts et littÉrature",
-  "play": "Jouer"
+  "play": "Jouer",
+  "say_something": "Dis quelque chose"
 }
