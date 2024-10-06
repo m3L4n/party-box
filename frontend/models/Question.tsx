@@ -6,4 +6,5 @@ export interface Question {
   mode: string
   type: string
   answer?: string
+  duration?: number
 }

@@ -11,27 +11,25 @@ import MenuButton from "../../components/molecules/MenuButton"
 
 interface TimerQuestionComponentProps {
   question: Question
-  timerDuration: number
 }
 
 const TimerQuestionComponent: React.FC<TimerQuestionComponentProps> = ({
   question,
-  timerDuration,
 }) => {
-  const [timeLeft, setTimeLeft] = useState<number>(timerDuration)
+  const [timeLeft, setTimeLeft] = useState<number>(question.duration ?? 0)
   const [timerActive, setTimerActive] = useState<boolean>(false)
 
   const handleTimerPress = () => {
     setTimerActive(!timerActive)
     if (timeLeft <= 0) {
-      setTimeLeft(timerDuration)
+      setTimeLeft(question.duration ?? 0)
     }
   }
 
   useEffect(() => {
-    setTimeLeft(timerDuration)
+    setTimeLeft(question.duration ?? 0)
     setTimerActive(false)
-  }, [question, timerDuration])
+  }, [question])
 
   useEffect(() => {
     if (timeLeft <= 0) {
@@ -45,7 +43,7 @@ const TimerQuestionComponent: React.FC<TimerQuestionComponentProps> = ({
       }, 90)
       return () => clearTimeout(timerId)
     }
-  }, [timeLeft, timerActive, timerDuration])
+  }, [timeLeft, timerActive])
 
   return (
     <>

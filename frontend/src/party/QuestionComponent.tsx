@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 import { Question } from "../../models/Question"
 import QuizQuestionComponent from "./QuizQuestionComponent"
 import DefaultQuestionComponent from "./DefaultQuestionComponent"
+import TimerQuestionComponent from "./TimerQuestionComponent"
 
 const QuestionComponent = ({ question }: { question: Question }) => {
   const [showAnswer, setShowAnswer] = useState<boolean>(false)
@@ -21,6 +22,8 @@ const QuestionComponent = ({ question }: { question: Question }) => {
           setShowAnswer={setShowAnswer}
         />
       )
+    case "timer":
+      return <TimerQuestionComponent question={question} />
     default:
       return <DefaultQuestionComponent question={question} />
   }
